@@ -1,0 +1,4131 @@
+{
+ "_sumber": "DB kerja lokal sanghyang_news (127.0.0.1:55432) dibaca 21 Nov 2026 oleh .agents/local/probe/upu-capture-fixture.ts: baris CompetitorPromotion outlet Sanghyang sejak 1 Okt 2026 (tanpa catatan internal Tim marketing), tiga baris Aston di gambar 9 permintaan 20 Nov, komentar media sosial yang menempel ke outlet Sanghyang, dua komentar Instagram Aston di gambar 1 permintaan 19 Nov, contoh ulasan Google outlet sendiri, dan ulasan resort yang ditandai outlet lain. summary = keluaran GET /api/market-intelligence/summary?period=30d sebelum perbaikan pekerja ulasan-promo-ui (imageUrl dikosongkan).",
+ "capturedAt": "2026-11-21T05:24:17.105Z",
+ "ownOutlets": [
+  {
+   "id": "858e460e-0196-41db-8135-79c9aab39e55",
+   "name": "D'Bar & Karaoke (Sanghyang)",
+   "outlets": [
+    "dbar"
+   ]
+  },
+  {
+   "id": "73059de7-77c7-42ab-888a-4ec979dd26dc",
+   "name": "D'Bistro (Sanghyang)",
+   "outlets": [
+    "dbistro"
+   ]
+  },
+  {
+   "id": "df8aea36-c532-4a60-9155-a43a2bcbe2f3",
+   "name": "Dragon Beach Club (Sanghyang)",
+   "outlets": [
+    "dragon-beach-club"
+   ]
+  },
+  {
+   "id": "c3c937e1-ad28-4cdd-8dc7-37d1ad7aaa42",
+   "name": "D'Spa & Hot Spring Aquamedic (Sanghyang)",
+   "outlets": [
+    "dspa"
+   ]
+  },
+  {
+   "id": "41aa4e0d-2478-4d5a-a57a-b5423dd1763e",
+   "name": "Sanghyang Indah Spa Resort",
+   "outlets": [
+    "resort"
+   ]
+  },
+  {
+   "id": "d83ae5da-a93b-4c8d-a786-c8b81e1e44d3",
+   "name": "Sunset Grill (Sanghyang)",
+   "outlets": [
+    "sunset-grill"
+   ]
+  }
+ ],
+ "promoRows": [
+  {
+   "id": "44fd6a4d-ccb7-4138-a59b-c2661ff7b1ed",
+   "title": "Hot Spring Refresh",
+   "category": "Wellness & Relaksasi",
+   "description": "A relaxing, rejuvenating spa experience with a choice of massages, body treatments and other spa rituals. Current D'Spa offers: 30% off the Hotspring Spa and a Buy 1 Get 1 Aquamedic at IDR 350,000.",
+   "kind": "promo",
+   "source": "Situs resmi Sanghyang (penawaran)",
+   "sourceUrl": "https://sanghyang.com/offers",
+   "price": "350000",
+   "discount": "30",
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-20T08:30:26.943Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:30:26.943Z",
+   "status": "new",
+   "competitor": {
+    "name": "D'Spa & Hot Spring Aquamedic (Sanghyang)",
+    "outlets": [
+     "dspa"
+    ],
+    "category": "spa"
+   }
+  },
+  {
+   "id": "52d59c0c-c940-4673-925c-79d1613eee54",
+   "title": "Meeting & Outing Package",
+   "category": "Kamar & Menginap",
+   "description": "Meeting and outing packages for groups, from half-day meetings to residential packages. Contact our sales team for package details and current prices.",
+   "kind": "promo",
+   "source": "Situs resmi Sanghyang (penawaran)",
+   "sourceUrl": "https://sanghyang.com/offers",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-20T08:30:26.943Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:30:26.943Z",
+   "status": "new",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "b1524d09-690e-4ac8-be6f-1e6efa42d155",
+   "title": "Paket Babakaran",
+   "category": "F&B & Kuliner",
+   "description": "A private BBQ in front of your villa: charcoal and grill, corn and sauces, meat and sausages, plus seafood. Promo price IDR 850,000.",
+   "kind": "promo",
+   "source": "Situs resmi Sanghyang (penawaran)",
+   "sourceUrl": "https://sanghyang.com/offers",
+   "price": "850000",
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-20T08:30:26.943Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:30:26.943Z",
+   "status": "new",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "d1cf4689-97d3-4a44-a28e-6dd26dbe3063",
+   "title": "ROOM PROMO",
+   "category": "Kamar & Menginap",
+   "description": "Enjoy a quality night's sleep in our luxurious and plush King Size bed, specially designed to pamper you and provide the ultimate comfort.",
+   "kind": "promo",
+   "source": "Situs resmi Sanghyang (penawaran)",
+   "sourceUrl": "https://sanghyang.com/offers",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-20T08:30:26.943Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:30:26.943Z",
+   "status": "new",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "0832eff2-c720-4e1d-9133-a50bbed9da1b",
+   "title": "Sunset Grill Promo",
+   "category": "F&B & Kuliner",
+   "description": "Golden hour, golden peace: grilled lobster, pizza, crab and more seafood by the jetty at sunset.",
+   "kind": "promo",
+   "source": "Situs resmi Sanghyang (penawaran)",
+   "sourceUrl": "https://sanghyang.com/offers",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-20T08:30:26.943Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:30:26.943Z",
+   "status": "new",
+   "competitor": {
+    "name": "Sunset Grill (Sanghyang)",
+    "outlets": [
+     "sunset-grill"
+    ],
+    "category": "resto"
+   }
+  },
+  {
+   "id": "93705a5e-b2ae-4410-af89-b9167f7769bc",
+   "title": "Hot Spring Refresh",
+   "category": "Wellness & Relaksasi",
+   "description": "A relaxing, rejuvenating spa experience with a choice of massages, body treatments and other spa rituals. Current D'Spa offers: 30% off the Hotspring Spa and a Buy 1 Get 1 Aquamedic at IDR 350,000.",
+   "kind": "promo",
+   "source": "Situs resmi Sanghyang (penawaran)",
+   "sourceUrl": "https://sanghyang.com/offers",
+   "price": "350000",
+   "discount": "30",
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-19T04:05:53.886Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-19T04:05:53.886Z",
+   "status": "new",
+   "competitor": {
+    "name": "D'Spa & Hot Spring Aquamedic (Sanghyang)",
+    "outlets": [
+     "dspa"
+    ],
+    "category": "spa"
+   }
+  },
+  {
+   "id": "d961e42e-d091-4e72-b72a-5573b595acdb",
+   "title": "Meeting & Outing Package",
+   "category": "Kamar & Menginap",
+   "description": "Meeting and outing packages for groups, from half-day meetings to residential packages. Contact our sales team for package details and current prices.",
+   "kind": "promo",
+   "source": "Situs resmi Sanghyang (penawaran)",
+   "sourceUrl": "https://sanghyang.com/offers",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-19T04:05:53.886Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-19T04:05:53.886Z",
+   "status": "new",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "2300c8a2-d362-4a48-a2ab-dc83ecb3ab43",
+   "title": "Paket Babakaran",
+   "category": "F&B & Kuliner",
+   "description": "A private BBQ in front of your villa: charcoal and grill, corn and sauces, meat and sausages, plus seafood. Promo price IDR 850,000.",
+   "kind": "promo",
+   "source": "Situs resmi Sanghyang (penawaran)",
+   "sourceUrl": "https://sanghyang.com/offers",
+   "price": "850000",
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-19T04:05:53.886Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-19T04:05:53.886Z",
+   "status": "new",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "12e490f2-fe59-47d6-95d6-3cf4e5587bdf",
+   "title": "ROOM PROMO",
+   "category": "Kamar & Menginap",
+   "description": "Enjoy a quality night's sleep in our luxurious and plush King Size bed, specially designed to pamper you and provide the ultimate comfort.",
+   "kind": "promo",
+   "source": "Situs resmi Sanghyang (penawaran)",
+   "sourceUrl": "https://sanghyang.com/offers",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-19T04:05:53.886Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-19T04:05:53.886Z",
+   "status": "new",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "230e98b7-1bd8-41e6-858c-7c117a788cc6",
+   "title": "Sunset Grill Promo",
+   "category": "F&B & Kuliner",
+   "description": "Golden hour, golden peace: grilled lobster, pizza, crab and more seafood by the jetty at sunset.",
+   "kind": "promo",
+   "source": "Situs resmi Sanghyang (penawaran)",
+   "sourceUrl": "https://sanghyang.com/offers",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-19T04:05:53.886Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-19T04:05:53.886Z",
+   "status": "new",
+   "competitor": {
+    "name": "Sunset Grill (Sanghyang)",
+    "outlets": [
+     "sunset-grill"
+    ],
+    "category": "resto"
+   }
+  },
+  {
+   "id": "a97fcd5d-407e-44f0-a178-6a3a7af888ff",
+   "title": "[FEED] Nikmati kekayaan cita rasa khas Banten di d’Bistro✨ Hadir dengan beragam pilihan",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"dbistro\",\"platform\":\"instagram\",\"postType\":\"feed\",\"caption\":\"Nikmati kekayaan cita rasa khas Banten di d’Bistro✨\\n\\nHadir dengan beragam pilihan menu Nusantara yang menggugah selera, mulai dari Pepes Tahu & Oseng Kikil, Pecak Lele Goreng, Nasi Ikan Balado, hingga Pindang Ikan.\\n\\nLengkap dengan **FREE ICE TEA** untuk setiap pembelian menu! 🧡\\n\\nYuk, ajak keluarga dan teman untuk menikmati sajian lezat dengan cita rasa lokal.\\n\\n📍 d’Bistro – Sanghyang Indah Spa Resort, Anyer\\n🛵 Available on GoFood\\n📞 0811-9011-600\\n\\n#dBistro #SanghyangIndah #CitaRasaBanten #KulinerAnyer #restaurantanyer\",\"metrics\":{\"views\":null,\"likes\":3,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":88,\"ctaFeedback\":\"CTA kuat dan langsung mengarahkan audiens ke saluran konversi (WhatsApp / Bio / DM).\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"high_performing\",\"verdictLabel\":\"Caption sudah kuat (angka belum diisi)\",\"recommendedRevisionHeadline\":\"Pertahankan format visual dan lanjutkan promosi serupa di akhir pekan.\",\"actionDirective\":\"Tingkatkan anggaran jangkauan (boost post) atau tayangkan ulang versi Reels serupanya.\"},\"account\":\"dbistro.anyer\",\"followers\":218}",
+   "kind": "promo",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dbistro.anyer/p/DfzBzLuAg-X/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-16T09:25:23.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:34:50.322Z",
+   "status": "changed",
+   "competitor": {
+    "name": "D'Bistro (Sanghyang)",
+    "outlets": [
+     "dbistro"
+    ],
+    "category": "resto"
+   }
+  },
+  {
+   "id": "ae9998bc-7d16-41b7-ad7b-34e4a8c77906",
+   "title": "[REELS] Building stronger teams through unforgettable experiences. Terima kasih Kimia Fa",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"resort\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"Building stronger teams through unforgettable experiences.\\nTerima kasih Kimia Farma UB Cilegon telah mempercayakan momen kebersamaannya bersama kami!\\n\\n#hotelanyer #resortanyer #wisataanyer #pantaianyer #anyerbeach\",\"metrics\":{\"views\":null,\"likes\":2,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"sanghyangresort\",\"followers\":7822}",
+   "kind": "promo",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/sanghyangresort/reel/DfyXOkpyr5d/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-16T03:14:02.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:31:38.373Z",
+   "status": "changed",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "a13eee13-49ae-4d14-a0bd-f668bb199448",
+   "title": "[REELS] Eat together, laugh together, make memories together! #hotelanyer #resortanyer #",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"resort\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"Eat together, laugh together, make memories together!\\n\\n#hotelanyer #resortanyer #wisataanyer #pantaianyer #anyerbeach\",\"metrics\":{\"views\":null,\"likes\":13,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"sanghyangresort\",\"followers\":7822}",
+   "kind": "promo",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/sanghyangresort/reel/DfwD8RZy7-R/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-15T05:50:19.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:31:41.348Z",
+   "status": "changed",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "304938e4-7719-4e1b-a7b6-d246f0205f9e",
+   "title": "[REELS] Welcome PT. Hon Chuan Indonesia @honchuan.indonesia ✨ #gatheringanyer #wisataany",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"resort\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"Welcome PT. Hon Chuan Indonesia @honchuan.indonesia ✨\\n\\n#gatheringanyer #wisataanyer #hotelanyer #resortanyer\",\"metrics\":{\"views\":null,\"likes\":27,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"sanghyangresort\",\"followers\":7822}",
+   "kind": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/sanghyangresort/reel/DfuBu72y--T/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-14T10:50:40.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:31:43.582Z",
+   "status": "new",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "59a2525f-96d5-4c9a-8d1f-7f34b0701a4f",
+   "title": "[REELS] Baduy Suite emang selalu cocok jadi tempat healing dari masalah masalah yang ada",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"resort\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"Baduy Suite emang selalu cocok jadi tempat healing dari masalah masalah yang ada💕\\n\\ncoba dong komentar pengalaman kalian nginep di Baduy Suite kita\\n\\n#hotelanyer #resortanyer #wisataanyer #pantaianyer #anyerbeach\",\"metrics\":{\"views\":null,\"likes\":19,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"sanghyangresort\",\"followers\":7822}",
+   "kind": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/sanghyangresort/reel/DfrCzObPfZH/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-13T07:01:39.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:31:46.568Z",
+   "status": "new",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "a259fd24-e1e1-47e8-9ba1-e15bcabf1cfb",
+   "title": "Let’s put something else on the calendar: checking in, switching off, and waking up with n",
+   "category": "Postingan Sosmed Baru",
+   "description": "{\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"Let’s put something else on the calendar: checking in, switching off, and waking up with no rush. \\n\\nYear-end celebrations are coming. Take a breather first or get your festive stay booked early with 25% OFF your stay.\\n\\nYou Need a Break. Go ahead and take one.\\n\\n📅 Book Period: 01–30 November 2026\\n\\n🛏️ Stay Period: 01 November 2026–31 December 2026\\n\\nBook directly through the Archipelago Hotels website. Click link in bio. T&Cs apply.\\n\\n#YouNeedABreak #ArchipelagoHotels\",\"metrics\":{\"views\":null,\"likes\":15,\"comments\":1,\"shares\":null},\"followers\":41000,\"account\":\"astonanyer\"}",
+   "kind": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/astonanyer/reel/DfoJf-wT7Pm/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-12T04:01:37.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:36:33.291Z",
+   "status": "changed",
+   "competitor": {
+    "name": "Aston Anyer Beach Hotel",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "id": "38681588-96c8-4fbe-be96-dffcdae1df0a",
+   "title": "[REELS] NASI GORENG KECOMBRANG ~ A Touch of Nusantara Flavour Hadirkan cita rasa khas Nu",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"dbistro\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"NASI GORENG KECOMBRANG ~ A Touch of Nusantara Flavour\\n\\nHadirkan cita rasa khas Nusantara lewat sepiring Nasi Goreng Kecombrang! 🌿\\n\\nAroma kecombrang yang harum, perpaduan bumbu yang gurih, serta sedikit sentuhan pedas menjadikan hidangan sederhana ini terasa semakin istimewa.\\n\\nYuk, coba buat sendiri di rumah dengan resep berikut!\\n\\n📝 Bahan-bahan : \\n- 1 Porsi nasi putih\\n- 2 bunga kecombrang, iris tipis\\n- 2 butir telur\\n- 2 siung bawang putih\\n- 3 siung bawang merah\\n- 3 buah cabai merah (sesuai selera)\\n- 2 buah cabai rawit (opsional)\\n- 1 sdm kecap manis\\n- ½ sdt terasi (opsional)\\n- Garam, gula, dan kaldu bubuk secukupnya\\n- Minyak untuk menumis\\n\\nTips ✨ Jangan memasak kecombrang terlalu lama agar aroma khas dan kesegarannya tetap terasa.\\n\\nSelamat mencoba dan menikmati kelezatan cita rasa Nusantara bersama keluarga!\\n\\n#SanghyangKitchen #NasiGorengKecombrang #IndonesianCuisine #NusantaraFood #ResepMasakan\",\"metrics\":{\"views\":null,\"likes\":6,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"dbistro.anyer\",\"followers\":218}",
+   "kind": "promo",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dbistro.anyer/reel/Dfl6LJOtKpE/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-11T07:11:42.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:34:51.522Z",
+   "status": "changed",
+   "competitor": {
+    "name": "D'Bistro (Sanghyang)",
+    "outlets": [
+     "dbistro"
+    ],
+    "category": "resto"
+   }
+  },
+  {
+   "id": "fda7e237-b968-4f3e-b428-f009497fecc0",
+   "title": "[REELS] Lunch Group EO Wanderis Indonesia✨ #restaurantanyer #familygatheringanyer #wisat",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"dbistro\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"Lunch Group EO Wanderis Indonesia✨\\n\\n#restaurantanyer #familygatheringanyer #wisataanyer #pantaianyer #cafeanyer\",\"metrics\":{\"views\":null,\"likes\":7,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"dbistro.anyer\",\"followers\":218}",
+   "kind": "promo",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dbistro.anyer/reel/DfhN_oYhKUF/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-09T11:26:48.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:34:53.302Z",
+   "status": "changed",
+   "competitor": {
+    "name": "D'Bistro (Sanghyang)",
+    "outlets": [
+     "dbistro"
+    ],
+    "category": "resto"
+   }
+  },
+  {
+   "id": "4c24071b-e3d0-49a8-87ec-63049f63df50",
+   "title": "[REELS] keseruan hari ini bersama keluarga ketileng 3, siapa yang mau seru seruan disini",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"resort\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"keseruan hari ini bersama keluarga ketileng 3, siapa yang mau seru seruan disini juga coba komenn!!! komen paling seru dapet hadiah dari mimin\\n\\n#hotelanyer #resortanyer #wisataanyer #pantaianyer #anyerbeach\",\"metrics\":{\"views\":null,\"likes\":17,\"comments\":1,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"sanghyangresort\",\"followers\":7822}",
+   "kind": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/sanghyangresort/reel/DfeUWFsv-pk/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-08T08:24:28.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:31:46.589Z",
+   "status": "new",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "75d4fed3-9239-4ffb-b0e8-852e9a0e25bc",
+   "title": "[REELS] 🔥🌴 DRAGON BEACH CLUB! 🌴🔥 Saatnya menikmati malam dengan musik terbaik, suasa",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"dragon-beach-club\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"🔥🌴 DRAGON BEACH CLUB! 🌴🔥\\n\\nSaatnya menikmati malam dengan musik terbaik, suasana seru, dan vibes party yang tak terlupakan! 🎶✨\\n\\nBersiaplah untuk bergoyang bersama penampilan spesial dari DJ MIRELLA yang siap membakar suasana sepanjang malam! 🎧🔥\\n\\n📅 Jumat, 6 November 2026\\n⏰ 21.00 – 03.00 WIB\\n📍 Dragon Beach Club\\n\\nAjak teman-temanmu, nikmati musiknya, rasakan atmosfernya, dan jadikan malam ini penuh cerita!\\n\\nJangan sampai ketinggalan. Sampai jumpa di dance floor! 🥂🔥\\n\\n#DragonBeachClub #NightParty #DJMirella #FridayNight #BeachClubVibes\",\"metrics\":{\"views\":null,\"likes\":13,\"comments\":1,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":80,\"hookFeedback\":\"Hook cukup kuat dengan penawaran yang jelas di baris awal.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"dragonbeachclub\",\"followers\":5123}",
+   "kind": "event",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DfL-JyBhOvd/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-01T05:23:10.000Z",
+   "endsAt": "2026-11-06T16:59:59.000Z",
+   "capturedAt": "2026-11-20T08:34:08.456Z",
+   "status": "changed",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ],
+    "category": "bar"
+   }
+  },
+  {
+   "id": "af613e43-01b3-425e-b962-c59fbd929965",
+   "title": "Year-End Staycation 25% OFF (You Need a Break)",
+   "category": "Kamar & Resort",
+   "description": "Let’s put something else on the calendar: checking in, switching off, and waking up with no rush. Year-end celebrations are coming. Take a breather first or get your festive stay booked early with 25% OFF your stay.",
+   "kind": "promo",
+   "source": "TikTok @astonanyerofficial",
+   "sourceUrl": "https://www.tiktok.com/@astonanyerofficial/video/7707131846605196562",
+   "price": null,
+   "discount": "25",
+   "details": [
+    "Book Period: 01–30 November 2026",
+    "Stay Period: 01 November 2026–31 December 2026",
+    "Book directly through the Archipelago Hotels website (#YouNeedABreak #ArchipelagoHotels)",
+    "Pembacaan langsung TikTok @astonanyerofficial: 129 tayangan, 3 suka, 0 komentar, 1 bagikan (18 Nov 2026)"
+   ],
+   "terms": [
+    "Pemesanan langsung via Archipelago Hotels website",
+    "Syarat dan ketentuan berlaku"
+   ],
+   "startsAt": "2026-11-01T00:00:00.000Z",
+   "endsAt": "2026-12-31T23:59:59.000Z",
+   "capturedAt": "2026-11-18T05:23:00.000Z",
+   "status": "new",
+   "competitor": {
+    "name": "Aston Anyer Beach Hotel",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "id": "65986dd7-9428-48e2-bb9a-698fb2ec9c2c",
+   "title": "[REELS] 🔥 HALLOWEEN PARTY AT DRAGON BEACH CLUB 🔥 Get ready for a night full of beats, ",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"dragon-beach-club\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"🔥 HALLOWEEN PARTY AT DRAGON BEACH CLUB 🔥\\n\\nGet ready for a night full of beats, energy, and good vibes! 🎶🌴\\n\\n🎧 GUEST DJ NADIA ANNA BELLA\\n🗓️ Friday, 23 Oktober 2026\\n⏰ 21.00 – 03.00\\n📍 Dragon Beach Club\\n\\nBring your squad, feel the music, and let the night take over! 🔥\\nSee you on the dance floor! 🕺💃\\n\\n#DragonBeachClub #FridayNight #DJNADIA #NightParty #BeachClub PartyTonight\",\"metrics\":{\"views\":null,\"likes\":10,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"dragonbeachclub\",\"followers\":5123}",
+   "kind": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DebXhBnyjVr/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-10-20T12:44:19.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:34:09.819Z",
+   "status": "new",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ],
+    "category": "bar"
+   }
+  },
+  {
+   "id": "451d75cc-6548-4f9a-b6f7-42b790bfa7ec",
+   "title": "Just say the number. No sliders, no dropdowns. Archipelago Hotels in ChatGPT.",
+   "category": "Postingan Sosmed Baru",
+   "description": "{\"platform\":\"instagram\",\"postType\":\"feed\",\"caption\":\"Just say the number. No sliders, no dropdowns. Archipelago Hotels in ChatGPT.\\n\\nInstall and try the Archipelago Hotels App (link in bio)\",\"metrics\":{\"views\":null,\"likes\":7,\"comments\":1,\"shares\":null},\"followers\":41000,\"account\":\"astonanyer\"}",
+   "kind": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/astonanyer/p/Detbxgpo-bS/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-10-20T08:45:06.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:36:47.519Z",
+   "status": "new",
+   "competitor": {
+    "name": "Aston Anyer Beach Hotel",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "id": "5ac22037-a808-48b0-8da9-c70b70757d7a",
+   "title": "[REELS] 🔥 RECAP MOMENTS WITH FDJ AIKO 🎧✨ Good music, great energy, and unforgettable m",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"dragon-beach-club\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"🔥 RECAP MOMENTS WITH FDJ AIKO 🎧✨\\n\\nGood music, great energy, and unforgettable moments on the dance floor! 💃🏻🔥\\n\\nThank you for bringing the vibes and making the night unforgettable. See you at the next party! 🖤\\n\\n#FDJAiko #RecapMoments #NightParty #DragonBeachClub #GoodVibesOnly\",\"metrics\":{\"views\":null,\"likes\":23,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"dragonbeachclub\",\"followers\":5123}",
+   "kind": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DeZXMI5Sdbk/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-10-12T13:40:35.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:34:12.521Z",
+   "status": "new",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ],
+    "category": "bar"
+   }
+  },
+  {
+   "id": "4ec42721-8992-4598-a63f-f6b8657dc7fa",
+   "title": "[REELS] 🔥 FRIDAY NIGHT IS CALLING! 🔥 Get ready to turn up the weekend at DRAGON BEACH ",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"dragon-beach-club\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"🔥 FRIDAY NIGHT IS CALLING! 🔥\\n\\nGet ready to turn up the weekend at DRAGON BEACH CLUB! 🐉🌴\\n\\n🎧 DJ AIKO\\n🗓 9 Oktober 2026\\n🕘 21.00 – 03.00\\n📍 Dragon Beach Club\\n\\nFeel the beat, catch the vibe, and make your Friday night unforgettable! 🔥🎶\\n\\nSee you on the dance floor! 🕺💃\\n\\n#DragonBeachClub #FridayNight #GuestDJAIKO #FridayParty #Nightlife PartyNight\",\"metrics\":{\"views\":null,\"likes\":12,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"dragonbeachclub\",\"followers\":5123}",
+   "kind": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/Dd9AiHryI3l/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-10-01T13:24:22.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:34:15.508Z",
+   "status": "new",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ],
+    "category": "bar"
+   }
+  }
+ ],
+ "reviews": [
+  {
+   "id": "50e83fe7-ce01-4367-8a43-84e76f4a19ad",
+   "competitorId": "10000000-0000-4000-8000-000000000001",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/astonanyer/reel/DfoJf-wT7Pm/",
+   "reviewDate": "2026-11-12T14:02:59.000Z",
+   "text": "include breakfast kah?",
+   "themes": [
+    "makanan & sarapan"
+   ],
+   "sentiment": "neutral",
+   "competitor": {
+    "name": "Aston Anyer Beach Hotel",
+    "outlets": [
+     "resort"
+    ]
+   }
+  },
+  {
+   "id": "ba0ad879-e702-4139-95b6-3a39c9b8f1d3",
+   "competitorId": "41aa4e0d-2478-4d5a-a57a-b5423dd1763e",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/sanghyangresort/reel/DfeUWFsv-pk/",
+   "reviewDate": "2026-11-10T18:47:48.000Z",
+   "text": "Your family fun is as spicy as jalapeño salsa—guac‑ing you all on such a delicious adventure!",
+   "themes": [
+    "kamar & kebersihan",
+    "keluarga & anak",
+    "outlet-dibaca-gemini"
+   ],
+   "sentiment": "neutral",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ]
+   }
+  },
+  {
+   "id": "61409f9a-962f-48c2-9fef-58d01b40e8cf",
+   "competitorId": "df8aea36-c532-4a60-9155-a43a2bcbe2f3",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DfL-JyBhOvd/",
+   "reviewDate": "2026-11-08T19:11:55.000Z",
+   "text": "🔥🔥🔥",
+   "themes": [
+    "umum"
+   ],
+   "sentiment": "neutral",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ]
+   }
+  },
+  {
+   "id": "dc827533-04e0-4ca2-b705-ab94eb39c977",
+   "competitorId": "10000000-0000-4000-8000-000000000001",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/astonanyer/reel/DfTjAWEvdBo/",
+   "reviewDate": "2026-11-04T04:05:13.000Z",
+   "text": "Pak IMAN RACHMAN HASANkembalikan dana perusahaan puluhan juta",
+   "themes": [
+    "kamar & kebersihan"
+   ],
+   "sentiment": "neutral",
+   "competitor": {
+    "name": "Aston Anyer Beach Hotel",
+    "outlets": [
+     "resort"
+    ]
+   }
+  },
+  {
+   "id": "f1e13695-0cb4-4ca1-8305-015e5c9f1388",
+   "competitorId": "10000000-0000-4000-8000-000000000001",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/astonanyer/reel/DfTjAWEvdBo/",
+   "reviewDate": "2026-11-04T04:05:13.000Z",
+   "text": "Pak IMAN RACHMAN HASAN kembalikan dana perusahaan puluhan juta",
+   "themes": [
+    "kamar & kebersihan"
+   ],
+   "sentiment": "neutral",
+   "competitor": {
+    "name": "Aston Anyer Beach Hotel",
+    "outlets": [
+     "resort"
+    ]
+   }
+  },
+  {
+   "id": "c5bed0e5-c484-4efe-88b6-1c3f30940c2c",
+   "competitorId": "df8aea36-c532-4a60-9155-a43a2bcbe2f3",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DdOZBuaBFHp/",
+   "reviewDate": "2026-09-13T17:24:51.000Z",
+   "text": "❤️❤️🔥🔥",
+   "themes": [
+    "umum"
+   ],
+   "sentiment": "neutral",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ]
+   }
+  },
+  {
+   "id": "955e0078-be2d-4381-a70f-53b767935a25",
+   "competitorId": "df8aea36-c532-4a60-9155-a43a2bcbe2f3",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DdB6QZISPlf/",
+   "reviewDate": "2026-09-10T07:47:42.000Z",
+   "text": "audjune audjune audjune audjune",
+   "themes": [
+    "umum"
+   ],
+   "sentiment": "neutral",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ]
+   }
+  },
+  {
+   "id": "935545fe-a733-4eb8-9c6d-c4a55f533fda",
+   "competitorId": "df8aea36-c532-4a60-9155-a43a2bcbe2f3",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/Dcsp8XLhkwi/",
+   "reviewDate": "2026-08-31T08:59:18.000Z",
+   "text": "😍😍😍😍",
+   "themes": [
+    "umum"
+   ],
+   "sentiment": "neutral",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ]
+   }
+  },
+  {
+   "id": "9fcf9213-27d7-42c4-ba62-028ca5b682eb",
+   "competitorId": "d83ae5da-a93b-4c8d-a786-c8b81e1e44d3",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/sunset_grillsanghyang/p/CxtE-KuvTp0/",
+   "reviewDate": "2026-03-31T05:19:51.000Z",
+   "text": "❤️✨ Looking forward to sharing more😍",
+   "themes": [
+    "umum"
+   ],
+   "sentiment": "neutral",
+   "competitor": {
+    "name": "Sunset Grill (Sanghyang)",
+    "outlets": [
+     "sunset-grill"
+    ]
+   }
+  },
+  {
+   "id": "53f89df2-3833-4ed9-9234-f444739abce1",
+   "competitorId": "c3c937e1-ad28-4cdd-8dc7-37d1ad7aaa42",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dspasanghyang/p/C1wQLhiLuRG/",
+   "reviewDate": "2025-01-27T10:56:47.000Z",
+   "text": "Harganya masih sama untuk hari ini ?",
+   "themes": [
+    "harga & value"
+   ],
+   "sentiment": "neutral",
+   "competitor": {
+    "name": "D'Spa & Hot Spring Aquamedic (Sanghyang)",
+    "outlets": [
+     "dspa"
+    ]
+   }
+  },
+  {
+   "id": "3bf19cc7-6a5c-42d7-9887-3b4d4480f20b",
+   "competitorId": "d83ae5da-a93b-4c8d-a786-c8b81e1e44d3",
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/sunset_grillsanghyang/reel/CtD-WHku5zL/",
+   "reviewDate": "2023-06-04T10:47:46.000Z",
+   "text": "@[pengguna] @[pengguna] kesini yuk 😉",
+   "themes": [
+    "umum"
+   ],
+   "sentiment": "neutral",
+   "competitor": {
+    "name": "Sunset Grill (Sanghyang)",
+    "outlets": [
+     "sunset-grill"
+    ]
+   }
+  },
+  {
+   "id": "5cf3abe1-2f5c-4ba3-b6d1-3814dd72257d",
+   "competitorId": "858e460e-0196-41db-8135-79c9aab39e55",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/maps/place/d%27Bar+Karaoke+-+Sanghyang+Indah+Spa+Resort/data=!4m7!3m6!1s0x2e41843ffcf3e277:0xe23bdc67e4314f0e!8m2!3d-6.062603!4d105.899748!16s%2Fg%2F11c310mf9m!19sChIJd-Lz_D-EQS4RDk8x5GfcO-I?hl=id&reviewid=Ci9DQUlRQUNvZENodHljRjlvT2xNeE4wRjZVVGhvUmsxNWFsTkhaSEZPTUZVeVkyYxAB",
+   "reviewDate": "2026-07-10T23:07:41.757Z",
+   "text": "Berapa untuk sewa room karaoke perjam nya",
+   "themes": [
+    "umum"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "D'Bar & Karaoke (Sanghyang)",
+    "outlets": [
+     "dbar"
+    ]
+   }
+  },
+  {
+   "id": "d05b2637-25ed-473b-926a-f0710122a7fa",
+   "competitorId": "858e460e-0196-41db-8135-79c9aab39e55",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/maps/place/d%27Bar+Karaoke+-+Sanghyang+Indah+Spa+Resort/data=!4m7!3m6!1s0x2e41843ffcf3e277:0xe23bdc67e4314f0e!8m2!3d-6.062603!4d105.899748!16s%2Fg%2F11c310mf9m!19sChIJd-Lz_D-EQS4RDk8x5GfcO-I?hl=id&reviewid=ChdDSUhNMG9nS0VJQ0FnSUNZNzZuaDJnRRAB",
+   "reviewDate": "2019-11-09T23:07:41.757Z",
+   "text": "Karaoke nya sangat nyaman sound nya jg oke banget, banyak tersedia minuman Liquor yg tentunya kualitas original.\nRekomendasi banget buat kalian yg suka karaoke 🎤 kesini kuy …",
+   "themes": [
+    "makanan & sarapan"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "D'Bar & Karaoke (Sanghyang)",
+    "outlets": [
+     "dbar"
+    ]
+   }
+  },
+  {
+   "id": "9d6c182f-a327-4276-ba65-0efee4742cf8",
+   "competitorId": "73059de7-77c7-42ab-888a-4ec979dd26dc",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/maps/place/d%27Bistro+Restaurant/@-6.0626343,105.8997646,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4180c5f57dab51:0xe951179196afb74f!8m2!3d-6.0626343!4d105.8997646!16s%2Fg%2F11c2rj27l6?hl=id&reviewid=Ci9DQUlRQUNvZENodHljRjlvT25wRGNFRjNOa295V0RnMGJFOHdWbU5pZEhwdVpWRRAB",
+   "reviewDate": "2026-10-12T16:36:40.200Z",
+   "text": "Enak ,murah ,bersih dan pelayanan ramah",
+   "themes": [
+    "kamar & kebersihan",
+    "pelayanan & staf",
+    "harga & value"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "D'Bistro (Sanghyang)",
+    "outlets": [
+     "dbistro"
+    ]
+   }
+  },
+  {
+   "id": "a0713253-50ba-44f4-b5b1-9c8ea5d04195",
+   "competitorId": "73059de7-77c7-42ab-888a-4ec979dd26dc",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/maps/place/d%27Bistro+Restaurant/@-6.0626343,105.8997646,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4180c5f57dab51:0xe951179196afb74f!8m2!3d-6.0626343!4d105.8997646!16s%2Fg%2F11c2rj27l6?hl=id&reviewid=Ci9DQUlRQUNvZENodHljRjlvT2pVNVZGVllTR3hWWmpONVZFbHJiaTFGTmtaSFQxRRAB",
+   "reviewDate": "2026-07-12T16:36:40.200Z",
+   "text": "Yang kedua kali saya kesini, dan tetap enak dan mantab...layanan sangat ramah dan tulus...ini yang penting dari arti  kata tulus\n\nTerima kasih atas sambutan nya untuk keluarga saya",
+   "themes": [
+    "pelayanan & staf",
+    "keluarga & anak"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "D'Bistro (Sanghyang)",
+    "outlets": [
+     "dbistro"
+    ]
+   }
+  },
+  {
+   "id": "47d2308f-2935-4501-986e-e7e959cb2342",
+   "competitorId": "df8aea36-c532-4a60-9155-a43a2bcbe2f3",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/maps/place/Dragon+Beach+Club+-+Sanghyang+Indah+Spa+Resort/data=!4m7!3m6!1s0x2e4184155322436f:0xcc6e0ab6c701ee49!8m2!3d-6.0623289!4d105.8985666!16s%2Fg%2F11g6b3h060!19sChIJb0MiUxWEQS4RSe4Bx7YKbsw?hl=id&reviewid=Ci9DQUlRQUNvZENodHljRjlvT21KblUyMUdVelZqVkhaeGJEQnZVRTg0Y1MwdE5FRRAB",
+   "reviewDate": "2025-11-08T18:01:25.184Z",
+   "text": "Ok bgt",
+   "themes": [
+    "umum"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ]
+   }
+  },
+  {
+   "id": "7d0ba54e-c16e-4d14-bf73-820374df494c",
+   "competitorId": "df8aea36-c532-4a60-9155-a43a2bcbe2f3",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/maps/place/Dragon+Beach+Club+-+Sanghyang+Indah+Spa+Resort/data=!4m7!3m6!1s0x2e4184155322436f:0xcc6e0ab6c701ee49!8m2!3d-6.0623289!4d105.8985666!16s%2Fg%2F11g6b3h060!19sChIJb0MiUxWEQS4RSe4Bx7YKbsw?hl=id&reviewid=ChdDSUhNMG9nS0VJQ0FnTURJM3VDWXVBRRAB",
+   "reviewDate": "2025-11-07T23:07:33.095Z",
+   "text": "Dateng malam langsung check in harus deposit atau tinggal ktp lumayan tempatnya sayang jalanan kurang di perhatikan",
+   "themes": [
+    "pelayanan & staf"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ]
+   }
+  },
+  {
+   "id": "421a1292-adb8-4c83-8ee9-adb0418ec7ad",
+   "competitorId": "c3c937e1-ad28-4cdd-8dc7-37d1ad7aaa42",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/maps/place/Sanghyang+Spa+And+Massage/data=!4m7!3m6!1s0x2e41843f8ae9b7c1:0xd2135522e4ddef2!8m2!3d-6.0621685!4d105.9010617!16s%2Fg%2F11f3v98mc6!19sChIJwbfpij-EQS4R8t5NLlI1IQ0?hl=id&reviewid=ChdDSUhNMG9nS0VQLTdtZkdOaE5YWXRBRRAB",
+   "reviewDate": "2025-11-07T23:07:49.592Z",
+   "text": "Suasananya adem dan pegawai nya ramah-ramah..\nSarapan untuk anak diatas 5 tahun sudah berbayar. Jam 9.30 masih ada, namun mulai habis.. Jadi baiknya sebelum jam 9.30 udah sarapan.\n\nCheck in jam 15.00, tapi ga masalah sih.. karena bisa menunggu di dalam resort.\nGelar tiker, makan, foto2.\n\nNamun ga bisa main pasir, karena ga bisa ke lautnya.\n\nSepeda dan bola basket berbayar kalau mau sewa, namun sayangnya kemarin lagi kempes ban dan bola nya.\n\nCocok buat anak2 nih.. bisa main bola sepuasnya dan berenang.",
+   "themes": [
+    "makanan & sarapan",
+    "fasilitas & pantai",
+    "pelayanan & staf",
+    "keluarga & anak"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "D'Spa & Hot Spring Aquamedic (Sanghyang)",
+    "outlets": [
+     "dspa"
+    ]
+   }
+  },
+  {
+   "id": "4d76c788-6a7f-4515-80f5-249d2f70a8e4",
+   "competitorId": "c3c937e1-ad28-4cdd-8dc7-37d1ad7aaa42",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/maps/place/Sanghyang+Spa+And+Massage/data=!4m7!3m6!1s0x2e41843f8ae9b7c1:0xd2135522e4ddef2!8m2!3d-6.0621685!4d105.9010617!16s%2Fg%2F11f3v98mc6!19sChIJwbfpij-EQS4R8t5NLlI1IQ0?hl=id&reviewid=ChZDSUhNMG9nS0VJQ0FnSURqeU5uVEVnEAE",
+   "reviewDate": "2024-11-07T23:07:49.592Z",
+   "text": "Villa nya bagus dan recomended buat keluarga hanya ga ada pantai tapi overall buat keluarga bagus apalagi buat anak anak bisa berenang di swimming pool",
+   "themes": [
+    "fasilitas & pantai",
+    "keluarga & anak"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "D'Spa & Hot Spring Aquamedic (Sanghyang)",
+    "outlets": [
+     "dspa"
+    ]
+   }
+  },
+  {
+   "id": "fb2fd678-c890-4ac4-8eb0-2fc25422bef8",
+   "competitorId": "41aa4e0d-2478-4d5a-a57a-b5423dd1763e",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/travel/hotels/entity/ChcI3eSggaqXsutkGgsvZy8xdGd6a2psZhAB/reviews?hl=id&gl=id",
+   "reviewDate": "2026-11-19T08:22:58.975Z",
+   "text": "Bagus Kamarnya Luass",
+   "themes": [
+    "kamar & kebersihan",
+    "outlet-dibaca-gemini"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ]
+   }
+  },
+  {
+   "id": "de2a7f5b-f8eb-4953-a763-14935901cdf9",
+   "competitorId": "41aa4e0d-2478-4d5a-a57a-b5423dd1763e",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/travel/hotels/entity/ChcI3eSggaqXsutkGgsvZy8xdGd6a2psZhAB/reviews?hl=id&gl=id",
+   "reviewDate": "2026-11-18T06:44:04.231Z",
+   "text": "Pelayanan sangat baik, kamar bersih dan nyaman, fasilitas baik dan harga terjangkau",
+   "themes": [
+    "kamar & kebersihan",
+    "pelayanan & staf",
+    "harga & value",
+    "outlet-dibaca-gemini"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ]
+   }
+  },
+  {
+   "id": "4143f922-0646-49ec-8273-5078e9cc9d8b",
+   "competitorId": "d83ae5da-a93b-4c8d-a786-c8b81e1e44d3",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/maps/place/Sunset+Grill+Sanghyang/data=!4m7!3m6!1s0x2e41856a82c22189:0xc84934b1ab2230b5!8m2!3d-6.0620634!4d105.8979678!16s%2Fg%2F11nmhplflz!19sChIJiSHCgmqFQS4RtTAiq7E0Scg?hl=id&reviewid=Ci9DQUlRQUNvZENodHljRjlvT2pkS01XY3ljbmR1ZUdac1UwaFJZWGRHUTNaTU4wRRAB",
+   "reviewDate": "2026-09-10T12:47:57.056Z",
+   "text": "Datang ke sini cuma mau makan… pulangnya bawa kenangan. 😂🌅\nSunset Grill Sanghyang ternyata bukan cuma tempat makan, tapi tempat menguras baterai HP karena foto terus. 🤣\nView lautnya mantap, sunset-nya cakep. Begitu matahari mulai tenggelam, semua mendadak jadi fotografer profesional. Yang biasanya motret cuma KTP, di sini bisa sampai 24 foto cuma gara-gara matahari. 😂📸\nMakanannya enak, suasananya santai, anginnya sepoi-sepoi. Cocok buat keluarga, pasangan, teman nongkrong, atau yang datang sendirian sambil pura-pura menunggu seseorang. 😆\nPaling pas datang sore menjelang sunset.\nDuduk → pesan makanan → lihat laut → sunset → foto-foto → bayar → pulang.\nUrutannya sederhana, tapi saldo rekening yang paling banyak berkurang. 🤣🤣\nOverall: RECOMMENDED!\nKalau ke Sanghyang jangan cuma cari sunset,  tapi juga cari kenangan.\nkarena sunset hilang, foto tetap ada, tagihan juga tetap ada.”",
+   "themes": [
+    "makanan & sarapan",
+    "fasilitas & pantai",
+    "keluarga & anak"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "Sunset Grill (Sanghyang)",
+    "outlets": [
+     "sunset-grill"
+    ]
+   }
+  },
+  {
+   "id": "7b06b6a6-bbf5-4e71-9000-f82620b731e8",
+   "competitorId": "d83ae5da-a93b-4c8d-a786-c8b81e1e44d3",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/maps/place/Sunset+Grill+Sanghyang/data=!4m7!3m6!1s0x2e41856a82c22189:0xc84934b1ab2230b5!8m2!3d-6.0620634!4d105.8979678!16s%2Fg%2F11nmhplflz!19sChIJiSHCgmqFQS4RtTAiq7E0Scg?hl=id&reviewid=Ci9DQUlRQUNvZENodHljRjlvT2tSWWJGbE1OMVYyY3pGcWRsbElSVTFRVUdadmNVRRAB",
+   "reviewDate": "2026-09-08T23:07:22.117Z",
+   "text": "Nongkrong di Sunset Grill paling oke memang untuk menikmati senja.\nUntuk musik cukup tipis2 saja buat embience karena orang jauh2 untuk mendengar deburan ombak.\n\nMakanan di sini termasuk comfort food, hanya saja jika ingin dapur terbuka utk live cooking mohon dijaga kebersihannya.\n\nMeski musiman juga, invasi lalat pada musim tertentu perlu diperhatikan mitigasinya. Semangat selalu utk management Sunset Grill dan lancar selalu",
+   "themes": [
+    "kamar & kebersihan",
+    "makanan & sarapan",
+    "fasilitas & pantai"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "Sunset Grill (Sanghyang)",
+    "outlets": [
+     "sunset-grill"
+    ]
+   }
+  },
+  {
+   "id": "4a012308-eead-446b-8f6f-c41ecfa82e1a",
+   "competitorId": "41aa4e0d-2478-4d5a-a57a-b5423dd1763e",
+   "source": "Google Maps",
+   "sourceUrl": "https://www.google.com/travel/hotels/entity/ChcI3eSggaqXsutkGgsvZy8xdGd6a2psZhAB/reviews?hl=id&gl=id",
+   "reviewDate": "2026-10-17T23:15:27.404Z",
+   "text": "Awalnya aga ragu mau kesini, krna lihat review di google byk kasi bintang 1-2. Tp karena lihat fasilitas lumayan lengkap dn ada hotspringnya bismillah cobain. Dan ternyata lumayan sangat worth it kok, kamarnya bersih wangi, nyaman luas,",
+   "themes": [
+    "kamar & kebersihan",
+    "fasilitas & pantai",
+    "harga & value",
+    "dspa",
+    "dspa:positive",
+    "outlet-dibaca-gemini"
+   ],
+   "sentiment": "positive",
+   "competitor": {
+    "name": "Sanghyang Indah Spa Resort",
+    "outlets": [
+     "resort"
+    ]
+   }
+  }
+ ],
+ "summary": {
+  "range": {
+   "from": "2026-10-23",
+   "to": "2026-11-21",
+   "label": "23 Okt 2026 – 21 Nov 2026",
+   "custom": false
+  },
+  "ownPromos": [
+   {
+    "id": "fda7e237-b968-4f3e-b428-f009497fecc0",
+    "competitorName": "D'Bistro (Sanghyang)",
+    "competitorOutlets": [
+     "dbistro"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/dbistro.anyer/reel/DfhN_oYhKUF/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] Lunch Group EO Wanderis Indonesia✨ #restaurantanyer #familygatheringanyer #wisat",
+    "category": "Postingan Sosmed Tayang",
+    "description": "Lunch Group EO Wanderis Indonesia✨\n\n#restaurantanyer #familygatheringanyer #wisataanyer #pantaianyer #cafeanyer",
+    "startsAt": "2026-11-09T11:26:48.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/dbistro.anyer/reel/DfhN_oYhKUF/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 7,
+     "comments": 0,
+     "shares": null
+    }
+   },
+   {
+    "id": "a97fcd5d-407e-44f0-a178-6a3a7af888ff",
+    "competitorName": "D'Bistro (Sanghyang)",
+    "competitorOutlets": [
+     "dbistro"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/dbistro.anyer/p/DfzBzLuAg-X/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[FEED] Nikmati kekayaan cita rasa khas Banten di d’Bistro✨ Hadir dengan beragam pilihan",
+    "category": "Postingan Sosmed Tayang",
+    "description": "Nikmati kekayaan cita rasa khas Banten di d’Bistro✨\n\nHadir dengan beragam pilihan menu Nusantara yang menggugah selera, mulai dari Pepes Tahu & Oseng Kikil, Pecak Lele Goreng, Nasi Ikan Balado, hingga Pindang Ikan.\n\nLengkap dengan **FREE ICE TEA** untuk setiap pembelian menu! 🧡\n\nYuk, ajak keluarga dan teman untuk menikmati sajian lezat dengan cita rasa lokal.\n\n📍 d’Bistro – Sanghyang Indah Spa Resort, Anyer\n🛵 Available on GoFood\n📞 0811-9011-600\n\n#dBistro #SanghyangIndah #CitaRasaBanten #KulinerAnyer #restaurantanyer",
+    "startsAt": "2026-11-16T09:25:23.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/dbistro.anyer/p/DfzBzLuAg-X/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 3,
+     "comments": 0,
+     "shares": null
+    }
+   },
+   {
+    "id": "feecde29-57cf-457a-8b8d-12519006e756",
+    "competitorName": "Dragon Beach Club (Sanghyang)",
+    "competitorOutlets": [
+     "dragon-beach-club"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/dragonbeachclub/reel/Dcsp8XLhkwi/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] ✨ Saturday Night Moments with Kirei Candy! 🍭🔥 Malam Sabtu penuh energi, musik,",
+    "category": "Postingan Sosmed Tayang",
+    "description": "✨ Saturday Night Moments with Kirei Candy! 🍭🔥\nMalam Sabtu penuh energi, musik, dan momen seru bareng Kirei Candy! 🎶💃\nSatu malam, satu panggung, dan vibes yang nggak terlupakan. 🪩✨\nGood music. Good vibes. Sweet memories. 🍬\n\n#dragonbeachclub #anyerclub #nightparty #beachclub",
+    "startsAt": "2026-08-31T08:29:09.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/Dcsp8XLhkwi/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 2,
+     "comments": 2,
+     "shares": null
+    }
+   },
+   {
+    "id": "1112338a-09f4-40be-b457-1ac9b4340b4c",
+    "competitorName": "Dragon Beach Club (Sanghyang)",
+    "competitorOutlets": [
+     "dragon-beach-club"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/dragonbeachclub/reel/DdB6QZISPlf/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] No plans? No problem. 😈🔥 This Friday, we party at Dragon! Music up, lights dow",
+    "category": "Postingan Sosmed Tayang",
+    "description": "No plans? No problem. 😈🔥\nThis Friday, we party at Dragon!\nMusic up, lights down, vibes all night long. 🐉🎶\n\n🎧 Special Guest DJ:  @harra.shr ✨\n📅 Friday, 11 September 2026\n📍 Dragon Beach Club\n\nDon’t miss it! Friday night party✨\n\n#DragonBeachClub #beachclubresort #clubanyercilegon #djperfome #clubcilegonserang",
+    "startsAt": "2026-09-08T14:34:03.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DdB6QZISPlf/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 23,
+     "comments": 1,
+     "shares": null
+    }
+   },
+   {
+    "id": "0254c99a-28bf-4a67-be20-117f86c23fbc",
+    "competitorName": "Dragon Beach Club (Sanghyang)",
+    "competitorOutlets": [
+     "dragon-beach-club"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/dragonbeachclub/reel/DdOZBuaBFHp/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] DJ HARRA on FIRE 🔥 Momen gokil dari DJ Harra dengan beat yang bikin semua ikut ",
+    "category": "Postingan Sosmed Tayang",
+    "description": "DJ HARRA on FIRE 🔥\nMomen gokil dari DJ Harra dengan beat yang bikin semua ikut bergoyang! 🎧🔥\nLet the music take over! 🎶\n\n@harra.shr \n\n#dragonbeachclub #anyerclub #nightparty #wisataanyer #beachclub",
+    "startsAt": "2026-09-13T11:00:17.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DdOZBuaBFHp/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 47,
+     "comments": 1,
+     "shares": null
+    }
+   },
+   {
+    "id": "a0e7aa7f-d06a-455d-936c-dc76c3967c7f",
+    "competitorName": "Dragon Beach Club (Sanghyang)",
+    "competitorOutlets": [
+     "dragon-beach-club"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/dragonbeachclub/reel/DdmHFnMySGf/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] 🔥 DZAKIYA IS HERE! 🔥 Friday night is calling! Siapkan energi terbaikmu, karena",
+    "category": "Postingan Sosmed Tayang",
+    "description": "🔥 DZAKIYA IS HERE! 🔥\nFriday night is calling!\nSiapkan energi terbaikmu, karena malam ini bakal beda! 🎶✨\n\n🎧 Special Guest DJ:  @kissdzakiya ✨\n📅 Friday, 25 September 2026\n📍 Dragon Beach Club\n\nDon’t miss it! Friday night party✨\n\n#DragonBeachClub #beachclubresort #clubanyercilegon #djperfome #clubcilegonserang",
+    "startsAt": "2026-09-22T15:59:18.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DdmHFnMySGf/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 30,
+     "comments": 0,
+     "shares": null
+    }
+   },
+   {
+    "id": "daded97f-5b1b-46c1-a1d8-d1ad33e276a4",
+    "competitorName": "Dragon Beach Club (Sanghyang)",
+    "competitorOutlets": [
+     "dragon-beach-club"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/dragonbeachclub/reel/DdwjkGRSJF3/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] DJ KISSDZAKIYA on FIRE 🔥 Momen seru bareng DJ Kiss Dzakiya dengan beat yang bik",
+    "category": "Postingan Sosmed Tayang",
+    "description": "DJ KISSDZAKIYA on FIRE 🔥\nMomen seru bareng DJ Kiss Dzakiya dengan beat yang bikin semua ikut bergoyang! 🎧🔥\nLet the music take over! 🎶\n\n@kissdzakiya\n\n#dragonbeachclub #anyerclub #nightparty #wisataanyer #beachclub",
+    "startsAt": "2026-09-26T17:21:19.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DdwjkGRSJF3/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 28,
+     "comments": 0,
+     "shares": null
+    }
+   },
+   {
+    "id": "4ec42721-8992-4598-a63f-f6b8657dc7fa",
+    "competitorName": "Dragon Beach Club (Sanghyang)",
+    "competitorOutlets": [
+     "dragon-beach-club"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/dragonbeachclub/reel/Dd9AiHryI3l/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] 🔥 FRIDAY NIGHT IS CALLING! 🔥 Get ready to turn up the weekend at DRAGON BEACH ",
+    "category": "Postingan Sosmed Tayang",
+    "description": "🔥 FRIDAY NIGHT IS CALLING! 🔥\n\nGet ready to turn up the weekend at DRAGON BEACH CLUB! 🐉🌴\n\n🎧 DJ AIKO\n🗓 9 Oktober 2026\n🕘 21.00 – 03.00\n📍 Dragon Beach Club\n\nFeel the beat, catch the vibe, and make your Friday night unforgettable! 🔥🎶\n\nSee you on the dance floor! 🕺💃\n\n#DragonBeachClub #FridayNight #GuestDJAIKO #FridayParty #Nightlife PartyNight",
+    "startsAt": "2026-10-01T13:24:22.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/Dd9AiHryI3l/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 12,
+     "comments": 0,
+     "shares": null
+    }
+   },
+   {
+    "id": "5ac22037-a808-48b0-8da9-c70b70757d7a",
+    "competitorName": "Dragon Beach Club (Sanghyang)",
+    "competitorOutlets": [
+     "dragon-beach-club"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/dragonbeachclub/reel/DeZXMI5Sdbk/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] 🔥 RECAP MOMENTS WITH FDJ AIKO 🎧✨ Good music, great energy, and unforgettable m",
+    "category": "Postingan Sosmed Tayang",
+    "description": "🔥 RECAP MOMENTS WITH FDJ AIKO 🎧✨\n\nGood music, great energy, and unforgettable moments on the dance floor! 💃🏻🔥\n\nThank you for bringing the vibes and making the night unforgettable. See you at the next party! 🖤\n\n#FDJAiko #RecapMoments #NightParty #DragonBeachClub #GoodVibesOnly",
+    "startsAt": "2026-10-12T13:40:35.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DeZXMI5Sdbk/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 23,
+     "comments": 0,
+     "shares": null
+    }
+   },
+   {
+    "id": "65986dd7-9428-48e2-bb9a-698fb2ec9c2c",
+    "competitorName": "Dragon Beach Club (Sanghyang)",
+    "competitorOutlets": [
+     "dragon-beach-club"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/dragonbeachclub/reel/DebXhBnyjVr/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] 🔥 HALLOWEEN PARTY AT DRAGON BEACH CLUB 🔥 Get ready for a night full of beats, ",
+    "category": "Postingan Sosmed Tayang",
+    "description": "🔥 HALLOWEEN PARTY AT DRAGON BEACH CLUB 🔥\n\nGet ready for a night full of beats, energy, and good vibes! 🎶🌴\n\n🎧 GUEST DJ NADIA ANNA BELLA\n🗓️ Friday, 23 Oktober 2026\n⏰ 21.00 – 03.00\n📍 Dragon Beach Club\n\nBring your squad, feel the music, and let the night take over! 🔥\nSee you on the dance floor! 🕺💃\n\n#DragonBeachClub #FridayNight #DJNADIA #NightParty #BeachClub PartyTonight",
+    "startsAt": "2026-10-20T12:44:19.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DebXhBnyjVr/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 10,
+     "comments": 0,
+     "shares": null
+    }
+   },
+   {
+    "id": "75d4fed3-9239-4ffb-b0e8-852e9a0e25bc",
+    "competitorName": "Dragon Beach Club (Sanghyang)",
+    "competitorOutlets": [
+     "dragon-beach-club"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/dragonbeachclub/reel/DfL-JyBhOvd/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] 🔥🌴 DRAGON BEACH CLUB! 🌴🔥 Saatnya menikmati malam dengan musik terbaik, suasa",
+    "category": "Postingan Sosmed Tayang",
+    "description": "🔥🌴 DRAGON BEACH CLUB! 🌴🔥\n\nSaatnya menikmati malam dengan musik terbaik, suasana seru, dan vibes party yang tak terlupakan! 🎶✨\n\nBersiaplah untuk bergoyang bersama penampilan spesial dari DJ MIRELLA yang siap membakar suasana sepanjang malam! 🎧🔥\n\n📅 Jumat, 6 November 2026\n⏰ 21.00 – 03.00 WIB\n📍 Dragon Beach Club\n\nAjak teman-temanmu, nikmati musiknya, rasakan atmosfernya, dan jadikan malam ini penuh cerita!\n\nJangan sampai ketinggalan. Sampai jumpa di dance floor! 🥂🔥\n\n#DragonBeachClub #NightParty #DJMirella #FridayNight #BeachClubVibes",
+    "startsAt": "2026-11-01T05:23:10.000Z",
+    "endsAt": "2026-11-06T16:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DfL-JyBhOvd/",
+    "imageUrl": null,
+    "status": "expired",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 13,
+     "comments": 1,
+     "shares": null
+    }
+   },
+   {
+    "id": "4c24071b-e3d0-49a8-87ec-63049f63df50",
+    "competitorName": "Sanghyang Indah Spa Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/sanghyangresort/reel/DfeUWFsv-pk/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] keseruan hari ini bersama keluarga ketileng 3, siapa yang mau seru seruan disini",
+    "category": "Postingan Sosmed Tayang",
+    "description": "keseruan hari ini bersama keluarga ketileng 3, siapa yang mau seru seruan disini juga coba komenn!!! komen paling seru dapet hadiah dari mimin\n\n#hotelanyer #resortanyer #wisataanyer #pantaianyer #anyerbeach",
+    "startsAt": "2026-11-08T08:24:28.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/sanghyangresort/reel/DfeUWFsv-pk/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 17,
+     "comments": 1,
+     "shares": null
+    }
+   },
+   {
+    "id": "304938e4-7719-4e1b-a7b6-d246f0205f9e",
+    "competitorName": "Sanghyang Indah Spa Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/sanghyangresort/reel/DfuBu72y--T/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] Welcome PT. Hon Chuan Indonesia @honchuan.indonesia ✨ #gatheringanyer #wisataany",
+    "category": "Postingan Sosmed Tayang",
+    "description": "Welcome PT. Hon Chuan Indonesia @honchuan.indonesia ✨\n\n#gatheringanyer #wisataanyer #hotelanyer #resortanyer",
+    "startsAt": "2026-11-14T10:50:40.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/sanghyangresort/reel/DfuBu72y--T/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 27,
+     "comments": 0,
+     "shares": null
+    }
+   },
+   {
+    "id": "ae9998bc-7d16-41b7-ad7b-34e4a8c77906",
+    "competitorName": "Sanghyang Indah Spa Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/sanghyangresort/reel/DfyXOkpyr5d/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "[REELS] Building stronger teams through unforgettable experiences. Terima kasih Kimia Fa",
+    "category": "Postingan Sosmed Tayang",
+    "description": "Building stronger teams through unforgettable experiences.\nTerima kasih Kimia Farma UB Cilegon telah mempercayakan momen kebersamaannya bersama kami!\n\n#hotelanyer #resortanyer #wisataanyer #pantaianyer #anyerbeach",
+    "startsAt": "2026-11-16T03:14:02.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/sanghyangresort/reel/DfyXOkpyr5d/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": true,
+    "metrics": {
+     "views": null,
+     "likes": 2,
+     "comments": 0,
+     "shares": null
+    }
+   },
+   {
+    "id": "44fd6a4d-ccb7-4138-a59b-c2661ff7b1ed",
+    "competitorName": "D'Spa & Hot Spring Aquamedic (Sanghyang)",
+    "competitorOutlets": [
+     "dspa"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://sanghyang.com/offers",
+      "label": "Situs resmi Sanghyang (penawaran)"
+     }
+    ],
+    "title": "Hot Spring Refresh",
+    "category": "Wellness & Relaksasi",
+    "description": "A relaxing, rejuvenating spa experience with a choice of massages, body treatments and other spa rituals. Current D'Spa offers: 30% off the Hotspring Spa and a Buy 1 Get 1 Aquamedic at IDR 350,000.",
+    "startsAt": "2026-11-20T08:30:26.943Z",
+    "endsAt": null,
+    "price": 350000,
+    "originalPrice": null,
+    "discount": 30,
+    "source": "Situs resmi Sanghyang (penawaran)",
+    "sourceUrl": "https://sanghyang.com/offers",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": true,
+    "metrics": null
+   },
+   {
+    "id": "52d59c0c-c940-4673-925c-79d1613eee54",
+    "competitorName": "Sanghyang Indah Spa Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://sanghyang.com/offers",
+      "label": "Situs resmi Sanghyang (penawaran)"
+     }
+    ],
+    "title": "Meeting & Outing Package",
+    "category": "Kamar & Menginap",
+    "description": "Meeting and outing packages for groups, from half-day meetings to residential packages. Contact our sales team for package details and current prices.",
+    "startsAt": "2026-11-20T08:30:26.943Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi Sanghyang (penawaran)",
+    "sourceUrl": "https://sanghyang.com/offers",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": true,
+    "metrics": null
+   },
+   {
+    "id": "b1524d09-690e-4ac8-be6f-1e6efa42d155",
+    "competitorName": "Sanghyang Indah Spa Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://sanghyang.com/offers",
+      "label": "Situs resmi Sanghyang (penawaran)"
+     }
+    ],
+    "title": "Paket Babakaran",
+    "category": "F&B & Kuliner",
+    "description": "A private BBQ in front of your villa: charcoal and grill, corn and sauces, meat and sausages, plus seafood. Promo price IDR 850,000.",
+    "startsAt": "2026-11-20T08:30:26.943Z",
+    "endsAt": null,
+    "price": 850000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi Sanghyang (penawaran)",
+    "sourceUrl": "https://sanghyang.com/offers",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": true,
+    "metrics": null
+   },
+   {
+    "id": "d1cf4689-97d3-4a44-a28e-6dd26dbe3063",
+    "competitorName": "Sanghyang Indah Spa Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://sanghyang.com/offers",
+      "label": "Situs resmi Sanghyang (penawaran)"
+     }
+    ],
+    "title": "ROOM PROMO",
+    "category": "Kamar & Menginap",
+    "description": "Enjoy a quality night's sleep in our luxurious and plush King Size bed, specially designed to pamper you and provide the ultimate comfort.",
+    "startsAt": "2026-11-20T08:30:26.943Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi Sanghyang (penawaran)",
+    "sourceUrl": "https://sanghyang.com/offers",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": true,
+    "metrics": null
+   },
+   {
+    "id": "0832eff2-c720-4e1d-9133-a50bbed9da1b",
+    "competitorName": "Sunset Grill (Sanghyang)",
+    "competitorOutlets": [
+     "sunset-grill"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 0,
+    "competitorHandle": "",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://sanghyang.com/offers",
+      "label": "Situs resmi Sanghyang (penawaran)"
+     }
+    ],
+    "title": "Sunset Grill Promo",
+    "category": "F&B & Kuliner",
+    "description": "Golden hour, golden peace: grilled lobster, pizza, crab and more seafood by the jetty at sunset.",
+    "startsAt": "2026-11-20T08:30:26.943Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi Sanghyang (penawaran)",
+    "sourceUrl": "https://sanghyang.com/offers",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": true,
+    "metrics": null
+   }
+  ],
+  "competitorSocialRadar": [
+   {
+    "id": "af613e43-01b3-425e-b962-c59fbd929965",
+    "competitorName": "Aston Anyer Beach Hotel",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Hotel Pier Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Spa & Wellness Aston Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Sunset Cafe Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 11.8,
+    "competitorHandle": "@astonanyer",
+    "platform": "tiktok",
+    "sources": [
+     {
+      "platform": "tiktok",
+      "url": "https://www.tiktok.com/@astonanyerofficial/video/7707131846605196562",
+      "label": "TikTok @astonanyerofficial"
+     }
+    ],
+    "title": "Year-End Staycation 25% OFF (You Need a Break)",
+    "category": "Kamar & Resort",
+    "description": "Let’s put something else on the calendar: checking in, switching off, and waking up with no rush. Year-end celebrations are coming. Take a breather first or get your festive stay booked early with 25% OFF your stay.",
+    "startsAt": "2026-11-01T00:00:00.000Z",
+    "endsAt": "2026-12-31T23:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": 25,
+    "source": "TikTok @astonanyerofficial",
+    "sourceUrl": "https://www.tiktok.com/@astonanyerofficial/video/7707131846605196562",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [
+     "Book Period: 01–30 November 2026",
+     "Stay Period: 01 November 2026–31 December 2026",
+     "Book directly through the Archipelago Hotels website (#YouNeedABreak #ArchipelagoHotels)",
+     "Pembacaan langsung TikTok @astonanyerofficial: 129 tayangan, 3 suka, 0 komentar, 1 bagikan (18 Nov 2026)"
+    ],
+    "terms": [
+     "Pemesanan langsung via Archipelago Hotels website",
+     "Syarat dan ketentuan berlaku"
+    ],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "0744b79d-8976-44f5-9cfa-c8a278cf87cb",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/mambrukhotelanyer/reel/DeRP3tzAkGn/",
+      "label": "Instagram @mambrukhotelanyer"
+     }
+    ],
+    "title": "A Magical Mermaid Day (7 November 2026) Pertunjukan Putri Duyung Kolam Renang",
+    "category": "Keluarga & Anak",
+    "description": "Pertunjukan spesial putri duyung untuk keluarga dan anak-anak, sesi meet and greet, photobooth seru, dan kesempatan memenangkan voucher makan menarik di area kolam renang Mambruk.",
+    "startsAt": "2026-11-06T17:00:00.000Z",
+    "endsAt": "2026-11-07T16:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram @mambrukhotelanyer",
+    "sourceUrl": "https://www.instagram.com/mambrukhotelanyer/reel/DeRP3tzAkGn/",
+    "imageUrl": null,
+    "status": "expired",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "964ba8bb-730b-440a-8dc9-11d166e8005e",
+    "competitorName": "Aston Anyer Beach Hotel",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Hotel Pier Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Spa & Wellness Aston Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Sunset Cafe Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 11.8,
+    "competitorHandle": "@astonanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/astonanyer/reel/DeOmzWATnJW/",
+      "label": "Instagram @astonanyer"
+     }
+    ],
+    "title": "VIVA LA FIESTA – Perayaan Halloween 2026 Mexican Festive Night",
+    "category": "Acara & Live Music",
+    "description": "Perayaan malam Halloween bertema Meksiko penuh warna, musik pesta, dan suasana magis di tepi pantai Aston Anyer Beach Hotel pada 31 Oktober 2026.",
+    "startsAt": "2026-10-31T17:00:00.000Z",
+    "endsAt": "2026-10-31T23:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram @astonanyer",
+    "sourceUrl": "https://www.instagram.com/astonanyer/reel/DeOmzWATnJW/",
+    "imageUrl": null,
+    "status": "expired",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "0d889706-2f8e-4aad-9b3c-ecc034cf9054",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/mambrukhotelanyer/reel/DeRQRAWDRmf/",
+      "label": "Instagram @mambrukhotelanyer"
+     }
+    ],
+    "title": "Tutorial Booking Diskon 10% Mambruk Menggunakan Kode STAYMORE26",
+    "category": "Video Panduan Promo",
+    "description": "Stay More, Save More at Mambruk! Planning your next getaway? Make it even more special with 10% OFF your stay at Mambruk Hotel & Convention! Simply use promo code STAYMORE26 when booking on website.",
+    "startsAt": "2026-10-09T10:06:09.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": 10,
+    "source": "Instagram @mambrukhotelanyer",
+    "sourceUrl": "https://www.instagram.com/mambrukhotelanyer/reel/DeRQRAWDRmf/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "f0cc46c4-7f99-4bc1-89f6-e39390711512",
+    "competitorName": "Aston Anyer Beach Hotel",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Hotel Pier Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Spa & Wellness Aston Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Sunset Cafe Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 11.8,
+    "competitorHandle": "@astonanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/astonanyer/reel/DeOOZSvzEe6/",
+      "label": "Instagram @astonanyer"
+     }
+    ],
+    "title": "Promo Diskon 20% Menginap & 30% F&B Hingga IDR 500.000",
+    "category": "Kamar & Menginap",
+    "description": "Nikmati diskon 20% untuk menginap di kamar/aquavillas dan 30% untuk F&B hingga IDR 500.000. Periode pemesanan 1–31 Oktober 2026, periode menginap 1 Oktober–30 November 2026.",
+    "startsAt": "2026-10-01T00:00:00.000Z",
+    "endsAt": "2026-11-30T23:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": 20,
+    "source": "Instagram @astonanyer",
+    "sourceUrl": "https://www.instagram.com/astonanyer/reel/DeOOZSvzEe6/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "2d6ebd15-7662-44e5-99b2-a49386b72836",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/mambrukhotelanyer/reel/DeJUyBRz4Fu/",
+      "label": "Instagram @mambrukhotelanyer"
+     }
+    ],
+    "title": "Breathe Again: Sesi Seaside Yoga & Relaksasi Tepi Laut",
+    "category": "Wellness & Relaksasi",
+    "description": "Momen menenangkan diri dan bernafas lega di tepi laut Anyer melalui sesi yoga bersama instruktur berlisensi diiringi deburan ombak dan angin sejuk.",
+    "startsAt": "2026-10-06T06:30:00.000Z",
+    "endsAt": "2026-11-30T23:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram @mambrukhotelanyer",
+    "sourceUrl": "https://www.instagram.com/mambrukhotelanyer/reel/DeJUyBRz4Fu/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "6761af64-b88c-4d83-b6c6-c638c9b37599",
+    "competitorName": "The Jayakarta Villas Anyer Beach Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Lagoon Restaurant Jayakarta",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.7,
+    "competitorHandle": "@thejayakartaanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/thejayakartaanyer/p/DeDdmfSzz6F/",
+      "label": "Instagram @thejayakartaanyer"
+     }
+    ],
+    "title": "Special Promo Lagoon Restaurant: Soto Palangka Rp 40K & Carbo Drink Rp 35K",
+    "category": "F&B & Kuliner",
+    "description": "Sajian hangat dengan harga ramah kantong di Lagoon Restaurant: Soto Palangka kuah kuning gurih khas Rp 40.000 Nett dan Carbo Drink penghilang dahaga Rp 35.000 Nett.",
+    "startsAt": "2026-10-04T00:00:00.000Z",
+    "endsAt": "2026-11-30T23:59:59.000Z",
+    "price": 40000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram @thejayakartaanyer",
+    "sourceUrl": "https://www.instagram.com/thejayakartaanyer/p/DeDdmfSzz6F/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "c184fae6-b152-4072-951f-5f1c0c877b99",
+    "competitorName": "The Jayakarta Villas Anyer Beach Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Lagoon Restaurant Jayakarta",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.7,
+    "competitorHandle": "@thejayakartaanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/thejayakartaanyer/reel/DeDbg0PzyG-/",
+      "label": "Instagram @thejayakartaanyer"
+     }
+    ],
+    "title": "Liburan ke Anyer? Promo Menu Ramah Kantong di Lagoon Restaurant The Jayakarta Villas",
+    "category": "F&B Hemat",
+    "description": "LIBURAN KE ANYER? JANGAN LEWATKAN PROMO INI! Mampir ke Lagoon Restaurant di The Jayakarta Villas. Kami punya Special Promo dengan harga super ramah di kantong untuk santap lezat tepi pantai.",
+    "startsAt": "2026-10-04T01:15:34.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram @thejayakartaanyer",
+    "sourceUrl": "https://www.instagram.com/thejayakartaanyer/reel/DeDbg0PzyG-/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "d62d6ae5-9e3f-443e-88d1-d20f45b02869",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/mambrukhotelanyer/p/Dd78b9qE8z6/",
+      "label": "Instagram @mambrukhotelanyer"
+     }
+    ],
+    "title": "Promo Diskon 10% Stay More, Save More Kode STAYMORE26",
+    "category": "Kamar & Menginap",
+    "description": "Pesan sekarang hemat lebih banyak dengan diskon 10% menggunakan kode promo STAYMORE26 di website resmi. Termasuk akomodasi, sarapan 2 orang, dan aktivitas anak gratis di akhir pekan.",
+    "startsAt": "2026-10-01T00:00:00.000Z",
+    "endsAt": "2026-12-20T23:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": 10,
+    "source": "Instagram @mambrukhotelanyer",
+    "sourceUrl": "https://www.instagram.com/mambrukhotelanyer/p/Dd78b9qE8z6/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "4304cc15-59ec-4ce2-be1b-dbfe198d9011",
+    "competitorName": "Andalan Beach Resto & Coffee",
+    "competitorOutlets": [
+     "sunset-grill"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 2.1,
+    "competitorHandle": "@andalanbeach",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/andalanbeach/p/DdHRkjly6aw/",
+      "label": "Instagram @andalanbeach"
+     }
+    ],
+    "title": "Grand Opening Diskon 16% All F&B di Pantai Mandalika Anyer",
+    "category": "F&B & Kuliner",
+    "description": "Penawaran istimewa diskon 16% untuk seluruh makanan dan minuman pada pembukaan resto tepi pantai baru Andalan Beach dengan konsep tempat nongkrong santai pasir putih.",
+    "startsAt": "2026-09-16T00:00:00.000Z",
+    "endsAt": "2026-10-31T23:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": 16,
+    "source": "Instagram @andalanbeach",
+    "sourceUrl": "https://www.instagram.com/andalanbeach/p/DdHRkjly6aw/",
+    "imageUrl": null,
+    "status": "expired",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "e40133ed-d979-41e0-8b85-3f52266aaa5f",
+    "competitorName": "Aston Anyer Beach Hotel",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Hotel Pier Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Spa & Wellness Aston Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Sunset Cafe Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 11.8,
+    "competitorHandle": "@astonanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/astonanyer/reel/DaPpVwmBj4t/",
+      "label": "Instagram @astonanyer"
+     }
+    ],
+    "title": "Menu 60 Seconds to Tokyo: Kuliner Japanese Street Food",
+    "category": "F&B & Kuliner",
+    "description": "Eksplorasi cita rasa kuliner jalanan khas Tokyo dengan menu 60 Seconds to Tokyo di Sunset Bar & Lounge dan Anindya Restaurant Aston Anyer.",
+    "startsAt": "2026-07-01T00:00:00.000Z",
+    "endsAt": "2026-11-15T23:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram @astonanyer",
+    "sourceUrl": "https://www.instagram.com/astonanyer/reel/DaPpVwmBj4t/",
+    "imageUrl": null,
+    "status": "expired",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "6d2e6338-6315-443b-b52f-26df2e2667f8",
+    "competitorName": "The Jayakarta Villas Anyer Beach Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Lagoon Restaurant Jayakarta",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.7,
+    "competitorHandle": "@thejayakartaanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/thejayakartaanyer/p/DTuWHTjk8in/",
+      "label": "Instagram @thejayakartaanyer"
+     }
+    ],
+    "title": "Program Loyalitas J Club Member: Best Price Direct Booking",
+    "category": "Kamar & Menginap",
+    "description": "Pesan langsung via portal resmi Jayakarta Hotels & Resorts untuk jaminan harga terendah serta akumulasi reward poin member J Club di setiap reservasi.",
+    "startsAt": "2026-01-20T00:00:00.000Z",
+    "endsAt": "2026-12-31T23:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram @thejayakartaanyer",
+    "sourceUrl": "https://www.instagram.com/thejayakartaanyer/p/DTuWHTjk8in/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "e2743eab-99ba-4874-8997-1610f9ad841f",
+    "competitorName": "Aston Anyer Beach Hotel",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Hotel Pier Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Spa & Wellness Aston Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Sunset Cafe Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 11.8,
+    "competitorHandle": "@astonanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/astonanyer/reel/De1SHt0TWbv/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Viva La Fiesta Halloween Event",
+    "category": "Acara & Live Music",
+    "description": "Acara perayaan Halloween bertema Viva La Fiesta di Sunset Cafe pada tanggal 31 Oktober 2026.",
+    "startsAt": "2026-10-30T17:00:00.000Z",
+    "endsAt": "2026-10-31T16:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/astonanyer/reel/De1SHt0TWbv/",
+    "imageUrl": null,
+    "status": "expired",
+    "counterStrategy": "Nikmati malam Halloween bertema Viva La Fiesta di Dragon Beach Club dengan bonus koktail spesial dan hiburan musik.",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "8d4a8f19-28f1-46dd-83d9-fb8698c2a9d0",
+    "competitorName": "Aston Anyer Beach Hotel",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Hotel Pier Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Spa & Wellness Aston Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Sunset Cafe Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 11.8,
+    "competitorHandle": "@astonanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/astonanyer/reel/De81vt9zIfJ/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Halloween Fiesta",
+    "category": "F&B & Kuliner",
+    "description": "Acara makan bertema Halloween dengan hidangan spesial dan suasana meriah.",
+    "startsAt": "2026-10-30T17:00:00.000Z",
+    "endsAt": "2026-10-31T16:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/astonanyer/reel/De81vt9zIfJ/",
+    "imageUrl": null,
+    "status": "expired",
+    "counterStrategy": "Nikmati paket Halloween Fiesta di Sunset Grill dengan hidangan spesial berbonus minuman mocktail seram gratis untuk setiap pembelian menu keluarga.",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "96cd0e1f-6a51-473e-a0ee-cb5036224a38",
+    "competitorName": "Aston Anyer Beach Hotel",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Hotel Pier Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Spa & Wellness Aston Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Sunset Cafe Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 11.8,
+    "competitorHandle": "@astonanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/astonanyer/p/DfO6KqVo4P1/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "November Break Diskon 25%",
+    "category": "Kamar & Menginap",
+    "description": "Diskon 25% untuk pemesanan kamar sepanjang bulan November dengan periode menginap hingga akhir Desember 2026.",
+    "startsAt": "2026-10-31T17:00:00.000Z",
+    "endsAt": "2026-12-31T16:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": 25,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/astonanyer/p/DfO6KqVo4P1/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Nikmati paket menginap bulan November di Sanghyang Indah Spa Resort sudah termasuk gratis akses Hot Spring Aquamedic dan voucher F&B di Sunset Grill.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "efbf4987-66d1-48c7-909c-794d41ca6718",
+    "competitorName": "Aston Anyer Beach Hotel",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Hotel Pier Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Spa & Wellness Aston Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Sunset Cafe Aston Anyer",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 11.8,
+    "competitorHandle": "@astonanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/astonanyer/reel/DfWOK8gzBVJ/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Early Bird 25% OFF Tahun Baru 2027",
+    "category": "Kamar & Menginap",
+    "description": "Aston Anyer menawarkan diskon 25% untuk pemesanan early bird perayaan Tahun Baru 2027 selama bulan November 2026.",
+    "startsAt": "2026-11-01T00:00:00.000Z",
+    "endsAt": "2026-11-30T23:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": 25,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/astonanyer/reel/DfWOK8gzBVJ/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort menawarkan paket malam tahun baru dengan bonus gratis sesi berendam Hot Spring Aquamedic dan voucer BBQ di Sunset Grill.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "e87362f4-b8f6-4052-9847-b3016485c400",
+    "competitorName": "Andalan Beach Resto & Coffee",
+    "competitorOutlets": [
+     "sunset-grill"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 2.1,
+    "competitorHandle": "@andalanbeach",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/andalanbeach/reel/Dewc_YLyyVw/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Promo Spesial Boat Trip & Paket Makan",
+    "category": "Keluarga & Anak",
+    "description": "Penawaran khusus boat trip seharga Rp300.000 per 10 menit dan paket makan Rp100.000/pax dengan bonus gratis boat trip untuk minimal 15 pax.",
+    "startsAt": "2026-10-20T17:00:00.000Z",
+    "endsAt": null,
+    "price": 300000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/andalanbeach/reel/Dewc_YLyyVw/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort menawarkan paket kumpul keluarga di Sunset Grill dengan bonus naik boat gratis dan akses ke Hot Spring Aquamedic.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "2d972f18-49f3-4fc1-b223-b503b373149e",
+    "competitorName": "Andalan Beach Resto & Coffee",
+    "competitorOutlets": [
+     "sunset-grill"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 2.1,
+    "competitorHandle": "@andalanbeach",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/andalanbeach/p/DfRAT5BSzDZ/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Promo Spesial Boat Trip dan Paket Makan",
+    "category": "F&B & Kuliner",
+    "description": "Nikmati paket sewa boat Rp300.000 per 15 menit atau paket spesial makan Rp100.000 per pax gratis boat 15 menit dengan reservasi H-3.",
+    "startsAt": "2026-11-01T17:00:00.000Z",
+    "endsAt": null,
+    "price": 300000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/andalanbeach/p/DfRAT5BSzDZ/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort menghadirkan paket Sunset Grill di tepi pantai lengkap dengan bonus akses Hot Spring Aquamedic untuk pengalaman relaksasi maksimal.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "0d784a13-e2fa-421e-b4c5-4d07dc63c942",
+    "competitorName": "Marbella Place Anyer by Jayakarta",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Alta Spa Marbella Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Campo del Sol Pool Bar Marbella",
+      "outlets": [
+       "sunset-grill",
+       "dbar"
+      ]
+     },
+     {
+      "name": "El Patio Marbella",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.1,
+    "competitorHandle": "@marbellaplaceanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://marbellaplaceanyer.com/offers/",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "3 Day 2 Night & Free Afternoon Tea",
+    "category": "Kamar & Menginap",
+    "description": "Paket 3 hari 2 malam dan gratis teh sore di Marbella Place Anyer seharga IDR 1,175,625.",
+    "startsAt": "2026-11-20T08:29:40.562Z",
+    "endsAt": null,
+    "price": 1175625,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://marbellaplaceanyer.com/offers/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort menawarkan paket menginap 3 hari 2 malam dengan tambahan fasilitas teh sore gratis di D'Bistro.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "321b4360-fe0e-48c6-baed-3233f328c6b2",
+    "competitorName": "Marbella Place Anyer by Jayakarta",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Alta Spa Marbella Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Campo del Sol Pool Bar Marbella",
+      "outlets": [
+       "sunset-grill",
+       "dbar"
+      ]
+     },
+     {
+      "name": "El Patio Marbella",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.1,
+    "competitorHandle": "@marbellaplaceanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://marbellaplaceanyer.com/offers/",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "Christmas Package",
+    "category": "Kamar & Menginap",
+    "description": "Paket Natal di Marbella Place Anyer seharga IDR 1,350,000.",
+    "startsAt": "2026-11-20T08:29:40.562Z",
+    "endsAt": null,
+    "price": 1350000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://marbellaplaceanyer.com/offers/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort menawarkan paket perayaan Natal lengkap dengan suguhan kuliner spesial di area resort.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "d0deb43b-5b52-4834-8a17-186d167820df",
+    "competitorName": "Marbella Place Anyer by Jayakarta",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Alta Spa Marbella Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Campo del Sol Pool Bar Marbella",
+      "outlets": [
+       "sunset-grill",
+       "dbar"
+      ]
+     },
+     {
+      "name": "El Patio Marbella",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.1,
+    "competitorHandle": "@marbellaplaceanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://marbellaplaceanyer.com/offers/",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "Early Bird Deal",
+    "category": "Kamar & Menginap",
+    "description": "Penawaran Early Bird Deal di Marbella Place Anyer seharga IDR 368,280.",
+    "startsAt": "2026-11-20T08:29:40.562Z",
+    "endsAt": null,
+    "price": 368280,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://marbellaplaceanyer.com/offers/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort menyediakan harga pemesanan awal khusus untuk kamar resort tepi pantai.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "c9f5e697-4170-416c-ab24-552e6b0c57b6",
+    "competitorName": "Marbella Place Anyer by Jayakarta",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Alta Spa Marbella Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Campo del Sol Pool Bar Marbella",
+      "outlets": [
+       "sunset-grill",
+       "dbar"
+      ]
+     },
+     {
+      "name": "El Patio Marbella",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.1,
+    "competitorHandle": "@marbellaplaceanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://marbellaplaceanyer.com/offers/",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "Exclusive Weekend Offer",
+    "category": "Kamar & Menginap",
+    "description": "Penawaran akhir pekan eksklusif di Marbella Place Anyer seharga IDR 528,165.",
+    "startsAt": "2026-11-20T08:29:40.562Z",
+    "endsAt": null,
+    "price": 528165,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://marbellaplaceanyer.com/offers/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort menyuguhkan paket akhir pekan spesial dengan akses penuh ke Dragon Beach Club.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "bfa123ef-aebc-4dee-88f8-b5a47cfe7247",
+    "competitorName": "Marbella Place Anyer by Jayakarta",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Alta Spa Marbella Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Campo del Sol Pool Bar Marbella",
+      "outlets": [
+       "sunset-grill",
+       "dbar"
+      ]
+     },
+     {
+      "name": "El Patio Marbella",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.1,
+    "competitorHandle": "@marbellaplaceanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://marbellaplaceanyer.com/offers/",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "Flash Sale",
+    "category": "Kamar & Menginap",
+    "description": "Penawaran Flash Sale di Marbella Place Anyer seharga IDR 490,050.",
+    "startsAt": "2026-11-20T08:29:40.562Z",
+    "endsAt": null,
+    "price": 490050,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://marbellaplaceanyer.com/offers/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort memberikan harga kilat terbatas untuk masa inap di tepi pantai Anyer.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "02c46c58-5818-4c10-a53a-4bb86a908cc1",
+    "competitorName": "Marbella Place Anyer by Jayakarta",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Alta Spa Marbella Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Campo del Sol Pool Bar Marbella",
+      "outlets": [
+       "sunset-grill",
+       "dbar"
+      ]
+     },
+     {
+      "name": "El Patio Marbella",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.1,
+    "competitorHandle": "@marbellaplaceanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://marbellaplaceanyer.com/offers/",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "Late Night Sale",
+    "category": "Kamar & Menginap",
+    "description": "Penawaran Late Night Sale di Marbella Place Anyer seharga IDR 414,315.",
+    "startsAt": "2026-11-20T08:29:40.562Z",
+    "endsAt": null,
+    "price": 414315,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://marbellaplaceanyer.com/offers/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort menawarkan harga khusus pemesanan malam hari untuk tipe kamar pilihan.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "abb61bee-c9c9-4f37-97cb-f391eb2dc593",
+    "competitorName": "Marbella Place Anyer by Jayakarta",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Alta Spa Marbella Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Campo del Sol Pool Bar Marbella",
+      "outlets": [
+       "sunset-grill",
+       "dbar"
+      ]
+     },
+     {
+      "name": "El Patio Marbella",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.1,
+    "competitorHandle": "@marbellaplaceanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://marbellaplaceanyer.com/offers/",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "New Year Package",
+    "category": "Kamar & Menginap",
+    "description": "Paket Tahun Baru di Marbella Place Anyer seharga IDR 2,000,000.",
+    "startsAt": "2026-11-20T08:29:40.562Z",
+    "endsAt": null,
+    "price": 2000000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://marbellaplaceanyer.com/offers/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort menghadirkan paket malam tahun baru lengkap dengan makan malam spesial di Sunset Grill.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "2c5a63f5-5f96-4661-89f9-fcd37b7d1b31",
+    "competitorName": "Marbella Place Anyer by Jayakarta",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Alta Spa Marbella Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Campo del Sol Pool Bar Marbella",
+      "outlets": [
+       "sunset-grill",
+       "dbar"
+      ]
+     },
+     {
+      "name": "El Patio Marbella",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.1,
+    "competitorHandle": "@marbellaplaceanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/marbellaplaceanyer/p/DfTxAQ9hugH/",
+      "label": "Instagram"
+     },
+     {
+      "platform": "website",
+      "url": "https://marbellaplaceanyer.com/offers/",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "Year End Special Christmas",
+    "category": "Kamar & Menginap",
+    "description": "Penawaran khusus akhir tahun 2026 di Marbella Place Anyer seharga IDR 1,300,000.",
+    "startsAt": "2026-11-23T17:00:00.000Z",
+    "endsAt": "2026-12-25T16:59:59.000Z",
+    "price": 1300000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://www.instagram.com/marbellaplaceanyer/p/DfTxAQ9hugH/",
+    "imageUrl": null,
+    "status": "upcoming",
+    "counterStrategy": "Sanghyang Indah Spa Resort menghadirkan paket liburan akhir tahun 2026 yang dikemas bersama relaksasi di D'Spa.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "7683ae54-23d2-4316-8c31-e3a1a1743bf2",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://www.mambruk.co.id/offers",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "Floating Breakfast",
+    "category": "F&B & Kuliner",
+    "description": "Floating Breakfast menawarkan pengalaman sarapan di Infinity Pool mulai dari 400k per pasangan untuk 2 pax.",
+    "startsAt": "2026-11-19T04:03:07.076Z",
+    "endsAt": null,
+    "price": 400000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://www.mambruk.co.id/offers",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort dapat menyediakan pengalaman sarapan mengapung eksklusif di kolam renang resor bagi tamu yang ingin suasana santap pagi berbeda.",
+    "kind": "promo",
+    "details": [
+     "Bored with the ordinary breakfast?",
+     "Upgrade your breakfast experience with our floating breakfast starting from 400k / couple (2 pax), where you can have your breakfast right from our Infinity Pool, ju..."
+    ],
+    "terms": [
+     "2 pax"
+    ],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "dfa161d0-ba53-43f3-bc8e-97e1eca77cc2",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://www.mambruk.co.id/offers",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "High Tea",
+    "category": "F&B & Kuliner",
+    "description": "High Tea menyediakan camilan sore berkelas dan secangkir teh di dermaga tepi pantai seharga 400k per pasangan untuk 2 pax.",
+    "startsAt": "2026-11-19T04:03:07.076Z",
+    "endsAt": null,
+    "price": 400000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://www.mambruk.co.id/offers",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort dapat menawarkan paket High Tea sore hari di area dermaga atau tepi pantai dengan hidangan ringan dan teh pilihan.",
+    "kind": "promo",
+    "details": [
+     "Introducing one of our other Dining Experience program.",
+     "Have a classy afternoon snack & a cup of tea in the beauty of the sunset, right from our seaside pier.",
+     "Only with 400k / couple (2 pax), let's tr..."
+    ],
+    "terms": [
+     "2 pax"
+    ],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "3e7de978-0cc2-4692-bd4b-b5eeed83b0f8",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://www.mambruk.co.id/offers",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "Seafood Grill by the sea",
+    "category": "F&B & Kuliner",
+    "description": "Seafood Grill by the sea menghadirkan makan malam tepi pantai dengan menu Seafood BBQ All-You-Can-Eat setiap Sabtu malam seharga 250k.",
+    "startsAt": "2026-11-19T04:03:07.076Z",
+    "endsAt": null,
+    "price": 250000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://www.mambruk.co.id/offers",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort dapat menghadirkan malam kuliner Seafood BBQ All-You-Can-Eat setiap Sabtu malam di Sunset Grill dengan suasana tepi pantai.",
+    "kind": "promo",
+    "details": [
+     "Without having to go to Jimbaran Bali, now you can enjoy seaside dinner while watching the sunset.",
+     "Because every Saturday night, we have Seafood BBQ, with 250k only!",
+     "Savor our exclusive All-You-Can-Ea..."
+    ],
+    "terms": [
+     "every Saturday night"
+    ],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "efa269d6-e989-47c5-a3e3-22c88a7311d9",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://www.mambruk.co.id/offers",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "Sea Prosperity Cruise",
+    "category": "F&B & Kuliner",
+    "description": "Sea Prosperity Cruise menawarkan pelayaran di sepanjang garis pantai dengan pemandangan samudra dan kuliner lezat untuk minimal 20 pax.",
+    "startsAt": "2026-11-19T04:03:07.076Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://www.mambruk.co.id/offers",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort dapat menawarkan paket pelayaran privat serupa di teluk Anyer dengan jamuan BBQ spesial dari Sunset Grill untuk rombongan minimal 20 orang.",
+    "kind": "promo",
+    "details": [
+     "Let the waves carry you to a new horizon, sail along the pristine shoreline and the delightful blue sky.",
+     "With a minimum of 20 pax, enjoy stunning ocean views and try our tasty cuisine with a new cruis..."
+    ],
+    "terms": [
+     "minimum of 20 pax"
+    ],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "cbaed39e-f2e4-4965-8080-4f45d648b13c",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://www.mambruk.co.id/offers",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "Seaside Candlelight Dinner",
+    "category": "F&B & Kuliner",
+    "description": "Seaside Candlelight Dinner menyediakan makan malam romantis dengan pemandangan samudra mulai dari 950k per pasangan untuk 2 pax.",
+    "startsAt": "2026-11-19T04:03:07.076Z",
+    "endsAt": null,
+    "price": 950000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://www.mambruk.co.id/offers",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort dapat menghadirkan paket makan malam romantis di tepi pantai Dragon Beach Club dengan menu set khusus dan dekorasi lilin yang indah.",
+    "kind": "promo",
+    "details": [
+     "Cherish every moment & start making beautiful memories with your loved one.",
+     "Starting from 950k / couple (2 pax), our romantic candlelight dinner with an ocean view will sweep you away & bring some new..."
+    ],
+    "terms": [
+     "2 pax"
+    ],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "3155d18f-46e8-436c-bffa-7342ac6c6e8f",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://www.mambruk.co.id/offers",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "The Mambruk Sizzling Grill",
+    "category": "F&B & Kuliner",
+    "description": "The Mambruk Sizzling Grill menyuguhkan pengalaman makan sore bersama keluarga ditemani suara ombak dan matahari terbenam di Anyer.",
+    "startsAt": "2026-11-19T04:03:07.076Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://www.mambruk.co.id/offers",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort menawarkan pengalaman santap sore bertema sizzling grill di area Sunset Grill dengan latar pemandangan matahari terbenam Anyer.",
+    "kind": "promo",
+    "details": [
+     "Enjoy a delightful afternoon dining experience with your family, accompanied by the soothing sound of crashing waves and the breathtaking sunset over the sea in Anyer.",
+     "Indulge in The Mambruk Sizzling G..."
+    ],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "c310c571-fce4-456f-8b33-2e66121e0995",
+    "competitorName": "Marbella Place Anyer by Jayakarta",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Alta Spa Marbella Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Campo del Sol Pool Bar Marbella",
+      "outlets": [
+       "sunset-grill",
+       "dbar"
+      ]
+     },
+     {
+      "name": "El Patio Marbella",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.1,
+    "competitorHandle": "@marbellaplaceanyer",
+    "platform": "website",
+    "sources": [
+     {
+      "platform": "website",
+      "url": "https://marbellaplaceanyer.com/offers/",
+      "label": "Situs resmi"
+     }
+    ],
+    "title": "Buy 1 Night Get 2 Night",
+    "category": "Kamar & Menginap",
+    "description": "Promo menginap beli 1 malam gratis 2 malam seharga IDR 1.000.000.",
+    "startsAt": "2026-11-08T17:59:49.917Z",
+    "endsAt": null,
+    "price": 1000000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Situs resmi",
+    "sourceUrl": "https://marbellaplaceanyer.com/offers/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Nikmati durasi menginap lebih lama di Sanghyang Indah Spa Resort dengan promo spesial inap ekstra dan fasilitas lengkap.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "0b75f959-6971-4b6f-a9c8-8f283e8fff86",
+    "competitorName": "Marbella Place Anyer by Jayakarta",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Alta Spa Marbella Anyer",
+      "outlets": [
+       "dspa"
+      ]
+     },
+     {
+      "name": "Campo del Sol Pool Bar Marbella",
+      "outlets": [
+       "sunset-grill",
+       "dbar"
+      ]
+     },
+     {
+      "name": "El Patio Marbella",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.1,
+    "competitorHandle": "@marbellaplaceanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/marbellaplaceanyer/p/DfY9szAh5fF/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Year End Special 2026",
+    "category": "Kamar & Menginap",
+    "description": "Paket spesial akhir tahun termasuk kamar, sarapan, dan makan malam tahun baru.",
+    "startsAt": "2026-11-04T17:00:00.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/marbellaplaceanyer/p/DfY9szAh5fF/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Nikmati paket liburan akhir tahun Sanghyang Indah Spa Resort dengan bonus akses Hot Spring Aquamedic gratis dan makan malam spesial di Sunset Grill.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "09b1804e-e997-4262-9955-431dfc08a0c1",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/mambrukhotelanyer/reel/DfV7vlWTKuR/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Exclusive Dinner with Mermaid",
+    "category": "Keluarga & Anak",
+    "description": "Acara pengalaman spesial bertemu mermaid dan makan malam eksklusif bersama mermaid.",
+    "startsAt": "2026-11-03T17:00:00.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/mambrukhotelanyer/reel/DfV7vlWTKuR/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Nikmati paket makan malam spesial bertema mermaid di Sunset Grill Sanghyang Indah Spa Resort lengkap dengan sesi foto bersama.",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "9cc7541f-05a5-42d4-8ee7-e00c930e8169",
+    "competitorName": "Kamalika Beach Cafe & Resto",
+    "competitorOutlets": [
+     "sunset-grill"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 2,
+    "competitorHandle": "@kamalikabeachcaferesto",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/kamalikabeachcaferesto/reel/DfKGusDTekG/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Halloween at Kamalika",
+    "category": "Acara & Live Music",
+    "description": "Acara perayaan malam Halloween di kafe tepi pantai.",
+    "startsAt": "2026-10-30T17:00:00.000Z",
+    "endsAt": "2026-10-31T16:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/kamalikabeachcaferesto/reel/DfKGusDTekG/",
+    "imageUrl": null,
+    "status": "expired",
+    "counterStrategy": "Nikmati malam Halloween di Dragon Beach Club dengan sajian menu spesial bertema seram dan gratis mocktail khusus bagi tamu yang datang dengan kostum.",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "faf6fb17-e195-4e87-b9b3-1cde6bf37521",
+    "competitorName": "The Jayakarta Villas Anyer Beach Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Lagoon Restaurant Jayakarta",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.7,
+    "competitorHandle": "@thejayakartaanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/thejayakartaanyer/p/DfCAlO1Thou/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "New Year's Eve 2026",
+    "category": "Acara & Live Music",
+    "description": "Ajakan merayakan malam pergantian tahun baru di tepi pantai bersama The Jayakarta Villas Anyer.",
+    "startsAt": "2026-12-30T17:00:00.000Z",
+    "endsAt": "2026-12-31T16:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/thejayakartaanyer/p/DfCAlO1Thou/",
+    "imageUrl": null,
+    "status": "upcoming",
+    "counterStrategy": "Rayakan malam tahun baru di Sanghyang Indah Spa Resort dengan paket menginap yang sudah termasuk akses pesta pantai di Dragon Beach Club dan BBQ malam tahun baru di Sunset Grill.",
+    "kind": "event",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "da6b6bcd-e096-4515-a29f-c32c3af1b8c2",
+    "competitorName": "The Jayakarta Villas Anyer Beach Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Lagoon Restaurant Jayakarta",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.7,
+    "competitorHandle": "@thejayakartaanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/thejayakartaanyer/reel/DfLo3npz1hh/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Paket Romantic Dinner",
+    "category": "F&B & Kuliner",
+    "description": "Penawaran pengalaman makan malam romantis bersama pasangan di villa tepi pantai.",
+    "startsAt": "2026-10-30T17:00:00.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/thejayakartaanyer/reel/DfLo3npz1hh/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Nikmati paket Romantic Dinner tepi pantai di Sunset Grill Sanghyang lengkap dengan bonus akses Hot Spring Aquamedic untuk relaksasi pasangan.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "b4336c78-a809-4cd2-bb2b-9842e28dc5f5",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/mambrukhotelanyer/p/DfUBoWTzpQZ/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Promo Batagor & Tropical Iced Tea",
+    "category": "F&B & Kuliner",
+    "description": "Mambruk Hotel menawarkan promo Batagor ikan tenggiri seharga Rp45K nett per porsi dengan tambahan Tropical Iced Tea seharga Rp5K.",
+    "startsAt": "2026-11-03T17:00:00.000Z",
+    "endsAt": null,
+    "price": 45000,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/mambrukhotelanyer/p/DfUBoWTzpQZ/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Nikmati promo Batagor spesial chef Sanghyang di Sunset Grill lengkap dengan bonus es teh manis segar untuk menemani santap sore di tepi pantai.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "8685f2cd-6128-490d-9997-786eec784395",
+    "competitorName": "Mambruk Hotel & Convention",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Infinity Restaurant Mambruk",
+      "outlets": [
+       "dbistro"
+      ]
+     },
+     {
+      "name": "Lighthouse Restaurant & Bar Mambruk",
+      "outlets": [
+       "dbar",
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 2.2,
+    "competitorHandle": "@mambrukhotelanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/mambrukhotelanyer/p/DfWqMIUT2Rr/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Sunset Afternoon Tea & Treats",
+    "category": "F&B & Kuliner",
+    "description": "Paket bersantai sore di tepi pantai lengkap dengan pilihan teh dan kudapan manis.",
+    "startsAt": "2026-11-04T17:00:00.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/mambrukhotelanyer/p/DfWqMIUT2Rr/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Nikmati Sunset Afternoon Tea di Sunset Grill Sanghyang Indah Spa Resort gratis akses Hot Spring Aquamedic.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": false,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "1fd52f7d-2adf-4315-80ba-ee21ed89a3d5",
+    "competitorName": "The Jayakarta Villas Anyer Beach Resort",
+    "competitorOutlets": [
+     "resort"
+    ],
+    "competitorIsLodging": true,
+    "competitorVenues": [
+     {
+      "name": "Lagoon Restaurant Jayakarta",
+      "outlets": [
+       "dbistro"
+      ]
+     }
+    ],
+    "competitorRoadKm": 6.7,
+    "competitorHandle": "@thejayakartaanyer",
+    "platform": "instagram",
+    "sources": [
+     {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/thejayakartaanyer/p/DfCAX3VzHgF/",
+      "label": "Instagram"
+     }
+    ],
+    "title": "Year End Special Christmas Getaway",
+    "category": "Kamar & Menginap",
+    "description": "The Jayakarta Villas Anyer menawarkan promo khusus liburan Natal di akhir tahun untuk keluarga.",
+    "startsAt": "2026-10-27T17:00:00.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/thejayakartaanyer/p/DfCAX3VzHgF/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "Sanghyang Indah Spa Resort menawarkan paket menginap Natal spesial dengan bonus akses Hot Spring Aquamedic dan makan malam di Sunset Grill.",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": null
+   },
+   {
+    "id": "e351c755-c9c5-4dbd-9b78-af185a89211f",
+    "competitorName": "Andalan Beach Resto & Coffee",
+    "competitorOutlets": [
+     "sunset-grill"
+    ],
+    "competitorIsLodging": false,
+    "competitorVenues": [],
+    "competitorRoadKm": 2.1,
+    "competitorHandle": "@andalanbeach",
+    "platform": "instagram",
+    "title": "BUNDLING PROMO 99K++ 🔥",
+    "category": "Postingan Sosmed Baru",
+    "description": "BUNDLING PROMO 99K++ 🔥\n\nKombinasi pas buat nemenin santai kamu di pantai 🥳\n🍽️ Iga Bakar Andalan\n🍹 Pineapple Lychee\n\nRasakan kelezatan iga bakar empuk dengan kesegaran minuman tropis pilihan cuma di Andalan Beach Resto & Coffee! 🌊",
+    "startsAt": "2026-11-09T12:44:41.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram",
+    "sourceUrl": "https://www.instagram.com/andalanbeach/p/DfhWnqyyhFL/",
+    "imageUrl": null,
+    "status": "active",
+    "counterStrategy": "",
+    "kind": "promo",
+    "details": [],
+    "terms": [],
+    "startWritten": true,
+    "isOwn": false,
+    "metrics": {
+     "views": null,
+     "likes": 8,
+     "comments": 0,
+     "shares": null
+    }
+   }
+  ]
+ }
+}

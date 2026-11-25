@@ -1,0 +1,109 @@
+name: Quality & Verification CI
+
+# Typecheck, lint, dan tes dijalankan di mesin kerja sebelum commit, jadi workflow ini tidak berjalan otomatis pada push.
+# Picu manual (Actions > Quality & Verification CI > Run workflow) bila perlu bukti dari runner bersih.
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: quality-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-gate:
+    name: Typecheck, Lint, Vitest, Market Tests & Python Verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: read
+
+    # Host 127.0.0.1 selaras dengan pengaman tulis DB lokal. Autentikasi aplikasi tunggal sanghyang-analytics
+    # memakai Supabase Auth (ADR-014) tanpa sandi bersama maupun secret cookie sesi terpisah.
+    env:
+      DATABASE_URL: "postgresql://test_user:test_password@127.0.0.1:5432/sanghyang_analytics_test?schema=public"
+      DIRECT_URL: "postgresql://test_user:test_password@127.0.0.1:5432/sanghyang_analytics_test?schema=public"
+      NODE_ENV: test
+
+    services:
+      postgres:
+        image: postgres:17-alpine@sha256:f9cf3e1f0066f0eb0c48707d864f0ac5941e9ff454a072077d97a4d278d07d73
+        env:
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: test_password
+          POSTGRES_DB: sanghyang_analytics_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: "npm"
+
+      - name: Setup uv (Python Package & Project Manager)
+        uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
+        with:
+          version: "0.12.23"
+          enable-cache: true
+
+      - name: Setup Python 3.12
+        run: uv python install 3.12
+
+      - name: Install Node Dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      - name: Deploy Local Test Schema
+        run: npx prisma migrate deploy
+
+      # Baseline data crawl nyata (tests/fixtures/ci-db), supaya tes registri, promo, ulasan, fakta, dan tarif
+      # membaca isi yang sama dengan DB kerja. Hanya dimuat ke DB kosong di mesin runner ini.
+      - name: Seed CI Baseline Data
+        run: npx tsx scripts/ops/ci-fixture.ts load
+
+      - name: Generate Next.js Route Types
+        run: npx next typegen
+
+      - name: TypeScript Typecheck
+        run: npx tsc --noEmit
+
+      - name: ESLint Check
+        run: npm run lint
+
+      - name: Run App & Operational Unit Tests (Vitest)
+        run: npx vitest run
+
+      - name: Run Market Intelligence Unit Tests (tsx)
+        env:
+          NODE_OPTIONS: "--conditions=react-server"
+        run: npx tsx --test --test-concurrency=1 tests/unit/*.test.ts
+
+      - name: Audit Market Metric Provenance
+        run: npm run audit:provenance
+
+      - name: Lint & Test Python Crawler (FastAPI)
+        run: |
+          cd crawler
+          uv run ruff check .
+          uv run pytest tests
+
+      - name: Lint & Test Python Research Engine (uv)
+        run: |
+          cd crawler/research
+          uv run ruff check .
+          uv run pytest tests

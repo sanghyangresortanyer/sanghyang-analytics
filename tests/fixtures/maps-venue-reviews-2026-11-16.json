@@ -1,0 +1,65 @@
+{
+ "_sumber": "Data nyata 16 Nov 2026: tab Ulasan Google Maps yang disajikan untuk perayap jujur SanghyangNewsCrawler/1.0 (Chrome headless, hl=id, tanpa login) di listing RM.MUARO (URL registri). chipLabels = aria-label tombol topik ulasan; cards = kartu ulasan div.jftiEf (id = data-review-id, stars = aria-label .kvMYJc, date = .rsqaWe, text = .wiI7pd dipotong 300 huruf). Nama penulis ulasan sengaja tidak disimpan. degraded = kunjungan ulang listing yang sama 4 menit kemudian: judul halaman hanya 'Google Maps' dan kartu lebih sedikit, bukti tampilan untuk perayap jujur tidak selalu sama.",
+ "places": [
+  {
+   "url": "https://www.google.com/maps/place/RM.MUARO/data=!4m7!3m6!1s0x2e41840fb68808f3:0x4a1856bba9cdee9a!8m2!3d-6.0705315!4d105.8861212!16s%2Fg%2F11bc7t5jq6!19sChIJ8wiItg-EQS4Rmu7NqbtWGEo",
+   "observedAt": "2026-11-16T11:24:09.288Z",
+   "title": "RM.MUARO - Google Maps",
+   "ratingBlock": "4,2\n(1.818)",
+   "category": "Restoran Seafood",
+   "chipLabels": [
+    "Semua ulasan",
+    "lalat, disebutkan dalam 41 ulasan",
+    "ikan bakar, disebutkan dalam 33 ulasan",
+    "sambel, disebutkan dalam 33 ulasan",
+    "standar, disebutkan dalam 21 ulasan",
+    "kue, disebutkan dalam 18 ulasan",
+    "saus padang, disebutkan dalam 17 ulasan",
+    "tepung, disebutkan dalam 17 ulasan",
+    "sungai, disebutkan dalam 12 ulasan",
+    "kangkung, disebutkan dalam 12 ulasan",
+    "relatif, disebutkan dalam 9 ulasan",
+    "Lihat 6 Topik lainnya"
+   ],
+   "cards": [
+    {
+     "id": "Ci9DQUlRQUNvZENodHljRjlvT2pFNWQyRmlkVU5vYzJGeExVVXhaM0l0T0ZCNVoyYxAB",
+     "stars": "1 bintang",
+     "date": "4 bulan lalu",
+     "text": "Kangkung tua udh berkembang udh ga layak di makan manusia malah di jual. Dikira kambing. Kepiting lada hitam malah kaya lautan minyak di kasih lada. Udah gt rasanya cuma saori sama lada doang.. jelek bgt.. mahal rasanya ga enak ga bgt deh …"
+    },
+    {
+     "id": "Ci9DQUlRQUNvZENodHljRjlvT25sUloxaDBha3hoWWpScFVtczFOV3cyU1hSVU1VRRAB",
+     "stars": "5 bintang",
+     "date": "sebulan lalu",
+     "text": "Singgah utk maksi.\nMenu prasmanan : ikan bakar, ikan goreng, tumis peda, tumis kangkung, sambal mangga, udang bakar, cumi tepung, enak semua.\nTerima kasih"
+    },
+    {
+     "id": "Ci9DQUlRQUNvZENodHljRjlvT2tkV1NsOU9Wazk1VUZoNVlVOVRTMEUzYzBzNFluYxAB",
+     "stars": "3 bintang",
+     "date": "Diedit sebulan lalu",
+     "text": "Ikannya enak, apalagi kuweh yg filet anak balita pasti suka. Sambelnya manteb, seger enak. Saran aja, mungkin tiap pagi dibersihin meja2 yg lesehat dekat kolam karena kotor sampe ngotorin baju, debu2 kasar dan hitam. Saran juga, menu telor …"
+    },
+    {
+     "id": "Ci9DQUlRQUNvZENodHljRjlvT2xsTGRqQTFjSGN4VldSSGJWSldPRXhQVW05TE1IYxAB",
+     "stars": "4 bintang",
+     "date": "setahun lalu",
+     "text": "Hari pertama kesini untuk makan malam. Pesen kepiting dan sop kerapu. Enak bangett sop kerapuny, kuahnya mirip kuah bakso tapi lebih segerr, ada cabe rawit hijaunya tapi nggak pedes sama sekali. Kepitingnya dimasak saus padang, pedes banget …"
+    },
+    {
+     "id": "Ci9DQUlRQUNvZENodHljRjlvT2tSUVMyODBXbTEwZWtOc2JuVmpVVnAzTkhvd2VHYxAB",
+     "stars": "5 bintang",
+     "date": "setahun lalu",
+     "text": "2x makan disini, seafood segar, rasa masakannya enak, ada pilihan non seafood, fresh dimasak abis kita pesan jadi kalo lapar banget jgn makan disini karna harus nunggu bisa lah sambil makan otak-otak sama minum kelapa, sambal pecaknya ga ada obat mantappp.. kurangnya banyak lalat, tapi bisa minta li"
+    }
+   ]
+  }
+ ],
+ "degraded": {
+  "url": "https://www.google.com/maps/place/RM.MUARO/data=!4m7!3m6!1s0x2e41840fb68808f3:0x4a1856bba9cdee9a!8m2!3d-6.0705315!4d105.8861212!16s%2Fg%2F11bc7t5jq6!19sChIJ8wiItg-EQS4Rmu7NqbtWGEo",
+  "observedAt": "2026-11-16T11:25:00.534Z",
+  "title": "Google Maps",
+  "ratingBlock": "4,2\n(1.818)",
+  "cardCount": 3
+ }
+}

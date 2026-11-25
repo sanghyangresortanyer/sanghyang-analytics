@@ -1,0 +1,39 @@
+{
+ "_sumber": "Jawaban asli pembacaan berita (buildNewsPrompt, suhu 0) untuk berita kandidat di DB lokal yang isinya dibaca dari situs penerbit 18 Nov 2026. Teks artikel tidak disimpan; alamat artikelnya dicantumkan.",
+ "dibaca": "2026-11-17T19:28:03.985Z",
+ "artikel": [
+  {
+   "id": "c51fa9e3-c1e1-44b4-b198-a5b0ff98d4a2",
+   "title": "notyourwife Bawa Misi Kenalkan Musik Indonesia ke Ajang The New Colossus Festival 2027 di New York City",
+   "publisher": "Lensa Banten",
+   "publishedDay": "2026-11-17",
+   "url": "https://lensabanten.co.id/notyourwife-bawa-misi-kenalkan-musik-indonesia-ke-ajang-the-new-colossus-festival-2027-di-new-york-city/",
+   "panjangTeks": 2540
+  },
+  {
+   "id": "0c5629f0-994c-481b-8b51-ffaaa3aaa40f",
+   "title": "Forbis Hotel Punya Mont Blanc dan Gurame Asam Pedas Cocok Disantap Saat Bersantai",
+   "publisher": "Banten Raya",
+   "publishedDay": "2026-11-15",
+   "url": "https://www.bantenraya.com/ekonomi-bisnis/16080763/forbis-hotel-punya-mont-blanc-dan-gurame-asam-pedas-cocok-disantap-saat-bersantai",
+   "panjangTeks": 2743
+  },
+  {
+   "id": "eed7c503-3614-4db6-93ba-b1723fff9d40",
+   "title": "Sambut Libur Nataru, Pemkab Serang Benahi Persoalan Wisata Anyer-Cinangka",
+   "publisher": "Banten Ekspres",
+   "publishedDay": "2026-11-15",
+   "url": "https://www.bantenekspres.co.id/2026/11/15/sambut-libur-nataru-pemkab-serang-benahi-persoalan-wisata-anyer-cinangka/",
+   "panjangTeks": 4171
+  },
+  {
+   "id": "63aa5f6d-778b-413b-9a12-c52e555b9155",
+   "title": "SMKN 1 Cinangka Optimalkan Potensi Wisata Anyer-Carita, Usung Visi Berbahagia Lewat Jurusan Perhotelan",
+   "publisher": "Banten Pos",
+   "publishedDay": "2026-10-21",
+   "url": "https://banpos.co/artikel/2026/10/22/usung-visi-berbahagia-smkn-1-cinangka-optimalkan-potensi-wisata-anyer-carita-lewat-jurusan-perhotelan/",
+   "panjangTeks": 4702
+  }
+ ],
+ "jawaban": "{\n \"items\": [\n  {\n   \"id\": \"c51fa9e3-c1e1-44b4-b198-a5b0ff98d4a2\",\n   \"ringkasan\": \"Musisi independen .notyourwife asal Jakarta dijadwalkan tampil dalam ajang The New Colossus Festival 2027 di New York City pada 9–14 Maret 2027.\",\n   \"jenis\": \"acara\",\n   \"kategori\": \"entertainment\",\n   \"tanggalMulai\": \"2027-03-09\",\n   \"tanggalSelesai\": \"2027-03-14\",\n   \"lokasi\": {\n    \"nama\": \"New York City\",\n    \"jenis\": \"wilayah\",\n    \"provinsi\": \"New York\",\n    \"negara\": \"Amerika Serikat\"\n   },\n   \"dampak\": \"lainnya\",\n   \"outlet\": [],\n   \"alasan\": \"Berita ini membahas keikutsertaan musisi Indonesia di festival musik internasional di luar negeri yang tidak berkaitan langsung dengan operasional unit usaha resort.\"\n  },\n  {\n   \"id\": \"0c5629f0-994c-481b-8b51-ffaaa3aaa40f\",\n   \"ringkasan\": \"Forbis Hotel di Jalan Lingkar Selatan, Kabupaten Serang, menghadirkan inovasi menu terbaru berupa Kopi Mont Blanc dan Gurame Asam Pedas.\",\n   \"jenis\": \"berita\",\n   \"kategori\": \"fnb\",\n   \"tanggalMulai\": null,\n   \"tanggalSelesai\": null,\n   \"lokasi\": {\n    \"nama\": \"Forbis Hotel, Jalan Lingkar Selatan, Kabupaten Serang\",\n    \"jenis\": \"tempat\",\n    \"provinsi\": \"Banten\",\n    \"negara\": \"Indonesia\"\n   },\n   \"dampak\": \"pesaing\",\n   \"outlet\": [\n    \"sunset-grill\",\n    \"dbistro\"\n   ],\n   \"alasan\": \"Hotel pesaing di jalur lintasan menuju Anyer menghadirkan menu kuliner baru yang dapat memikat wisatawan yang juga menjadi target pasar restoran resort.\"\n  },\n  {\n   \"id\": \"eed7c503-3614-4db6-93ba-b1723fff9d40\",\n   \"ringkasan\": \"Pemerintah Kabupaten Serang membenahi infrastruktur, penerangan jalan, kemacetan, dan pungli di kawasan wisata Anyer-Cinangka menjelang libur Natal 2026 dan Tahun Baru 2027.\",\n   \"jenis\": \"berita\",\n   \"kategori\": \"destination\",\n   \"tanggalMulai\": null,\n   \"tanggalSelesai\": null,\n   \"lokasi\": {\n    \"nama\": \"Kecamatan Cinangka, Kabupaten Serang\",\n    \"jenis\": \"tempat\",\n    \"provinsi\": \"Banten\",\n    \"negara\": \"Indonesia\"\n   },\n   \"dampak\": \"akses\",\n   \"outlet\": [\n    \"sunset-grill\",\n    \"dragon-beach-club\",\n    \"resort\",\n    \"dbistro\",\n    \"dbar\",\n    \"dspa\"\n   ],\n   \"alasan\": \"Pembenahan infrastruktur, akses jalan, dan pengamanan di kawasan Anyer-Cinangka secara langsung memengaruhi kelancaran kunjungan tamu ke seluruh unit usaha resort.\"\n  },\n  {\n   \"id\": \"63aa5f6d-778b-413b-9a12-c52e555b9155\",\n   \"ringkasan\": \"SMKN 1 Cinangka mengoptimalkan potensi pariwisata Anyer-Carita melalui jurusan Perhotelan dengan menerapkan pembelajaran berbasis proyek dan kemitraan industri.\",\n   \"jenis\": \"berita\",\n   \"kategori\": \"destination\",\n   \"tanggalMulai\": null,\n   \"tanggalSelesai\": null,\n   \"lokasi\": {\n    \"nama\": \"Kecamatan Cinangka, Kabupaten Serang\",\n    \"jenis\": \"tempat\",\n    \"provinsi\": \"Banten\",\n    \"negara\": \"Indonesia\"\n   },\n   \"dampak\": \"lainnya\",\n   \"outlet\": [],\n   \"alasan\": \"Berita mengenai kegiatan pendidikan dan penyerapan tenaga kerja SMK lokal tidak berdampak langsung secara konkret pada operasional komersial unit usaha.\"\n  }\n ]\n}"
+}

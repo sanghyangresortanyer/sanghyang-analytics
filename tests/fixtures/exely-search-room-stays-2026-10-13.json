@@ -1,0 +1,1080 @@
+{
+  "source": "Exely Connect produksi — direkam scripts/exely/contract-readonly.ts, tersanitasi",
+  "request": {
+    "method": "GET",
+    "path": "/api/search/v1/properties/500776/room-stays",
+    "query": {
+      "arrivalDate": "2026-11-12",
+      "departureDate": "2026-11-13",
+      "adults": "2"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json; charset=utf-8",
+      "x-ratelimit-remaining-hour": "997",
+      "x-ratelimit-remaining-minute": "198",
+      "x-ratelimit-remaining-second": "49"
+    },
+    "body": {
+      "roomStays": [
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004758"
+          },
+          "ratePlan": {
+            "id": "10118582",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 5,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 475000,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 475000,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 475000,
+            "estimatedDiscountedPenaltyAmount": 475000
+          },
+          "includedServices": [
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "RoomOnly",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjQ3NTAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjQ3NTAwMC4wMCJ9LCJDaGVja3N1bVdpdGhFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjQ3NTAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjQ3NTAwMC4wMCJ9fQ==",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004758&tl-offer=10118582&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 25000
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004782"
+          },
+          "ratePlan": {
+            "id": "10118582",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 1,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 617500,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 617500,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 617500,
+            "estimatedDiscountedPenaltyAmount": 617500
+          },
+          "includedServices": [
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "RoomOnly",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjYxNzUwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjYxNzUwMC4wMCJ9LCJDaGVja3N1bVdpdGhFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjYxNzUwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjYxNzUwMC4wMCJ9fQ==",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004782&tl-offer=10118582&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 32500
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004759"
+          },
+          "ratePlan": {
+            "id": "10118582",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 5,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 760000,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 760000,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 760000,
+            "estimatedDiscountedPenaltyAmount": 760000
+          },
+          "includedServices": [
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "RoomOnly",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6Ijc2MDAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6Ijc2MDAwMC4wMCJ9LCJDaGVja3N1bVdpdGhFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6Ijc2MDAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6Ijc2MDAwMC4wMCJ9fQ==",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004759&tl-offer=10118582&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 40000
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004778"
+          },
+          "ratePlan": {
+            "id": "10118582",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 3,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 855000,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 855000,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 855000,
+            "estimatedDiscountedPenaltyAmount": 855000
+          },
+          "includedServices": [
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "RoomOnly",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6Ijg1NTAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6Ijg1NTAwMC4wMCJ9LCJDaGVja3N1bVdpdGhFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6Ijg1NTAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6Ijg1NTAwMC4wMCJ9fQ==",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004778&tl-offer=10118582&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 45000
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004789"
+          },
+          "ratePlan": {
+            "id": "10118582",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 6,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 1045000,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 1045000,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 1045000,
+            "estimatedDiscountedPenaltyAmount": 1045000
+          },
+          "includedServices": [
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "RoomOnly",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjEwNDUwMDAuMDAiLCJDdXJyZW5jeUNvZGUiOiJJRFIiLCJTdGFydFBlbmFsdHlBbW91bnQiOiIxMDQ1MDAwLjAwIn0sIkNoZWNrc3VtV2l0aEV4dHJhcyI6eyJUb3RhbEFtb3VudEFmdGVyVGF4IjoiMTA0NTAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjEwNDUwMDAuMDAifX0=",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004789&tl-offer=10118582&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 55000
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004790"
+          },
+          "ratePlan": {
+            "id": "10118582",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 1,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 1235000,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 1235000,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 1235000,
+            "estimatedDiscountedPenaltyAmount": 1235000
+          },
+          "includedServices": [
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "RoomOnly",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjEyMzUwMDAuMDAiLCJDdXJyZW5jeUNvZGUiOiJJRFIiLCJTdGFydFBlbmFsdHlBbW91bnQiOiIxMjM1MDAwLjAwIn0sIkNoZWNrc3VtV2l0aEV4dHJhcyI6eyJUb3RhbEFtb3VudEFmdGVyVGF4IjoiMTIzNTAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjEyMzUwMDAuMDAifX0=",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004790&tl-offer=10118582&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 65000
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004758"
+          },
+          "ratePlan": {
+            "id": "10118581",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 5,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 1710000,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 1710000,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 1710000,
+            "estimatedDiscountedPenaltyAmount": 1710000
+          },
+          "includedServices": [
+            {
+              "id": "5003342",
+              "mealPlanCode": "BreakFast"
+            },
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "BreakFast",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjE3MTAwMDAuMDAiLCJDdXJyZW5jeUNvZGUiOiJJRFIiLCJTdGFydFBlbmFsdHlBbW91bnQiOiIxNzEwMDAwLjAwIn0sIkNoZWNrc3VtV2l0aEV4dHJhcyI6eyJUb3RhbEFtb3VudEFmdGVyVGF4IjoiMTcxMDAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjE3MTAwMDAuMDAifX0=",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004758&tl-offer=10118581&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 90000
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004791"
+          },
+          "ratePlan": {
+            "id": "10118582",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 3,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 1900000,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 1900000,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 1900000,
+            "estimatedDiscountedPenaltyAmount": 1900000
+          },
+          "includedServices": [
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "RoomOnly",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjE5MDAwMDAuMDAiLCJDdXJyZW5jeUNvZGUiOiJJRFIiLCJTdGFydFBlbmFsdHlBbW91bnQiOiIxOTAwMDAwLjAwIn0sIkNoZWNrc3VtV2l0aEV4dHJhcyI6eyJUb3RhbEFtb3VudEFmdGVyVGF4IjoiMTkwMDAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjE5MDAwMDAuMDAifX0=",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004791&tl-offer=10118582&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 100000
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004782"
+          },
+          "ratePlan": {
+            "id": "10118581",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 1,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 2137500,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 2137500,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 2137500,
+            "estimatedDiscountedPenaltyAmount": 2137500
+          },
+          "includedServices": [
+            {
+              "id": "5003342",
+              "mealPlanCode": "BreakFast"
+            },
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "BreakFast",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjIxMzc1MDAuMDAiLCJDdXJyZW5jeUNvZGUiOiJJRFIiLCJTdGFydFBlbmFsdHlBbW91bnQiOiIyMTM3NTAwLjAwIn0sIkNoZWNrc3VtV2l0aEV4dHJhcyI6eyJUb3RhbEFtb3VudEFmdGVyVGF4IjoiMjEzNzUwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjIxMzc1MDAuMDAifX0=",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004782&tl-offer=10118581&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 112500
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004759"
+          },
+          "ratePlan": {
+            "id": "10118581",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 5,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 2850000,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 2850000,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 2850000,
+            "estimatedDiscountedPenaltyAmount": 2850000
+          },
+          "includedServices": [
+            {
+              "id": "5003342",
+              "mealPlanCode": "BreakFast"
+            },
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "BreakFast",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjI4NTAwMDAuMDAiLCJDdXJyZW5jeUNvZGUiOiJJRFIiLCJTdGFydFBlbmFsdHlBbW91bnQiOiIyODUwMDAwLjAwIn0sIkNoZWNrc3VtV2l0aEV4dHJhcyI6eyJUb3RhbEFtb3VudEFmdGVyVGF4IjoiMjg1MDAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjI4NTAwMDAuMDAifX0=",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004759&tl-offer=10118581&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 150000
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004778"
+          },
+          "ratePlan": {
+            "id": "10118581",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 3,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 2850000,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 2850000,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 2850000,
+            "estimatedDiscountedPenaltyAmount": 2850000
+          },
+          "includedServices": [
+            {
+              "id": "5003342",
+              "mealPlanCode": "BreakFast"
+            },
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "BreakFast",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjI4NTAwMDAuMDAiLCJDdXJyZW5jeUNvZGUiOiJJRFIiLCJTdGFydFBlbmFsdHlBbW91bnQiOiIyODUwMDAwLjAwIn0sIkNoZWNrc3VtV2l0aEV4dHJhcyI6eyJUb3RhbEFtb3VudEFmdGVyVGF4IjoiMjg1MDAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjI4NTAwMDAuMDAifX0=",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004778&tl-offer=10118581&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 150000
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004789"
+          },
+          "ratePlan": {
+            "id": "10118581",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 6,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 3087500,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 3087500,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 3087500,
+            "estimatedDiscountedPenaltyAmount": 3087500
+          },
+          "includedServices": [
+            {
+              "id": "5003342",
+              "mealPlanCode": "BreakFast"
+            },
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "BreakFast",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjMwODc1MDAuMDAiLCJDdXJyZW5jeUNvZGUiOiJJRFIiLCJTdGFydFBlbmFsdHlBbW91bnQiOiIzMDg3NTAwLjAwIn0sIkNoZWNrc3VtV2l0aEV4dHJhcyI6eyJUb3RhbEFtb3VudEFmdGVyVGF4IjoiMzA4NzUwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjMwODc1MDAuMDAifX0=",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004789&tl-offer=10118581&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 162500
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004790"
+          },
+          "ratePlan": {
+            "id": "10118581",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 1,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 3420000,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 3420000,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 3420000,
+            "estimatedDiscountedPenaltyAmount": 3420000
+          },
+          "includedServices": [
+            {
+              "id": "5003342",
+              "mealPlanCode": "BreakFast"
+            },
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "BreakFast",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjM0MjAwMDAuMDAiLCJDdXJyZW5jeUNvZGUiOiJJRFIiLCJTdGFydFBlbmFsdHlBbW91bnQiOiIzNDIwMDAwLjAwIn0sIkNoZWNrc3VtV2l0aEV4dHJhcyI6eyJUb3RhbEFtb3VudEFmdGVyVGF4IjoiMzQyMDAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjM0MjAwMDAuMDAifX0=",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004790&tl-offer=10118581&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 180000
+            }
+          ],
+          "guarantees": null
+        },
+        {
+          "extraServicesAvailable": false,
+          "propertyId": "500776",
+          "roomType": {
+            "placements": [
+              {
+                "code": "AdultBed-2",
+                "count": 2,
+                "kind": "Adult",
+                "minAge": null,
+                "maxAge": null
+              }
+            ],
+            "id": "5004791"
+          },
+          "ratePlan": {
+            "id": "10118581",
+            "corporateIds": null
+          },
+          "guestCount": {
+            "adultCount": 2,
+            "childAges": []
+          },
+          "stayDates": {
+            "arrivalDateTime": "2026-11-12T15:00",
+            "departureDateTime": "2026-11-13T12:00"
+          },
+          "availability": 3,
+          "currencyCode": "IDR",
+          "dailyRates": [
+            {
+              "priceBeforeTax": 3420000,
+              "date": "2026-11-12"
+            }
+          ],
+          "total": {
+            "priceBeforeTax": 3420000,
+            "taxAmount": 0,
+            "taxes": []
+          },
+          "cancellationPolicy": {
+            "freeCancellationPossible": false,
+            "freeCancellationDeadlineLocal": null,
+            "freeCancellationDeadlineUtc": null,
+            "penaltyAmount": 3420000,
+            "estimatedDiscountedPenaltyAmount": 3420000
+          },
+          "includedServices": [
+            {
+              "id": "5003342",
+              "mealPlanCode": "BreakFast"
+            },
+            {
+              "id": "5055270",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055271",
+              "mealPlanCode": null
+            },
+            {
+              "id": "5055273",
+              "mealPlanCode": null
+            }
+          ],
+          "mealPlanCode": "BreakFast",
+          "checksum": "eyJDaGVja3N1bVdpdGhPdXRFeHRyYXMiOnsiVG90YWxBbW91bnRBZnRlclRheCI6IjM0MjAwMDAuMDAiLCJDdXJyZW5jeUNvZGUiOiJJRFIiLCJTdGFydFBlbmFsdHlBbW91bnQiOiIzNDIwMDAwLjAwIn0sIkNoZWNrc3VtV2l0aEV4dHJhcyI6eyJUb3RhbEFtb3VudEFmdGVyVGF4IjoiMzQyMDAwMC4wMCIsIkN1cnJlbmN5Q29kZSI6IklEUiIsIlN0YXJ0UGVuYWx0eUFtb3VudCI6IjM0MjAwMDAuMDAifX0=",
+          "fullPlacementsName": "2 взрослых на основных местах.",
+          "bookingFormLink": "https://sanghyang.com/booking-room-sanghyan/?hotel_id=500776&tl-lng=ru&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004791&tl-offer=10118581&tl-nights=1&tl-date=2026-11-12&utm_source=connectivity-hub",
+          "availableDiscounts": [
+            {
+              "reason": "RegistrationDiscount",
+              "amount": 180000
+            }
+          ],
+          "guarantees": null
+        }
+      ],
+      "services": [],
+      "content": null,
+      "warnings": [
+        null
+      ]
+    }
+  }
+}

@@ -1,0 +1,444 @@
+{
+  "ownRatings": {
+    "d'Bar Karaoke - Sanghyang Indah Spa Resort": {
+      "rating": 3.7,
+      "category": "Bar Karaoke",
+      "mapsUrl": "https://www.google.com/maps/place/d%27Bar+Karaoke+-+Sanghyang+Indah+Spa+Resort/data=!4m7!3m6!1s0x2e41843ffcf3e277:0xe23bdc67e4314f0e!8m2!3d-6.062603!4d105.899748!16s%2Fg%2F11c310mf9m!19sChIJd-Lz_D-EQS4RDk8x5GfcO-I"
+    },
+    "Dragon Beach Club - Sanghyang Indah Spa Resort": {
+      "rating": 4.1,
+      "category": "Klub Malam",
+      "mapsUrl": "https://www.google.com/maps/place/Dragon+Beach+Club+-+Sanghyang+Indah+Spa+Resort/data=!4m7!3m6!1s0x2e4184155322436f:0xcc6e0ab6c701ee49!8m2!3d-6.0623289!4d105.8985666!16s%2Fg%2F11g6b3h060!19sChIJb0MiUxWEQS4RSe4Bx7YKbsw"
+    },
+    "Sanghyang Indah Spa Resort": {
+      "rating": 4.4,
+      "category": "4,4",
+      "mapsUrl": "https://www.google.com/maps/place/Sanghyang+Indah+Spa+Resort/data=!4m10!3m9!1s0x2e4185b3c4907635:0x64d6c8baa028325d!5m2!4m1!1i2!8m2!3d-6.0624549!4d105.9001458!16s%2Fg%2F1tgzkjlf!19sChIJNXaQxLOFQS4RXTIooLrI1mQ"
+    },
+    "Sunset Grill Sanghyang": {
+      "rating": 4.5,
+      "category": "Restoran Seafood",
+      "mapsUrl": "https://www.google.com/maps/place/Sunset+Grill+Sanghyang/data=!4m7!3m6!1s0x2e41856a82c22189:0xc84934b1ab2230b5!8m2!3d-6.0620634!4d105.8979678!16s%2Fg%2F11nmhplflz!19sChIJiSHCgmqFQS4RtTAiq7E0Scg"
+    },
+    "Sanghyang Spa And Massage": {
+      "rating": 4.2,
+      "category": "Taman Spa",
+      "mapsUrl": "https://www.google.com/maps/place/Sanghyang+Spa+And+Massage/data=!4m7!3m6!1s0x2e41843f8ae9b7c1:0xd2135522e4ddef2!8m2!3d-6.0621685!4d105.9010617!16s%2Fg%2F11f3v98mc6!19sChIJwbfpij-EQS4R8t5NLlI1IQ0"
+    },
+    "Dermaga Sanghyang Indah Resort": {
+      "rating": 4.8,
+      "category": "Vila",
+      "mapsUrl": "https://www.google.com/maps/place/Dermaga+Sanghyang+Indah+Resort/data=!4m7!3m6!1s0x2e418518163cf501:0x7c381bde7cd5582e!8m2!3d-6.0618042!4d105.8977314!16s%2Fg%2F11s3b3nxhq!19sChIJAfU8FhiFQS4RLljVfN4bOHw"
+    }
+  },
+  "dbar": [
+    {
+      "name": "ADUDER",
+      "category": "Bar Olahraga",
+      "rating": null,
+      "address": "Jl. Raya Anyar",
+      "roadKm": 5.3,
+      "driveMinutes": 9,
+      "mapsUrl": "https://www.google.com/maps/place/ADUDER/data=!4m7!3m6!1s0x2e418555256d512d:0xbbc2f7767fc4d913!8m2!3d-6.0655403!4d105.9296594!16s%2Fg%2F11y7ty4cxn!19sChIJLVFtJVWFQS4RE9nEf3b3wrs",
+      "query": "bar lounge"
+    },
+    {
+      "name": "RonRon Beverage & Dessert",
+      "category": "Bar",
+      "rating": null,
+      "address": "Jl. Raya Karang Bolong No.10",
+      "roadKm": 6.8,
+      "driveMinutes": 10,
+      "mapsUrl": "https://www.google.com/maps/place/RonRon+Beverage+%26+Dessert/data=!4m7!3m6!1s0x2e418717913f26b1:0xaea38237736c0ec8!8m2!3d-6.1132471!4d105.8811089!16s%2Fg%2F11q1vnttvv!19sChIJsSY_kReHQS4RyA5sczeCo64",
+      "query": "bar lounge"
+    },
+    {
+      "name": "Karoke delingseng",
+      "category": "Bar Karaoke",
+      "rating": 5,
+      "address": "X2M9+5H5",
+      "roadKm": 16.4,
+      "driveMinutes": 29,
+      "mapsUrl": "https://www.google.com/maps/place/Karoke+delingseng/data=!4m7!3m6!1s0x2e418f003d6d1883:0xfaec08b495495d19!8m2!3d-6.0171249!4d106.0189781!16s%2Fg%2F11yv3rn683!19sChIJgxhtPQCPQS4RGV1JlbQI7Po",
+      "query": "karaoke"
+    },
+    {
+      "name": "Jasa setrika uap \"GHIFARY^",
+      "category": "Bar lounge",
+      "rating": null,
+      "address": "Jl. Ir. Sutami Link kampung Baru No.003, RT.004",
+      "roadKm": 16.9,
+      "driveMinutes": 31,
+      "mapsUrl": "https://www.google.com/maps/place/Jasa+setrika+uap+%22GHIFARY%5E/data=!4m7!3m6!1s0x2e418f445428486b:0x74857edadfc745d8!8m2!3d-6.0125838!4d106.0238154!16s%2Fg%2F11ysb1c50f!19sChIJa0goVESPQS4R2EXH39p-hXQ",
+      "query": "bar lounge"
+    },
+    {
+      "name": "Chrysoberil Lounge",
+      "category": "Bar lounge",
+      "rating": 4.3,
+      "address": "The Royale Krakatau Hotel, Jalan KH. Yasin Beji No. 4",
+      "roadKm": 19,
+      "driveMinutes": 34,
+      "mapsUrl": "https://www.google.com/maps/place/Chrysoberil+Lounge/data=!4m7!3m6!1s0x2e418e183a21a141:0xc72e32448a731ba5!8m2!3d-6.0060164!4d106.0423426!16s%2Fg%2F11c4bcgfpw!19sChIJQaEhOhiOQS4RpRtzikQyLsc",
+      "query": "bar lounge"
+    },
+    {
+      "name": "Star Queen Restoran N Karaoke Cilegon",
+      "category": "Klub Malam",
+      "rating": 4.2,
+      "address": "X324+9MW, Jl. Lingkar Selatan",
+      "roadKm": 21.1,
+      "driveMinutes": 32,
+      "mapsUrl": "https://www.google.com/maps/place/Star+Queen+Restoran+N+Karaoke+Cilegon/data=!4m7!3m6!1s0x2e418dcb6b8ffa79:0xcf0c11280f503b51!8m2!3d-6.0490044!4d106.0566951!16s%2Fg%2F11fslpjcq2!19sChIJefqPa8uNQS4RUTtQDygRDM8",
+      "query": "karaoke"
+    },
+    {
+      "name": "LOUD OF DISORDER",
+      "category": "Bar",
+      "rating": 5,
+      "address": "X3P2+6JJ",
+      "roadKm": 20.1,
+      "driveMinutes": 36,
+      "mapsUrl": "https://www.google.com/maps/place/LOUD+OF+DISORDER/data=!4m7!3m6!1s0x2e418e12858a68c9:0x93938584dcd4ab45!8m2!3d-6.0144148!4d106.0515099!16s%2Fg%2F11g02b6rfp!19sChIJyWiKhRKOQS4RRavU3ISFk5M",
+      "query": "bar lounge"
+    },
+    {
+      "name": "ALPS Sky Lounge",
+      "category": "Bar lounge",
+      "rating": 3.8,
+      "address": "Horison Forbis Hotel, Jl. Lingkar Selatan KM.2",
+      "roadKm": 22.9,
+      "driveMinutes": 35,
+      "mapsUrl": "https://www.google.com/maps/place/ALPS+Sky+Lounge/data=!4m7!3m6!1s0x2e418c2654b9a643:0xde11f4eb14249b3b!8m2!3d-6.0492343!4d106.0670351!16s%2Fg%2F11f5fz_898!19sChIJQ6a5VCaMQS4RO5skFOv0Ed4",
+      "query": "bar lounge"
+    }
+  ],
+  "dragon-beach-club": [
+    {
+      "name": "JAMU ANYER SIDOMUNCUL",
+      "category": "Klub Malam",
+      "rating": 4.7,
+      "address": "WWR5+RM6 Jalan Raya Anyer-Sirih Kp",
+      "roadKm": 1.2,
+      "driveMinutes": 2,
+      "mapsUrl": "https://www.google.com/maps/place/JAMU+ANYER+SIDOMUNCUL/data=!4m7!3m6!1s0x2e4185cecb2ad771:0x4d9454f2e56e2a50!8m2!3d-6.0579582!4d105.9091355!16s%2Fg%2F11sf2dnckc!19sChIJcdcqy86FQS4RUCpu5fJUlE0",
+      "query": "klub malam"
+    },
+    {
+      "name": "Ujung tanah Mandalika anyer",
+      "category": "Klub pantai",
+      "rating": null,
+      "address": "WWV7+M7J",
+      "roadKm": 1.7,
+      "driveMinutes": 3,
+      "mapsUrl": "https://www.google.com/maps/place/Ujung+tanah+Mandalika+anyer/data=!4m7!3m6!1s0x2e4185004d4e79b9:0xd09f3f909c12c73b!8m2!3d-6.055081!4d105.912426!16s%2Fg%2F11yvfmt482!19sChIJuXlOTQCFQS4RO8cSnJA_n9A",
+      "query": "beach club"
+    },
+    {
+      "name": "EsBuah Parkiran",
+      "category": "Bar Minuman Koktail",
+      "rating": 5,
+      "address": "WWR9+73G, Jl. Raya Anyer - Jaha",
+      "roadKm": 2.9,
+      "driveMinutes": 5,
+      "mapsUrl": "https://www.google.com/maps/place/EsBuah+Parkiran/data=!4m7!3m6!1s0x2e4185c009f5bd93:0xbde2feff0109f35c!8m2!3d-6.059319!4d105.9176945!16s%2Fg%2F11pq18d9js!19sChIJk731CcCFQS4RXPMJAf_-4r0",
+      "query": "bar pantai"
+    },
+    {
+      "name": "PORLASI (Persatuan Olahraga Layar Seluruh Indonesia) Banten",
+      "category": "Klub Berlayar",
+      "rating": 4.5,
+      "address": "Jl. Raya Anyer-Sirih No.13",
+      "roadKm": 2.4,
+      "driveMinutes": 4,
+      "mapsUrl": "https://www.google.com/maps/place/PORLASI+%28Persatuan+Olahraga+Layar+Seluruh+Indonesia%29+Banten/data=!4m7!3m6!1s0x2e418e311aa3c263:0x720a29962bcf5533!8m2!3d-6.0540115!4d105.918188!16s%2Fg%2F11bc7q2062!19sChIJY8KjGjGOQS4RM1XPK5YpCnI",
+      "query": "beach club"
+    },
+    {
+      "name": "Bakso mie ayam sewajan 88",
+      "category": "Klub Malam",
+      "rating": 5,
+      "address": "WWMC+J9H",
+      "roadKm": 3.7,
+      "driveMinutes": 7,
+      "mapsUrl": "https://www.google.com/maps/place/Bakso+mie+ayam+sewajan+88/data=!4m7!3m6!1s0x2e41850018841871:0x8023cf6fd11841f1!8m2!3d-6.0659282!4d105.9209745!16s%2Fg%2F11xlndtyv2!19sChIJcRiEGACFQS4R8UEY0W_PI4A",
+      "query": "klub malam"
+    },
+    {
+      "name": "Anyer",
+      "category": "Klub Voli Pantai",
+      "rating": 1,
+      "address": "WV6M+G3F",
+      "roadKm": 4.1,
+      "driveMinutes": 7,
+      "mapsUrl": "https://www.google.com/maps/place/Anyer/data=!4m7!3m6!1s0x2e41870000b37957:0xaf5c0d026dbb2eb1!8m2!3d-6.088677!4d105.8826829!16s%2Fg%2F11xfl5sbqm!19sChIJV3mzAACHQS4RsS67bQINXK8",
+      "query": "beach club"
+    },
+    {
+      "name": "Depot 002",
+      "category": "Klub Malam",
+      "rating": null,
+      "address": "WW69+WVJ, kp",
+      "roadKm": 6.8,
+      "driveMinutes": 14,
+      "mapsUrl": "https://www.google.com/maps/place/Depot+002/data=!4m7!3m6!1s0x2e41870010d22525:0x923d094f31227fca!8m2!3d-6.0876735!4d105.9196337!16s%2Fg%2F11vt6wyxjv!19sChIJJSXSEACHQS4Ryn8iMU8JPZI",
+      "query": "klub malam"
+    },
+    {
+      "name": "Tukik Anyer Surf And Sailing (TASS)",
+      "category": "Klub Berlayar",
+      "rating": 5,
+      "address": "Pantai Panjang Jambangan",
+      "roadKm": 5.6,
+      "driveMinutes": 8,
+      "mapsUrl": "https://www.google.com/maps/place/Tukik+Anyer+Surf+And+Sailing+%28TASS%29/data=!4m7!3m6!1s0x2e41876635f728a9:0x33448446135346e7!8m2!3d-6.102071!4d105.8816489!16s%2Fg%2F11flrl8hv4!19sChIJqSj3NWaHQS4R50ZTE0aERDM",
+      "query": "bar pantai"
+    }
+  ],
+  "sunset-grill": [
+    {
+      "name": "Pondok Cirebone",
+      "category": "Restoran Seafood",
+      "rating": 4.5,
+      "address": "WVJQ+5QM, Jl. Raya Anyer-Sirih",
+      "roadKm": 1.5,
+      "driveMinutes": 3,
+      "mapsUrl": "https://www.google.com/maps/place/Pondok+Cirebone/data=!4m7!3m6!1s0x2e418411b70ac179:0xfe0a6ff1c6b1a133!8m2!3d-6.0695293!4d105.8894082!16s%2Fg%2F11c1vjclfc!19sChIJecEKtxGEQS4RM6GxxvFvCv4",
+      "query": "restoran seafood"
+    },
+    {
+      "name": "Pondok Ikan Bakar Khas BAROKAH",
+      "category": "Restoran Ikan Bakar",
+      "rating": 4.7,
+      "address": "WVJQ+5QJ, Jl. Raya Anyer, Cikoneng, Kp. Warung",
+      "roadKm": 1.5,
+      "driveMinutes": 3,
+      "mapsUrl": "https://www.google.com/maps/place/Pondok+Ikan+Bakar+Khas+BAROKAH/data=!4m7!3m6!1s0x2e418411afc75323:0xfd546eb64fc986f4!8m2!3d-6.0695339!4d105.8894052!16s%2Fg%2F11cs4f6t85!19sChIJI1PHrxGEQS4R9IbJT7ZuVP0",
+      "query": "seafood bakar"
+    },
+    {
+      "name": "Rumah makan Way Muli Anyer",
+      "category": "Restoran Seafood",
+      "rating": 5,
+      "address": "Kp.bojong",
+      "roadKm": 1.8,
+      "driveMinutes": 4,
+      "mapsUrl": "https://www.google.com/maps/place/Rumah+makan+Way+Muli+Anyer/data=!4m7!3m6!1s0x2e41850026913151:0xe29510d2a99087e1!8m2!3d-6.0700475!4d105.8870247!16s%2Fg%2F11zglr93y6!19sChIJUTGRJgCFQS4R4YeQqdIQleI",
+      "query": "restoran seafood"
+    },
+    {
+      "name": "RM.MUARO",
+      "category": "Restoran Seafood",
+      "rating": 4.2,
+      "address": " · Jl. Raya Anyer-Sirih",
+      "roadKm": 1.9,
+      "driveMinutes": 4,
+      "mapsUrl": "https://www.google.com/maps/place/RM.MUARO/data=!4m7!3m6!1s0x2e41840fb68808f3:0x4a1856bba9cdee9a!8m2!3d-6.0705315!4d105.8861212!16s%2Fg%2F11bc7t5jq6!19sChIJ8wiItg-EQS4Rmu7NqbtWGEo",
+      "query": "restoran seafood"
+    },
+    {
+      "name": "Kamalika Beach Cafe & Resto",
+      "category": "Restoran Seafood",
+      "rating": 4.5,
+      "address": " · WWW7+2MX, Jl. Raya Anyer-Sirih",
+      "roadKm": 2,
+      "driveMinutes": 4,
+      "mapsUrl": "https://www.google.com/maps/place/Kamalika+Beach+Cafe+%26+Resto/data=!4m7!3m6!1s0x2e4185003a6a47a3:0x31b9c161b5470370!8m2!3d-6.0539428!4d105.9140892!16s%2Fg%2F11xnpvrfqk!19sChIJo0dqOgCFQS4RcANHtWHBuTE",
+      "query": "restoran seafood"
+    },
+    {
+      "name": "Andalan Beach Resto & Coffee",
+      "category": "Restoran Seafood",
+      "rating": 4.6,
+      "address": "Jl. Raya Anyer-Sirih Jl. Gudang Kopi No.Kp, RT./w/RW.001/001",
+      "roadKm": 2.1,
+      "driveMinutes": 4,
+      "mapsUrl": "https://www.google.com/maps/place/Andalan+Beach+Resto+%26+Coffee/data=!4m7!3m6!1s0x2e4185b086a44675:0xf70acd5fe1f0ce1!8m2!3d-6.0529988!4d105.9153982!16s%2Fg%2F11nhjnsfn1!19sChIJdUakhrCFQS4R4Qwf_tWscA8",
+      "query": "restoran seafood"
+    },
+    {
+      "name": "Ikan Bakar Tanjung Pinang 88",
+      "category": "Restoran Ikan Bakar",
+      "rating": 4.6,
+      "address": " · Kp, Jl. Gudang Kopi Jl. Raya Anyer-Sirih, RT.01/RW.06",
+      "roadKm": 2.2,
+      "driveMinutes": 4,
+      "mapsUrl": "https://www.google.com/maps/place/Ikan+Bakar+Tanjung+Pinang+88/data=!4m7!3m6!1s0x2e41844cbc7f4ac1:0x29f5a42be547e991!8m2!3d-6.0547984!4d105.9165164!16s%2Fg%2F11bc7qfrzg!19sChIJwUp_vEyEQS4RkelH5Suk9Sk",
+      "query": "restoran seafood"
+    },
+    {
+      "name": "Warung Ikan Bakar ABAH JUNED",
+      "category": "Restoran Ikan Bakar",
+      "rating": 4.4,
+      "address": " · WWPC+72G",
+      "roadKm": 3.5,
+      "driveMinutes": 6,
+      "mapsUrl": "https://www.google.com/maps/place/Warung+Ikan+Bakar+ABAH+JUNED/data=!4m7!3m6!1s0x2e418434f77a8621:0x5253874d8d5e62b2!8m2!3d-6.064319!4d105.9200628!16s%2Fg%2F11b8782lzj!19sChIJIYZ69zSEQS4RsmJejU2HU1I",
+      "query": "restoran seafood"
+    }
+  ],
+  "dbistro": [
+    {
+      "name": "Warung Makan Dapur Nawasena",
+      "category": "Rumah Makan",
+      "rating": 5,
+      "address": "Jl. Raya Anyer-Sirih",
+      "roadKm": 1,
+      "driveMinutes": 3,
+      "mapsUrl": "https://www.google.com/maps/place/Warung+Makan+Dapur+Nawasena/data=!4m7!3m6!1s0x2e41855abc653fcb:0x3645baa9a3aade1b!8m2!3d-6.068008!4d105.8939903!16s%2Fg%2F11xl9fjnvq!19sChIJyz9lvFqFQS4RG96qo6m6RTY",
+      "query": "restoran"
+    },
+    {
+      "name": "Rumah makan Flamboyant",
+      "category": "Restoran Keluarga",
+      "rating": 5,
+      "address": "Jln Raya anyar",
+      "roadKm": 1,
+      "driveMinutes": 3,
+      "mapsUrl": "https://www.google.com/maps/place/Rumah+makan+Flamboyant/data=!4m7!3m6!1s0x2e4185006145517f:0xbfde2d78cad7cf45!8m2!3d-6.0680752!4d105.893633!16s%2Fg%2F11zgw7j1d8!19sChIJf1FFYQCFQS4RRc_Xyngt3r8",
+      "query": "restoran keluarga"
+    },
+    {
+      "name": "Rumah Makan Puari Eram",
+      "category": "Restoran Indonesia",
+      "rating": 4.7,
+      "address": "Jl. Raya Anyer-Sirih",
+      "roadKm": 1.2,
+      "driveMinutes": 2,
+      "mapsUrl": "https://www.google.com/maps/place/Rumah+Makan+Puari+Eram/data=!4m7!3m6!1s0x2e4186b17e271477:0x62e7fae0a95044c2!8m2!3d-6.0579497!4d105.9089994!16s%2Fg%2F11c3k6h5zs!19sChIJdxQnfrGGQS4RwkRQqeD652I",
+      "query": "restoran"
+    },
+    {
+      "name": "Rumah Makan Murah Meriah",
+      "category": "Restoran",
+      "rating": 5,
+      "address": "WWR6+358, Jl. Raya Anyar-Siring",
+      "roadKm": 1.6,
+      "driveMinutes": 3,
+      "mapsUrl": "https://www.google.com/maps/place/Rumah+Makan+Murah+Meriah/data=!4m7!3m6!1s0x2e418447cfdc037b:0x4968258cde3bdda3!8m2!3d-6.0598442!4d105.910445!16s%2Fg%2F11kjmg7mkb!19sChIJewPcz0eEQS4Ro9073owlaEk",
+      "query": "rumah makan"
+    },
+    {
+      "name": "Rumah Makan Salero Kito Masakan Padang",
+      "category": "Restoran Padang",
+      "rating": 4.2,
+      "address": " · WVJR+979, Jl. Raya Anyer-Sirih",
+      "roadKm": 1.4,
+      "driveMinutes": 3,
+      "mapsUrl": "https://www.google.com/maps/place/Rumah+Makan+Salero+Kito+Masakan+Padang/data=!4m7!3m6!1s0x2e4184110a02a723:0x2b726dcfdbecafcc!8m2!3d-6.0690852!4d105.8907278!16s%2Fg%2F11cs4fmsw9!19sChIJI6cCChGEQS4RzK_s289tcis",
+      "query": "restoran keluarga"
+    },
+    {
+      "name": "KEDAI LIZA",
+      "category": "Restoran Indonesia",
+      "rating": 5,
+      "address": "WVJQ+5QM, Jl. Raya Anyer-Sirih",
+      "roadKm": 1.5,
+      "driveMinutes": 3,
+      "mapsUrl": "https://www.google.com/maps/place/KEDAI+LIZA/data=!4m7!3m6!1s0x2e4185d322505339:0xf150feb807974166!8m2!3d-6.0695947!4d105.8894002!16s%2Fg%2F11t_rvt3fr!19sChIJOVNQItOFQS4RZkGXB7j-UPE",
+      "query": "rumah makan"
+    },
+    {
+      "name": "RUMAH MAKAN JODAIM ANYER",
+      "category": "Restoran Nasi Uduk",
+      "rating": 4.8,
+      "address": "Kp.pegadungan, RT./001/RW./007",
+      "roadKm": 1.5,
+      "driveMinutes": 3,
+      "mapsUrl": "https://www.google.com/maps/place/RUMAH+MAKAN+JODAIM+ANYER/data=!4m7!3m6!1s0x2e4185fa50e73625:0x68c2bae4725f4a38!8m2!3d-6.0566828!4d105.9118113!16s%2Fg%2F11g_v6r8_q!19sChIJJTbnUPqFQS4ROEpfcuS6wmg",
+      "query": "restoran"
+    },
+    {
+      "name": "Waroeng olip",
+      "category": "Restoran Bakso",
+      "rating": 5,
+      "address": "WWJ6+GJ8, Jl. Raya Anyer-Sirih, RT.002/RW.004",
+      "roadKm": 2.6,
+      "driveMinutes": 6,
+      "mapsUrl": "https://www.google.com/maps/place/Waroeng+olip/data=!4m7!3m6!1s0x2e4185001f4f0e5b:0xf221a99e5c41a4a2!8m2!3d-6.0687115!4d105.911567!16s%2Fg%2F11yfhnn92b!19sChIJWw5PHwCFQS4RoqRBXJ6pIfI",
+      "query": "restoran"
+    }
+  ],
+  "dspa": [
+    {
+      "name": "Stokis Resmi Nu Skin Anyer",
+      "category": "Spa Perawatan Wajah",
+      "rating": 5,
+      "address": "Jl. Raya Anyer - Jaha Perumahan Bumi Waringin Asri blok i No.23",
+      "roadKm": 4,
+      "driveMinutes": 8,
+      "mapsUrl": "https://www.google.com/maps/place/Stokis+Resmi+Nu+Skin+Anyer/data=!4m7!3m6!1s0x2e4185818e513275:0xc54cdfa1d21db503!8m2!3d-6.0655026!4d105.9226449!16s%2Fg%2F11zf5yfyq2!19sChIJdTJRjoGFQS4RA7Ud0qHfTMU",
+      "query": "spa"
+    },
+    {
+      "name": "Pijat refleksi assalam Nuronniyah",
+      "category": "Terapis Pijat",
+      "rating": 5,
+      "address": "Kp. Panibungan desa tambang ayam kec",
+      "roadKm": 5,
+      "driveMinutes": 9,
+      "mapsUrl": "https://www.google.com/maps/place/Pijat+refleksi+assalam+Nuronniyah/data=!4m7!3m6!1s0x2e4187222bd67f1b:0x3527ff3bbcb29f2c!8m2!3d-6.0953919!4d105.8886946!16s%2Fg%2F11smh_5_1v!19sChIJG3_WKyKHQS4RLJ-yvDv_JzU",
+      "query": "pijat refleksi"
+    },
+    {
+      "name": "Ibu Maryati",
+      "category": "Tukang Pijat Refleksi",
+      "rating": 3,
+      "address": "WV2V+F5P",
+      "roadKm": 5.7,
+      "driveMinutes": 11,
+      "mapsUrl": "https://www.google.com/maps/place/Ibu+Maryati/data=!4m7!3m6!1s0x2e418755dea25fe3:0x1221a6631d8659bd!8m2!3d-6.0987961!4d105.8929383!16s%2Fg%2F11svzpr8lm!19sChIJ41-i3lWHQS4RvVmGHWOmIRI",
+      "query": "pijat refleksi"
+    },
+    {
+      "name": "Spa",
+      "category": "Klub Spa dan Kesehatan",
+      "rating": 5,
+      "address": "VVVJ+MPV Marbella Place Anyer by Jayakarta",
+      "roadKm": 6.1,
+      "driveMinutes": 10,
+      "mapsUrl": "https://www.google.com/maps/place/Spa/data=!4m7!3m6!1s0x2e41878173a6e8d3:0x1acee4e2a425ae96!8m2!3d-6.1057531!4d105.8817945!16s%2Fg%2F11fgjgql18!19sChIJ0-imc4GHQS4Rlq4lpOLkzho",
+      "query": "spa"
+    },
+    {
+      "name": "Pijat Urut Tradisional MAD ISA",
+      "category": "Tukang Pijat Refleksi",
+      "rating": 4.8,
+      "address": "No., Jl. Raya Karang Bolong No.16",
+      "roadKm": 8.5,
+      "driveMinutes": 12,
+      "mapsUrl": "https://www.google.com/maps/place/Pijat+Urut+Tradisional+MAD+ISA/data=!4m7!3m6!1s0x2e41812bd1e62be9:0x80ae0305b3d888e6!8m2!3d-6.1215254!4d105.8707682!16s%2Fg%2F11g8xhqnb2!19sChIJ6Svm0SuBQS4R5ojYswUDroA",
+      "query": "pijat refleksi"
+    },
+    {
+      "name": "Pijat Tradisional Ibu Ikot Gelereng",
+      "category": "Tukang Pijat Refleksi",
+      "rating": null,
+      "address": "Jalan Fatahila Ling Gelereng 2 Rt 005 Rw 002 Patokan Gang landoh Masjid Al Muhazirin gelereng 2",
+      "roadKm": 11.7,
+      "driveMinutes": 19,
+      "mapsUrl": "https://www.google.com/maps/place/Pijat+Tradisional+Ibu+Ikot+Gelereng/data=!4m7!3m6!1s0x2e69f9a5bdcec357:0x99ac987d80269515!8m2!3d-6.0334546!4d105.9765277!16s%2Fg%2F11vq05dpxy!19sChIJV8POvaX5aS4RFZUmgH2YrJk",
+      "query": "pijat refleksi"
+    },
+    {
+      "name": "BEKAM sehat REFLEXSI",
+      "category": "Tukang Pijat Refleksi",
+      "rating": 5,
+      "address": "Kp kopibera No.RT 05/03",
+      "roadKm": 14.1,
+      "driveMinutes": 20,
+      "mapsUrl": "https://www.google.com/maps/place/BEKAM+sehat+REFLEXSI/data=!4m7!3m6!1s0x2e4181ae78e10e37:0x88a18e46f5555f94!8m2!3d-6.1489497!4d105.8695498!16s%2Fg%2F11t2x9z0cj!19sChIJNw7heK6BQS4RlF9V9UaOoYg",
+      "query": "pijat refleksi"
+    },
+    {
+      "name": "Pijat urut kang muhdi",
+      "category": "Tukang Pijat Refleksi",
+      "rating": null,
+      "address": "Link belumbang",
+      "roadKm": 13.8,
+      "driveMinutes": 23,
+      "mapsUrl": "https://www.google.com/maps/place/Pijat+urut+kang+muhdi/data=!4m7!3m6!1s0x2e418fd6a0b83c81:0x4d3e1014ffb0db40!8m2!3d-6.0233713!4d105.985046!16s%2Fg%2F11z383xb1w!19sChIJgTy4oNaPQS4RQNuw_xQQPk0",
+      "query": "pijat refleksi"
+    }
+  ]
+}

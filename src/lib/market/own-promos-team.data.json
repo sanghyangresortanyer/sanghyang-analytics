@@ -1,0 +1,201 @@
+{
+  "source": "Tim marketing Sanghyang: gambar \"Promo November\" (disampaikan pemakai 14 Nov 2026)",
+  "period": { "start": "2026-11-01", "end": "2026-11-30" },
+  "checkedAt": "2026-11-14",
+  "checked": [
+    "Situs resmi https://sanghyang.com/offers dan halaman outlet (dibaca perayap 14 Nov 2026)",
+    "Instagram https://www.instagram.com/sanghyangresort/ dan Facebook https://www.facebook.com/SanghyangIndahSpa/: robots.txt melarang perayap dan halaman butuh login, jadi belum bisa dibaca tanpa Instagram Graph API akun Sanghyang",
+    "Tarif OTA Sanghyang dari crawl Google Travel 10 Nov 2026"
+  ],
+  "items": [
+    {
+      "outlet": "dbistro",
+      "kind": "promo",
+      "title": "Promo New Menu Pindang Ikan Get 1 Peach Tea",
+      "category": "F&B & Kuliner",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Belum tampil di situs resmi; media sosial belum bisa dibaca perayap." }
+    },
+    {
+      "outlet": "dbistro",
+      "kind": "promo",
+      "title": "Menu cita rasa Banten",
+      "category": "F&B & Kuliner",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Belum tampil di situs resmi; media sosial belum bisa dibaca perayap." }
+    },
+    {
+      "outlet": "dbistro",
+      "kind": "program",
+      "title": "Live",
+      "category": "Program pemasaran",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Program pemasaran internal, bukan penawaran harga." }
+    },
+    {
+      "outlet": "dbistro",
+      "kind": "program",
+      "title": "Influencer Review",
+      "category": "Program pemasaran",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Program pemasaran internal, bukan penawaran harga." }
+    },
+    {
+      "outlet": "sunset-grill",
+      "kind": "promo",
+      "title": "Cocktail 5 Varian",
+      "category": "F&B & Kuliner",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Kartu Sunset Grill Promo di situs resmi menyebut lobster, pizza, kepiting, dan seafood saat senja, tanpa koktail." }
+    },
+    {
+      "outlet": "sunset-grill",
+      "kind": "program",
+      "title": "Influencer Review",
+      "category": "Program pemasaran",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Program pemasaran internal, bukan penawaran harga." }
+    },
+    {
+      "outlet": "sunset-grill",
+      "kind": "program",
+      "title": "Live",
+      "category": "Program pemasaran",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Program pemasaran internal, bukan penawaran harga." }
+    },
+    {
+      "outlet": "dragon-beach-club",
+      "kind": "promo",
+      "title": "Event DJ",
+      "category": "Acara & Live Music",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "sebagian", "note": "Situs resmi (sanghyang.com/entertainment) menyebut Dragon Beach Club rutin menghadirkan DJ, tanpa jadwal November." }
+    },
+    {
+      "outlet": "dragon-beach-club",
+      "kind": "program",
+      "title": "Live",
+      "category": "Program pemasaran",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Program pemasaran internal, bukan penawaran harga." }
+    },
+    {
+      "outlet": "dragon-beach-club",
+      "kind": "promo",
+      "title": "2 Bottle Smirnof / Captain Morgan 1.800K",
+      "category": "F&B & Kuliner",
+      "price": 1800000,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Belum tampil di situs resmi; media sosial belum bisa dibaca perayap." }
+    },
+    {
+      "outlet": "dragon-beach-club",
+      "kind": "promo",
+      "title": "Disc 20% for member",
+      "category": "F&B & Kuliner",
+      "price": null,
+      "discount": 20,
+      "verification": { "status": "belum", "note": "Belum tampil di situs resmi; media sosial belum bisa dibaca perayap." }
+    },
+    {
+      "outlet": "dragon-beach-club",
+      "kind": "promo",
+      "title": "Promo food 10%",
+      "category": "F&B & Kuliner",
+      "price": null,
+      "discount": 10,
+      "verification": { "status": "belum", "note": "Belum tampil di situs resmi; media sosial belum bisa dibaca perayap." }
+    },
+    {
+      "outlet": "dragon-beach-club",
+      "kind": "promo",
+      "title": "Promo family room 750K",
+      "category": "Keluarga & Anak",
+      "price": 750000,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Belum tampil di situs resmi; media sosial belum bisa dibaca perayap." }
+    },
+    {
+      "outlet": "dragon-beach-club",
+      "kind": "promo",
+      "title": "One shooter drink for female guest",
+      "category": "F&B & Kuliner",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Belum tampil di situs resmi; media sosial belum bisa dibaca perayap." }
+    },
+    {
+      "outlet": "resort",
+      "kind": "promo",
+      "title": "Promo Room 365K",
+      "category": "Kamar & Menginap",
+      "price": 365000,
+      "discount": null,
+      "verification": { "status": "sebagian", "note": "Tarif OTA terendah hari biasa Rp 358.000 (Agoda, crawl Google Travel 10 Nov 2026) sejalan; angka promo persisnya belum tampil di situs resmi." }
+    },
+    {
+      "outlet": "resort",
+      "kind": "program",
+      "title": "Live",
+      "category": "Program pemasaran",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Program pemasaran internal, bukan penawaran harga." }
+    },
+    {
+      "outlet": "resort",
+      "kind": "program",
+      "title": "Influencer Review",
+      "category": "Program pemasaran",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Program pemasaran internal, bukan penawaran harga." }
+    },
+    {
+      "outlet": "dspa",
+      "kind": "promo",
+      "title": "30% All treatment (khusus tamu inhouse)",
+      "category": "Wellness & Relaksasi",
+      "price": null,
+      "discount": 30,
+      "verification": { "status": "sebagian", "note": "Situs resmi (kartu Hot Spring Refresh) mencantumkan diskon 30% Hotspring Spa, tanpa menyebut khusus tamu inhouse." }
+    },
+    {
+      "outlet": "dspa",
+      "kind": "promo",
+      "title": "Buy 5 get 1 free",
+      "category": "Wellness & Relaksasi",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Situs resmi mencantumkan Buy 1 Get 1 Aquamedic Rp 350.000, bukan beli 5 gratis 1." }
+    },
+    {
+      "outlet": "dspa",
+      "kind": "program",
+      "title": "Live",
+      "category": "Program pemasaran",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Program pemasaran internal, bukan penawaran harga." }
+    },
+    {
+      "outlet": "dspa",
+      "kind": "program",
+      "title": "Influencer Review",
+      "category": "Program pemasaran",
+      "price": null,
+      "discount": null,
+      "verification": { "status": "belum", "note": "Program pemasaran internal, bukan penawaran harga." }
+    }
+  ]
+}

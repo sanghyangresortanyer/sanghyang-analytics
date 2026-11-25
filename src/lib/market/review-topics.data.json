@@ -1,0 +1,867 @@
+{
+  "$comment": "Topik ulasan Google Maps per tempat (tombol 'x, disebutkan dalam n ulasan' di tab Ulasan), ditulis scripts/ops/crawl-venue-reviews.ts --apply atau scripts/ops/ingest-crawl4ai-venues.ts --apply (render Crawl4AI) dari tampilan yang disajikan untuk perayap jujur SanghyangNewsCrawler/1.0. Jangan diubah manual.",
+  "places": {
+    "Ikan Bakar Tanjung Pinang 88": {
+      "url": "https://www.google.com/maps/place/Ikan+Bakar+Tanjung+Pinang+88/data=!4m7!3m6!1s0x2e41844cbc7f4ac1:0x29f5a42be547e991!8m2!3d-6.0547984!4d105.9165164!16s%2Fg%2F11bc7qfrzg!19sChIJwUp_vEyEQS4RkelH5Suk9Sk",
+      "observedAt": "2026-11-16T19:18:34+00:00",
+      "topics": [
+        {
+          "label": "udang",
+          "count": 19
+        },
+        {
+          "label": "AC",
+          "count": 18
+        },
+        {
+          "label": "chinese food",
+          "count": 13
+        },
+        {
+          "label": "mobil",
+          "count": 11
+        },
+        {
+          "label": "tepung",
+          "count": 10
+        },
+        {
+          "label": "juara",
+          "count": 8
+        },
+        {
+          "label": "pantai",
+          "count": 7
+        },
+        {
+          "label": "fuyunghai",
+          "count": 6
+        },
+        {
+          "label": "capcay",
+          "count": 6
+        },
+        {
+          "label": "kakap",
+          "count": 6
+        }
+      ]
+    },
+    "RM.MUARO": {
+      "url": "https://www.google.com/maps/place/RM.MUARO/data=!4m7!3m6!1s0x2e41840fb68808f3:0x4a1856bba9cdee9a!8m2!3d-6.0705315!4d105.8861212!16s%2Fg%2F11bc7t5jq6!19sChIJ8wiItg-EQS4Rmu7NqbtWGEo",
+      "observedAt": "2026-11-16T19:18:44+00:00",
+      "topics": [
+        {
+          "label": "lalat",
+          "count": 41
+        },
+        {
+          "label": "ikan bakar",
+          "count": 33
+        },
+        {
+          "label": "sambel",
+          "count": 33
+        },
+        {
+          "label": "standar",
+          "count": 21
+        },
+        {
+          "label": "kue",
+          "count": 18
+        },
+        {
+          "label": "saus padang",
+          "count": 17
+        },
+        {
+          "label": "tepung",
+          "count": 17
+        },
+        {
+          "label": "sungai",
+          "count": 12
+        },
+        {
+          "label": "kangkung",
+          "count": 12
+        },
+        {
+          "label": "relatif",
+          "count": 9
+        }
+      ]
+    },
+    "Happy Puppy Karaoke": {
+      "url": "https://www.google.com/maps/place/Happy+Puppy+Karaoke/data=!4m7!3m6!1s0x2e418dcfee51d02f:0x1ab867537d45a232!8m2!3d-6.0282272!4d106.0766928!16s%2Fg%2F11b6_d_94x!19sChIJL9BR7s-NQS4RMqJFfVNnuBo",
+      "observedAt": "2026-11-16T19:18:55+00:00",
+      "topics": [
+        {
+          "label": "sound",
+          "count": 55
+        },
+        {
+          "label": "keluarga",
+          "count": 52
+        },
+        {
+          "label": "promo",
+          "count": 48
+        },
+        {
+          "label": "ruangan",
+          "count": 38
+        },
+        {
+          "label": "mic",
+          "count": 21
+        },
+        {
+          "label": "tempat parkir",
+          "count": 7
+        },
+        {
+          "label": "kasir",
+          "count": 7
+        },
+        {
+          "label": "nyaman",
+          "count": 6
+        },
+        {
+          "label": "berat",
+          "count": 5
+        },
+        {
+          "label": "bau",
+          "count": 5
+        }
+      ]
+    },
+    "BM Seaside View Cafe & Resto": {
+      "url": "https://www.google.com/maps/place/BM+Seaside+View+Resto+%26+Cafe/@-6.176976,105.8092916,14z/data=!4m10!1m2!2m1!1sBM+Seaside+View+Cafe+%26+Resto+Anyer!3m6!1s0x2e422b000a511091:0x860bdb351a659255!8m2!3d-6.176976!4d105.8453405!15sCiJCTSBTZWFzaWRlIFZpZXcgQ2FmZSAmIFJlc3RvIEFueWVyWiQiImJtIHNlYXNpZGUgdmlldyBjYWZlICYgcmVzdG8gYW55ZXKSARJzZWFmb29kX3Jlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnRzVWxKSVNrSmFNRkpyVjBadmQyUnRkek5VTTBwb1ltMTNkMWRzUlJBQuABAPoBBAg1ED4!16s%2Fg%2F11yc86zwyz",
+      "observedAt": "2026-11-16T19:19:39+00:00",
+      "topics": [
+        {
+          "label": "ikan bakar",
+          "count": 44
+        },
+        {
+          "label": "bumbu",
+          "count": 43
+        },
+        {
+          "label": "pemandangan",
+          "count": 30
+        },
+        {
+          "label": "toilet",
+          "count": 28
+        },
+        {
+          "label": "juara",
+          "count": 24
+        },
+        {
+          "label": "bean bag",
+          "count": 20
+        },
+        {
+          "label": "kue bakar",
+          "count": 9
+        },
+        {
+          "label": "rica",
+          "count": 9
+        },
+        {
+          "label": "taliwang",
+          "count": 8
+        },
+        {
+          "label": "tempe mendoan",
+          "count": 5
+        }
+      ]
+    },
+    "Kalani Beach Resto Anyer": {
+      "url": "https://www.google.com/maps/place/Kalani+Beach+Resto/@-6.1702936,105.8486378,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422bbd15819ef7:0xeae487b7d314a2d1!8m2!3d-6.1702936!4d105.8486378!16s%2Fg%2F11tjv2cqvw",
+      "observedAt": "2026-11-18T07:40:34.013Z",
+      "topics": [
+        {
+          "label": "ikan bakar",
+          "count": 36
+        },
+        {
+          "label": "bumbu",
+          "count": 31
+        },
+        {
+          "label": "sambal",
+          "count": 28
+        },
+        {
+          "label": "tepung",
+          "count": 22
+        },
+        {
+          "label": "pesan",
+          "count": 16
+        },
+        {
+          "label": "cah kangkung",
+          "count": 15
+        },
+        {
+          "label": "saus padang",
+          "count": 14
+        },
+        {
+          "label": "ombak",
+          "count": 9
+        },
+        {
+          "label": "kerang ijo",
+          "count": 5
+        },
+        {
+          "label": "ayam bakar",
+          "count": 5
+        }
+      ]
+    },
+    "Kamalika Beach Cafe & Resto": {
+      "url": "https://www.google.com/maps/place/Kamalika+Beach+Cafe+%26+Resto/data=!4m7!3m6!1s0x2e4185003a6a47a3:0x31b9c161b5470370!8m2!3d-6.0539428!4d105.9140892!16s%2Fg%2F11xnpvrfqk!19sChIJo0dqOgCFQS4RcANHtWHBuTE",
+      "observedAt": "2026-11-16T19:20:53+00:00",
+      "topics": [
+        {
+          "label": "sunset",
+          "count": 22
+        },
+        {
+          "label": "pesan",
+          "count": 19
+        },
+        {
+          "label": "santai",
+          "count": 15
+        },
+        {
+          "label": "pemandangan",
+          "count": 14
+        },
+        {
+          "label": "bumbunya",
+          "count": 14
+        },
+        {
+          "label": "estetik",
+          "count": 11
+        },
+        {
+          "label": "ayam bakar",
+          "count": 8
+        },
+        {
+          "label": "ikan bakar",
+          "count": 8
+        },
+        {
+          "label": "ombak",
+          "count": 7
+        },
+        {
+          "label": "pisang goreng",
+          "count": 5
+        }
+      ]
+    },
+    "Beach Point Anyer": {
+      "url": "https://www.google.com/maps/place/Beach+Point+Anyer/@-6.0504507,105.9206514,17z/data=!3m1!4b1!4m6!3m5!1s0x2e418582d4c0d86f:0x484ec6498d17e9c6!8m2!3d-6.0504507!4d105.9206514!16s%2Fg%2F11sx3bdtl3",
+      "observedAt": "2026-11-18T07:40:34.013Z",
+      "topics": [
+        {
+          "label": "sunset",
+          "count": 86
+        },
+        {
+          "label": "santai",
+          "count": 27
+        },
+        {
+          "label": "bean bag",
+          "count": 23
+        },
+        {
+          "label": "barcode",
+          "count": 13
+        },
+        {
+          "label": "makanan minuman",
+          "count": 12
+        },
+        {
+          "label": "live music",
+          "count": 10
+        },
+        {
+          "label": "toilet",
+          "count": 10
+        },
+        {
+          "label": "karpet",
+          "count": 5
+        },
+        {
+          "label": "healing",
+          "count": 5
+        },
+        {
+          "label": "ombak",
+          "count": 5
+        }
+      ]
+    },
+    "Omah Laut Cafe & Resto": {
+      "url": "https://www.google.com/maps/place/Omah+Laut+Cafe+%26+Resto/@-6.202712,105.83541,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b004382dee1:0xf81088ae5527e562!8m2!3d-6.202712!4d105.83541!16s%2Fg%2F11zx2cv0v4",
+      "observedAt": "2026-11-16T19:20:10+00:00",
+      "topics": [
+        {
+          "label": "estetik",
+          "count": 3
+        },
+        {
+          "label": "sunset",
+          "count": 2
+        },
+        {
+          "label": "tumis",
+          "count": 2
+        },
+        {
+          "label": "matcha",
+          "count": 2
+        },
+        {
+          "label": "lalat",
+          "count": 2
+        },
+        {
+          "label": "pantai",
+          "count": 2
+        },
+        {
+          "label": "santai",
+          "count": 2
+        },
+        {
+          "label": "pesan",
+          "count": 2
+        },
+        {
+          "label": "kantong",
+          "count": 2
+        },
+        {
+          "label": "duduk",
+          "count": 2
+        }
+      ]
+    },
+    "Andalan Beach Resto & Coffee": {
+      "url": "https://www.google.com/maps/place/Andalan+Beach+Resto+%26+Coffee/data=!4m7!3m6!1s0x2e4185b086a44675:0xf70acd5fe1f0ce1!8m2!3d-6.0529988!4d105.9153982!16s%2Fg%2F11nhjnsfn1!19sChIJdUakhrCFQS4R4Qwf_tWscA8",
+      "observedAt": "2026-11-18T07:40:34.013Z",
+      "topics": [
+        {
+          "label": "foto",
+          "count": 6
+        },
+        {
+          "label": "estetik",
+          "count": 5
+        },
+        {
+          "label": "laut",
+          "count": 5
+        },
+        {
+          "label": "pesan",
+          "count": 5
+        },
+        {
+          "label": "gurame",
+          "count": 3
+        },
+        {
+          "label": "makanan minuman",
+          "count": 3
+        },
+        {
+          "label": "tahu",
+          "count": 3
+        },
+        {
+          "label": "butterscotch",
+          "count": 2
+        },
+        {
+          "label": "ayam bakar",
+          "count": 2
+        },
+        {
+          "label": "tanggal",
+          "count": 2
+        }
+      ]
+    },
+    "Sunset Cafe Aston Anyer": {
+      "url": "https://www.google.com/maps/place/Sunset+Cafe+Aston/@-6.1442864,105.8559076,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4180c08b9ccb87:0x12f00804ae84ff17!8m2!3d-6.1442864!4d105.8559076!16s%2Fg%2F11c5s643mn",
+      "observedAt": "2026-11-16T19:19:28+00:00",
+      "topics": [
+        {
+          "label": "laut",
+          "count": 3
+        },
+        {
+          "label": "nasi goreng",
+          "count": 3
+        },
+        {
+          "label": "pad thai",
+          "count": 2
+        },
+        {
+          "label": "hotel",
+          "count": 2
+        },
+        {
+          "label": "atmosphere",
+          "count": 2
+        }
+      ]
+    },
+    "Serai Restaurant Novus Jiva Anyer": {
+      "url": "https://www.google.com/maps/place/Serai+Cafe+at+Novus+Jiva/@-6.2180252,105.8340536,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b15b7f93d6d:0xd9cf781cb2b96202!8m2!3d-6.2180252!4d105.8340536!16s%2Fg%2F11m_g37l68",
+      "observedAt": "2026-11-18T07:40:34.013Z",
+      "topics": [
+        {
+          "label": "mba",
+          "count": 22
+        },
+        {
+          "label": "hotel",
+          "count": 19
+        },
+        {
+          "label": "desi",
+          "count": 9
+        },
+        {
+          "label": "pesan",
+          "count": 9
+        },
+        {
+          "label": "fried rice",
+          "count": 8
+        },
+        {
+          "label": "kolam renang",
+          "count": 6
+        },
+        {
+          "label": "ilah",
+          "count": 5
+        },
+        {
+          "label": "pizza jamur",
+          "count": 5
+        },
+        {
+          "label": "arroz al horno",
+          "count": 5
+        },
+        {
+          "label": "lalat",
+          "count": 5
+        }
+      ]
+    },
+    "Sarasa Lounge Novus Jiva Anyer": {
+      "url": "https://www.google.com/maps/place/Sarasa+Lounge+at+Novus+Jiva/@-6.2182734,105.8338705,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b295764287b:0xdc3d91efca53bd7a!8m2!3d-6.2182734!4d105.8338705!16s%2Fg%2F11m_ykjvbw",
+      "observedAt": "2026-11-18T07:40:34.013Z",
+      "topics": [
+        {
+          "label": "laut",
+          "count": 7
+        },
+        {
+          "label": "hotel",
+          "count": 4
+        },
+        {
+          "label": "pemandangan",
+          "count": 3
+        },
+        {
+          "label": "mba",
+          "count": 2
+        }
+      ]
+    },
+    "RM. Benhil Jaya Seafood Anyer": {
+      "url": "https://www.google.com/maps/place/RM.+Benhil+Jaya+Seafood+Anyer/@-6.1442383,105.8570122,17z/data=!4m6!3m5!1s0x2e41810032d03091:0x3f126597d1724869!8m2!3d-6.1442383!4d105.8570122!16s%2Fg%2F11z9hk4vk_",
+      "observedAt": "2026-11-18T07:40:34.013Z",
+      "topics": [
+        {
+          "label": "luas",
+          "count": 7
+        },
+        {
+          "label": "ikan",
+          "count": 4
+        },
+        {
+          "label": "kerang",
+          "count": 2
+        },
+        {
+          "label": "udangnya",
+          "count": 2
+        },
+        {
+          "label": "bintang",
+          "count": 2
+        },
+        {
+          "label": "daerah",
+          "count": 2
+        },
+        {
+          "label": "bumbu",
+          "count": 2
+        },
+        {
+          "label": "sambel",
+          "count": 2
+        }
+      ]
+    },
+    "RM 195 Seafood": {
+      "url": "https://www.google.com/maps/place/RM+195+Seafood/@-6.2035796,105.83519,17z/data=!4m6!3m5!1s0x2e422bbd56a624f5:0xe8ebb3865a40267c!8m2!3d-6.2035796!4d105.83519!16s%2Fg%2F11qn132cl4",
+      "observedAt": "2026-11-17T11:20:00+07:00",
+      "topics": [
+        {
+          "label": "pantai",
+          "count": 96
+        },
+        {
+          "label": "luas",
+          "count": 50
+        },
+        {
+          "label": "ikan bakar",
+          "count": 21
+        },
+        {
+          "label": "bumbu",
+          "count": 17
+        },
+        {
+          "label": "pemandangan",
+          "count": 16
+        },
+        {
+          "label": "sambel",
+          "count": 8
+        },
+        {
+          "label": "tempe",
+          "count": 7
+        },
+        {
+          "label": "kue",
+          "count": 7
+        },
+        {
+          "label": "juara",
+          "count": 7
+        },
+        {
+          "label": "pedagang",
+          "count": 5
+        }
+      ]
+    },
+    "Warung Ikan Bakar ABAH JUNED": {
+      "url": "https://www.google.com/maps/place/Warung+Ikan+Bakar+ABAH+JUNED/@-6.064319,105.9200628,17z/data=!4m6!3m5!1s0x2e418434f77a8621:0x5253874d8d5e62b2!8m2!3d-6.064319!4d105.9200628!16s%2Fg%2F11b8782lzj",
+      "observedAt": "2026-11-17T11:20:00+07:00",
+      "topics": [
+        {
+          "label": "seafood",
+          "count": 9
+        },
+        {
+          "label": "udang",
+          "count": 6
+        },
+        {
+          "label": "sambal",
+          "count": 6
+        },
+        {
+          "label": "lalapan",
+          "count": 4
+        },
+        {
+          "label": "parkiran",
+          "count": 4
+        },
+        {
+          "label": "strategis",
+          "count": 3
+        },
+        {
+          "label": "otak-otak",
+          "count": 2
+        },
+        {
+          "label": "kue",
+          "count": 2
+        },
+        {
+          "label": "kelapa",
+          "count": 2
+        },
+        {
+          "label": "asem",
+          "count": 2
+        }
+      ]
+    },
+    "Kembang Sari Anyer": {
+      "url": "https://www.google.com/maps/place/Kembang+Sari+Anyer/@-6.0827013,105.8847053,17z/data=!4m6!3m5!1s0x2e41841955555555:0xf84e172f1fcf7f41!8m2!3d-6.0827013!4d105.8847053!16s%2Fg%2F11g_yrs31",
+      "observedAt": "2026-11-18T07:40:34.013Z",
+      "topics": [
+        {
+          "label": "ikan bakar",
+          "count": 31
+        },
+        {
+          "label": "bumbu",
+          "count": 24
+        },
+        {
+          "label": "sambal",
+          "count": 23
+        },
+        {
+          "label": "rica",
+          "count": 16
+        },
+        {
+          "label": "kue",
+          "count": 14
+        },
+        {
+          "label": "kangkung",
+          "count": 14
+        },
+        {
+          "label": "tepung",
+          "count": 13
+        },
+        {
+          "label": "pesan",
+          "count": 11
+        },
+        {
+          "label": "juara",
+          "count": 10
+        },
+        {
+          "label": "saus padang",
+          "count": 5
+        }
+      ]
+    },
+    "Rumah Makan Sunset": {
+      "url": "https://www.google.com/maps/place/Rumah+Makan+Sunset/@-6.1997945,105.8365395,17z/data=!4m6!3m5!1s0x2e422bec03031e97:0x52694225512622a0!8m2!3d-6.1997945!4d105.8365395!16s%2Fg%2F11rf4gsn2l",
+      "observedAt": "2026-11-17T11:20:00+07:00",
+      "topics": [
+        {
+          "label": "ikan bakar",
+          "count": 54
+        },
+        {
+          "label": "sambel",
+          "count": 50
+        },
+        {
+          "label": "bumbu",
+          "count": 40
+        },
+        {
+          "label": "cah kangkung",
+          "count": 27
+        },
+        {
+          "label": "lalat",
+          "count": 24
+        },
+        {
+          "label": "kue",
+          "count": 21
+        },
+        {
+          "label": "saus padang",
+          "count": 14
+        },
+        {
+          "label": "pete",
+          "count": 10
+        },
+        {
+          "label": "ikan asin",
+          "count": 10
+        },
+        {
+          "label": "lalapan",
+          "count": 8
+        }
+      ]
+    },
+    "West Cove Terrace": {
+      "url": "https://www.google.com/maps/place/West+Cove+Terrace/@-6.1931145,105.8416843,17z/data=!4m6!3m5!1s0x2e422b94a96f00cf:0xec5d9350255976d4!8m2!3d-6.1931145!4d105.8416843!16s%2Fg%2F11t46gzjyr",
+      "observedAt": "2026-11-17T11:20:00+07:00",
+      "topics": [
+        {
+          "label": "pantai",
+          "count": 28
+        },
+        {
+          "label": "sunset",
+          "count": 6
+        },
+        {
+          "label": "nasi goreng",
+          "count": 6
+        },
+        {
+          "label": "pemandangan",
+          "count": 5
+        }
+      ]
+    },
+    "Kalyana Mitta Lounge & Karaoke": {
+      "url": "https://www.google.com/maps/place/Kalyana+Mitta+Lounge+%26+Karaoke/@-6.0194018,106.0592815,17z/data=!4m6!3m5!1s0x2e418e7466ec708b:0x2a5ef61b4963e1d6!8m2!3d-6.0194018!4d106.0592815!16s%2Fg%2F11bw4x39hy",
+      "observedAt": "2026-11-18T07:40:34.013Z",
+      "topics": [
+        {
+          "label": "hotel",
+          "count": 4
+        },
+        {
+          "label": "harga",
+          "count": 4
+        },
+        {
+          "label": "penginapan",
+          "count": 3
+        },
+        {
+          "label": "luas",
+          "count": 3
+        }
+      ]
+    },
+    "Anang Family Karaoke": {
+      "url": "https://www.google.com/maps/place/Anang+Family+Karaoke/@-6.0355601,106.0809605,17z/data=!4m6!3m5!1s0x2e418dccaf89b0a1:0x49e7b83a7e89c7be!8m2!3d-6.0355601!4d106.0809605!16s%2Fg%2F11c5s998gp",
+      "observedAt": "2026-11-17T11:20:00+07:00",
+      "topics": [
+        {
+          "label": "sound",
+          "count": 11
+        },
+        {
+          "label": "room",
+          "count": 11
+        },
+        {
+          "label": "pelayanan",
+          "count": 7
+        },
+        {
+          "label": "mic",
+          "count": 6
+        },
+        {
+          "label": "luas",
+          "count": 2
+        },
+        {
+          "label": "dingin",
+          "count": 2
+        }
+      ]
+    },
+    "Belia Spa and Reflexy Cilegon": {
+      "url": "https://www.google.com/maps/place/Belia+Spa+and+Reflexy+Cilegon/@-6.0357317,106.0805985,17z/data=!4m6!3m5!1s0x2e418d87175fe1b7:0xf97ec0ed8e2ac9ed!8m2!3d-6.0357317!4d106.0805985!16s%2Fg%2F11c1b6jc2c",
+      "observedAt": "2026-11-17T11:20:00+07:00",
+      "topics": [
+        {
+          "label": "therapist",
+          "count": 4
+        },
+        {
+          "label": "hp",
+          "count": 3
+        },
+        {
+          "label": "kata",
+          "count": 2
+        },
+        {
+          "label": "resepsionis",
+          "count": 2
+        },
+        {
+          "label": "pelayanan",
+          "count": 2
+        }
+      ]
+    },
+    "Lagoon Restaurant Mövenpick": {
+      "url": "https://www.google.com/maps/place/Lagoon+Restaurant/@-6.2407264,105.8264071,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b0077aac075:0xce2d482a71b762be!8m2!3d-6.2407264!4d105.8264071!16s%2Fg%2F11z9mnwvqc!19sChIJdcCqdwArQi4RvmK3cSpILc4",
+      "observedAt": "2026-11-18T07:40:34.013Z",
+      "topics": [
+        {
+          "label": "hotel",
+          "count": 5
+        },
+        {
+          "label": "sandwich",
+          "count": 2
+        },
+        {
+          "label": "nasi goreng",
+          "count": 2
+        },
+        {
+          "label": "pesan",
+          "count": 2
+        }
+      ]
+    },
+    "Lagoon Restaurant Jayakarta": {
+      "url": "https://www.google.com/maps/place/Lagoon+Restaurant+Jayakarta/@-6.1095286,105.881188,17z/data=!4m6!3m5!1s0x2e4186cc1a60fdcf:0x32d5babc29eb1fb8!8m2!3d-6.1095286!4d105.881188!16s%2Fg%2F11gfmh4zct",
+      "observedAt": "2026-11-18T07:40:34.013Z",
+      "topics": [
+        {
+          "label": "pantai",
+          "count": 2
+        }
+      ]
+    }
+  }
+}

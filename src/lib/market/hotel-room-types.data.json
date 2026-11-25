@@ -1,0 +1,1428 @@
+{
+  "observedAt": "2026-11-19",
+  "sourceRule": "Spesifikasi tipe kamar diambil dari situs resmi hotel/resort dan OTA publik sah; bila terdapat perbedaan (luas m², nama tipe, atau fasilitas), data situs resmi selalu diprioritaskan dan selisihnya dicatat pada conflictNote.",
+  "hotels": [
+    {
+      "hotelId": "sanghyang",
+      "name": "Sanghyang Indah Spa Resort",
+      "hasMultiBedroomUnit": true,
+      "multiBedroomNote": "5 tipe unit 2 kamar tidur (maks 4 tamu): New Baduy Condo (60 m², 2 lantai), Krakatau Villa (70 m²), Krakatau Beach View (70 m²), Krakatau Suite (94 m²), dan Baduy Suite (115 m²).",
+      "roomTypes": [
+        {
+          "name": "Sanghyang Deluxe",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 25,
+          "areaLabel": "25 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "1 ranjang king (maks 2 tamu)",
+            "Pemandangan taman",
+            "Minibar, kulkas & pembuat kopi"
+          ],
+          "weekdayPrice": 475000,
+          "weekendPrice": 1008595,
+          "priceSource": "Hotels.com (weekday) · Booking.com (weekend)",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi sanghyang.com",
+          "sourceUrl": "https://sanghyang.com/rooms/sanghyang-deluxe",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Booking.com) mencantumkan 24–28 m²; dipakai luas resmi 25 m² dari sanghyang.com/rooms/sanghyang-deluxe."
+        },
+        {
+          "name": "Sanghyang Suite",
+          "category": "suite",
+          "bedrooms": 1,
+          "areaSqm": 28,
+          "areaLabel": "28 m²",
+          "smartTv": false,
+          "bathtub": true,
+          "highlights": [
+            "1 ranjang king (maks 2 tamu)",
+            "Kamar mandi dengan bathtub",
+            "Brankas, minibar & pembuat kopi"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": 1260744,
+          "priceSource": "Booking.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi sanghyang.com",
+          "sourceUrl": "https://sanghyang.com/rooms/sanghyang-suite",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Booking.com) mencantumkan hingga 40 m²; dipakai luas resmi 28 m² dari sanghyang.com/rooms/sanghyang-suite."
+        },
+        {
+          "name": "New Baduy Condo",
+          "category": "condo",
+          "bedrooms": 2,
+          "areaSqm": 60,
+          "areaLabel": "60 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "2 kamar tidur di lantai atas (maks 4 tamu)",
+            "Hunian 2 lantai dengan ruang keluarga",
+            "2 kamar mandi & pantry berkompor gas"
+          ],
+          "weekdayPrice": 760000,
+          "weekendPrice": 1596942,
+          "priceSource": "Hotels.com (weekday) · Booking.com (weekend)",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi sanghyang.com",
+          "sourceUrl": "https://sanghyang.com/rooms/new-baduy-condo",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Krakatau Villa",
+          "category": "villa",
+          "bedrooms": 2,
+          "areaSqm": 70,
+          "areaLabel": "70 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "2 kamar tidur (queen & twin, maks 4 tamu)",
+            "Cottage beratap genteng di taman tropis",
+            "2 kamar mandi, ruang makan & pantry"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi sanghyang.com",
+          "sourceUrl": "https://sanghyang.com/rooms/krakatau-villa",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Agoda/Booking.com) mencantumkan 70–85 m²; dipakai luas resmi 70 m² dari sanghyang.com/rooms/krakatau-villa."
+        },
+        {
+          "name": "Krakatau Beach View",
+          "category": "villa",
+          "bedrooms": 2,
+          "areaSqm": 70,
+          "areaLabel": "70 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "2 kamar tidur (queen & twin, maks 4 tamu)",
+            "Teras menghadap laut (Sea view)",
+            "2 kamar mandi, ruang makan & pantry"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi sanghyang.com",
+          "sourceUrl": "https://sanghyang.com/rooms/krakatau-beach-view",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Agoda/Booking.com) mencantumkan 70–85 m²; dipakai luas resmi 70 m² dari sanghyang.com/rooms/krakatau-beach-view."
+        },
+        {
+          "name": "Krakatau Suite",
+          "category": "suite",
+          "bedrooms": 2,
+          "areaSqm": 94,
+          "areaLabel": "94 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "2 kamar tidur (king & twin, maks 4 tamu)",
+            "Plafon tinggi & ruang keluarga",
+            "Ruang makan & pantry dapur"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi sanghyang.com",
+          "sourceUrl": "https://sanghyang.com/rooms/krakatau-suite",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Baduy Suite",
+          "category": "suite",
+          "bedrooms": 2,
+          "areaSqm": 115,
+          "areaLabel": "115 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "2 kamar tidur (king & 2 twin, maks 4 tamu)",
+            "2 kamar mandi air panas & garden view",
+            "Ruang makan & pantry dapur"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi sanghyang.com",
+          "sourceUrl": "https://sanghyang.com/rooms/baduy-suite",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        }
+      ]
+    },
+    {
+      "hotelId": "my_pisita_anyer",
+      "name": "My Pisita Anyer Resort",
+      "hasMultiBedroomUnit": true,
+      "multiBedroomNote": "5 tipe vila/cottage multi-kamar: Karang Bolong (2 kamar tidur, 32–33 m² OTA), Bandulu (2 kamar tidur, 33 m² OTA), Parangtritis (3 kamar tidur, 40 m² OTA), Kuta (3 kamar tidur), dan Kuta Plus (4 kamar tidur).",
+      "roomTypes": [
+        {
+          "name": "Maisonette",
+          "category": "cottage",
+          "bedrooms": 1,
+          "areaSqm": null,
+          "areaLabel": null,
+          "smartTv": null,
+          "bathtub": false,
+          "highlights": [
+            "1 kamar tidur & 1 kamar mandi",
+            "Kapasitas 2 tamu",
+            "Termasuk sarapan 2 orang"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi pisitahotelanyer.com",
+          "sourceUrl": "https://pisitahotelanyer.com/",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Situs resmi pisitahotelanyer.com tidak mencantumkan luas m² dan spesifikasi Smart TV untuk Maisonette."
+        },
+        {
+          "name": "Karang Bolong",
+          "category": "cottage",
+          "bedrooms": 2,
+          "areaSqm": 32,
+          "areaLabel": "32–33 m²",
+          "smartTv": null,
+          "bathtub": false,
+          "highlights": [
+            "2 kamar tidur & 1 kamar mandi",
+            "Kapasitas 4 tamu",
+            "Termasuk sarapan 4 orang"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi pisitahotelanyer.com (luas m² dari Traveloka/Trip.com)",
+          "sourceUrl": "https://pisitahotelanyer.com/",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Situs resmi tidak mencantumkan luas m²; rentang 32–33 m² dilengkapi dari listing Traveloka dan Trip.com."
+        },
+        {
+          "name": "Bandulu",
+          "category": "cottage",
+          "bedrooms": 2,
+          "areaSqm": 33,
+          "areaLabel": "33 m²",
+          "smartTv": null,
+          "bathtub": false,
+          "highlights": [
+            "2 kamar tidur & 1 kamar mandi",
+            "Kapasitas 4 tamu",
+            "Termasuk sarapan 4 orang"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi pisitahotelanyer.com (luas m² dari Traveloka/Trip.com)",
+          "sourceUrl": "https://pisitahotelanyer.com/",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Situs resmi tidak mencantumkan luas m²; angka 33 m² dilengkapi dari listing Traveloka dan Trip.com."
+        },
+        {
+          "name": "Parangtritis",
+          "category": "cottage",
+          "bedrooms": 3,
+          "areaSqm": 40,
+          "areaLabel": "40 m²",
+          "smartTv": null,
+          "bathtub": false,
+          "highlights": [
+            "3 kamar tidur & 2 kamar mandi",
+            "Kapasitas 6 tamu",
+            "Termasuk sarapan 6 orang"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi pisitahotelanyer.com (luas m² dari Traveloka/Trip.com)",
+          "sourceUrl": "https://pisitahotelanyer.com/",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Situs resmi tidak mencantumkan luas m²; angka 40 m² dilengkapi dari listing Traveloka dan Trip.com."
+        },
+        {
+          "name": "Kuta",
+          "category": "villa",
+          "bedrooms": 3,
+          "areaSqm": null,
+          "areaLabel": null,
+          "smartTv": null,
+          "bathtub": null,
+          "highlights": [
+            "3 kamar tidur (kelompok 3–4 kamar tidur)",
+            "Kapasitas 6 tamu",
+            "2–3 kamar mandi & sarapan 6 orang"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi pisitahotelanyer.com",
+          "sourceUrl": "https://pisitahotelanyer.com/",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Situs resmi pisitahotelanyer.com tidak mencantumkan luas m² untuk tipe Kuta."
+        },
+        {
+          "name": "Kuta Plus",
+          "category": "villa",
+          "bedrooms": 4,
+          "areaSqm": null,
+          "areaLabel": null,
+          "smartTv": null,
+          "bathtub": null,
+          "highlights": [
+            "4 kamar tidur untuk keluarga besar",
+            "Kapasitas 8 tamu",
+            "2–3 kamar mandi & sarapan 8 orang"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi pisitahotelanyer.com",
+          "sourceUrl": "https://pisitahotelanyer.com/",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Situs resmi pisitahotelanyer.com tidak mencantumkan luas m² untuk tipe Kuta Plus."
+        }
+      ]
+    },
+    {
+      "hotelId": "nemuru_palazo",
+      "name": "Nemuru Grand Anyer Palazo",
+      "hasMultiBedroomUnit": true,
+      "multiBedroomNote": "2 tipe unit 2 kamar tidur untuk 4 tamu: Town House 2 Bed Room (48–52 m² OTA) dan Wooden Cabin 2 Bed Room (49–55 m² OTA), keduanya dilengkapi Smart TV dan balkon/teras.",
+      "roomTypes": [
+        {
+          "name": "Town House 1 Bed Room - King Bed",
+          "category": "villa",
+          "bedrooms": 1,
+          "areaSqm": 38,
+          "areaLabel": "38–42 m²",
+          "smartTv": true,
+          "bathtub": false,
+          "highlights": [
+            "1 kamar tidur ranjang king (2 tamu)",
+            "Smart TV & Rain Shower",
+            "Balkon/teras pribadi"
+          ],
+          "weekdayPrice": 600000,
+          "weekendPrice": 760000,
+          "priceSource": "Booking engine resmi be.dip.id (24 & 21 Nov 2026)",
+          "sourcePriority": "official",
+          "sourceLabel": "Booking engine resmi Nemuru (be.dip.id) & nemuruhotels.com",
+          "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Nama tipe, fasilitas Smart TV, dan tarif memakai booking engine resmi be.dip.id (OTA tiket.com/Agoda memakai variasi nama '1-Bedroom Town House Villa'); luas 38–42 m² dilengkapi dari Traveloka/Klook/Hotels.com karena situs resmi tidak mencantumkan m²."
+        },
+        {
+          "name": "Town House 2 Bed Room - King Bed",
+          "category": "villa",
+          "bedrooms": 2,
+          "areaSqm": 48,
+          "areaLabel": "48–52 m²",
+          "smartTv": true,
+          "bathtub": false,
+          "highlights": [
+            "2 kamar tidur (4 tamu)",
+            "Smart TV & Rain Shower",
+            "Balkon/teras pribadi"
+          ],
+          "weekdayPrice": 800000,
+          "weekendPrice": 1140000,
+          "priceSource": "Booking engine resmi be.dip.id (24 & 21 Nov 2026)",
+          "sourcePriority": "official",
+          "sourceLabel": "Booking engine resmi Nemuru (be.dip.id) & nemuruhotels.com",
+          "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Nama tipe, fasilitas Smart TV, dan tarif memakai booking engine resmi be.dip.id; luas 48–52 m² dilengkapi dari Agoda/Klook/Expedia karena situs resmi tidak mencantumkan m²."
+        },
+        {
+          "name": "Wooden Cabin 1 Bed Room - King Bed",
+          "category": "cottage",
+          "bedrooms": 1,
+          "areaSqm": 29,
+          "areaLabel": "29–30 m²",
+          "smartTv": true,
+          "bathtub": false,
+          "highlights": [
+            "Kabin kayu 1 kamar tidur (2 tamu)",
+            "Pemandangan pantai (Beach View)",
+            "Smart TV & Rain Shower"
+          ],
+          "weekdayPrice": 700000,
+          "weekendPrice": 845500,
+          "priceSource": "Booking engine resmi be.dip.id (24 & 21 Nov 2026)",
+          "sourcePriority": "official",
+          "sourceLabel": "Booking engine resmi Nemuru (be.dip.id) & nemuruhotels.com",
+          "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Nama tipe, fasilitas Smart TV/Beach View, dan tarif memakai booking engine resmi be.dip.id; luas 29–30 m² dilengkapi dari Traveloka/Klook karena situs resmi tidak mencantumkan m²."
+        },
+        {
+          "name": "Wooden Cabin 2 Bed Room - King Bed",
+          "category": "cottage",
+          "bedrooms": 2,
+          "areaSqm": 49,
+          "areaLabel": "49–55 m²",
+          "smartTv": true,
+          "bathtub": false,
+          "highlights": [
+            "Kabin kayu 2 kamar tidur (4 tamu)",
+            "Smart TV & Rain Shower",
+            "Balkon/teras pribadi"
+          ],
+          "weekdayPrice": 900000,
+          "weekendPrice": 1282500,
+          "priceSource": "Booking engine resmi be.dip.id (24 & 21 Nov 2026)",
+          "sourcePriority": "official",
+          "sourceLabel": "Booking engine resmi Nemuru (be.dip.id) & nemuruhotels.com",
+          "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Nama tipe, fasilitas Smart TV, dan tarif memakai booking engine resmi be.dip.id; luas 49–55 m² dilengkapi dari Traveloka/Klook karena situs resmi tidak mencantumkan m²."
+        }
+      ]
+    },
+    {
+      "hotelId": "mambruk",
+      "name": "Mambruk Hotel & Convention",
+      "hasMultiBedroomUnit": true,
+      "multiBedroomNote": "2 tipe 2 kamar tidur segmen premium: Villa (207 m², Smart TV 55 inci, bathtub master) dan Presidential Suite dengan kolam renang pribadi (715 m²).",
+      "roomTypes": [
+        {
+          "name": "Superior",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 26,
+          "areaLabel": "26 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "Tipe studio lantai 1 (2 dewasa + 1 anak)",
+            "TV layar datar 43 inci (23 saluran)",
+            "Kamar mandi shower & akses Infinity Pool"
+          ],
+          "weekdayPrice": 1067358,
+          "weekendPrice": 1932000,
+          "priceSource": "Booking.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi mambruk.co.id",
+          "sourceUrl": "https://www.mambruk.co.id/accomodation",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Agoda) mencantumkan 26–30 m²; dipakai luas resmi 26 m² dari mambruk.co.id/accomodation."
+        },
+        {
+          "name": "Premier Deluxe",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 33,
+          "areaLabel": "33 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "Balkon pemandangan laut (renovasi baru)",
+            "TV layar datar 43 inci (23 saluran)",
+            "Brankas, ketel listrik & shower"
+          ],
+          "weekdayPrice": 1800000,
+          "weekendPrice": null,
+          "priceSource": "Hotels.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi mambruk.co.id",
+          "sourceUrl": "https://www.mambruk.co.id/accomodation",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Residence",
+          "category": "suite",
+          "bedrooms": 1,
+          "areaSqm": 56,
+          "areaLabel": "56 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "Suite 2 lantai (1 kamar tidur double)",
+            "Ruang keluarga, ruang makan & pantry",
+            "Balkon pemandangan taman"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi mambruk.co.id",
+          "sourceUrl": "https://www.mambruk.co.id/accomodation",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Villa",
+          "category": "villa",
+          "bedrooms": 2,
+          "areaSqm": 207,
+          "areaLabel": "207 m²",
+          "smartTv": true,
+          "bathtub": true,
+          "highlights": [
+            "Villa 2 kamar tidur (4 dewasa + 2 anak)",
+            "Smart TV 55 inci & bathtub kamar utama",
+            "Parkir VIP, GRO pribadi & sepeda listrik"
+          ],
+          "weekdayPrice": 10920000,
+          "weekendPrice": 10920000,
+          "priceSource": "Booking.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi mambruk.co.id",
+          "sourceUrl": "https://www.mambruk.co.id/accomodation",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Agoda) mencantumkan ~200 m²; dipakai luas resmi 207 m² dari mambruk.co.id/accomodation."
+        },
+        {
+          "name": "Presidential Suite",
+          "category": "suite",
+          "bedrooms": 2,
+          "areaSqm": 715,
+          "areaLabel": "715 m²",
+          "smartTv": true,
+          "bathtub": true,
+          "highlights": [
+            "Suite 2 kamar tidur + kolam renang pribadi",
+            "Smart TV 55 inci & sistem audio JBL",
+            "Bathtub kamar utama & sarapan 6 orang"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi mambruk.co.id",
+          "sourceUrl": "https://www.mambruk.co.id/accomodation",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        }
+      ]
+    },
+    {
+      "hotelId": "marbella",
+      "name": "Marbella Place Anyer by Jayakarta",
+      "hasMultiBedroomUnit": true,
+      "multiBedroomNote": "3 tipe suite apartemen multi-kamar ber-kitchenette: Executive Suite (2 kamar, 90 m²), Master Suite (3 kamar, 130 m²), dan Four Bedroom Suite (4 kamar, 240 m²).",
+      "roomTypes": [
+        {
+          "name": "Studio Room",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 36,
+          "areaLabel": "36 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "King atau twin bed (2 tamu)",
+            "Balkon pribadi & kulkas",
+            "TV LCD kabel & shower air panas"
+          ],
+          "weekdayPrice": 472090,
+          "weekendPrice": 918750,
+          "priceSource": "Booking.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+          "sourceUrl": "https://marbellaplaceanyer.com/room/studio-room/",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Studio Room – Santorini Style",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 36,
+          "areaLabel": "36 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "Interior renovasi bergaya Santorini",
+            "Double bed (2 tamu)",
+            "Balkon pribadi"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+          "sourceUrl": "https://marbellaplaceanyer.com/room/studio-room-santorini-style/",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Deluxe Suite",
+          "category": "suite",
+          "bedrooms": 1,
+          "areaSqm": 56,
+          "areaLabel": "56 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "1 kamar tidur + sofa bed & meja makan",
+            "Balkon pribadi & kulkas",
+            "TV LCD kabel & shower air panas"
+          ],
+          "weekdayPrice": 564300,
+          "weekendPrice": null,
+          "priceSource": "Situs resmi marbellaplaceanyer.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+          "sourceUrl": "https://marbellaplaceanyer.com/room/deluxe-suite/",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Agoda/Traveloka) mencantumkan 56–59 m²; dipakai luas resmi 56 m² dari marbellaplaceanyer.com."
+        },
+        {
+          "name": "Executive Suite",
+          "category": "suite",
+          "bedrooms": 2,
+          "areaSqm": 90,
+          "areaLabel": "90 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "2 kamar tidur (4 tamu)",
+            "Dapur kecil (kitchenette) & ruang makan",
+            "Balkon pribadi & sofa bed"
+          ],
+          "weekdayPrice": 1080000,
+          "weekendPrice": 1620000,
+          "priceSource": "Booking.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+          "sourceUrl": "https://marbellaplaceanyer.com/room/executive-suite/",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Master Suite",
+          "category": "suite",
+          "bedrooms": 3,
+          "areaSqm": 130,
+          "areaLabel": "130 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "3 kamar tidur (6 tamu)",
+            "Dapur kecil (kitchenette) & ruang makan",
+            "Balkon pribadi & sofa bed"
+          ],
+          "weekdayPrice": 1881000,
+          "weekendPrice": null,
+          "priceSource": "Situs resmi marbellaplaceanyer.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+          "sourceUrl": "https://marbellaplaceanyer.com/room/master-suite/",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Four Bedroom Suite",
+          "category": "suite",
+          "bedrooms": 4,
+          "areaSqm": 240,
+          "areaLabel": "240 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "4 kamar tidur / Presidential Suite (8 tamu)",
+            "Dapur kecil (kitchenette) & ruang keluarga",
+            "Balkon pribadi & meja makan"
+          ],
+          "weekdayPrice": 2772000,
+          "weekendPrice": null,
+          "priceSource": "Situs resmi marbellaplaceanyer.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+          "sourceUrl": "https://marbellaplaceanyer.com/room/four-bedroom-suite/",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        }
+      ]
+    },
+    {
+      "hotelId": "jayakarta",
+      "name": "The Jayakarta Villas Anyer",
+      "hasMultiBedroomUnit": true,
+      "multiBedroomNote": "2 tipe bungalow multi-kamar berdapur: Samudra Pasifik (3 kamar tidur, 66 m²) dan Samudra Indonesia (4 kamar tidur, 110 m²).",
+      "roomTypes": [
+        {
+          "name": "Boutique Suite",
+          "category": "suite",
+          "bedrooms": 1,
+          "areaSqm": 52,
+          "areaLabel": "52 m²",
+          "smartTv": false,
+          "bathtub": true,
+          "highlights": [
+            "Pemandangan laut & Gunung Krakatau",
+            "Kamar mandi bathtub + shower",
+            "Balkon pribadi, microwave & sofa bed"
+          ],
+          "weekdayPrice": 647824,
+          "weekendPrice": null,
+          "priceSource": "Booking.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi jayakartahotelsresorts.com",
+          "sourceUrl": "https://www.jayakartahotelsresorts.com/en/hotel/the-jayakarta-villa-anyer/rooms/detail/boutique-suite",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Booking engine resmi mencantumkan 54 m²; dipakai 52 m² dari halaman detail kamar resmi jayakartahotelsresorts.com."
+        },
+        {
+          "name": "Samudra Pasifik (3 Bedroom)",
+          "category": "villa",
+          "bedrooms": 3,
+          "areaSqm": 66,
+          "areaLabel": "66 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "Bungalow 3 kamar tidur (6 tamu)",
+            "Ruang keluarga, meja makan & dapur",
+            "2 kamar mandi shower & TV kabel"
+          ],
+          "weekdayPrice": 2418760,
+          "weekendPrice": 2876364,
+          "priceSource": "Booking.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi jayakartahotelsresorts.com",
+          "sourceUrl": "https://www.jayakartahotelsresorts.com/en/hotel/the-jayakarta-villa-anyer/rooms/detail/samudra-pasifik-3-bedroom",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Samudra Indonesia (4 Bedroom)",
+          "category": "villa",
+          "bedrooms": 4,
+          "areaSqm": 110,
+          "areaLabel": "110 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "Bungalow 4 kamar tidur (8 tamu)",
+            "Ruang keluarga, meja makan & dapur",
+            "2 kamar mandi shower & TV kabel"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Booking engine & situs resmi Jayakarta",
+          "sourceUrl": "https://booking.jayakartahotelsresorts.com/en/offers?hotel=JYVA",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Luas 110 m² dikonfirmasi dari booking engine resmi Jayakarta (halaman detail kamar tidak mencantumkan angka m²)."
+        }
+      ]
+    },
+    {
+      "hotelId": "aston_anyer",
+      "name": "Aston Anyer Beach Hotel",
+      "hasMultiBedroomUnit": false,
+      "multiBedroomNote": "Tidak memiliki unit 2 kamar tidur terpisah; seluruh 7 tipe (termasuk Deluxe Family 25 m² dan Aquavillas 125 m²) berkonfigurasi 1 ruang tidur.",
+      "roomTypes": [
+        {
+          "name": "Superior",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 25,
+          "areaLabel": "25 m²",
+          "smartTv": true,
+          "bathtub": false,
+          "highlights": [
+            "Smart TV & Google Nest",
+            "Pemandangan bukit / taman",
+            "Pilihan ranjang king/double atau twin"
+          ],
+          "weekdayPrice": 1495087,
+          "weekendPrice": 1897302,
+          "priceSource": "Hotels.com (weekday) · Booking.com (weekend)",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi Aston (Archipelago International)",
+          "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Hotels.com) mencantumkan 22 m²; dipakai luas resmi 25 m² dari astonhotelsinternational.com."
+        },
+        {
+          "name": "Deluxe Family",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 25,
+          "areaLabel": "25 m²",
+          "smartTv": true,
+          "bathtub": false,
+          "highlights": [
+            "1 ruang keluarga (3 single atau double + single)",
+            "Smart TV & Google Nest",
+            "Pemandangan Gunung Karang"
+          ],
+          "weekdayPrice": 882697,
+          "weekendPrice": null,
+          "priceSource": "Situs resmi Aston (tarif mulai net)",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi Aston (Archipelago International)",
+          "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Deluxe with Balcony",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 24,
+          "areaLabel": "24 m²",
+          "smartTv": true,
+          "bathtub": false,
+          "highlights": [
+            "Balkon pribadi menghadap laut/kolam",
+            "Smart TV & Google Nest",
+            "Pilihan ranjang double atau twin"
+          ],
+          "weekdayPrice": 1942303,
+          "weekendPrice": 3852232,
+          "priceSource": "Hotels.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi Aston (Archipelago International)",
+          "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Deluxe Premier",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 27,
+          "areaLabel": "27 m²",
+          "smartTv": true,
+          "bathtub": true,
+          "highlights": [
+            "Ranjang double + sofa bed (maks 4 tamu)",
+            "Smart TV & Google Nest",
+            "Kamar mandi luas dengan bathtub"
+          ],
+          "weekdayPrice": 1202197,
+          "weekendPrice": null,
+          "priceSource": "Situs resmi Aston (tarif mulai net)",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi Aston (Archipelago International)",
+          "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Suite",
+          "category": "suite",
+          "bedrooms": 1,
+          "areaSqm": 47,
+          "areaLabel": "47 m²",
+          "smartTv": true,
+          "bathtub": true,
+          "highlights": [
+            "Smart TV 4K 55 inci & Google Nest",
+            "Balkon ocean view & ruang tamu terpisah",
+            "Bathtub + rain shower & mesin kopi kapsul"
+          ],
+          "weekdayPrice": 3641724,
+          "weekendPrice": 7222751,
+          "priceSource": "Hotels.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi Aston (Archipelago International)",
+          "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Klook) mencantumkan 45 m²; dipakai luas resmi 47 m² dari astonhotelsinternational.com."
+        },
+        {
+          "name": "Aquavillas",
+          "category": "villa",
+          "bedrooms": 1,
+          "areaSqm": 125,
+          "areaLabel": "125 m²",
+          "smartTv": true,
+          "bathtub": true,
+          "highlights": [
+            "Vila di atas air + kolam renang pribadi",
+            "Layanan butler, Smart TV & Google Nest",
+            "Bathtub freestanding & dek matahari"
+          ],
+          "weekdayPrice": 3978750,
+          "weekendPrice": null,
+          "priceSource": "Situs resmi Aston (tarif mulai net)",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi Aston (Archipelago International)",
+          "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Agoda) mencantumkan 121 m²; dipakai luas resmi 125 m² dari astonhotelsinternational.com."
+        },
+        {
+          "name": "Honeymoon Villa",
+          "category": "villa",
+          "bedrooms": 1,
+          "areaSqm": 125,
+          "areaLabel": "125 m²",
+          "smartTv": true,
+          "bathtub": true,
+          "highlights": [
+            "Vila bulan madu di atas air + private pool",
+            "Layanan butler, Smart TV & Google Nest",
+            "Bathtub freestanding & mesin Dolce Gusto"
+          ],
+          "weekdayPrice": 6148400,
+          "weekendPrice": null,
+          "priceSource": "Situs resmi Aston (tarif mulai net)",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi Aston (Archipelago International)",
+          "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        }
+      ]
+    },
+    {
+      "hotelId": "hawaii_anyer",
+      "name": "Hawaii Resort Family Suites Anyer",
+      "hasMultiBedroomUnit": true,
+      "multiBedroomNote": "3 tipe suite keluarga multi-kamar: Two Bedroom Standard (58,5 m²), Two Bedroom Deluxe (58,5 m²), dan Presidential Suites 4 kamar tidur (325,5 m²).",
+      "roomTypes": [
+        {
+          "name": "Studio Standard",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 22.5,
+          "areaLabel": "22,5 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "Studio queen + extra & sofa bed",
+            "TV kabel/satelit & kulkas",
+            "Kamar mandi standing shower"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+          "sourceUrl": "https://hawaiiresortanyer.com/room/studio-standard/",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA umumnya menggabungkan studio di ~29 m²; dipakai luas resmi 22,5 m² dari hawaiiresortanyer.com/room/studio-standard/."
+        },
+        {
+          "name": "Studio Deluxe",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 29.25,
+          "areaLabel": "29,25 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "Balkon pribadi & sofa bed",
+            "TV kabel/satelit, kulkas & ketel listrik",
+            "Kamar mandi standing shower"
+          ],
+          "weekdayPrice": 611999,
+          "weekendPrice": 555824,
+          "priceSource": "Hotels.com (weekday) · tiket.com (weekend)",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+          "sourceUrl": "https://hawaiiresortanyer.com/room/studio-deluxe/",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "One Bedroom Standard",
+          "category": "suite",
+          "bedrooms": 1,
+          "areaSqm": 51.75,
+          "areaLabel": "51,75 m²",
+          "smartTv": false,
+          "bathtub": true,
+          "highlights": [
+            "1 kamar tidur + ruang keluarga & balkon",
+            "Dapur lengkap, microwave & meja makan",
+            "Bathtub/jacuzzi (booking engine resmi)"
+          ],
+          "weekdayPrice": 841499,
+          "weekendPrice": 648800,
+          "priceSource": "Hotels.com (weekday) · tiket.com (weekend)",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+          "sourceUrl": "https://hawaiiresortanyer.com/room/1-bedroom-standard/",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA membulatkan menjadi 52 m²; dipakai luas resmi 51,75 m² dari hawaiiresortanyer.com/room/1-bedroom-standard/."
+        },
+        {
+          "name": "One Bedroom Deluxe",
+          "category": "suite",
+          "bedrooms": 1,
+          "areaSqm": 51.75,
+          "areaLabel": "51,75 m²",
+          "smartTv": false,
+          "bathtub": true,
+          "highlights": [
+            "Master bedroom + ruang keluarga (2 sofa bed)",
+            "Balkon pribadi & TV LCD",
+            "Bathtub/jacuzzi (booking engine resmi)"
+          ],
+          "weekdayPrice": 927001,
+          "weekendPrice": null,
+          "priceSource": "Hotels.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+          "sourceUrl": "https://hawaiiresortanyer.com/room/1-bedroom-deluxe/",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Two Bedroom Standard",
+          "category": "suite",
+          "bedrooms": 2,
+          "areaSqm": 58.5,
+          "areaLabel": "58,5 m²",
+          "smartTv": false,
+          "bathtub": true,
+          "highlights": [
+            "2 kamar tidur + ruang keluarga (kapasitas besar)",
+            "Dapur lengkap, microwave & balkon",
+            "Bathtub/jacuzzi (booking engine resmi)"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+          "sourceUrl": "https://hawaiiresortanyer.com/room/2-bedrrom-standart/",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Traveloka/Agoda) mencantumkan 58,5–62 m²; dipakai luas resmi 58,5 m² dari hawaiiresortanyer.com."
+        },
+        {
+          "name": "Two Bedroom Deluxe",
+          "category": "suite",
+          "bedrooms": 2,
+          "areaSqm": 58.5,
+          "areaLabel": "58,5 m²",
+          "smartTv": false,
+          "bathtub": true,
+          "highlights": [
+            "2 kamar tidur (termasuk bunk bed anak)",
+            "Ruang keluarga, balkon & TV LCD",
+            "Bathtub/jacuzzi (booking engine resmi)"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+          "sourceUrl": "https://hawaiiresortanyer.com/room/2-bedroom-deluxe/",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Traveloka/Agoda) mencantumkan hingga 62 m²; dipakai luas resmi 58,5 m² dari hawaiiresortanyer.com."
+        },
+        {
+          "name": "Presidential Suites",
+          "category": "suite",
+          "bedrooms": 4,
+          "areaSqm": 325.5,
+          "areaLabel": "325,5 m²",
+          "smartTv": false,
+          "bathtub": false,
+          "highlights": [
+            "4 kamar tidur (2 master + 2 family, maks 20 tamu)",
+            "Dapur lengkap, ruang makan & ruang keluarga",
+            "Balkon luas & TV kabel/LCD"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+          "sourceUrl": "https://hawaiiresortanyer.com/room/presidential-suites/",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        }
+      ]
+    },
+    {
+      "hotelId": "novus_jiva",
+      "name": "Novus Jiva Villa, Resort & Spa",
+      "hasMultiBedroomUnit": true,
+      "multiBedroomNote": "1 tipe vila 2 kamar tidur: Bluewave Pool Villa (142 m² luas bangunan resmi, private pool, kitchen set & microwave).",
+      "roomTypes": [
+        {
+          "name": "Mountain Sunrise View",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 42.2,
+          "areaLabel": "42,2 m²",
+          "smartTv": false,
+          "bathtub": null,
+          "highlights": [
+            "Pemandangan gunung & matahari terbit",
+            "Teras pribadi & sofa set",
+            "Twin bed (maks 3 tamu dengan extra bed)"
+          ],
+          "weekdayPrice": 1890020,
+          "weekendPrice": null,
+          "priceSource": "Booking.com (tercatat sbg Suite with Mountain Sunrise View)",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/accommodation-novus-jiva-anyer",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Booking.com) menyebutnya 'Suite with Mountain Sunrise View'; dipakai nama & luas resmi 42,2 m² dari novushotels.com."
+        },
+        {
+          "name": "Cozy Garden View",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 42.2,
+          "areaLabel": "42,2 m²",
+          "smartTv": false,
+          "bathtub": null,
+          "highlights": [
+            "Pemandangan taman tropis & teras",
+            "Pilihan ranjang king atau 2 twin",
+            "Sofa set, kulkas & pembuat kopi"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": 2833469,
+          "priceSource": "Hotels.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/accommodation-novus-jiva-anyer",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Catatan lama mencantumkan 45 m²; dipakai luas resmi 42,2 m² dari halaman akomodasi novushotels.com."
+        },
+        {
+          "name": "Cozy Garden Patio Room",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 42.2,
+          "areaLabel": "42,2 m²",
+          "smartTv": false,
+          "bathtub": null,
+          "highlights": [
+            "Akses langsung ke taman dari patio luas",
+            "Twin bed & sofa set",
+            "Kulkas & pembuat kopi"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": 2929846,
+          "priceSource": "Hotels.com",
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/accommodation-novus-jiva-anyer",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Cozy Garden Ocean View",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 42.2,
+          "areaLabel": "42,2 m²",
+          "smartTv": false,
+          "bathtub": null,
+          "highlights": [
+            "Pemandangan laut & taman tropis",
+            "Teras pribadi & twin bed",
+            "Sofa set, kulkas & pembuat kopi"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/accommodation-novus-jiva-anyer",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Ocean Sunset View",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 42.2,
+          "areaLabel": "42,2 m²",
+          "smartTv": false,
+          "bathtub": null,
+          "highlights": [
+            "Balkon pemandangan laut & sunset",
+            "Pilihan ranjang king atau 2 twin",
+            "Sofa set, kulkas & pembuat kopi"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/accommodation-novus-jiva-anyer",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Sunset Terrace with Relaxing Tub",
+          "category": "suite",
+          "bedrooms": 1,
+          "areaSqm": 65,
+          "areaLabel": "65 m²",
+          "smartTv": false,
+          "bathtub": true,
+          "highlights": [
+            "Bathtub outdoor di teras ocean sunset",
+            "Pilihan ranjang king atau 2 twin",
+            "Sofa set, kulkas & pembuat kopi"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/accommodation-novus-jiva-anyer",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Terrace Suite with Relaxing Tub",
+          "category": "suite",
+          "bedrooms": 1,
+          "areaSqm": 80,
+          "areaLabel": "80 m²",
+          "smartTv": false,
+          "bathtub": true,
+          "highlights": [
+            "Balkon luas + sofa kayu & relaxing tub",
+            "Pemandangan sunset laut",
+            "King/twin bed (maks 3 tamu)"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/accommodation-novus-jiva-anyer",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Costa Pool Villa",
+          "category": "villa",
+          "bedrooms": 1,
+          "areaSqm": 51,
+          "areaLabel": "51 m²",
+          "smartTv": false,
+          "bathtub": null,
+          "highlights": [
+            "Kolam renang pribadi (Private Pool)",
+            "Twin bed & pemandangan taman",
+            "Bluetooth speaker, minibar & brankas"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/villa-novus-resort",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Seaside Pool Villa",
+          "category": "villa",
+          "bedrooms": 1,
+          "areaSqm": 70,
+          "areaLabel": "70 m²",
+          "smartTv": false,
+          "bathtub": null,
+          "highlights": [
+            "Kolam renang pribadi & teras luas",
+            "King bed & meja makan",
+            "Bluetooth speaker & minibar"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/villa-novus-resort",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Seascape Pool Villa",
+          "category": "villa",
+          "bedrooms": 1,
+          "areaSqm": 70,
+          "areaLabel": "70 m²",
+          "smartTv": false,
+          "bathtub": null,
+          "highlights": [
+            "Kolam renang pribadi & area lounge",
+            "King bed & meja makan",
+            "Bluetooth speaker & minibar"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/villa-novus-resort",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Premium Seaside Pool Villa",
+          "category": "villa",
+          "bedrooms": 1,
+          "areaSqm": 70,
+          "areaLabel": "70 m²",
+          "smartTv": false,
+          "bathtub": null,
+          "highlights": [
+            "Kolam renang pribadi dekat area hotel",
+            "King bed & meja makan",
+            "Bluetooth speaker & minibar"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/villa-novus-resort",
+          "observedAt": "2026-11-19",
+          "conflictNote": null
+        },
+        {
+          "name": "Bluewave Pool Villa",
+          "category": "villa",
+          "bedrooms": 2,
+          "areaSqm": 142,
+          "areaLabel": "142 m²",
+          "smartTv": false,
+          "bathtub": null,
+          "highlights": [
+            "Vila 2 kamar tidur + kolam renang pribadi",
+            "Kitchen set, microwave & sun lounger",
+            "King & 2 twin bed, Bluetooth speaker"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi novushotels.com",
+          "sourceUrl": "https://www.novushotels.com/novusjiva/villa-novus-resort",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Agoda) mencantumkan ~200 m²; dipakai luas bangunan resmi 142 m² dari situs novushotels.com/novusjiva/villa-novus-resort."
+        }
+      ]
+    },
+    {
+      "hotelId": "movenpick",
+      "name": "Mövenpick Resort Carita",
+      "hasMultiBedroomUnit": false,
+      "multiBedroomNote": "Tidak memiliki unit 2 kamar tidur terpisah pada publikasi resmi Accor C6A5; seluruh 4 tipe (Deluxe 45 m² dan Junior Suite 70 m²) berkapasitas maks 3 tamu (1 ruang tidur).",
+      "roomTypes": [
+        {
+          "name": "Deluxe Double Bed, Ocean View",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 45,
+          "areaLabel": "45 m²",
+          "smartTv": true,
+          "bathtub": true,
+          "highlights": [
+            "Balkon pribadi ocean view (maks 3 tamu)",
+            "Smart LED TV 55 inci 4K-UHD",
+            "Mesin espresso & bathtub"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi Accor (C6A5)",
+          "sourceUrl": "https://all.accor.com/hotel/C6A5/room/DBAOV.en.htm",
+          "observedAt": "2026-11-19",
+          "conflictNote": "OTA (Booking.com) mencantumkan 43–45 m² dan catatan lama merujuk kode hotel berbeda (B9W7, 29 m²); dipakai luas resmi 45 m² dari Accor C6A5 (bathtub dikonfirmasi via Booking.com/Travelocity)."
+        },
+        {
+          "name": "Deluxe Premier King Bed, Ocean View",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 45,
+          "areaLabel": "45 m²",
+          "smartTv": true,
+          "bathtub": true,
+          "highlights": [
+            "King bed ekstra besar 2,4 m & balkon laut",
+            "Smart LED TV & mesin espresso",
+            "Minibar soft drink gratis & bathtub"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi Accor (C6A5)",
+          "sourceUrl": "https://all.accor.com/hotel/C6A5/room/DBAEF.en.htm",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Dipakai luas resmi 45 m² dari Accor C6A5 (meralat data lama kode B9W7); ketersediaan bathtub dikonfirmasi via Booking.com/Travelocity."
+        },
+        {
+          "name": "Deluxe Twin Bed, Ocean View",
+          "category": "standard",
+          "bedrooms": 1,
+          "areaSqm": 45,
+          "areaLabel": "45 m²",
+          "smartTv": true,
+          "bathtub": true,
+          "highlights": [
+            "2 ranjang twin & balkon pribadi ocean view",
+            "Smart TV 55 inci 4K-UHD",
+            "Kopi/teh kurasi & bathtub"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi Accor (C6A5)",
+          "sourceUrl": "https://all.accor.com/hotel/C6A5/room/TWAOV.en.htm",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Dipakai luas resmi 45 m² dari Accor C6A5 (meralat data lama kode B9W7); ketersediaan bathtub dikonfirmasi via Booking.com/Travelocity."
+        },
+        {
+          "name": "Junior Suite Double Bed, Panorama View",
+          "category": "suite",
+          "bedrooms": 1,
+          "areaSqm": 70,
+          "areaLabel": "70 m²",
+          "smartTv": true,
+          "bathtub": true,
+          "highlights": [
+            "Suite panorama laut + balkon pribadi",
+            "Smart LED TV 55 inci 4K-UHD",
+            "Minibar gratis, mesin espresso & bathtub"
+          ],
+          "weekdayPrice": null,
+          "weekendPrice": null,
+          "priceSource": null,
+          "sourcePriority": "official",
+          "sourceLabel": "Situs resmi Accor (C6A5)",
+          "sourceUrl": "https://all.accor.com/hotel/C6A5/room/SDDNV.en.htm",
+          "observedAt": "2026-11-19",
+          "conflictNote": "Dipakai luas resmi 70 m² dari Accor C6A5 (meralat data lama kode B9W7 48 m²); ketersediaan bathtub dikonfirmasi via Booking.com/Travelocity."
+        }
+      ]
+    }
+  ]
+}

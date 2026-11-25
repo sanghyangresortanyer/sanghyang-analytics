@@ -1,0 +1,980 @@
+{
+  "measuredAt": "2026-11-17",
+  "method": "Jarak jalan dan waktu tempuh dari rute Google Maps / OSRM (mobil) mulai Sanghyang Indah Spa Resort, diukur ulang 13 & 17 Nov 2026; garis lurus Haversine dari koordinat tempat; bintang dari listing Google Maps/OTA. Peran pembanding mengikuti aturan lib/market/compset.ts (sejenis, bintang minimal 4, jarak tempuh paling jauh 25 km).",
+  "groupBasis": "Google Maps memberi label \"Hotel bintang N\" untuk semua properti, jadi kelompok Resort/Hotel diambil dari nama resmi properti di listing Google Maps (mis. \"Spa Resort\", \"Villas\", \"Cottages\" = Resort; \"Beach Hotel\", \"Hotel & Convention\", \"Place\" = Hotel).",
+  "photoSource": "Foto kamar dari penawaran OTA di Google Travel (crawl 05 Nov 2026).",
+  "hotels": [
+    {
+      "hotelId": "sanghyang",
+      "name": "Sanghyang Indah Spa Resort",
+      "group": "resort",
+      "googleStars": 4,
+      "roadKm": 0,
+      "driveMinutes": 0,
+      "straightKm": 0,
+      "address": "Jl. Raya Sirih No.KM. 128, Cikoneng, Kec. Anyar, Kabupaten Serang, Banten 42166",
+      "mapsUrl": "https://www.google.com/maps/place/Sanghyang+Indah+Spa+Resort/@-6.0624549,105.9001458,17z/data=!4m9!3m8!1s0x2e4185b3c4907635:0x64d6c8baa028325d!5m2!4m1!1i2!8m2!3d-6.0624549!4d105.9001458!16s%2Fg%2F1tgzkjlf",
+      "opened": null,
+      "photos": [
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_wtgSiDcPbYOIsLwF2hjzB42Y4XNJF7O0i75lkiyi_el7x8yNlaEU7kg_NugKIK53LiDNetP3RIVVHejzXSln3dVE9MAexNvUoCL4Mf6QXb0xbGad9VeByvO1xWdzPKIU8sLdD4Xq_-UV7v6RIycdodMOlaN4nbOTd6E4XcEnjzNlfEcEfSnR62wvn-Pp3U0jIpjw9ws-P8zPu3Otv9Y9HjNzzTJjG0LHKg",
+          "room": "Sanghyang Deluxe"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_zmB2S8EwCW-KwQdGvfKZPl3X7-wefy4LEfFFgh025c61PewUvHayAE4Cv6pHgaO6klV1jrP9fGEn70M1klgHO74vZEtbwAFTEWP5Zg8esHRroWA1eiUUlp1642oQUSoiXyG0gjwETQn2MzVLLMgMZyx9A7dQG7MwcgsosHg2XVmJJORGG_WYep-DrVfODz2-CkKt8_BwvdcaZIXzYaRs3KYGDrKntiO48x",
+          "room": "New Baduy Condo - Two Bedrooms"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_zyrhmwUikR09zFgTEYz-avLe0R_ChaZq3sbG_tdvw4yMS9-Oiq5voIVeQUsmSX4_I4ze_QjxSlZdCnOtJopyuow_j4lTeIZJZwpJhFN820ctFd_hNHfoHDfdVf0MOwnHmaxOWdhYJrJGGDqCCdaVGs6vOgwWfERcM",
+          "room": "Sanghyang Deluxe"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_zW6S9yPftkx5vL9GfWsd-dZGGlEjLTYlVLeFFYH62Hvxpludi0uJXYR9pWa44wDyZrR9iW54fgBAMlR78huBvC8_VY4BUuFInwx0IBrUAGGdBtDCE1_zd-xqLa_FbIc_nBmy8MvDxJTkYh1PHbLXw3wJeFcBbPQ6s",
+          "room": "Sanghyang Suite"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_xmj234EeGB_GbO5CaGq2_Bsv32yG-F2KWV5gUzfFk3kxpizhg9jrowzQIga0d6gFng8ciJwsLJIToWH-N70nSF9dKia4lAxJhrie34iLSlyhWtaIXsot8xNf89wgoagNFAVhE_wI3HPkw2Nrq49NL0ZcK8KTZKA4Ix",
+          "room": "Baduy Condo"
+        }
+      ],
+      "roomCount": 61,
+      "roomCountSource": "Data internal tim Sanghyang Indah Spa Resort (disampaikan pemakai 14 Nov 2026). Situs resmi https://sanghyang.com/rooms/ mencantumkan 7 tipe kamar tanpa jumlah unit; angka 103 sebelumnya tidak punya sumber.",
+      "compsetRole": null,
+      "lat": -6.0624549,
+      "lng": 105.9001458
+    },
+    {
+      "hotelId": "allisa",
+      "name": "Allisa Resort Hotel Anyer",
+      "group": "resort",
+      "googleStars": 2,
+      "roadKm": 1.3,
+      "driveMinutes": 2,
+      "straightKm": 1.3,
+      "address": "Jl. Raya Anyer-Sirih No.Km.127, Anyar, Kec. Anyar, Kabupaten Serang, Banten 42166",
+      "mapsUrl": "https://www.google.com/maps/place/Allisa+Resort+Hotel+Anyer/@-6.0568472,105.9106727,17z/data=!4m9!3m8!1s0x2e418446050b2fa7:0xdedee4b9287f440a!5m2!4m1!1i2!8m2!3d-6.0568472!4d105.9106727!16s%2Fg%2F1pzt861qr",
+      "opened": null,
+      "photos": [],
+      "roomCount": 50,
+      "roomCountSource": "Listing Resmi & OTA Allisa Resort Hotel Anyer",
+      "compsetRole": null,
+      "excludedReason": "Bintang 2 di Google Maps dan Booking.com (Tiket.com: 3), tidak setara dengan Sanghyang bintang 4. Keputusan pemakai 13 Nov 2026.",
+      "lat": -6.0568472,
+      "lng": 105.9106727
+    },
+    {
+      "hotelId": "nemuru_palazo",
+      "name": "Nemuru Grand Anyer Palazo",
+      "group": "resort",
+      "googleStars": null,
+      "roadKm": 1.8,
+      "driveMinutes": null,
+      "straightKm": 1.5,
+      "address": "Jl. Raya Anyer - Sirih No.123, Cikoneng, Kec. Anyar, Kabupaten Serang, Banten 42166",
+      "mapsUrl": "https://www.google.com/maps/place/Nemuru+Grand+Anyer+Palazo/@-6.0681557,105.8882043,17z/data=!4m9!3m8!1s0x2e4185283dc954a3:0x71cb2b15a38615a3!5m2!4m1!1i2!8m2!3d-6.0681557!4d105.8882043!16s%2Fg%2F11wp8v49j1",
+      "opened": null,
+      "photos": [
+        {
+          "url": "https://be.dip.id/lib/img/kamar/WhatsApp_Image_2025-02-08_at_20.21_.55_4af7c7e6_.jpg",
+          "room": "Town House 1 Bed Room - King Bed"
+        },
+        {
+          "url": "https://be.dip.id/lib/img/kamar/WhatsApp_Image_2025-02-08_at_20.34_.45_9209822a_.jpg",
+          "room": "Town House 2 Bed Room - King Bed"
+        },
+        {
+          "url": "https://be.dip.id/lib/img/kamar/nemuruhotels.com_(1)_.jpg",
+          "room": "Wooden Cabin 1 Bed Room - King Bed"
+        },
+        {
+          "url": "https://be.dip.id/lib/img/kamar/WhatsApp_Image_2025-02-08_at_20.43_.00_1befcda6_.jpg",
+          "room": "Wooden Cabin 2 Bed Room - King Bed"
+        }
+      ],
+      "roomCount": null,
+      "roomCountSource": "Situs resmi https://nemuruhotels.com/pallazo.html dan booking engine https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22 mencantumkan 4 tipe Town House & Wooden Cabin tanpa jumlah total unit (OTA menyebut ±40 unit, belum terkonfirmasi resmi).",
+      "compsetRole": "inti",
+      "lat": -6.0681557,
+      "lng": 105.8882043,
+      "distanceSource": "Rute OSRM ke koordinat Google Maps Nemuru Grand Anyer Palazo (17 Nov 2026); menit berkendara OSRM tidak dipakai",
+      "starRating": 4,
+      "starSource": "Traveloka (Google Hotels tanpa kelas bintang; Trip.com 3), diperiksa 17 Nov 2026"
+    },
+    {
+      "hotelId": "mambruk",
+      "name": "Mambruk Hotel & Convention",
+      "group": "hotel",
+      "googleStars": 4,
+      "roadKm": 2.2,
+      "driveMinutes": 3,
+      "straightKm": 2.1,
+      "address": "Jl. Raya Karang Bolong, Cikoneng, Kec. Anyar, Kabupaten Serang, Banten 42466",
+      "mapsUrl": "https://www.google.com/maps/place/Mambruk+Hotel+%26+Convention/@-6.0730137,105.8845296,17z/data=!4m9!3m8!1s0x2e422a6bf3e2279d:0x7352b852bda8d71e!5m2!4m1!1i2!8m2!3d-6.0730137!4d105.8845296!16s%2Fg%2F11b6d59cr7",
+      "opened": {
+        "year": null,
+        "note": "Hotel lama, populer sejak era 1980-an dan sudah beberapa kali direnovasi",
+        "sourceUrl": "https://www.popbela.com/lifestyle/travel/6-penginapan-terbaru-anyer-lokasi-rute-harga-dan-fasilitas-lengkap-00-z6vwj-kcmnvj"
+      },
+      "photos": [
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_z03yLoNjkF4-0dNxni88WyNaopAWrU_yxMUINBgteFoMPoT_X76nS4uWymPdmbESjgtSiG_IsfBBp9Jue5XdATTn3_4S9zsDZ4LR5V2d08kSHBIfhVkcOAsPDXQMB7FPfdEBhgUqGhMLJuIFWQfagM4OIMkcMBxZp9JSvJCA",
+          "room": "Superior Room Double - Room With Breakfast"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_yXurKd1NOoakVmz1xeU6E9nUIZJQaZy8qspPr4htao65TOIiZ0Q06KZTJD1qGg6b-Nbfp-opJA_tYa7zsKUbRaPrxjssXu5yUy5qcx2WN3splzF7tesV8n4dziP8cueG2OiYfipAiudy1YjMC-ubShF1EZxwpCS58DAufzlw",
+          "room": "Superior Room Twin - Room With Breakfast"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_xTzyteFjfcKqd2OxjGT1-XhGEt36NSN5xMoHdfNTmD3rgCVfeADL51yAMvRTyYYHQXca5O7YqPcJ6NgH7GI1A2EpV619vcs-So4-cJxOywR_yjhR5r0unJM5BjWTAJq-TIzOY9FTf3SNDSzPHC0R1bdTcLom8nmNkv5w-_UQ",
+          "room": "Premiere Deluxe Balcony Double - Room With Breakfast"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_xciTbekg5TwbHGLb5hxWkeVr_kBT1R-5rTJaGqWraT_hexHZgBT_anbPgrJj9cjEyBDOJAPLMpa_4VhN1g8Uw2rsWFgHTRfGpu5YRfXu3cfsbuGywkqq7XMvGCgDdOX8qcnz_40xnlFdF18iMFod0ChSUeq2017JtjsiU17vfRBjEOO-e4FO1a0apC_YILa8WujVWcsrpfLQNZ7w8VXHFL3375Ndit2L6c7BJZRo6YhthFlt3D7ftPRtIVTdh6ZM9KjqIErAoFvDrindW05W8lyyo6-qItswHg75XaVeJN",
+          "room": "Double Superior Room"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_yMTQ8DETeG328LCwcr7Bw7m5jL3ksX4Pz55C26c-WCep1tv584trRFgOiLeFpKlDW5jdZw4pPgzEt1uL5wMTXVbRgvdOzvhqQVSU92G7tH4HYJEcDqdsJ0-ayrXzdZ92-uKehQ1q-1HQBwup0Sioci_OqoYzJ8s1Iwy4K4pr7O7n4oWIBapnBL0YkE9EnemXcmEtl25ojS1crBMjrJI96pdyxLJyXyFxvm8r2TFi_izR9TRzVuvCoY70L5SBgCjkdx7pBO44HeLx9YWQ",
+          "room": "Superior Room"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_zolZ1aQzKr0zFkcp5M-mhFStxMnvalQROCQoLGrdOMGojKy9-I2KE4NgrjHPhZBjSUJP-wb1G5yO6eZVNwsAm2MtsBGG8OndskY7_2ve_uKGspGnOEWOGXKA5Ye8UAVRe6Z-xN1ZEFAVBXynMeHHVrH-S_bd-ib3__fHQ3it2wk-vsnDeKgmY5lEOvsDZJC5ANEkoQ5ahXQYvzIwXTgCNaPYyt5Hv-utHQOntXi50xAd-UOrdMZRD3dk1rNCM5Nhh-VFnSCpBH86yJ14x71J9qsIxAD1DQlZO43a9VSd5C2A",
+          "room": "Twin Superior Room - Double Superior Room"
+        }
+      ],
+      "roomCount": 145,
+      "roomCountSource": "Halaman akomodasi resmi Mambruk: \"145 High Standard Rooms in Total\" (https://www.mambruk.co.id/accomodation, diperiksa 17 Nov 2026); Expedia sebelumnya mencantumkan 133.",
+      "compsetRole": "benchmark",
+      "lat": -6.0730137,
+      "lng": 105.8845296
+    },
+    {
+      "hotelId": "marbella",
+      "name": "Marbella Place Anyer by Jayakarta",
+      "group": "hotel",
+      "googleStars": 4,
+      "roadKm": 6.1,
+      "driveMinutes": 8,
+      "straightKm": 5.3,
+      "address": "Jl. Raya Karang Bolong No.KM 135, Bandulu, Kec. Anyar, Kabupaten Serang, Banten 42166",
+      "mapsUrl": "https://www.google.com/maps/place/Marbella+Place+Anyer+by+Jayakarta/@-6.1071286,105.8825838,17z/data=!4m9!3m8!1s0x2e41869157a2e2ad:0xdf993409f93aa690!5m2!4m1!1i2!8m2!3d-6.1071286!4d105.8825838!16s%2Fg%2F1tfysncg",
+      "opened": null,
+      "photos": [
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_xum4UJdEH8R0nYWL7LRi1A2KmV5o2xUx5aq4T6YqKvv_-3_4nKqHh2A-w4rAgarSAthhPjHyPNTKYihyBeaNkX-TgfTLzOm66McD4X1wncRwB2riwS1AgjjQC0bw23x0PpRbxNSJqWx0TGNum3oWHZhPlyX_ckal82vo013ELSlpl-AyVUls9mBln0WDXDTpFxH4JrlVVVaXWAxJ_pXuU3YYL19rNWwy42",
+          "room": "Studio"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_wivib4SMUa5Tntrx4VLlF3O2WoiiOM-NTQMiP0aEQPffTSOSxiekBV7cR5ZTLfxfpPmCia4MdoPFQ-s8Jd9xYaziskb4LMS3ihSPXGgo9r_VKLa2g34D9fdFZFE3vjVTbvzdp6a0snyoKayJnbGroCKZLvneFjMIIOqlQdsPAv0_diAImRabvdVXCYR1zq8ahGNp40-BVf9y7yaQYD7GB18hr0gJZIh_NU",
+          "room": "Deluxe Suite"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_zR4q7og8CDQra416DlcNp1Fu99Q116w2ugQxhL7GLFqoSiGmXg2L1A43AkDgCD5fVPdkM-woED3BSsSAt8s3dR-3OMQzLhcycYq9fC65wRm7osL-QSPEsxW-ZeJsWdbJgNeCoiQLFW3qGFCFv7H629CPB28bPxOt3DJu3LTyBhVDShOE8eFB5weawZVONp0lzdfazqcObZTbMVTc7aa3YNLZ5lNG82O0c0BfOuNuArM66eWIk8oESwXmQr7tqGWOPYXOPGWUucjhM_WvB0HxKP1l2-XcoqWmnD9Prn3IzQBw",
+          "room": "Double or Twin Studio with Garden View - Double Executive Suite with Garden View"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_yzuFYkiopAj1XdEqDy2E-kiF9eLgpJqiXuISWa-j3gPABMryESmD3DhiGTtcn8WFuuzwuXEKByYoogDPyXRNSpIORaqL0QnkpiVGOyrIkoaRcaoo1CmkS0fvBmNAzZFO3B_e1AFDU9ecGCryjTpWA4heCQ_CqF08H42iNC311BvBgS57o_UslxMy9luUCOQtekjpFB4IhU5SR8x5A7g3e9pfF7ZFiS2sf3RMfdNECmY2B11DSCKkJpW_Ub6iN-q9oxosHobppIypCLU6i3v8G6utpw5qVIFSNktCzL3AR8aw",
+          "room": "Double or Twin Deluxe Suite with Garden View - Double Executive Suite with Garden View"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_z1Jtdwx84_i8CUIrIzLsCeZVsGMujvOltf8RJrLWB3R9Uw6oaReYNzk70bf7TPxKjtAHQlZwstAXjnAu0kcuN-nYsNJIuxc1C3tEobust0kvsLj0oVzGG2ykUKMVMJt1NnXSmDhYN6H4aByjhpygVynlwxTfGT6fke_GO-BtHNJuNYVmozB7IS9FE6Vf6xpzqkCVO6ooqX4sBQYeoNK6cRljrw0jabbyQuUbNnVMtKXtigFor6Yah4M0AD4gHS3ZRR7kwYIknhmYdj3ppZdvsnDxaB3kUnpFXitnSGZ-hbLQ",
+          "room": "Double Executive Suite with Garden View"
+        }
+      ],
+      "roomCount": 300,
+      "roomCountSource": "Listing OTA (Wotif, Hotels.com): 300 akomodasi (https://www.wotif.com/Tanjung-Lesung-Hotels-Marbella-Hotel-Convention-And-Spa.h78590.Hotel-Information); situs resmi tidak mencantumkan dan tidak bisa diakses 14 Nov 2026. Belum terkonfirmasi resmi.",
+      "compsetRole": "inti",
+      "lat": -6.1071286,
+      "lng": 105.8825838,
+      "titleAliases": [
+        "Marbella Hotel, Convention & Spa Anyer"
+      ],
+      "titleAliasSource": "Judul panel Google Travel untuk entity Marbella yang dibentuk dari ID tempat Google Maps-nya, terlihat saat crawl tarif 17 Nov 2026."
+    },
+    {
+      "hotelId": "jayakarta",
+      "name": "The Jayakarta Villas Anyer",
+      "group": "resort",
+      "googleStars": 4,
+      "roadKm": 6.7,
+      "driveMinutes": 9,
+      "straightKm": 5.8,
+      "address": "Jl. Raya Karang Bolong No.Km. 17/135, Bandulu, Kec. Anyar, Kabupaten Serang, Banten 42166",
+      "mapsUrl": "https://www.google.com/maps/place/The+Jayakarta+Villas+Anyer/@-6.110744,105.8812441,17z/data=!4m9!3m8!1s0x2e418fccb5cdee95:0x64d1ffedb6ed3c69!5m2!4m1!1i2!8m2!3d-6.110744!4d105.8812441!16s%2Fg%2F1pzvrn504",
+      "opened": null,
+      "photos": [
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_xz4JWygL29-2-owJoYK27t70z2uoTgml2hTx26JzQYo85Y3_v-z8FsWWDqk-Ecf7zZ1PwORx-iwzQT7HgjnoiV4t8Yday9xOI-V-og_4Pl1ndP11pXEJV8elxg-NwELjxWxPC1o5Ph6YOFMhot_PIuO8J_Yygqi0VLgFV-PAZaN5Fqoz-J1bcn85Xw3s8UW8T1ANaGQ6qIQZDw6ziim4j6ggZuybIo29U",
+          "room": "Suite"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_yyxs5EiNZ6S3qDa2skRRtCJMedBmIjMTynUKqZLc4E6ZbhuVtfQwnGvOGFvAX3F9Taqfy-vwOkByhjTRN49cq19uRR6Z7K1lceeifU3elFU2Zi_cruL7FU3FvYKL2VAXtT3zYgYcdOL4Z1FYKFhA7kieIImZD7y_QuOMUbVZkzMLXL9-99nnZ6ZA-UG5LvopXP22kQ52-raTrdkCqNB6xRc7x7L8gMUUI",
+          "room": "Three-Bedroom Villa"
+        }
+      ],
+      "roomCount": 48,
+      "roomCountSource": "Halaman resmi Jayakarta Group: \"We offer a total of 48 rooms\" (https://jayakartagroup.com/affiliated/view/9, diperiksa 14 Nov 2026); Trip.com mencantumkan 116 dan AMI Magazine 47.",
+      "compsetRole": "inti",
+      "lat": -6.110744,
+      "lng": 105.8812441
+    },
+    {
+      "hotelId": "aston_anyer",
+      "name": "Aston Anyer Beach Hotel",
+      "group": "hotel",
+      "googleStars": 4,
+      "roadKm": 11.8,
+      "driveMinutes": 15,
+      "straightKm": 10.3,
+      "address": "Jl. Raya Karang Bolong No.KM.139, Karang Suraga, Kec. Cinangka, Kabupaten Serang, Banten 42167",
+      "mapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+      "opened": {
+        "year": 2015,
+        "note": "Grand opening April 2015 (hotel ke-100 Archipelago International)",
+        "sourceUrl": "https://www.asiatraveltips.com/news15/304-AnyerBeach.shtml"
+      },
+      "photos": [
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_wpd08cd7BSwgu-9AsdlAelWrfZTXMIc2TKzgeLgM0hX8q-XSkJDexSYklZxGoLi0VI3-Gd5GpkASbz0RL0Z13DT0p1DqnP79_dzQ1e5-_cqsnHLWO3HtJ_U2WNuveIdVq5X5opvc66Wf-i1r4nsaedeu4APMMtitDE",
+          "room": "Superior Room"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_yQhAF7EPIfW-DWdgWrs4lF0DrOtsp530pmpqM-H2ix8_3Vd9mLjNyn_FyCGYiOqfBz7dkngiR-eHO_6BPBIEy8zeAl6YlDUIR0_PVPE3YY4akWQtiLFtPbL1vB5lyW2GW4CTTmO6OkL1VLnz1j7DFtC_uxjtFOSb8",
+          "room": "Deluxe Room, Balcony"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_xr09ujGUk1C2HKY2Kzot-DuyJr9Hms9bviW6z4m6d1OztfgG75JXebQj7sT2oeWLQJAfTnDXDoBEox7Ig0ukqlM99AAyKOwNOCQ6mfQ628kefZEFXnW4K-CbfJzX_BBPy46fsxCYqgh4Yja4W8gd8vtuJVY8PpgWLK",
+          "room": "Suite"
+        }
+      ],
+      "roomCount": 101,
+      "roomCountSource": "Data resmi pengelola hotel (Archipelago International): \"room_count\": 101 (https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/index.json, diperiksa 14 Nov 2026); sama dengan Traveloka.",
+      "compsetRole": "benchmark",
+      "lat": -6.1443935,
+      "lng": 105.8558751
+    },
+    {
+      "hotelId": "novus_jiva",
+      "name": "Novus Jiva Villa, Resort & Spa",
+      "group": "resort",
+      "googleStars": 5,
+      "roadKm": 21.4,
+      "driveMinutes": 30,
+      "straightKm": 18.8,
+      "address": "JL Raya Anyer Carita, Km. 140 Pasauran, Serang, Banten 42167, Pasauran, Kec. Anyar, Kabupaten Serang, Banten 42167",
+      "mapsUrl": "https://www.google.com/maps/place/Novus+Jiva+Villa,+Resort+%26+Spa/@-6.2182816,105.8343906,17z/data=!4m9!3m8!1s0x2e422bcc4167b369:0x72e84d86701355f6!5m2!4m1!1i2!8m2!3d-6.2182816!4d105.8343906!16s%2Fg%2F11h247gj2j",
+      "opened": {
+        "year": 2019,
+        "note": "Soft opening September 2019",
+        "sourceUrl": "https://www.medcom.id/rona/wisata-kuliner/MkMVZgxK-menyerapi-keindahan-pemandangan-selat-sunda"
+      },
+      "photos": [
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_zHduAhIPCoV43edX0WC3GaT1Xlf5EJbIJAKVB-20AEhuXHM4n-xDMShDMykDJbo0tVueHdcLj4xWQVFYMGoi88mvT2cXNw96KB_1o9Jqyz7wv5I0iTf7WiBAVleN6gVh2rXO5w0icYilygjhiMXhSWsJtY5lLbJfcL",
+          "room": "Mountain Sunrise View"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_zYzJBo7vA3fXWOUSKZ5vWMwr0Dz8KARosByHc29TtTWP3XzVNqhLh-hlxcFSY1_rVGLfxfgtg3_AK8ij6TqCeVvEBWQB_vhnAv-npFfkcrBCnshuLyPD_EmLeRQC_GeryG2BsCxV6xWdVkzZKza2bKF8IIk4reTwvr",
+          "room": "Cozy Garden View"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_wngij3bMQrfh_NDU6CRz8eSD5FavnceMuo5mMzdVuOdewUamaHnbtjIeZvv43W-nxKaKBvlmsX8uVIe2prnswITXCHuQhmHGIdk7hhB2ntrBkLwkl-KD4VaMVbOtlMf0t0vfVbbbN8iRcZYa0mPA-_GFJYE4Ps5uTVQTLytK4f-ZiIk9AhoZhzeno_ePyfYptUM5k2QH_QmanGcZMdTZUgXnsVdoVOE1sZ",
+          "room": "Suite with Mountain Sunrise View"
+        }
+      ],
+      "roomCount": 136,
+      "roomCountSource": "Halaman akomodasi resmi Novus Jiva: \"the hotel's 136 rooms\" (https://www.novushotels.com/novusjiva/accommodation-novus-jiva-anyer, diperiksa ulang 14 Nov 2026); vila belum dihitung karena jumlahnya tidak dicantumkan.",
+      "compsetRole": null,
+      "lat": -6.2182816,
+      "lng": 105.8343906,
+      "excludedReason": "Resor luxury bintang 5 di lereng tebing bukit (21,4 km) dengan tarif 3,6x lipat Sanghyang, di luar segmen kompetisi langsung resor pantai bintang 4."
+    },
+    {
+      "hotelId": "hawaii_anyer",
+      "name": "Hawaii Resort Family Suites Anyer",
+      "group": "resort",
+      "googleStars": 3,
+      "roadKm": 18.2,
+      "driveMinutes": 24,
+      "straightKm": 16.2,
+      "address": "Jl. Raya Labuan KM. 146, Kampung Pondok Waru Desa Bulakan Kecamatang Cinangka, Bulakan, Serang, Kabupaten Serang, Banten 42167",
+      "mapsUrl": "https://www.google.com/maps/place/Hawaii+Resort+Family+Suites+Anyer/@-6.1949547,105.8399882,17z/data=!4m9!3m8!1s0x2e422b9fa948ac57:0x3150333dc243bf53!5m2!4m1!1i2!8m2!3d-6.1949547!4d105.8399882!16s%2Fg%2F1tj555s_",
+      "opened": null,
+      "photos": [
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_z096m90JxKk1SYptgXyDOZZ2c2O9ncA034PdPi5MBXdC5K7hQdMfu0ndNpE43fD3kkJ7He80JjZsirROvjTMw4iHiEgo9LRQHQZXwO3fPMGy-8rEjxLyPYBEiv0Oq-Ur091mdB-gZxoJ8rRlbIuCL1y5Xm5Q",
+          "room": "Studio Deluxe"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_yQ31vNwjlT454yLl5nyFqRxLufhfeNyO_eWc0iatXjUvbuRHSmP9nE67VtOvxniXvxS-P6H8pKj7ObF_bCQ0Qotmmo3kQ1G2qPrQhk3FBLJDRpXyudgbS4cPgkdHCuZorP0wTyy8bHaZdZTC6XMqt43zJypbw",
+          "room": "One Bedroom Standard"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_y4W0h460N23i9oN6vdvQ1jNwfnZkqQdlHxlEf70i16ngKOBpgBPDMEVRM9-7BJqUVH1bZJPIm67ObMPWtdo_rqgiTSw0t6cxaofKnk-i0ReGVf9GYesr195B_5epFgAEec-cO6nwE_wXG3ZjBLGwPA7LkSfZI",
+          "room": "One Bedroom Deluxe"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_yRtOMreBIup9-tUlNuQPiWMdt81vfnRtDPy2anSGfdARectnmUd8S-QvWHDjrzFls1Xj2fWkGNR2hfCgfJqD-b_5LE-GW1FTqdZJxa9RdWKy1l5ne8VvUX24vic3Ev5jxjbxx4ueA2jpRJZ1MXoWjuIJAHudSxSPXE2cCtfXWzKLZznvUM0d9Xsp1MB5LwLD-e0jhBGUqgCAsDs9gn9d6i5pi_ldFUDtVWNcKJFgKZd-XrdJzqbf5yJ23GiFPMd7sUg88RgWZ0XB_F2Xf9vOZUFdnwuBXvXzPXHC55RfpDbw",
+          "room": "Standard Studio - Deluxe Studio"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_xbv0vMAdADpuoduyxmXe1cXmWH7jc5BLbLONPkxggvDzqX98l0SdM5qm8RtvOoRDrUyF2ApNTsPTZtsAmut114seGk9l1PStH0XwrdE1SKR5DeRSYbH7cgmJuc31NHfmNSGX-YpqVPDYShuWDAUfpmMDBz_7zl0ZNNw0JR6b_N33B-C-QsjXR6WCvEF6Ypy2u82nxdeKaHW39flsff6HDXiC16aM_S1JWI7NKBLr4KBLZptzbATCFgM9cVTXcP7fq5nTehtcHlxnyZag6GNw6YJ-YdUAH7F0N8fFc1njHF",
+          "room": "Deluxe Studio"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_yDL4pPa_5Zb3W5NBLRefcSA3pRR7elOrslEYlf2Cjwo0UFjKOjOCFZlhUO5z0gqK5JIbwo00j6ZnlQNl7sE_F01jLhwEZMPFutz7CEY8kSD5ydUNmSLzIdxWlq8aRtYeDXgWOs1Umpil_Js0jb64zTS-ncdwTKLAFbNPSivSESRlFL8iD8rfx-dt_gG4YrzgCg5ndSoLAXtwZx_eoxPlaNfZi606QAu9Yyxpq5vr1AtCfKjhN_d3ltGHF9AupByOQmM9WIxRNZwL5PWvkSwZnWydLH3PUV9SciV2Xpd_fgiw",
+          "room": "1-Bedroom Standard - Deluxe Studio"
+        }
+      ],
+      "roomCount": 73,
+      "roomCountSource": "Trip.com, Lastminute, Airshop, dan Bookme sama-sama mencantumkan 73 kamar (https://ph.trip.com/hotels/cinangka-hotel-detail-3032990/club-bali-family-suites-anyer-beach/, diperiksa 14 Nov 2026); tidak ada situs resmi.",
+      "compsetRole": "inti",
+      "lat": -6.1949547,
+      "lng": 105.8399882,
+      "starRating": 4,
+      "starSource": "Traveloka 4.0, Trip.com 4, Kayak 4 (Google Hotels, Orbitz, Expedia, Wotif 3), diperiksa 17 Nov 2026",
+      "distanceSource": "Google Maps (mobil) dari Sanghyang Indah Spa Resort, diukur 13 Nov 2026"
+    },
+    {
+      "hotelId": "movenpick",
+      "name": "Mövenpick Resort Carita",
+      "group": "resort",
+      "googleStars": 5,
+      "roadKm": 23.6,
+      "driveMinutes": 32,
+      "straightKm": 21.3,
+      "address": "Jl. Raya Anyer-Sirih, Pasauran, Kec. Carita, Kabupaten Serang, Banten 42167",
+      "mapsUrl": "https://www.google.com/maps/place/M%C3%B6venpick+Resort+Carita/@-6.2399725,105.8270948,17z/data=!4m9!3m8!1s0x2e422b47b93a4645:0x30d753f6ff816db6!5m2!4m1!1i2!8m2!3d-6.2399725!4d105.8270948!16s%2Fg%2F11z2c2q0_l",
+      "opened": {
+        "year": 2026,
+        "note": "Dibuka resmi 17 Mei 2026",
+        "sourceUrl": "https://www.whatsnewindonesia.com/jakarta/feature/movenpick-resort-carita-introduces-contemporary-beachfront-resort-western"
+      },
+      "photos": [
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_yfa-MUAJYIJCb0PnS44DAEZO3IDYTwSwhYt5KCxsi1UKNS1L9SCbE21nrDJP0lczQPUikgQTLSVSrQJioNB3uNM_H52hHCVnjcVg_XtCiAg9ChZ1Qqm2wIUkhs6e1ufNTtZEDNeGwyz6l4kt7U4sYXiNvBGwgSeRGD83Q46zWtaJRXPoRl_WBDmRQA5ICEUmc1KEbJpYW8gdIM1Qsm81RxqycGtQrzIFAEEOz2Z8sxMWpaIWaC3Z96BqejFcy0AbBz",
+          "room": "Deluxe Double Bed, Ocean View / Deluxe Premier King Bed, Ocean View"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_yHtByQfXBzLKv57Wp4R4lKVbHEbAC6XgrPPYv9I7j8DDEg1BLBiwnoj5kcOyvyTl5VlbomSeSRL_LAQZjI-obqYiRTlAZmVDegbzfmZb9iHTP2l8UDo6Uim0w_rttfhKJjSOGS8lWvdjAFZySzPThBs_Sv93fTuX5G1jYxmNs5LGOPb4PVIl_XqM-QJJzjF7dZ7pdOpdam5GTGssTBiov20D3lVU9GyHeH0Yq20NAWmnueoRIy_OY7TYeluKVyxVBX",
+          "room": "Junior Suite Double Bed, Panorama View"
+        }
+      ],
+      "roomCount": 219,
+      "roomCountSource": "Halaman resmi Accor Mövenpick Resort Carita: \"The resort features 219 elegant rooms\" (https://all.accor.com/hotel/C6A5/index.en.shtml, diperiksa 14 Nov 2026).",
+      "compsetRole": null,
+      "lat": -6.2399725,
+      "lng": 105.8270948,
+      "excludedReason": "Resor ultra-luxury bintang 5 di Pantai Carita Pandeglang (23,6 km), di luar pasar kompetisi langsung resor bintang 4 Anyer."
+    },
+    {
+      "hotelId": "mutiara_carita",
+      "name": "Mutiara Carita Cottages",
+      "group": "resort",
+      "googleStars": 4,
+      "roadKm": 34.3,
+      "driveMinutes": 46,
+      "straightKm": 29.4,
+      "address": "Jl. Raya Carita Labuan KM. 7, Pandeglang, Kec. Carita, Kabupaten Pandeglang, Banten 42264",
+      "mapsUrl": "https://www.google.com/maps/place/Mutiara+Carita+Cottages/@-6.3192257,105.8371513,17z/data=!4m9!3m8!1s0x2e422d8cbfffffff:0x8f1fb6dd8a341d5a!5m2!4m1!1i2!8m2!3d-6.3192257!4d105.8371513!16s%2Fg%2F122_sfvd",
+      "opened": null,
+      "photos": [
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_wY1LK3qFpVddXjdb2OGanWrjvbeCOxdSBhnghKu7Mf0o31a9NZ75aDOOLbB9zeDAXBmKa1lwR4l0BrGPuMGrV7ess5EkyigtiP6L8YZhdCNIdlXNit1A7b_sWhmMgF7u4BbiZqetaI8S2Hpf3uJDwB8yVsTbvauoBYON3ed67U8ceFyMRZOIo2FAHfJRKay2frSUwHiYDwPCaMy94sB44jLhRyG5zqfa8",
+          "room": "Mutiara Double or Twin Room"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_zwjJCJyEmhHMWYZMs1sZ7DUTZgYN8Hl2OWpVOb_hO7tw-_NPARoRuMnaBRfQqqfeQdN1n-yepbLCvjUw1IRn-TZWeDp3PcZwNcerR-lk3GvBPQJcyf7KIAFCU5DQQHhuZUzOw9I4SBM1yRFNXpROmhZ1btD5b3LsHc4B3-VcMpOqP6aI9IeKXXJH8WT_OERbDtBhn9GFuXgEYojvP08o9xEh90dQoe0co",
+          "room": "Royal Cottage Two Bedroom"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_y-O02-6xBtiqF-OfO-OlvLwKXQl90r6hh8wC9JnXyojkMGte4rSpLQocGyMJ9qntjqF3bvufMbLz8V-ZT2vC2cw1Bm054fTKaGr8QihichuWkI2Xgft8OfEK7G6JdtGHOkGYM_3XexMqfxFcsWXqHnHFdsV_Bs94XX7mJSOMTs3xwEEI4V",
+          "room": "Mutiara Hotel Room - Standard Rate (Include Breakfast)"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_x-UlpdHvCwnC9tNygDQrzE6rOBJ-j2qhjaKASPJF-YeLSuc9EFuoOR04rarGgJTH8LepdVidcoZMSob599oOYxeolvBXMo9PcxjnNZhoQQdGKvaEMiFMechUrPg2WCBk1HbjEeDkFQKxr8x8wbYO-h53_FhZ1nhXHjN7Qf3IMUbO6C_y6VY1NvDrXa",
+          "room": "Royal Cottage 2 Bedrooms - Standard Rate (Include Breakfast)"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_y4okeqr1WcSwS8bw0i2HS-NBfaQgC7Wk5e9jgud1a0OGzmv5Qm7jFrzba-8g7H7_1L0VnWPQrZ9hhgh7RReq_4GO6PBmVX3IV86wKKu5ktpl3NiVyorHAwHd9GHN2IZbQDFf9QlSR8wPj_joq9cKlWwBgVeHUdGxgp8Xlo5ynW20TV4pAJtO_UDrt-ubLfhzwoh7uxARPqDzM",
+          "room": "Royal Cottage 3 Bedrooms - Standard Rate (Include Breakfast)"
+        },
+        {
+          "url": "https://lh3.googleusercontent.com/hrppk/ANjXD_yXiilO5FhRT2BKcOhPoBMsHjGlSZQO4UAe9INePvpl7qMP6jO6VY9p-0kSDT4FkjCuPqrd81NNBAJlrdTI0fe712E3N2utWf9wPHi4NJb3fJO_N002qWJ-yVVCb2x3lbKozPweK2kjKM9vyn7D7Iqi0_dVY-YAmLnKLxWePCdYJ-YGqFZcPHDlOxzuB5e1sWXakOzi4wBuOz9yhd2q5OV-DDI4mqU3fxR8",
+          "room": "Royal Cottage Three Bedroom"
+        }
+      ],
+      "roomCount": 80,
+      "roomCountSource": "Mutiara Carita Official Directory (~80 Cottages, Luar Radius 34.4 km)",
+      "compsetRole": null,
+      "excludedReason": "Jarak tempuh 34,3 km, di luar 25 km. Keputusan pemakai 13 Nov 2026.",
+      "lat": -6.3192257,
+      "lng": 105.8371513
+    },
+    {
+      "hotelId": "my_pisita_anyer",
+      "name": "My Pisita Anyer Resort",
+      "group": "resort",
+      "googleStars": 4,
+      "roadKm": 0.7,
+      "driveMinutes": null,
+      "straightKm": 0.66,
+      "address": "Jl. Raya Anyer-Sirih No.Km.129, Anyar, Kec. Anyar, Kabupaten Serang, Banten 42166",
+      "mapsUrl": "https://www.google.com/maps/place/My+Pisita+Anyer+Resort/data=!4m10!3m9!1s0x2e4184145cb32849:0x73ebc935550d2d70!5m2!4m1!1i2!8m2!3d-6.0660766!4d105.8954507!16s%2Fg%2F1thv1zjv!19sChIJSSizXBSEQS4RcC0NVTXJ63M",
+      "opened": null,
+      "photos": [],
+      "roomCount": null,
+      "roomCountSource": "Belum ada data: Google Hotels dan Trip.com tidak mencantumkan jumlah kamar (17 Nov 2026).",
+      "compsetRole": "benchmark",
+      "lat": -6.0660766,
+      "lng": 105.8954507,
+      "distanceSource": "Rute OSRM dari Sanghyang Indah Spa Resort (17 Nov 2026); menit berkendara OSRM tidak dipakai",
+      "starSource": "Google Hotels bintang 4 (Trip.com 2), diperiksa 17 Nov 2026"
+    },
+    {
+      "hotelId": "patra_anyer",
+      "name": "Patra Anyer Hotel",
+      "group": "hotel",
+      "googleStars": 3,
+      "roadKm": 4.4,
+      "driveMinutes": null,
+      "straightKm": 3.8,
+      "address": "Jl. Raya Anyer-Sirih KM 130, Tambang Ayam, Anyer",
+      "mapsUrl": "https://www.google.com/maps/place/Patra+Anyer+Hotel/data=!4m10!3m9!1s0x2e4186ae67120519:0xdd767b26f672d336!5m2!4m1!1i2!8m2!3d-6.0913083!4d105.8817979!16s%2Fg%2F1thzxprv!19sChIJGQUSZ66GQS4RNtNy9iZ7dt0",
+      "opened": null,
+      "photos": [],
+      "roomCount": null,
+      "roomCountSource": "Belum ada data.",
+      "compsetRole": null,
+      "lat": -6.0913083,
+      "lng": 105.8817979,
+      "distanceSource": "Rute OSRM dari Sanghyang Indah Spa Resort (17 Nov 2026); menit berkendara OSRM tidak dipakai",
+      "excludedReason": "Bintang 3 di Google Hotels, Traveloka, dan Trip.com (Hotels.com 2); tidak ada sumber besar yang mencantumkan bintang 4. Audit 17 Nov 2026."
+    },
+    {
+      "hotelId": "west_cove_anyer",
+      "name": "The West Cove Hotel",
+      "group": "hotel",
+      "googleStars": 3,
+      "roadKm": 18.0,
+      "driveMinutes": null,
+      "straightKm": 15.9,
+      "address": "Jl. Raya Pantai Anyer KM 145, Bulakan, Cinangka, Serang",
+      "mapsUrl": "https://www.google.com/maps/place/THE+WEST+COVE+HOTEL/data=!4m10!3m9!1s0x2e422bee2228f817:0x3e5ffa5134bd8365!5m2!4m1!1i2!8m2!3d-6.1937942!4d105.8411943!16s%2Fg%2F11rmwb93h3!19sChIJF_goIu4rQi4RZYO9NFH6Xz4",
+      "opened": null,
+      "photos": [],
+      "roomCount": null,
+      "roomCountSource": "Belum ada data.",
+      "compsetRole": null,
+      "lat": -6.1937942,
+      "lng": 105.8411943,
+      "distanceSource": "Rute OSRM dari Sanghyang Indah Spa Resort (17 Nov 2026); menit berkendara OSRM tidak dipakai",
+      "excludedReason": "Bintang 3 di Google Hotels; tidak ada sumber besar yang mencantumkan bintang 4. Audit 17 Nov 2026."
+    }
+  ],
+  "venues": [
+    {
+      "venueId": "andalan",
+      "name": "Andalan Beach Resto & Coffee",
+      "roadKm": 2.1,
+      "driveMinutes": 4,
+      "mapsUrl": "https://www.google.com/maps/place/Andalan+Beach+Resto+%26+Coffee/@-6.0529988,105.9153982,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4185b086a44675:0xf70acd5fe1f0ce1!8m2!3d-6.0529988!4d105.9153982!16s%2Fg%2F11nhjnsfn1",
+      "note": null
+    },
+    {
+      "venueId": "omah_laut",
+      "name": "Omah Laut Cafe & Resto",
+      "roadKm": 19.3,
+      "driveMinutes": 27,
+      "mapsUrl": "https://www.google.com/maps/place/Omah+Laut+Cafe+%26+Resto/@-6.202712,105.83541,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b004382dee1:0xf81088ae5527e562!8m2!3d-6.202712!4d105.83541!16s%2Fg%2F11zx2cv0v4",
+      "note": null
+    },
+    {
+      "venueId": "bm_seaside",
+      "name": "BM Seaside View Resto & Cafe",
+      "roadKm": 16,
+      "driveMinutes": 22,
+      "mapsUrl": "https://www.google.com/maps/place/BM+Seaside+View+Resto+%26+Cafe/@-6.176976,105.8092916,14z/data=!4m10!1m2!2m1!1sBM+Seaside+View+Cafe+%26+Resto+Anyer!3m6!1s0x2e422b000a511091:0x860bdb351a659255!8m2!3d-6.176976!4d105.8453405!15sCiJCTSBTZWFzaWRlIFZpZXcgQ2FmZSAmIFJlc3RvIEFueWVyWiQiImJtIHNlYXNpZGUgdmlldyBjYWZlICYgcmVzdG8gYW55ZXKSARJzZWFmb29kX3Jlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnRzVWxKSVNrSmFNRkpyVjBadmQyUnRkek5VTTBwb1ltMTNkMWRzUlJBQuABAPoBBAg1ED4!16s%2Fg%2F11yc86zwyz",
+      "note": null
+    },
+    {
+      "venueId": "dewa_laut",
+      "name": "DEWA LAUT CARITA ANYER Resto & Cafe",
+      "roadKm": 33.6,
+      "driveMinutes": 49,
+      "mapsUrl": "https://www.google.com/maps/place/DEWA+LAUT+CARITA+ANYER+Resto+%26+Cafe/@-6.3146976,105.8417449,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422d4d9141de2d:0x68242beacb340645!8m2!3d-6.3146976!4d105.8417449!16s%2Fg%2F11pynq45vg",
+      "note": null
+    },
+    {
+      "venueId": "beach_point",
+      "name": "Beach Point Anyer",
+      "roadKm": 3.6,
+      "driveMinutes": 8,
+      "mapsUrl": "https://www.google.com/maps/place/Beach+Point+Anyer/@-6.0504507,105.9206514,17z/data=!3m1!4b1!4m6!3m5!1s0x2e418582d4c0d86f:0x484ec6498d17e9c6!8m2!3d-6.0504507!4d105.9206514!16s%2Fg%2F11sx3bdtl3",
+      "note": null
+    },
+    {
+      "venueId": "kamalika",
+      "name": "Kamalika Beach Cafe & Resto",
+      "roadKm": 2,
+      "driveMinutes": 4,
+      "mapsUrl": "https://www.google.com/maps/place/Kamalika+Beach+Cafe+%26+Resto/@-6.0539428,105.9140892,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4185003a6a47a3:0x31b9c161b5470370!8m2!3d-6.0539428!4d105.9140892!16s%2Fg%2F11xnpvrfqk",
+      "note": null
+    },
+    {
+      "venueId": "kalani",
+      "name": "Kalani Beach Resto",
+      "roadKm": 15.1,
+      "driveMinutes": 20,
+      "mapsUrl": "https://www.google.com/maps/place/Kalani+Beach+Resto/@-6.1702936,105.8486378,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422bbd15819ef7:0xeae487b7d314a2d1!8m2!3d-6.1702936!4d105.8486378!16s%2Fg%2F11tjv2cqvw",
+      "note": null
+    },
+    {
+      "venueId": "anyer_family_ktv",
+      "name": "Anyer Family KTV",
+      "roadKm": null,
+      "driveMinutes": null,
+      "mapsUrl": null,
+      "note": "Tidak ditemukan di Google Maps (pencarian mengarah ke D'Bar Karaoke Sanghyang)"
+    }
+  ],
+  "outletVenuesSource": {
+    "scannedAt": "2026-11-06",
+    "method": "Pencarian Google Maps di sekitar Sanghyang per jenis outlet, jarak jalan ≤25 km; dipilih manual: hanya tempat sejenis dan sebanding (warung kecil, jasa lain, dan tukang pijat dibuang). Google Maps tidak menampilkan jumlah ulasan tanpa login. Spa pembanding D'Spa (14 Nov 2026): spa hotel bintang 4–5 dalam 25 km yang tercantum di situs resmi hotelnya; \"Bale-Bale Spa ASTON\" dikeluarkan karena tidak ada di Anyer."
+  },
+  "outletVenues": {
+    "sunset-grill": [
+      {
+        "name": "Kamalika Beach Cafe & Resto",
+        "category": "Beach Cafe & Resto",
+        "rating": 4.5,
+        "roadKm": 2.0,
+        "driveMinutes": 4,
+        "mapsUrl": "https://www.google.com/maps/place/Kamalika+Beach+Cafe+%26+Resto/data=!4m7!3m6!1s0x2e4185003a6a47a3:0x31b9c161b5470370!8m2!3d-6.0539428!4d105.9140892!16s%2Fg%2F11xnpvrfqk!19sChIJo0dqOgCFQS4RcANHtWHBuTE"
+      },
+      {
+        "name": "Beach Point Anyer",
+        "category": "Beach Lounge & Cafe",
+        "rating": 4.4,
+        "roadKm": 3.6,
+        "driveMinutes": 8,
+        "mapsUrl": "https://www.google.com/maps/place/Beach+Point+Anyer/@-6.0504507,105.9206514,17z/data=!3m1!4b1!4m6!3m5!1s0x2e418582d4c0d86f:0x484ec6498d17e9c6!8m2!3d-6.0504507!4d105.9206514!16s%2Fg%2F11sx3bdtl3"
+      },
+      {
+        "name": "Campo del Sol Pool Bar Marbella",
+        "category": "Pool Bar & Lounge",
+        "rating": 4.8,
+        "roadKm": 6.1,
+        "driveMinutes": 8,
+        "mapsUrl": "https://www.google.com/maps/place/Campo+del+Sol+Pool+Bar/@-6.1057531,105.8817945,17z/data=!3m1!4b1!4m6!3m5!1s0x2e41878173a6e8d3:0x1acee4e2a425ae96!8m2!3d-6.1057531!4d105.8817945!16s%2Fg%2F11fgjgql18"
+      },
+      {
+        "name": "Andalan Beach Resto & Coffee",
+        "category": "Beach Resto & Coffee",
+        "rating": 4.6,
+        "roadKm": 2.1,
+        "driveMinutes": 4,
+        "mapsUrl": "https://www.google.com/maps/place/Andalan+Beach+Resto+%26+Coffee/data=!4m7!3m6!1s0x2e4185b086a44675:0xf70acd5fe1f0ce1!8m2!3d-6.0529988!4d105.9153982!16s%2Fg%2F11nhjnsfn1!19sChIJdUakhrCFQS4R4Qwf_tWscA8"
+      }
+    ],
+    "dragon-beach-club": [
+      {
+        "name": "Star Queen Restoran N Karaoke Cilegon",
+        "category": "Klub Malam",
+        "rating": 4.2,
+        "roadKm": 21.1,
+        "driveMinutes": 32,
+        "mapsUrl": "https://www.google.com/maps/place/Star+Queen+Restoran+N+Karaoke+Cilegon/data=!4m7!3m6!1s0x2e418dcb6b8ffa79:0xcf0c11280f503b51!8m2!3d-6.0490044!4d106.0566951!16s%2Fg%2F11fslpjcq2!19sChIJefqPa8uNQS4RUTtQDygRDM8"
+      },
+      {
+        "name": "Angel Karaoke & Lounge",
+        "category": "Klub Malam & Karaoke",
+        "rating": 4.9,
+        "roadKm": 24.7,
+        "driveMinutes": 41,
+        "mapsUrl": "https://www.google.com/maps/place/Angel+Karaoke+%26+Lounge/@-6.049,106.057,13z/data=!4m6!3m5!1s0x2e418d041cb96561:0x6a1d5cbea7a2ca3a!8m2!3d-6.0393238!4d106.0796634!16s%2Fg%2F11h94wzbnr"
+      }
+    ],
+    "dbar": [
+      {
+        "name": "The Bellezza Pool Bar",
+        "category": "Bar",
+        "rating": 4.5,
+        "roadKm": 1.7,
+        "driveMinutes": 2,
+        "mapsUrl": "https://www.google.com/maps/place/The+Bellezza+Pool+Bar/@-6.0687997,105.8882445,17z/data=!4m6!3m5!1s0x2e41859a953ac889:0x81aa897157613ec4!8m2!3d-6.0687997!4d105.8882445!16s%2Fg%2F11trk4m_jx"
+      },
+      {
+        "name": "Chrysoberil Lounge",
+        "category": "Bar lounge",
+        "rating": 4.3,
+        "roadKm": 19,
+        "driveMinutes": 34,
+        "mapsUrl": "https://www.google.com/maps/place/Chrysoberil+Lounge/data=!4m7!3m6!1s0x2e418e183a21a141:0xc72e32448a731ba5!8m2!3d-6.0060164!4d106.0423426!16s%2Fg%2F11c4bcgfpw!19sChIJQaEhOhiOQS4RpRtzikQyLsc"
+      },
+      {
+        "name": "Star Queen Restoran N Karaoke Cilegon",
+        "category": "Klub Malam",
+        "rating": 4.2,
+        "roadKm": 21.1,
+        "driveMinutes": 32,
+        "mapsUrl": "https://www.google.com/maps/place/Star+Queen+Restoran+N+Karaoke+Cilegon/data=!4m7!3m6!1s0x2e418dcb6b8ffa79:0xcf0c11280f503b51!8m2!3d-6.0490044!4d106.0566951!16s%2Fg%2F11fslpjcq2!19sChIJefqPa8uNQS4RUTtQDygRDM8"
+      },
+      {
+        "name": "ALPS Sky Lounge",
+        "category": "Bar lounge",
+        "rating": 3.8,
+        "roadKm": 22.9,
+        "driveMinutes": 35,
+        "mapsUrl": "https://www.google.com/maps/place/ALPS+Sky+Lounge/data=!4m7!3m6!1s0x2e418c2654b9a643:0xde11f4eb14249b3b!8m2!3d-6.0492343!4d106.0670351!16s%2Fg%2F11f5fz_898!19sChIJQ6a5VCaMQS4RO5skFOv0Ed4"
+      },
+      {
+        "name": "Happy Puppy Karaoke",
+        "category": "Bar Karaoke",
+        "rating": 4.5,
+        "roadKm": 23.2,
+        "driveMinutes": 41,
+        "mapsUrl": "https://www.google.com/maps/place/Happy+Puppy+Karaoke/data=!4m7!3m6!1s0x2e418dcfee51d02f:0x1ab867537d45a232!8m2!3d-6.0282272!4d106.0766928!16s%2Fg%2F11b6_d_94x!19sChIJL9BR7s-NQS4RMqJFfVNnuBo"
+      },
+      {
+        "name": "Kalyana Mitta Lounge & Karaoke",
+        "category": "Bar Karaoke",
+        "rating": 4.3,
+        "roadKm": 21.0,
+        "driveMinutes": 16,
+        "mapsUrl": "https://www.google.com/maps/place/Kalyana+Mitta+Lounge+%26+Karaoke/@-6.0194018,106.0592815,17z/data=!4m6!3m5!1s0x2e418e7466ec708b:0x2a5ef61b4963e1d6!8m2!3d-6.0194018!4d106.0592815!16s%2Fg%2F11bw4x39hy"
+      },
+      {
+        "name": "Anang Family Karaoke",
+        "category": "Bar Karaoke",
+        "rating": 4.1,
+        "roadKm": 24.1,
+        "driveMinutes": 18,
+        "mapsUrl": "https://www.google.com/maps/place/Anang+Family+Karaoke/@-6.0355601,106.0809605,17z/data=!4m6!3m5!1s0x2e418dccaf89b0a1:0x49e7b83a7e89c7be!8m2!3d-6.0355601!4d106.0809605!16s%2Fg%2F11c5s998gp"
+      }
+    ],
+    "dspa": [
+      {
+        "name": "Alta Spa Marbella Anyer",
+        "category": "Spa hotel bintang 4",
+        "rating": 5.0,
+        "roadKm": 6.0,
+        "driveMinutes": 5,
+        "mapsUrl": "https://www.google.com/maps/place/Spa/@-6.1057531,105.8817945,17z/data=!3m1!4b1!4m6!3m5!1s0x2e41878173a6e8d3:0x1acee4e2a425ae96!8m2!3d-6.1057531!4d105.8817945!16s%2Fg%2F11fgjgql18",
+        "sourceUrl": "https://www.google.com/maps/place/Spa/@-6.1057531,105.8817945,17z/data=!3m1!4b1!4m6!3m5!1s0x2e41878173a6e8d3:0x1acee4e2a425ae96!8m2!3d-6.1057531!4d105.8817945!16s%2Fg%2F11fgjgql18",
+        "checkedAt": "2026-11-17"
+      },
+      {
+        "name": "Spa & Wellness Aston Anyer",
+        "category": "Spa hotel bintang 4",
+        "rating": null,
+        "roadKm": 11.8,
+        "driveMinutes": 15,
+        "mapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+        "sourceUrl": "https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/index.json",
+        "checkedAt": "2026-11-17"
+      },
+      {
+        "name": "Belia Spa and Reflexy Cilegon",
+        "category": "Spa Kesehatan",
+        "rating": 3.8,
+        "roadKm": 24.1,
+        "driveMinutes": 18,
+        "mapsUrl": "https://www.google.com/maps/place/Belia+Spa+and+Reflexy+Cilegon/@-6.0357317,106.0805985,17z/data=!4m6!3m5!1s0x2e418d87175fe1b7:0xf97ec0ed8e2ac9ed!8m2!3d-6.0357317!4d106.0805985!16s%2Fg%2F11c1b6jc2c",
+        "sourceUrl": "https://www.google.com/maps/place/Belia+Spa+and+Reflexy+Cilegon/@-6.0357317,106.0805985,17z/data=!4m6!3m5!1s0x2e418d87175fe1b7:0xf97ec0ed8e2ac9ed!8m2!3d-6.0357317!4d106.0805985!16s%2Fg%2F11c1b6jc2c",
+        "checkedAt": "2026-11-17"
+      }
+    ]
+  },
+  "ownOutlets": [
+    {
+      "outletKey": "resort",
+      "competitorName": "Sanghyang Indah Spa Resort",
+      "placeName": "Sanghyang Indah Spa Resort",
+      "mapsUrl": "https://www.google.com/maps/place/Sanghyang+Indah+Spa+Resort/data=!4m10!3m9!1s0x2e4185b3c4907635:0x64d6c8baa028325d!5m2!4m1!1i2!8m2!3d-6.0624549!4d105.9001458!16s%2Fg%2F1tgzkjlf!19sChIJNXaQxLOFQS4RXTIooLrI1mQ"
+    },
+    {
+      "outletKey": "sunset-grill",
+      "competitorName": "Sunset Grill (Sanghyang)",
+      "placeName": "Sunset Grill Sanghyang",
+      "mapsUrl": "https://www.google.com/maps/place/Sunset+Grill+Sanghyang/data=!4m7!3m6!1s0x2e41856a82c22189:0xc84934b1ab2230b5!8m2!3d-6.0620634!4d105.8979678!16s%2Fg%2F11nmhplflz!19sChIJiSHCgmqFQS4RtTAiq7E0Scg"
+    },
+    {
+      "outletKey": "dragon-beach-club",
+      "competitorName": "Dragon Beach Club (Sanghyang)",
+      "placeName": "Dragon Beach Club - Sanghyang Indah Spa Resort",
+      "mapsUrl": "https://www.google.com/maps/place/Dragon+Beach+Club+-+Sanghyang+Indah+Spa+Resort/@-6.0623289,105.8985666,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4184155322436f:0xcc6e0ab6c701ee49!8m2!3d-6.0623289!4d105.8985666!16s%2Fg%2F11g6b3h060"
+    },
+    {
+      "outletKey": "dbar",
+      "competitorName": "D'Bar & Karaoke (Sanghyang)",
+      "placeName": "d'Bar Karaoke - Sanghyang Indah Spa Resort",
+      "mapsUrl": "https://www.google.com/maps/place/d%27Bar+Karaoke+-+Sanghyang+Indah+Spa+Resort/data=!4m7!3m6!1s0x2e41843ffcf3e277:0xe23bdc67e4314f0e!8m2!3d-6.062603!4d105.899748!16s%2Fg%2F11c310mf9m!19sChIJd-Lz_D-EQS4RDk8x5GfcO-I"
+    },
+    {
+      "outletKey": "dspa",
+      "competitorName": "D'Spa & Hot Spring Aquamedic (Sanghyang)",
+      "placeName": "Sanghyang Spa And Massage",
+      "mapsUrl": "https://www.google.com/maps/place/Sanghyang+Spa+And+Massage/data=!4m7!3m6!1s0x2e41843f8ae9b7c1:0xd2135522e4ddef2!8m2!3d-6.0621685!4d105.9010617!16s%2Fg%2F11f3v98mc6!19sChIJwbfpij-EQS4R8t5NLlI1IQ0"
+    },
+    {
+      "outletKey": "dbistro",
+      "competitorName": "D'Bistro (Sanghyang)",
+      "placeName": "d'Bistro Restaurant",
+      "mapsUrl": "https://www.google.com/maps/place/d%27Bistro+Restaurant/@-6.0626343,105.8997646,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4180c5f57dab51:0xe951179196afb74f!8m2!3d-6.0626343!4d105.8997646!16s%2Fg%2F11c2rj27l6"
+    }
+  ],
+  "roomSizes": [
+    {
+      "hotelId": "sanghyang",
+      "room": "Baduy Suite",
+      "sizeM2": 115,
+      "sourceUrl": "https://sanghyang.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "sanghyang",
+      "room": "Krakatau Suite",
+      "sizeM2": 94,
+      "sourceUrl": "https://sanghyang.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "sanghyang",
+      "room": "Krakatau Beach View",
+      "sizeM2": 70,
+      "sourceUrl": "https://sanghyang.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "sanghyang",
+      "room": "Krakatau Villa",
+      "sizeM2": 70,
+      "sourceUrl": "https://sanghyang.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "sanghyang",
+      "room": "New Baduy Condo",
+      "sizeM2": 60,
+      "sourceUrl": "https://sanghyang.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "sanghyang",
+      "room": "Sanghyang Suite",
+      "sizeM2": 28,
+      "sourceUrl": "https://sanghyang.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "sanghyang",
+      "room": "Sanghyang Deluxe",
+      "sizeM2": 24,
+      "sourceUrl": "https://sanghyang.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "marbella",
+      "room": "STUDIO ROOM",
+      "sizeM2": 36,
+      "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "marbella",
+      "room": "DELUXE SUITE",
+      "sizeM2": 56,
+      "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "marbella",
+      "room": "EXECUTIVE SUITE",
+      "sizeM2": 90,
+      "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "marbella",
+      "room": "MASTER SUITE",
+      "sizeM2": 130,
+      "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "marbella",
+      "room": "FOUR BEDROOM SUITE",
+      "sizeM2": 240,
+      "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "marbella",
+      "room": "STUDIO ROOM – SANTORINI STYLE",
+      "sizeM2": 36,
+      "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "aston_anyer",
+      "room": "SUPERIOR",
+      "sizeM2": 25,
+      "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "aston_anyer",
+      "room": "DELUXE FAMILY",
+      "sizeM2": 25,
+      "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "aston_anyer",
+      "room": "DELUXE WITH BALCONY",
+      "sizeM2": 24,
+      "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "aston_anyer",
+      "room": "DELUXE PREMIER",
+      "sizeM2": 27,
+      "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "aston_anyer",
+      "room": "SUITE",
+      "sizeM2": 47,
+      "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "aston_anyer",
+      "room": "AQUAVILLAS",
+      "sizeM2": 125,
+      "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "aston_anyer",
+      "room": "HONEYMOON VILLA",
+      "sizeM2": 125,
+      "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "novus_jiva",
+      "room": "Mountain Sunrise Room",
+      "sizeM2": 42,
+      "sourceUrl": "https://www.novushotels.com/novusjiva/meeting-room-hotel-anyer",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "novus_jiva",
+      "room": "Cozy Garden",
+      "sizeM2": 45,
+      "sourceUrl": "https://www.novushotels.com/novusjiva/meeting-room-hotel-anyer",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "movenpick",
+      "room": "Standard room with a super king size bed",
+      "sizeM2": 29,
+      "sourceUrl": "https://all.accor.com/hotel/B9W7/index.en.shtml",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "movenpick",
+      "room": "Standard room with two super king size beds",
+      "sizeM2": 32,
+      "sourceUrl": "https://all.accor.com/hotel/B9W7/index.en.shtml",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "movenpick",
+      "room": "Standard room with 2 super king size beds, illuminated outdoor balcony",
+      "sizeM2": 48,
+      "sourceUrl": "https://all.accor.com/hotel/B9W7/index.en.shtml",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "movenpick",
+      "room": "Standard room with two full size beds",
+      "sizeM2": 29,
+      "sourceUrl": "https://all.accor.com/hotel/B9W7/index.en.shtml",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "mutiara_carita",
+      "room": "Mutiara Hotel Room",
+      "sizeM2": 46,
+      "sourceUrl": "https://mutiara-carita.com/room/hotel-rooms/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "mutiara_carita",
+      "room": "Deluxe Cottage 2 Bedroom",
+      "sizeM2": 100,
+      "sourceUrl": "https://mutiara-carita.com/room/deluxe-cottage/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "mutiara_carita",
+      "room": "Royal Cottage 2 Bedroom",
+      "sizeM2": 100,
+      "sourceUrl": "https://mutiara-carita.com/room/royal-cottage/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "mutiara_carita",
+      "room": "Royal Cottage 3 Bedroom",
+      "sizeM2": 160,
+      "sourceUrl": "https://mutiara-carita.com/room/royal-cottage-3-bedroom/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "mutiara_carita",
+      "room": "Deluxe Cottage 4 Bedroom",
+      "sizeM2": 180,
+      "sourceUrl": "https://mutiara-carita.com/room/deluxe-cottage-4-bedroom/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "mutiara_carita",
+      "room": "Royal Cottage 4 Bedroom",
+      "sizeM2": 230,
+      "sourceUrl": "https://mutiara-carita.com/room/royal-cottage-4-bedroom-2/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "mutiara_carita",
+      "room": "Super Royal Cottage 4 Bedroom , 1floor",
+      "sizeM2": 300,
+      "sourceUrl": "https://mutiara-carita.com/room/super-royal-cottage-4-bedroom-1floor/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "mutiara_carita",
+      "room": "Super Royal Cottage 4 Bedroom, 2 Floor",
+      "sizeM2": 300,
+      "sourceUrl": "https://mutiara-carita.com/room/royal-cottage-4-bedroom/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "mutiara_carita",
+      "room": "VIP A5 – 4 Bedroom – With Premium Community Balcony",
+      "sizeM2": 390,
+      "sourceUrl": "https://mutiara-carita.com/room/mutiara-hotel/",
+      "checkedAt": "2026-11-09"
+    },
+    {
+      "hotelId": "mutiara_carita",
+      "room": "VIP A4 – 4 Bedroom – Private Balcony",
+      "sizeM2": 320,
+      "sourceUrl": "https://mutiara-carita.com/room/vip-suites/",
+      "checkedAt": "2026-11-09"
+    }
+  ]
+}

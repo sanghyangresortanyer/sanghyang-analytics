@@ -1,0 +1,56 @@
+{
+ "allowed_hosts": [
+  "instagram.com",
+  "www.facebook.com",
+  "facebook.com",
+  "www.tiktok.com",
+  "tiktok.com"
+ ],
+ "assets": {
+  "download": false,
+  "hosts": []
+ },
+ "authorization": "Uji kepatuhan riset pasar internal: halaman publik akun media sosial pesaing, tanpa login, hanya bila robots.txt dan ketentuan layanan mengizinkan.",
+ "base_url": "https://www.instagram.com",
+ "identity": {
+  "name": "SanghyangNewsCrawler/1.0",
+  "contact": "https://sanghyang.com"
+ },
+ "output_dir": "../../data/grounding/sosmed",
+ "politeness": {
+  "delay_seconds": 1.0,
+  "denials_before_stop": 3,
+  "max_backoff_seconds": 60.0,
+  "max_bytes": 50000000,
+  "max_requests": 2000,
+  "max_retries": 3,
+  "timeout_seconds": 30.0
+ },
+ "sources": {
+  "endpoints": [],
+  "extra_urls": [
+   "https://www.instagram.com/marbellaplaceanyer/",
+   "https://www.tiktok.com/@marbellaplaceanyer",
+   "https://www.instagram.com/movenpickresortcarita/",
+   "https://www.instagram.com/mambrukhotelanyer/",
+   "https://www.tiktok.com/@mambruk_official",
+   "https://www.instagram.com/thejayakartaanyer/",
+   "https://www.tiktok.com/@thejayakartaanyer",
+   "https://www.instagram.com/hawaiiresortanyer/",
+   "https://www.instagram.com/pisitaresortanyer/",
+   "https://www.tiktok.com/@mypisitaanyerresort",
+   "https://www.instagram.com/bmseasideview/",
+   "https://www.instagram.com/beachpoint.anyer/",
+   "https://www.tiktok.com/@beachpoint.anyer",
+   "https://www.instagram.com/omahlautcaferesto/",
+   "https://www.instagram.com/andalanbeach/",
+   "https://www.tiktok.com/@andalanbeachanyer",
+   "https://www.instagram.com/kamalikabeachcaferesto/",
+   "https://www.tiktok.com/@kamalikabeachcaferesto",
+   "https://www.instagram.com/novusjivaanyer/",
+   "https://www.tiktok.com/@novusjivaanyer",
+   "https://www.instagram.com/starqueen2236/"
+  ],
+  "sitemaps": []
+ }
+}

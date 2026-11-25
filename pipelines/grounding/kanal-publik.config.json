@@ -1,0 +1,57 @@
+{
+ "allowed_hosts": [
+  "www.google.com",
+  "www.agoda.com"
+ ],
+ "assets": {
+  "download": false,
+  "hosts": []
+ },
+ "authorization": "Riset pasar internal: listing publik Google Maps hotel induk dan outlet tambahan, serta halaman publik Agoda properti kompset; seluruh path diizinkan robots.txt dan diakses tanpa login.",
+ "base_url": "https://www.google.com",
+ "identity": {
+  "name": "SanghyangNewsCrawler/1.0",
+  "contact": "https://sanghyang.com"
+ },
+ "output_dir": "../../data/grounding/kanal-publik",
+ "politeness": {
+  "delay_seconds": 1.0,
+  "denials_before_stop": 3,
+  "max_backoff_seconds": 30.0,
+  "max_bytes": 50000000,
+  "max_requests": 200,
+  "max_retries": 2,
+  "timeout_seconds": 25.0
+ },
+ "render": {
+  "chrome_channel": "chrome",
+  "settle_seconds": 6,
+  "wait_until": "domcontentloaded"
+ },
+ "sources": {
+  "endpoints": [],
+  "extra_urls": [
+   "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+   "https://www.google.com/maps/place/Mambruk+Hotel+%26+Convention/@-6.0730137,105.8845296,17z/data=!4m9!3m8!1s0x2e422a6bf3e2279d:0x7352b852bda8d71e!5m2!4m1!1i2!8m2!3d-6.0730137!4d105.8845296!16s%2Fg%2F11b6d59cr7",
+   "https://www.google.com/maps/place/Marbella+Place+Anyer+by+Jayakarta/@-6.1071286,105.8825838,17z/data=!4m9!3m8!1s0x2e41869157a2e2ad:0xdf993409f93aa690!5m2!4m1!1i2!8m2!3d-6.1071286!4d105.8825838!16s%2Fg%2F1tfysncg",
+   "https://www.google.com/maps/place/M%C3%B6venpick+Resort+Carita/@-6.2399725,105.8270948,17z/data=!4m9!3m8!1s0x2e422b47b93a4645:0x30d753f6ff816db6!5m2!4m1!1i2!8m2!3d-6.2399725!4d105.8270948!16s%2Fg%2F11z2c2q0_l",
+   "https://www.google.com/maps/place/Novus+Jiva+Villa,+Resort+%26+Spa/@-6.2182816,105.8343906,17z/data=!4m9!3m8!1s0x2e422bcc4167b369:0x72e84d86701355f6!5m2!4m1!1i2!8m2!3d-6.2182816!4d105.8343906!16s%2Fg%2F11h247gj2j",
+   "https://www.google.com/maps/place/The+Jayakarta+Villas+Anyer/@-6.110744,105.8812441,17z/data=!4m9!3m8!1s0x2e418fccb5cdee95:0x64d1ffedb6ed3c69!5m2!4m1!1i2!8m2!3d-6.110744!4d105.8812441!16s%2Fg%2F1pzvrn504",
+   "https://www.google.com/maps/place/Sanghyang+Indah+Spa+Resort/@-6.0624549,105.9001458,17z/data=!4m9!3m8!1s0x2e4185b3c4907635:0x64d6c8baa028325d!5m2!4m1!1i2!8m2!3d-6.0624549!4d105.9001458!16s%2Fg%2F1tgzkjlf",
+   "https://www.google.com/maps/place/Upper+Circle/@-6.2182262,105.8341457,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b193c65715d:0xb46128b30cd01adf!8m2!3d-6.2182262!4d105.8341457!16s%2Fg%2F11st92v7k9!19sChIJXXFlPBkrQi4R3xrQDLMoYbQ",
+   "https://www.google.com/maps/place/Daiva+Spa/@-6.2185309,105.8342407,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b99077f0aa1:0xae680bd4c63a5a6a!8m2!3d-6.2185309!4d105.8342407!16s%2Fg%2F11st935fyb!19sChIJoQp_B5krQi4Ralo6xtQLaK4",
+   "https://www.google.com/maps/place/Lagoon+Restaurant/@-6.2407264,105.8264071,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b0077aac075:0xce2d482a71b762be!8m2!3d-6.2407264!4d105.8264071!16s%2Fg%2F11z9mnwvqc!19sChIJdcCqdwArQi4RvmK3cSpILc4",
+   "https://www.google.com/maps/place/Oceana+Pool+Bar/@-6.2398198,105.8270141,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b1fe33d7f29:0x7dd587e49e862db9!8m2!3d-6.2398198!4d105.8270141!16s%2Fg%2F11zg9crfq2",
+   "https://www.google.com/maps/search/Infinity+Restaurant+Cikoneng+Anyer/",
+   "https://www.google.com/maps/search/d%27Bistro+Restaurant+Sanghyang+Indah+Spa+Resort+Anyer/",
+   "https://www.google.com/maps/place/Sunset+Grill+Sanghyang/@-6.0620634,105.8979678,17z/data=!3m1!4b1!4m6!3m5!1s0x2e41856a82c22189:0xc84934b1ab2230b5!8m2!3d-6.0620634!4d105.8979678!16s%2Fg%2F11nmhplflz!19sChIJiSHCgmqFQS4RtTAiq7E0Scg",
+   "https://www.google.com/maps/place/Dragon+Beach+Club+-+Sanghyang+Indah+Spa+Resort/@-6.0623289,105.8985666,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4184155322436f:0xcc6e0ab6c701ee49!8m2!3d-6.0623289!4d105.8985666!16s%2Fg%2F11g6b3h060",
+   "https://www.google.com/maps/place/d%27Bar+Karaoke+-+Sanghyang+Indah+Spa+Resort/@-6.062603,105.899748,17z/data=!3m1!4b1!4m6!3m5!1s0x2e41843ffcf3e277:0xe23bdc67e4314f0e!8m2!3d-6.062603!4d105.899748!16s%2Fg%2F11c310mf9m",
+   "https://www.agoda.com/id-id/aston-anyer-beach-hotel/hotel/anyer-id.html",
+   "https://www.agoda.com/id-id/novus-jiva-anyer-villa-resort-and-spa/hotel/anyer-id.html",
+   "https://www.agoda.com/id-id/the-jayakarta-anyer-beach-resorts/hotel/anyer-id.html",
+   "https://www.agoda.com/id-id/sanghyang-indah-spa-resort/hotel/anyer-id.html"
+  ],
+  "sitemaps": []
+ }
+}

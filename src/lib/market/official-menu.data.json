@@ -1,0 +1,103 @@
+{
+  "$comment": "Dibuat oleh scripts/ops/import-official-menu.ts dari teks foto menu situs resmi Sanghyang. Jangan diubah manual; jalankan ulang skripnya bila menu berganti.",
+  "source": {
+    "title": "foto menu resmi di situs Sanghyang (sanghyang.com)",
+    "capturedAt": "2026-10-06"
+  },
+  "outlets": {
+    "sunset-grill": {
+      "sourceUrl": "https://sanghyang.com/sunset-grill/",
+      "items": [
+        {
+          "name": "Ikan Kwe (goreng/bakar)",
+          "category": "Seafood",
+          "price": 95000,
+          "unit": "porsi",
+          "menuImage": "dining-sunset-grill-menu-06"
+        },
+        {
+          "name": "Ikan Kakap Bakar",
+          "category": "Seafood",
+          "price": 36000,
+          "unit": "per ons",
+          "menuImage": "dining-sunset-grill-menu-08"
+        },
+        {
+          "name": "Kerapu Bakar",
+          "category": "Seafood",
+          "price": 52000,
+          "unit": "per ons",
+          "menuImage": "dining-sunset-grill-menu-04"
+        },
+        {
+          "name": "Cumi Bakar",
+          "category": "Seafood",
+          "price": 86000,
+          "unit": "porsi",
+          "menuImage": "dining-sunset-grill-menu-09"
+        },
+        {
+          "name": "Udang Bakar",
+          "category": "Seafood",
+          "price": 132000,
+          "unit": "porsi",
+          "menuImage": "dining-sunset-grill-menu-10"
+        },
+        {
+          "name": "Kelapa Muda (Young Coconut)",
+          "category": "Minuman",
+          "price": 20000,
+          "unit": "porsi",
+          "menuImage": "dining-sunset-grill-menu-20"
+        }
+      ]
+    },
+    "dbistro": {
+      "sourceUrl": "https://sanghyang.com/dbistro/",
+      "items": [
+        {
+          "name": "Sop Buntut",
+          "category": "Indonesian corner",
+          "price": 150000,
+          "unit": "porsi",
+          "menuImage": "dining-dbistro-menu-02"
+        },
+        {
+          "name": "Soto Ayam Madura",
+          "category": "Indonesian corner",
+          "price": 40000,
+          "unit": "porsi",
+          "menuImage": "dining-dbistro-menu-02"
+        },
+        {
+          "name": "Gurame Bakar",
+          "category": "Indonesian corner",
+          "price": 90000,
+          "unit": "porsi",
+          "menuImage": "dining-dbistro-menu-02"
+        },
+        {
+          "name": "Udang Bakar",
+          "category": "Indonesian corner",
+          "price": 95000,
+          "unit": "porsi",
+          "menuImage": "dining-dbistro-menu-02"
+        },
+        {
+          "name": "Nasi Goreng Kampung",
+          "category": "Rice & noodles",
+          "price": 40000,
+          "unit": "porsi",
+          "menuImage": "dining-dbistro-menu-02"
+        },
+        {
+          "name": "Nasi Goreng D'Bistro",
+          "category": "Rice & noodles",
+          "price": 60000,
+          "unit": "porsi",
+          "menuImage": "dining-dbistro-menu-02"
+        }
+      ]
+    }
+  }
+}

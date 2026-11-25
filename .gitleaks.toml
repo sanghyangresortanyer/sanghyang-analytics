@@ -1,0 +1,26 @@
+# Aturan bawaan gitleaks tetap dipakai. Tanpa blok ini config kustom tidak memuat aturan apa pun, sehingga pemindaian
+# selalu lolos walau ada rahasia.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Build artifacts, dependencies, and local caches. .env files are NOT allowlisted so leaked secrets are still caught."
+paths = [
+    '''(^|[\/])\.next[\/]''',
+    '''(^|[\/])node_modules[\/]''',
+    '''(^|[\/])\.agents[\/]graphify-out[\/]''',
+    '''(^|[\/])artifacts[\/]''',
+    '''(^|[\/])crawler[\/]\.venv[\/]'''
+]
+
+# Dua positif palsu aturan generik yang sudah diperiksa, dicocokkan per nilai tangkapan, bukan per berkas:
+# kunci publik RSA 2048 (kunci "key" manifest ekstensi Chrome yang menetapkan Extension ID) dan nama variabel berikutnya
+# yang terbaca sebagai nilai ketika baris .env.example berisi "" kosong.
+[[allowlists]]
+description = "Positif palsu generic-api-key yang sudah diperiksa"
+targetRules = ["generic-api-key"]
+regexTarget = "secret"
+regexes = [
+    '''^MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA[A-Za-z0-9+/]+={0,2}$''',
+    '''^[A-Z][A-Z0-9_]+=$'''
+]

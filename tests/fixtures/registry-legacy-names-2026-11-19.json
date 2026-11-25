@@ -1,0 +1,119 @@
+{
+ "_sumber": "Kolom tautan registri Competitor dari DB produksi (baca-saja) dan DB kerja lokal, 19 Nov 2026, sebelum sinkron registri; hanya baris yang terkait nama lama.",
+ "produksi": [
+  {
+   "name": "Andalan Beach View Anyer",
+   "active": true,
+   "instagramUrl": "https://www.instagram.com/andalanbeach/",
+   "websiteUrl": "https://www.instagram.com/andalanbeach/",
+   "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Andalan+Beach+Anyer",
+   "mapsUrl": null
+  },
+  {
+   "name": "The West Cove Hotel Anyer",
+   "active": true,
+   "instagramUrl": null,
+   "websiteUrl": "https://thewestcove.com/contacts/",
+   "googleMapsUrl": null,
+   "mapsUrl": null
+  },
+  {
+   "name": "Aston Anyer Beach Hotel",
+   "active": true,
+   "instagramUrl": null,
+   "websiteUrl": "https://anyer.astonhotelsinternational.com/",
+   "googleMapsUrl": null,
+   "mapsUrl": null
+  },
+  {
+   "name": "Kamalika Beach Café Anyer",
+   "active": true,
+   "instagramUrl": "https://www.instagram.com/kamalikabeachcaferesto/",
+   "websiteUrl": "https://www.instagram.com/kamalikabeachcaferesto/",
+   "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kamalika+Beach+Cafe+Anyer",
+   "mapsUrl": null
+  },
+  {
+   "name": "Lighthouse Bar & Lounge Mambruk",
+   "active": true,
+   "instagramUrl": null,
+   "websiteUrl": "https://www.mambruk.co.id/facilities",
+   "googleMapsUrl": null,
+   "mapsUrl": null
+  },
+  {
+   "name": "Aston Anyer Beach Hotel & Aquavillas",
+   "active": true,
+   "instagramUrl": "https://www.instagram.com/astonanyer/",
+   "websiteUrl": "https://anyer.astonhotelsinternational.com/",
+   "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Aston+Anyer+Beach+Hotel",
+   "mapsUrl": null
+  }
+ ],
+ "lokal": [
+  {
+   "name": "THE WEST COVE HOTEL",
+   "active": false,
+   "instagramUrl": null,
+   "websiteUrl": "https://thewestcove.com/contacts/",
+   "googleMapsUrl": null,
+   "mapsUrl": null
+  },
+  {
+   "name": "Lighthouse Restaurant & Bar Mambruk",
+   "active": true,
+   "instagramUrl": null,
+   "websiteUrl": "https://www.mambruk.co.id/facilities",
+   "googleMapsUrl": "https://www.google.com/maps/place/Mambruk+Hotel+%26+Convention/@-6.0730137,105.8845296,17z/data=!4m9!3m8!1s0x2e422a6bf3e2279d:0x7352b852bda8d71e!5m2!4m1!1i2!8m2!3d-6.0730137!4d105.8845296!16s%2Fg%2F11b6d59cr7",
+   "mapsUrl": "https://www.google.com/maps/place/Mambruk+Hotel+%26+Convention/@-6.0730137,105.8845296,17z/data=!4m9!3m8!1s0x2e422a6bf3e2279d:0x7352b852bda8d71e!5m2!4m1!1i2!8m2!3d-6.0730137!4d105.8845296!16s%2Fg%2F11b6d59cr7"
+  },
+  {
+   "name": "Hotel Pier Aston Anyer",
+   "active": true,
+   "instagramUrl": null,
+   "websiteUrl": "https://anyer.astonhotelsinternational.com/",
+   "googleMapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+   "mapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md"
+  },
+  {
+   "name": "Aston Anyer Beach Hotel",
+   "active": true,
+   "instagramUrl": "https://www.instagram.com/astonanyer/",
+   "websiteUrl": "https://anyer.astonhotelsinternational.com/",
+   "googleMapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+   "mapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md"
+  },
+  {
+   "name": "Andalan Beach Resto & Coffee",
+   "active": true,
+   "instagramUrl": "https://www.instagram.com/andalanbeach/",
+   "websiteUrl": "https://www.instagram.com/andalanbeach/",
+   "googleMapsUrl": "https://www.google.com/maps/place/Andalan+Beach+Resto+%26+Coffee/data=!4m7!3m6!1s0x2e4185b086a44675:0xf70acd5fe1f0ce1!8m2!3d-6.0529988!4d105.9153982!16s%2Fg%2F11nhjnsfn1!19sChIJdUakhrCFQS4R4Qwf_tWscA8",
+   "mapsUrl": "https://www.google.com/maps/place/Andalan+Beach+Resto+%26+Coffee/data=!4m7!3m6!1s0x2e4185b086a44675:0xf70acd5fe1f0ce1!8m2!3d-6.0529988!4d105.9153982!16s%2Fg%2F11nhjnsfn1!19sChIJdUakhrCFQS4R4Qwf_tWscA8"
+  },
+  {
+   "name": "Spa & Wellness Aston Anyer",
+   "active": true,
+   "instagramUrl": null,
+   "websiteUrl": "https://anyer.astonhotelsinternational.com/",
+   "googleMapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+   "mapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md"
+  },
+  {
+   "name": "Kamalika Beach Cafe & Resto",
+   "active": true,
+   "instagramUrl": "https://www.instagram.com/kamalikabeachcaferesto/",
+   "websiteUrl": "https://www.instagram.com/kamalikabeachcaferesto/",
+   "googleMapsUrl": "https://www.google.com/maps/place/Kamalika+Beach+Cafe+%26+Resto/data=!4m7!3m6!1s0x2e4185003a6a47a3:0x31b9c161b5470370!8m2!3d-6.0539428!4d105.9140892!16s%2Fg%2F11xnpvrfqk!19sChIJo0dqOgCFQS4RcANHtWHBuTE",
+   "mapsUrl": "https://www.google.com/maps/place/Kamalika+Beach+Cafe+%26+Resto/data=!4m7!3m6!1s0x2e4185003a6a47a3:0x31b9c161b5470370!8m2!3d-6.0539428!4d105.9140892!16s%2Fg%2F11xnpvrfqk!19sChIJo0dqOgCFQS4RcANHtWHBuTE"
+  },
+  {
+   "name": "Sunset Cafe Aston Anyer",
+   "active": true,
+   "instagramUrl": null,
+   "websiteUrl": "https://anyer.astonhotelsinternational.com/",
+   "googleMapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+   "mapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md"
+  }
+ ]
+}

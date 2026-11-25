@@ -1,0 +1,265 @@
+{
+ "_sumber": "DB kerja lokal sanghyang_news (127.0.0.1:55432) dibaca 22 Nov 2026 oleh .agents/local/probe/upu-capture-range-fixture.ts: event DBC 1-6 Nov (di-crawl 20 Nov), NYE The Jayakarta Villas, reels DBC tanpa endsAt, penawaran situs Marbella tanpa tanggal, promo Instagram Andalan, unggahan mentah Andalan yang tampil sebagai promo, dan dua unggahan umum Aston (gambar 9).",
+ "rows": [
+  {
+   "label": "dbc-event-1-6-nov",
+   "id": "75d4fed3-9239-4ffb-b0e8-852e9a0e25bc",
+   "title": "[REELS] 🔥🌴 DRAGON BEACH CLUB! 🌴🔥 Saatnya menikmati malam dengan musik terbaik, suasa",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"dragon-beach-club\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"🔥🌴 DRAGON BEACH CLUB! 🌴🔥\\n\\nSaatnya menikmati malam dengan musik terbaik, suasana seru, dan vibes party yang tak terlupakan! 🎶✨\\n\\nBersiaplah untuk bergoyang bersama penampilan spesial dari DJ MIRELLA yang siap membakar suasana sepanjang malam! 🎧🔥\\n\\n📅 Jumat, 6 November 2026\\n⏰ 21.00 – 03.00 WIB\\n📍 Dragon Beach Club\\n\\nAjak teman-temanmu, nikmati musiknya, rasakan atmosfernya, dan jadikan malam ini penuh cerita!\\n\\nJangan sampai ketinggalan. Sampai jumpa di dance floor! 🥂🔥\\n\\n#DragonBeachClub #NightParty #DJMirella #FridayNight #BeachClubVibes\",\"metrics\":{\"views\":null,\"likes\":13,\"comments\":1,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":80,\"hookFeedback\":\"Hook cukup kuat dengan penawaran yang jelas di baris awal.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"dragonbeachclub\",\"followers\":5123}",
+   "kind": "event",
+   "promotionType": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DfL-JyBhOvd/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-01T05:23:10.000Z",
+   "endsAt": "2026-11-06T16:59:59.000Z",
+   "capturedAt": "2026-11-20T08:34:08.456Z",
+   "status": "changed",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ],
+    "category": "bar"
+   }
+  },
+  {
+   "label": "nye-jayakarta",
+   "id": "faf6fb17-e195-4e87-b9b3-1cde6bf37521",
+   "title": "New Year's Eve 2026",
+   "category": "Acara & Live Music",
+   "description": "Ajakan merayakan malam pergantian tahun baru di tepi pantai bersama The Jayakarta Villas Anyer.\nVersi kita: Rayakan malam tahun baru di Sanghyang Indah Spa Resort dengan paket menginap yang sudah termasuk akses pesta pantai di Dragon Beach Club dan BBQ malam tahun baru di Sunset Grill.",
+   "kind": "event",
+   "promotionType": null,
+   "source": "Instagram (dibaca Gemini)",
+   "sourceUrl": "https://www.instagram.com/thejayakartaanyer/p/DfCAlO1Thou/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-12-30T17:00:00.000Z",
+   "endsAt": "2026-12-31T16:59:59.000Z",
+   "capturedAt": "2026-11-05T10:11:07.589Z",
+   "status": "new",
+   "competitor": {
+    "name": "The Jayakarta Villas Anyer Beach Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "label": "dbc-reels-31-agu",
+   "id": "feecde29-57cf-457a-8b8d-12519006e756",
+   "title": "[REELS] ✨ Saturday Night Moments with Kirei Candy! 🍭🔥 Malam Sabtu penuh energi, musik,",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"dragon-beach-club\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"✨ Saturday Night Moments with Kirei Candy! 🍭🔥\\nMalam Sabtu penuh energi, musik, dan momen seru bareng Kirei Candy! 🎶💃\\nSatu malam, satu panggung, dan vibes yang nggak terlupakan. 🪩✨\\nGood music. Good vibes. Sweet memories. 🍬\\n\\n#dragonbeachclub #anyerclub #nightparty #beachclub\",\"metrics\":{\"views\":null,\"likes\":2,\"comments\":2,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"dragonbeachclub\",\"followers\":5123}",
+   "kind": null,
+   "promotionType": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/Dcsp8XLhkwi/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-08-31T08:29:09.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:34:29.497Z",
+   "status": "changed",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ],
+    "category": "bar"
+   }
+  },
+  {
+   "label": "dbc-reels-recap-aiko",
+   "id": "5ac22037-a808-48b0-8da9-c70b70757d7a",
+   "title": "[REELS] 🔥 RECAP MOMENTS WITH FDJ AIKO 🎧✨ Good music, great energy, and unforgettable m",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"dragon-beach-club\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"🔥 RECAP MOMENTS WITH FDJ AIKO 🎧✨\\n\\nGood music, great energy, and unforgettable moments on the dance floor! 💃🏻🔥\\n\\nThank you for bringing the vibes and making the night unforgettable. See you at the next party! 🖤\\n\\n#FDJAiko #RecapMoments #NightParty #DragonBeachClub #GoodVibesOnly\",\"metrics\":{\"views\":null,\"likes\":23,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"dragonbeachclub\",\"followers\":5123}",
+   "kind": null,
+   "promotionType": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DeZXMI5Sdbk/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-10-12T13:40:35.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:34:12.521Z",
+   "status": "new",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ],
+    "category": "bar"
+   }
+  },
+  {
+   "label": "dbc-reels-halloween",
+   "id": "65986dd7-9428-48e2-bb9a-698fb2ec9c2c",
+   "title": "[REELS] 🔥 HALLOWEEN PARTY AT DRAGON BEACH CLUB 🔥 Get ready for a night full of beats, ",
+   "category": "Postingan Sosmed Tayang",
+   "description": "{\"outletKey\":\"dragon-beach-club\",\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"🔥 HALLOWEEN PARTY AT DRAGON BEACH CLUB 🔥\\n\\nGet ready for a night full of beats, energy, and good vibes! 🎶🌴\\n\\n🎧 GUEST DJ NADIA ANNA BELLA\\n🗓️ Friday, 23 Oktober 2026\\n⏰ 21.00 – 03.00\\n📍 Dragon Beach Club\\n\\nBring your squad, feel the music, and let the night take over! 🔥\\nSee you on the dance floor! 🕺💃\\n\\n#DragonBeachClub #FridayNight #DJNADIA #NightParty #BeachClub PartyTonight\",\"metrics\":{\"views\":null,\"likes\":10,\"comments\":0,\"shares\":null,\"inquiriesWa\":null},\"audit\":{\"hookScore\":70,\"hookFeedback\":\"Hook standar. Baris pembuka menyampaikan topik promo.\",\"copyScore\":65,\"copyFeedback\":\"Copywriting kurang mencantumkan transparansi harga atau persentase hemat sehingga penonton ragu bertindak.\",\"ctaScore\":45,\"ctaFeedback\":\"PERHATIAN: Postingan tidak memiliki Call-to-Action (CTA) yang jelas. Audiens bingung harus pesan ke mana.\",\"engagementRatePercent\":null,\"engagementHealth\":\"unknown\",\"statusVerdict\":\"weak_cta\",\"verdictLabel\":\"CTA Lemah (Perlu Tombol/Link WA)\",\"recommendedRevisionHeadline\":\"Tambahkan ajakan eksplisit: 'Reservasi via WhatsApp 0811-9011-600 atau klik link di bio!'\",\"actionDirective\":\"Edit caption sekarang dan sematkan komentar teratas (*pinned comment*) dengan link langsung ke WhatsApp CS.\"},\"account\":\"dragonbeachclub\",\"followers\":5123}",
+   "kind": null,
+   "promotionType": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/dragonbeachclub/reel/DebXhBnyjVr/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-10-20T12:44:19.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:34:09.819Z",
+   "status": "new",
+   "competitor": {
+    "name": "Dragon Beach Club (Sanghyang)",
+    "outlets": [
+     "dragon-beach-club"
+    ],
+    "category": "bar"
+   }
+  },
+  {
+   "label": "marbella-early-bird-situs",
+   "id": "d0deb43b-5b52-4834-8a17-186d167820df",
+   "title": "Early Bird Deal",
+   "category": "Kamar & Menginap",
+   "description": "Penawaran Early Bird Deal di Marbella Place Anyer seharga IDR 368,280.\nVersi kita: Sanghyang Indah Spa Resort menyediakan harga pemesanan awal khusus untuk kamar resort tepi pantai.",
+   "kind": "promo",
+   "promotionType": "potongan_harga",
+   "source": "Situs resmi (dibaca Gemini)",
+   "sourceUrl": "https://marbellaplaceanyer.com/offers/",
+   "price": 368280,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-20T08:29:40.562Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:29:40.562Z",
+   "status": "changed",
+   "competitor": {
+    "name": "Marbella Place Anyer by Jayakarta",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "label": "andalan-boat-trip-ig",
+   "id": "e87362f4-b8f6-4052-9847-b3016485c400",
+   "title": "Promo Spesial Boat Trip & Paket Makan",
+   "category": "Keluarga & Anak",
+   "description": "Penawaran khusus boat trip seharga Rp300.000 per 10 menit dan paket makan Rp100.000/pax dengan bonus gratis boat trip untuk minimal 15 pax.\nVersi kita: Sanghyang Indah Spa Resort menawarkan paket kumpul keluarga di Sunset Grill dengan bonus naik boat gratis dan akses ke Hot Spring Aquamedic.",
+   "kind": "promo",
+   "promotionType": "harga_spesial",
+   "source": "Instagram (dibaca Gemini)",
+   "sourceUrl": "https://www.instagram.com/andalanbeach/reel/Dewc_YLyyVw/",
+   "price": 300000,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-10-20T17:00:00.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:36:06.785Z",
+   "status": "new",
+   "competitor": {
+    "name": "Andalan Beach Resto & Coffee",
+    "outlets": [
+     "sunset-grill"
+    ],
+    "category": "resto"
+   }
+  },
+  {
+   "label": "andalan-bundling-mentah",
+   "id": "e351c755-c9c5-4dbd-9b78-af185a89211f",
+   "title": "BUNDLING PROMO 99K++ 🔥",
+   "category": "Postingan Sosmed Baru",
+   "description": "{\"platform\":\"instagram\",\"postType\":\"feed\",\"caption\":\"BUNDLING PROMO 99K++ 🔥\\n\\nKombinasi pas buat nemenin santai kamu di pantai 🥳\\n🍽️ Iga Bakar Andalan\\n🍹 Pineapple Lychee\\n\\nRasakan kelezatan iga bakar empuk dengan kesegaran minuman tropis pilihan cuma di Andalan Beach Resto & Coffee! 🌊\",\"metrics\":{\"views\":null,\"likes\":8,\"comments\":0,\"shares\":null},\"followers\":1415,\"account\":\"andalanbeach\"}",
+   "kind": null,
+   "promotionType": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/andalanbeach/p/DfhWnqyyhFL/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-09T12:44:41.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:36:03.762Z",
+   "status": "new",
+   "competitor": {
+    "name": "Andalan Beach Resto & Coffee",
+    "outlets": [
+     "sunset-grill"
+    ],
+    "category": "resto"
+   }
+  },
+  {
+   "label": "aston-just-say-mentah",
+   "id": "451d75cc-6548-4f9a-b6f7-42b790bfa7ec",
+   "title": "Just say the number. No sliders, no dropdowns. Archipelago Hotels in ChatGPT.",
+   "category": "Postingan Sosmed Baru",
+   "description": "{\"platform\":\"instagram\",\"postType\":\"feed\",\"caption\":\"Just say the number. No sliders, no dropdowns. Archipelago Hotels in ChatGPT.\\n\\nInstall and try the Archipelago Hotels App (link in bio)\",\"metrics\":{\"views\":null,\"likes\":7,\"comments\":1,\"shares\":null},\"followers\":41000,\"account\":\"astonanyer\"}",
+   "kind": null,
+   "promotionType": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/astonanyer/p/Detbxgpo-bS/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-10-20T08:45:06.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:36:47.519Z",
+   "status": "new",
+   "competitor": {
+    "name": "Aston Anyer Beach Hotel",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "label": "aston-calendar-mentah",
+   "id": "a259fd24-e1e1-47e8-9ba1-e15bcabf1cfb",
+   "title": "Let’s put something else on the calendar: checking in, switching off, and waking up with n",
+   "category": "Postingan Sosmed Baru",
+   "description": "{\"platform\":\"instagram\",\"postType\":\"reels\",\"caption\":\"Let’s put something else on the calendar: checking in, switching off, and waking up with no rush. \\n\\nYear-end celebrations are coming. Take a breather first or get your festive stay booked early with 25% OFF your stay.\\n\\nYou Need a Break. Go ahead and take one.\\n\\n📅 Book Period: 01–30 November 2026\\n\\n🛏️ Stay Period: 01 November 2026–31 December 2026\\n\\nBook directly through the Archipelago Hotels website. Click link in bio. T&Cs apply.\\n\\n#YouNeedABreak #ArchipelagoHotels\",\"metrics\":{\"views\":null,\"likes\":15,\"comments\":1,\"shares\":null},\"followers\":41000,\"account\":\"astonanyer\"}",
+   "kind": null,
+   "promotionType": null,
+   "source": "Instagram",
+   "sourceUrl": "https://www.instagram.com/astonanyer/reel/DfoJf-wT7Pm/",
+   "price": null,
+   "discount": null,
+   "details": [],
+   "terms": [],
+   "startsAt": "2026-11-12T04:01:37.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-20T08:36:33.291Z",
+   "status": "changed",
+   "competitor": {
+    "name": "Aston Anyer Beach Hotel",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  }
+ ]
+}

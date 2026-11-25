@@ -1,0 +1,114 @@
+{
+ "allowed_hosts": [
+  "www.mambruk.co.id",
+  "www.novushotels.com",
+  "www.astonhotelsinternational.com",
+  "llms.archipelagointernational.com",
+  "booking.jayakartahotelsresorts.com",
+  "jayakartagroup.com",
+  "jayakartahotelsresorts.com",
+  "all.accor.com",
+  "beachpointanyer.isellershop.com",
+  "sanghyang.com"
+ ],
+ "assets": {
+  "download": false,
+  "hosts": []
+ },
+ "authorization": "Riset pasar internal: halaman publik situs resmi properti pesaing dan Sanghyang (kamar, penawaran, MICE, F&B, brosur, serta portal reservasi resmi); seluruh host diizinkan robots.txt dan diakses dengan identitas jujur tanpa melewati login.",
+ "base_url": "https://sanghyang.com",
+ "identity": {
+  "name": "SanghyangNewsCrawler/1.0",
+  "contact": "https://sanghyang.com"
+ },
+ "output_dir": "../../data/grounding/situs-kompset",
+ "politeness": {
+  "delay_seconds": 1.0,
+  "denials_before_stop": 3,
+  "max_backoff_seconds": 30.0,
+  "max_bytes": 50000000,
+  "max_requests": 200,
+  "max_retries": 2,
+  "timeout_seconds": 25.0
+ },
+ "render": {
+  "chrome_channel": "chrome",
+  "settle_seconds": 6,
+  "wait_until": "domcontentloaded"
+ },
+ "sources": {
+  "endpoints": [
+   {
+    "name": "aston_index",
+    "url": "https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/index.json"
+   },
+   {
+    "name": "aston_rooms",
+    "url": "https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/rooms/inventory.json"
+   },
+   {
+    "name": "aston_amenities",
+    "url": "https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/amenities.json"
+   },
+   {
+    "name": "aston_schema",
+    "url": "https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/schema.org.json"
+   }
+  ],
+  "extra_urls": [
+   "https://www.mambruk.co.id/",
+   "https://www.mambruk.co.id/accomodation",
+   "https://www.mambruk.co.id/facilities",
+   "https://www.mambruk.co.id/offers",
+   "https://www.mambruk.co.id/offers/floating-breakfast",
+   "https://www.mambruk.co.id/offers/high-tea",
+   "https://www.mambruk.co.id/offers/sea-prosperity-cruise",
+   "https://www.mambruk.co.id/offers/seafood-grill-by-the-sea",
+   "https://www.mambruk.co.id/offers/seaside-candlelight-dinner",
+   "https://www.mambruk.co.id/offers/the-mambruk-sizzling-grill",
+   "https://www.novushotels.com/novusjiva/",
+   "https://www.novushotels.com/novusjiva/promo-hotel-anyer",
+   "https://www.novushotels.com/novusjiva/accommodation-novus-jiva-anyer",
+   "https://www.novushotels.com/novusjiva/villa-novus-resort",
+   "https://www.novushotels.com/novusjiva/restaurant-hotel-anyer",
+   "https://www.novushotels.com/novusjiva/facilities-novus-hotel-anyer",
+   "https://www.novushotels.com/novusjiva/wellness-experience-hotel-novus-anyer",
+   "https://www.novushotels.com/novusjiva/family-fun-hotel-anyer",
+   "https://www.novushotels.com/novusjiva/meeting-room-hotel-anyer",
+   "https://www.novushotels.com/novusjiva/anyer-hotel-wedding-venues",
+   "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+   "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel/weddings",
+   "https://www.astonhotelsinternational.com/en/news/2001/aston-anyer-beach-hotel-present-the-sunday-escape-package-a-complete-weekend-getaway-with-dinner-for-the-whole-family",
+   "https://www.astonhotelsinternational.com/en/news/2073/sea-fun-escape-at-aston-anyer-offers-a-fun-beach-getaway",
+   "https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/overview.md",
+   "https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/policies.md",
+   "https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/dining/sunset-cafe.md",
+   "https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/dining/hotel-pier.md",
+   "https://booking.jayakartahotelsresorts.com/en/offers?hotel=MPCA",
+   "https://booking.jayakartahotelsresorts.com/en/offers?hotel=JYVA",
+   "https://jayakartagroup.com/affiliated/view/9",
+   "https://jayakartahotelsresorts.com/en/hotel/the-jayakarta-villa-anyer",
+   "https://jayakartahotelsresorts.com/en/hotel/the-jayakarta-villa-anyer/offers/offers",
+   "https://jayakartahotelsresorts.com/en/hotel/the-jayakarta-villa-anyer/rooms/rooms",
+   "https://jayakartahotelsresorts.com/en/hotel/the-jayakarta-villa-anyer/dining/dining",
+   "https://jayakartahotelsresorts.com/en/hotel/the-jayakarta-villa-anyer/meeting/packages/meeting-packages",
+   "https://jayakartahotelsresorts.com/en/hotel/the-jayakarta-villa-anyer/meeting/rooms/meeting-rooms",
+   "https://jayakartahotelsresorts.com/en/hotel/the-jayakarta-villa-anyer/activity/swimming-pool",
+   "https://all.accor.com/hotel/C6A5/index.en.shtml",
+   "https://beachpointanyer.isellershop.com/",
+   "https://beachpointanyer.isellershop.com/collection/all",
+   "https://beachpointanyer.isellershop.com/about-us",
+   "https://sanghyang.com/offers",
+   "https://sanghyang.com/rooms",
+   "https://sanghyang.com/spa",
+   "https://sanghyang.com/dining",
+   "https://sanghyang.com/dining/dbistro",
+   "https://sanghyang.com/dining/dbistro/menu",
+   "https://sanghyang.com/dining/sunset-grill",
+   "https://sanghyang.com/dining/sunset-grill/menu",
+   "https://sanghyang.com/entertainment/dragon-beach-club",
+   "https://sanghyang.com/entertainment/dbar"
+  ],
+  "sitemaps": []
+ }
+}

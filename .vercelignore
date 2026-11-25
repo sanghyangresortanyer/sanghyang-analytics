@@ -1,0 +1,52 @@
+# Data bisnis sensitif, cadangan, dan alat lokal tidak pernah diunggah ke Vercel. Pola folder dijangkarkan ke akar (/)
+# karena pola tanpa garis miring berlaku di semua kedalaman: `supabase/` dulu ikut membuang src/lib/supabase/.
+# Catatan: docs/marketing/ TETAP disertakan karena reminders.json & sanghyang-sosmed/** dibaca saat runtime.
+.env*
+!.env.example
+config/marketing/google-oauth-client.json
+/mutasi bank/
+/mutasi bank.rar
+/fixtures/
+/revenue.txt
+/Pembelian.txt
+/data/
+/backups/
+/artifacts/
+/graphify-out/
+/.agents/
+/.claude/
+/.codex/
+/.mcp/
+/.mcp.json
+/crawler/
+/pipelines/
+/supabase/
+/tests/
+docs/README.md
+docs/architecture/
+docs/archive/
+docs/compliance/
+docs/design/
+docs/guides/
+docs/laporan/
+docs/panduan/
+docs/phase/
+docs/plans/
+docs/prompts/
+docs/research/
+docs/superpowers/
+docs/uat/
+.tmp-dev-logs/
+.playwright-mcp/
+.pytest_cache/
+.ruff_cache/
+*.tsbuildinfo
+/codex-change-log.txt
+/AGENTS.md
+/CLAUDE.md
+/LESSONS.md
+/MEMORY.md
+/USER.md
+/HANDOFF.md
+/PROJECT-STATUS.md
+/TODO.md

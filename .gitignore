@@ -1,0 +1,154 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# 1. Environment & secrets (Zero Secret Leak)
+.env
+.env.local
+.env*
+.env*.local
+!.env.example
+*.pem
+config/marketing/*.json
+config/marketing/google-oauth-client.json
+!config/marketing/social-accounts.json
+.mcp/
+
+# 2. Dependencies & Node/Next.js build caches
+/node_modules
+node_modules/
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+/.next/
+.next/
+/out/
+/build
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+**/.turbo/
+
+# 3. Uploads, PII, operational VHP exports, & raw business data
+uploads/
+storage/
+media/
+mutasi bank/
+mutasi bank.rar
+/mutasi bank/
+/mutasi bank.rar
+data/
+data/raw/
+# Fixture uji crawler Python (crawler/tests/test_scraper.py), bukan data bisnis.
+!/crawler/data/
+/crawler/data/*
+!/crawler/data/sample_articles.json
+fixtures/*.txt
+fixtures/**/*.txt
+fixtures/**/*.xlsx
+fixtures/marketing/
+src/lib/parser/__fixtures__/*.txt
+/revenue.txt
+/Pembelian.txt
+docs/laporan/
+docs/panduan/
+docs/.sumber/
+docs/marketing/*
+!docs/marketing/reminders.json
+!docs/marketing/design/
+!docs/marketing/sanghyang-sosmed/
+/*Perbandingan_Berdampingan_*.xlsx
+
+# 4. Bundles, distribution archives, & build artifacts
+artifacts/
+*.tar.gz
+*.sha256
+
+# 5. Monorepo / Graphify & AI Agent local caches
+/graphify-out/
+graphify-out/
+**/graphify-out/
+.agents/
+.agents/local/
+.agents/memory/
+# Konfigurasi, instruksi, dan memori agen AI hanya ada di mesin kerja, tidak di repo.
+.claude/
+.codex/
+.gemini/
+.mcp.json
+.graphifyignore
+.worktrees/
+/AGENTS.md
+/CLAUDE.md
+/GEMINI.md
+/LESSONS.md
+/MEMORY.md
+/USER.md
+/HANDOFF.md
+/PROJECT-STATUS.md
+/TODO.md
+codex-change-log.txt
+scripts/mcp/
+
+# 6. Python caches & virtualenvs
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+crawler/.venv/
+crawler/**/__pycache__/
+crawler/**/.pytest_cache/
+
+# 7. Native / mobile build caches
+.expo/
+.gradle/
+.kotlin/
+
+# 8. OS artifacts
+.DS_Store
+Thumbs.db
+
+# 9. Editor & IDE configs
+.idea/
+.vscode/
+
+# 10. Runtime logs & test coverage
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+/coverage
+.tmp-dev-logs/
+
+# 11. Scratch, verification, & browser test directories
+scratch/
+tmp/
+.playwright-mcp/
+.superpowers/
+tangkapan-layar/
+scripts/.resolved.json
+scripts/.uji-newsletter.pdf
+scripts/.uji-laporan-eksekutif.pdf
+scripts/.uji-rapat-senin.pdf
+scripts/.terpilih.json
+scripts/.e2e-newsletter.pdf
+scripts/.uji-gambar.png
+scripts/.regresi.pdf
+scripts/.vercel-regresi.pdf
+scripts/.portal-sampel.json
+scripts/.h-*.html
+
+# 12. Runtime databases, backups, & platform CLI local links
+*.sqlite
+*.sqlite3
+*.db
+backups/
+.vercel
+supabase/.temp/
+supabase/telemetry.json
+supabase/traces/

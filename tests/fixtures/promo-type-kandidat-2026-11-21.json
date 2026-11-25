@@ -1,0 +1,312 @@
+{
+ "_sumber": "DB kerja lokal sanghyang_news (127.0.0.1:55432) dibaca 21 Nov 2026 oleh .agents/local/probe/upu-capture-type-fixture.ts: tangkapan terbaru (kind promo) baris yang muncul di tangkapan layar pemilik untuk kolom Kategori Promosi (Mambruk, The Jayakarta Villas, Aston). promotionType = hasil backfill classifyPromotionTypes di DB lokal 21 Nov 2026.",
+ "rows": [
+  {
+   "id": "7683ae54-23d2-4316-8c31-e3a1a1743bf2",
+   "title": "Floating Breakfast",
+   "category": "F&B & Kuliner",
+   "description": "Floating Breakfast menawarkan pengalaman sarapan di Infinity Pool mulai dari 400k per pasangan untuk 2 pax.\nVersi kita: Sanghyang Indah Spa Resort dapat menyediakan pengalaman sarapan mengapung eksklusif di kolam renang resor bagi tamu yang ingin suasana santap pagi berbeda.",
+   "details": [
+    "Bored with the ordinary breakfast?",
+    "Upgrade your breakfast experience with our floating breakfast starting from 400k / couple (2 pax), where you can have your breakfast right from our Infinity Pool, ju..."
+   ],
+   "terms": [
+    "2 pax"
+   ],
+   "price": 400000,
+   "originalPrice": null,
+   "discount": null,
+   "source": "Situs resmi (dibaca Gemini)",
+   "sourceUrl": "https://www.mambruk.co.id/offers",
+   "startsAt": "2026-11-19T04:03:07.076Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-19T04:03:07.076Z",
+   "status": "changed",
+   "kind": "promo",
+   "promotionType": "brand_awareness",
+   "competitor": {
+    "name": "Mambruk Hotel & Convention",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "id": "dfa161d0-ba53-43f3-bc8e-97e1eca77cc2",
+   "title": "High Tea",
+   "category": "F&B & Kuliner",
+   "description": "High Tea menyediakan camilan sore berkelas dan secangkir teh di dermaga tepi pantai seharga 400k per pasangan untuk 2 pax.\nVersi kita: Sanghyang Indah Spa Resort dapat menawarkan paket High Tea sore hari di area dermaga atau tepi pantai dengan hidangan ringan dan teh pilihan.",
+   "details": [
+    "Introducing one of our other Dining Experience program.",
+    "Have a classy afternoon snack & a cup of tea in the beauty of the sunset, right from our seaside pier.",
+    "Only with 400k / couple (2 pax), let's tr..."
+   ],
+   "terms": [
+    "2 pax"
+   ],
+   "price": 400000,
+   "originalPrice": null,
+   "discount": null,
+   "source": "Situs resmi (dibaca Gemini)",
+   "sourceUrl": "https://www.mambruk.co.id/offers",
+   "startsAt": "2026-11-19T04:03:07.076Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-19T04:03:07.076Z",
+   "status": "changed",
+   "kind": "promo",
+   "promotionType": "brand_awareness",
+   "competitor": {
+    "name": "Mambruk Hotel & Convention",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "id": "efa269d6-e989-47c5-a3e3-22c88a7311d9",
+   "title": "Sea Prosperity Cruise",
+   "category": "F&B & Kuliner",
+   "description": "Sea Prosperity Cruise menawarkan pelayaran di sepanjang garis pantai dengan pemandangan samudra dan kuliner lezat untuk minimal 20 pax.\nVersi kita: Sanghyang Indah Spa Resort dapat menawarkan paket pelayaran privat serupa di teluk Anyer dengan jamuan BBQ spesial dari Sunset Grill untuk rombongan minimal 20 orang.",
+   "details": [
+    "Let the waves carry you to a new horizon, sail along the pristine shoreline and the delightful blue sky.",
+    "With a minimum of 20 pax, enjoy stunning ocean views and try our tasty cuisine with a new cruis..."
+   ],
+   "terms": [
+    "minimum of 20 pax"
+   ],
+   "price": null,
+   "originalPrice": null,
+   "discount": null,
+   "source": "Situs resmi (dibaca Gemini)",
+   "sourceUrl": "https://www.mambruk.co.id/offers",
+   "startsAt": "2026-11-19T04:03:07.076Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-19T04:03:07.076Z",
+   "status": "changed",
+   "kind": "promo",
+   "promotionType": "brand_awareness",
+   "competitor": {
+    "name": "Mambruk Hotel & Convention",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "id": "cbaed39e-f2e4-4965-8080-4f45d648b13c",
+   "title": "Seaside Candlelight Dinner",
+   "category": "F&B & Kuliner",
+   "description": "Seaside Candlelight Dinner menyediakan makan malam romantis dengan pemandangan samudra mulai dari 950k per pasangan untuk 2 pax.\nVersi kita: Sanghyang Indah Spa Resort dapat menghadirkan paket makan malam romantis di tepi pantai Dragon Beach Club dengan menu set khusus dan dekorasi lilin yang indah.",
+   "details": [
+    "Cherish every moment & start making beautiful memories with your loved one.",
+    "Starting from 950k / couple (2 pax), our romantic candlelight dinner with an ocean view will sweep you away & bring some new..."
+   ],
+   "terms": [
+    "2 pax"
+   ],
+   "price": 950000,
+   "originalPrice": null,
+   "discount": null,
+   "source": "Situs resmi (dibaca Gemini)",
+   "sourceUrl": "https://www.mambruk.co.id/offers",
+   "startsAt": "2026-11-19T04:03:07.076Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-19T04:03:07.076Z",
+   "status": "changed",
+   "kind": "promo",
+   "promotionType": "brand_awareness",
+   "competitor": {
+    "name": "Mambruk Hotel & Convention",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "id": "b4336c78-a809-4cd2-bb2b-9842e28dc5f5",
+   "title": "Promo Batagor & Tropical Iced Tea",
+   "category": "F&B & Kuliner",
+   "description": "Mambruk Hotel menawarkan promo Batagor ikan tenggiri seharga Rp45K nett per porsi dengan tambahan Tropical Iced Tea seharga Rp5K.\nVersi kita: Nikmati promo Batagor spesial chef Sanghyang di Sunset Grill lengkap dengan bonus es teh manis segar untuk menemani santap sore di tepi pantai.",
+   "details": [],
+   "terms": [],
+   "price": 45000,
+   "originalPrice": null,
+   "discount": null,
+   "source": "Instagram (dibaca Gemini)",
+   "sourceUrl": "https://www.instagram.com/mambrukhotelanyer/p/DfUBoWTzpQZ/",
+   "startsAt": "2026-11-03T17:00:00.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-05T10:11:07.589Z",
+   "status": "new",
+   "kind": "promo",
+   "promotionType": "harga_spesial",
+   "competitor": {
+    "name": "Mambruk Hotel & Convention",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "id": "8685f2cd-6128-490d-9997-786eec784395",
+   "title": "Sunset Afternoon Tea & Treats",
+   "category": "F&B & Kuliner",
+   "description": "Paket bersantai sore di tepi pantai lengkap dengan pilihan teh dan kudapan manis.\nVersi kita: Nikmati Sunset Afternoon Tea di Sunset Grill Sanghyang Indah Spa Resort gratis akses Hot Spring Aquamedic.",
+   "details": [],
+   "terms": [],
+   "price": null,
+   "originalPrice": null,
+   "discount": null,
+   "source": "Instagram (dibaca Gemini)",
+   "sourceUrl": "https://www.instagram.com/mambrukhotelanyer/p/DfWqMIUT2Rr/",
+   "startsAt": "2026-11-04T17:00:00.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-05T10:11:07.589Z",
+   "status": "new",
+   "kind": "promo",
+   "promotionType": "brand_awareness",
+   "competitor": {
+    "name": "Mambruk Hotel & Convention",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "id": "da6b6bcd-e096-4515-a29f-c32c3af1b8c2",
+   "title": "Paket Romantic Dinner",
+   "category": "F&B & Kuliner",
+   "description": "Penawaran pengalaman makan malam romantis bersama pasangan di villa tepi pantai.\nVersi kita: Nikmati paket Romantic Dinner tepi pantai di Sunset Grill Sanghyang lengkap dengan bonus akses Hot Spring Aquamedic untuk relaksasi pasangan.",
+   "details": [],
+   "terms": [],
+   "price": null,
+   "originalPrice": null,
+   "discount": null,
+   "source": "Instagram (dibaca Gemini)",
+   "sourceUrl": "https://www.instagram.com/thejayakartaanyer/reel/DfLo3npz1hh/",
+   "startsAt": "2026-10-30T17:00:00.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-11-05T10:11:07.589Z",
+   "status": "new",
+   "kind": "promo",
+   "promotionType": "brand_awareness",
+   "competitor": {
+    "name": "The Jayakarta Villas Anyer Beach Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "6761af64-b88c-4d83-b6c6-c638c9b37599",
+   "title": "Special Promo Lagoon Restaurant: Soto Palangka Rp 40K & Carbo Drink Rp 35K",
+   "category": "F&B & Kuliner",
+   "description": "Sajian hangat dengan harga ramah kantong di Lagoon Restaurant: Soto Palangka kuah kuning gurih khas Rp 40.000 Nett dan Carbo Drink penghilang dahaga Rp 35.000 Nett.",
+   "details": [],
+   "terms": [],
+   "price": 40000,
+   "originalPrice": null,
+   "discount": null,
+   "source": "Instagram @thejayakartaanyer",
+   "sourceUrl": "https://www.instagram.com/thejayakartaanyer/p/DeDdmfSzz6F/",
+   "startsAt": "2026-10-04T00:00:00.000Z",
+   "endsAt": "2026-11-30T23:59:59.000Z",
+   "capturedAt": "2026-10-04T01:35:32.000Z",
+   "status": "new",
+   "kind": "promo",
+   "promotionType": "harga_spesial",
+   "competitor": {
+    "name": "The Jayakarta Villas Anyer Beach Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "c184fae6-b152-4072-951f-5f1c0c877b99",
+   "title": "Liburan ke Anyer? Promo Menu Ramah Kantong di Lagoon Restaurant The Jayakarta Villas",
+   "category": "F&B Hemat",
+   "description": "LIBURAN KE ANYER? JANGAN LEWATKAN PROMO INI! Mampir ke Lagoon Restaurant di The Jayakarta Villas. Kami punya Special Promo dengan harga super ramah di kantong untuk santap lezat tepi pantai.",
+   "details": [],
+   "terms": [],
+   "price": null,
+   "originalPrice": null,
+   "discount": null,
+   "source": "Instagram @thejayakartaanyer",
+   "sourceUrl": "https://www.instagram.com/thejayakartaanyer/reel/DeDbg0PzyG-/",
+   "startsAt": "2026-10-04T01:15:34.000Z",
+   "endsAt": null,
+   "capturedAt": "2026-10-04T01:15:34.000Z",
+   "status": "new",
+   "kind": "promo",
+   "promotionType": "harga_spesial",
+   "competitor": {
+    "name": "The Jayakarta Villas Anyer Beach Resort",
+    "outlets": [
+     "resort"
+    ],
+    "category": "resort"
+   }
+  },
+  {
+   "id": "f0cc46c4-7f99-4bc1-89f6-e39390711512",
+   "title": "Promo Diskon 20% Menginap & 30% F&B Hingga IDR 500.000",
+   "category": "Kamar & Menginap",
+   "description": "Nikmati diskon 20% untuk menginap di kamar/aquavillas dan 30% untuk F&B hingga IDR 500.000. Periode pemesanan 1–31 Oktober 2026, periode menginap 1 Oktober–30 November 2026.",
+   "details": [],
+   "terms": [],
+   "price": null,
+   "originalPrice": null,
+   "discount": 20,
+   "source": "Instagram @astonanyer",
+   "sourceUrl": "https://www.instagram.com/astonanyer/reel/DeOOZSvzEe6/",
+   "startsAt": "2026-10-01T00:00:00.000Z",
+   "endsAt": "2026-11-30T23:59:59.000Z",
+   "capturedAt": "2026-10-08T05:52:28.000Z",
+   "status": "new",
+   "kind": "promo",
+   "promotionType": "potongan_harga",
+   "competitor": {
+    "name": "Aston Anyer Beach Hotel",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  },
+  {
+   "id": "e40133ed-d979-41e0-8b85-3f52266aaa5f",
+   "title": "Menu 60 Seconds to Tokyo: Kuliner Japanese Street Food",
+   "category": "F&B & Kuliner",
+   "description": "Eksplorasi cita rasa kuliner jalanan khas Tokyo dengan menu 60 Seconds to Tokyo di Sunset Bar & Lounge dan Anindya Restaurant Aston Anyer.",
+   "details": [],
+   "terms": [],
+   "price": null,
+   "originalPrice": null,
+   "discount": null,
+   "source": "Instagram @astonanyer",
+   "sourceUrl": "https://www.instagram.com/astonanyer/reel/DaPpVwmBj4t/",
+   "startsAt": "2026-07-01T00:00:00.000Z",
+   "endsAt": "2026-11-15T23:59:59.000Z",
+   "capturedAt": "2026-07-01T00:00:00.000Z",
+   "status": "expired",
+   "kind": "promo",
+   "promotionType": "produk_baru",
+   "competitor": {
+    "name": "Aston Anyer Beach Hotel",
+    "outlets": [
+     "resort"
+    ],
+    "category": "hotel"
+   }
+  }
+ ]
+}

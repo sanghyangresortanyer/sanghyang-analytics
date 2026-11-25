@@ -1,0 +1,31 @@
+{
+  "_sumber": "DB kerja lokal sanghyang_news (127.0.0.1:55432) dibaca 22 Nov 2026 tanpa menulis: baris CompetitorPromotion penuh (semua kolom) penawaran situs resmi Marbella yang sudah berkategori promosi, beserta nama pesaingnya. Desimal tersimpan sebagai teks dan waktu sebagai ISO, seperti keluaran JSON Prisma.",
+  "rows": [
+    {
+      "pesaing": "Marbella Place Anyer by Jayakarta",
+      "baris": {
+        "id": "d0deb43b-5b52-4834-8a17-186d167820df",
+        "competitorId": "2feb8712-ef96-4132-8f08-4484929ea2c4",
+        "title": "Early Bird Deal",
+        "category": "Kamar & Menginap",
+        "description": "Penawaran Early Bird Deal di Marbella Place Anyer seharga IDR 368,280.\nVersi kita: Sanghyang Indah Spa Resort menyediakan harga pemesanan awal khusus untuk kamar resort tepi pantai.",
+        "startsAt": "2026-11-20T08:29:40.562Z",
+        "endsAt": null,
+        "price": "368280",
+        "originalPrice": null,
+        "discount": null,
+        "source": "Situs resmi (dibaca Gemini)",
+        "sourceUrl": "https://marbellaplaceanyer.com/offers/",
+        "imageUrl": null,
+        "capturedAt": "2026-11-20T08:29:40.562Z",
+        "status": "changed",
+        "kind": "promo",
+        "details": [],
+        "terms": [],
+        "promotionType": "potongan_harga",
+        "version": 3,
+        "createdAt": "2026-11-19T05:03:23.406Z"
+      }
+    }
+  ]
+}

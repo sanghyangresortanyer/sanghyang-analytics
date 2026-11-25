@@ -1,0 +1,49 @@
+{
+ "allowed_hosts": [],
+ "assets": {
+  "download": false,
+  "hosts": []
+ },
+ "authorization": "Riset pasar internal: listing Google Maps publik restoran, bar, dan spa pesaing; path /maps/place/ diizinkan robots.txt google.com; tanpa login; ulasan disimpan tanpa nama akun pengulas.",
+ "base_url": "https://www.google.com",
+ "identity": {
+  "name": "SanghyangNewsCrawler/1.0",
+  "contact": "https://sanghyang.com"
+ },
+ "output_dir": "../../data/grounding/maps-venue",
+ "politeness": {
+  "delay_seconds": 3.0,
+  "denials_before_stop": 3,
+  "max_backoff_seconds": 60.0,
+  "max_bytes": 50000000,
+  "max_requests": 2000,
+  "max_retries": 3,
+  "timeout_seconds": 30.0
+ },
+ "sources": {
+  "endpoints": [],
+  "extra_urls": [
+   "https://www.google.com/maps/place/Ikan+Bakar+Tanjung+Pinang+88/data=!4m7!3m6!1s0x2e41844cbc7f4ac1:0x29f5a42be547e991!8m2!3d-6.0547984!4d105.9165164!16s%2Fg%2F11bc7qfrzg!19sChIJwUp_vEyEQS4RkelH5Suk9Sk",
+   "https://www.google.com/maps/place/RM.MUARO/data=!4m7!3m6!1s0x2e41840fb68808f3:0x4a1856bba9cdee9a!8m2!3d-6.0705315!4d105.8861212!16s%2Fg%2F11bc7t5jq6!19sChIJ8wiItg-EQS4Rmu7NqbtWGEo",
+   "https://www.google.com/maps/place/Happy+Puppy+Karaoke/data=!4m7!3m6!1s0x2e418dcfee51d02f:0x1ab867537d45a232!8m2!3d-6.0282272!4d106.0766928!16s%2Fg%2F11b6_d_94x!19sChIJL9BR7s-NQS4RMqJFfVNnuBo",
+   "https://www.google.com/maps/place/Campo+del+Sol+Pool+Bar+-+Marbella+Hotel/@-6.1065252,105.8814971,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4187d508d54cb5:0x73b36ed5256a6845!8m2!3d-6.1065252!4d105.8814971!16s%2Fg%2F11tsg8kxj8",
+   "https://www.google.com/maps/place/El+Patio+Restaurant+-+Marbella+Hotel/@-6.1063721,105.8820773,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422a7308ee0079:0xab6512bdefbaeea8!8m2!3d-6.1063721!4d105.8820773!16s%2Fg%2F11bc7rfbkh",
+   "https://www.google.com/maps/place/Sunset+Cafe+Aston/@-6.1442864,105.8559076,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4180c08b9ccb87:0x12f00804ae84ff17!8m2!3d-6.1442864!4d105.8559076!16s%2Fg%2F11c5s643mn",
+   "https://www.google.com/maps/place/BM+Seaside+View+Resto+%26+Cafe/@-6.176976,105.8092916,14z/data=!4m10!1m2!2m1!1sBM+Seaside+View+Cafe+%26+Resto+Anyer!3m6!1s0x2e422b000a511091:0x860bdb351a659255!8m2!3d-6.176976!4d105.8453405!15sCiJCTSBTZWFzaWRlIFZpZXcgQ2FmZSAmIFJlc3RvIEFueWVyWiQiImJtIHNlYXNpZGUgdmlldyBjYWZlICYgcmVzdG8gYW55ZXKSARJzZWFmb29kX3Jlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnRzVWxKSVNrSmFNRkpyVjBadmQyUnRkek5VTTBwb1ltMTNkMWRzUlJBQuABAPoBBAg1ED4!16s%2Fg%2F11yc86zwyz",
+   "https://www.google.com/maps/place/Kalani+Beach+Resto/@-6.1702936,105.8486378,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422bbd15819ef7:0xeae487b7d314a2d1!8m2!3d-6.1702936!4d105.8486378!16s%2Fg%2F11tjv2cqvw",
+   "https://www.google.com/maps/place/Beach+Point+Anyer/@-6.0504507,105.9206514,17z/data=!3m1!4b1!4m6!3m5!1s0x2e418582d4c0d86f:0x484ec6498d17e9c6!8m2!3d-6.0504507!4d105.9206514!16s%2Fg%2F11sx3bdtl3",
+   "https://www.google.com/maps/place/Omah+Laut+Cafe+%26+Resto/@-6.202712,105.83541,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b004382dee1:0xf81088ae5527e562!8m2!3d-6.202712!4d105.83541!16s%2Fg%2F11zx2cv0v4",
+   "https://www.google.com/maps/place/Serai+Cafe+at+Novus+Jiva/@-6.2180252,105.8340536,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b15b7f93d6d:0xd9cf781cb2b96202!8m2!3d-6.2180252!4d105.8340536!16s%2Fg%2F11m_g37l68",
+   "https://www.google.com/maps/place/Sarasa+Lounge+at+Novus+Jiva/@-6.2182734,105.8338705,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b295764287b:0xdc3d91efca53bd7a!8m2!3d-6.2182734!4d105.8338705!16s%2Fg%2F11m_ykjvbw",
+   "https://www.google.com/maps/place/Andalan+Beach+Resto+%26+Coffee/data=!4m7!3m6!1s0x2e4185b086a44675:0xf70acd5fe1f0ce1!8m2!3d-6.0529988!4d105.9153982!16s%2Fg%2F11nhjnsfn1!19sChIJdUakhrCFQS4R4Qwf_tWscA8",
+   "https://www.google.com/maps/place/Kamalika+Beach+Cafe+%26+Resto/data=!4m7!3m6!1s0x2e4185003a6a47a3:0x31b9c161b5470370!8m2!3d-6.0539428!4d105.9140892!16s%2Fg%2F11xnpvrfqk!19sChIJo0dqOgCFQS4RcANHtWHBuTE",
+   "https://www.google.com/maps/place/Star+Queen+Restoran+N+Karaoke+Cilegon/data=!4m7!3m6!1s0x2e418dcb6b8ffa79:0xcf0c11280f503b51!8m2!3d-6.0490044!4d106.0566951!16s%2Fg%2F11fslpjcq2!19sChIJefqPa8uNQS4RUTtQDygRDM8"
+  ],
+  "sitemaps": []
+ },
+ "render": {
+  "wait_until": "domcontentloaded",
+  "settle_seconds": 6,
+  "chrome_channel": "chrome"
+ }
+}

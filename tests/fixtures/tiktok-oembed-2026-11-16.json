@@ -1,0 +1,26 @@
+{
+ "_sumber": "Jawaban nyata endpoint resmi TikTok oEmbed (https://www.tiktok.com/oembed?url=...) 16 Nov 2026, diminta dengan UA SanghyangNewsCrawler/1.0 tanpa kunci. video = URL video yang tercatat di CompetitorPromotion (@archipelagohotels/video/7391827491028374912), HTTP 200; profile = URL profil @mambrukhotelanyer, HTTP 400.",
+ "video": {
+  "requestUrl": "https://www.tiktok.com/@archipelagohotels/video/7391827491028374912",
+  "status": 200,
+  "body": {
+   "version": "1.0",
+   "type": "video",
+   "width": "325",
+   "height": "578",
+   "html": "<iframe height=\"578\" width=\"325\" src=\"https://www.tiktok.com/player/v1/7391827491028374912?embed_from=oembed&music_info=1&description=1&autoplay=1&muted=1\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share\" allowfullscreen loading=\"lazy\"></iframe>",
+   "provider_url": "https://www.tiktok.com",
+   "provider_name": "TikTok",
+   "embed_product_id": "7391827491028374912",
+   "embed_type": "video"
+  }
+ },
+ "profile": {
+  "requestUrl": "https://www.tiktok.com/@mambrukhotelanyer",
+  "status": 400,
+  "body": {
+   "message": "Something went wrong",
+   "code": 400
+  }
+ }
+}

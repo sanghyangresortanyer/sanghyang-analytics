@@ -1,0 +1,614 @@
+{
+ "_sumber": "Data nyata 15 Nov 2026. searchCards: kartu hasil pencarian Google Maps (tampilan terbatas yang disajikan untuk perayap SanghyangNewsCrawler/1.0, Chrome headless, hl=id), diambil dengan page.$$eval atas div[role=article] di URL searchUrl pada observedAt (UTC). Kueri 'restoran cinangka' sengaja tanpa jangkar peta dan berakhir di Cinangka, Depok. placePages: halaman tempat Google Maps pada hari yang sama. osrm: jawaban mentah router.project-osrm.org (route/v1/driving dari koordinat Sanghyang di registri). registry: potongan tabel Competitor DB lokal sanghyang_news 15 Nov 2026. dryRunPlaces: tempat hasil uraian dry-run nyata scripts/ops/discover-competitors.ts 16 Nov 2026 (laporan --json).",
+ "searchCards": [
+  {
+   "query": "bar anyer",
+   "searchUrl": "https://www.google.com/maps/search/bar+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:57.186Z",
+   "href": "https://www.google.com/maps/place/Mambruk+Hotel+%26+Convention/data=!4m10!3m9!1s0x2e422a6bf3e2279d:0x7352b852bda8d71e!5m2!4m1!1i2!8m2!3d-6.0730137!4d105.8845296!16s%2Fg%2F11b6d59cr7!19sChIJnSfi82sqQi4RHteovVK4UnM?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Mambruk Hotel & Convention",
+   "ratingLabel": "4,6 bintang 9.708 Ulasan",
+   "text": "Mambruk Hotel & Convention\nMambruk Hotel & Convention\n4,6(9.708)\nHotel bintang 4\nResor kasual di tepi pantai dengan kolam\n(0254) 601602\n\nSitus Web\n\nRute\n \n\nKolam renang\n\nParkir gratis\n\nSarapan gratis\n\nWi-Fi gratis\n \nPROMO TERBAIK\n27% lebih murah dari biasanya"
+  },
+  {
+   "query": "spa anyer",
+   "searchUrl": "https://www.google.com/maps/search/spa+anyer/@-6.0624549,105.9001458,13z?hl=id",
+   "observedAt": "2026-11-15T11:05:06.119Z",
+   "href": "https://www.google.com/maps/place/Marbella+Place+Anyer+by+Jayakarta/data=!4m10!3m9!1s0x2e41869157a2e2ad:0xdf993409f93aa690!5m2!4m1!1i2!8m2!3d-6.1071286!4d105.8825838!16s%2Fg%2F1tfysncg!19sChIJreKiV5GGQS4RkKY6-Qk0md8?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Marbella Place Anyer by Jayakarta",
+   "ratingLabel": "4,1 bintang 9.420 Ulasan",
+   "text": "Marbella Place Anyer by Jayakarta\nMarbella Place Anyer by Jayakarta\n4,1(9.420)\nHotel bintang 4\nHotel kelas atas dengan restoran dan spa\nRp 425 rb\n \n\nKolam renang\n\nSpa\n\nParkir gratis\n\nWi-Fi gratis"
+  },
+  {
+   "query": "spa anyer",
+   "searchUrl": "https://www.google.com/maps/search/spa+anyer/@-6.0624549,105.9001458,13z?hl=id",
+   "observedAt": "2026-11-15T11:05:06.119Z",
+   "href": "https://www.google.com/maps/place/My+Pisita+Anyer+Resort/data=!4m10!3m9!1s0x2e4184145cb32849:0x73ebc935550d2d70!5m2!4m1!1i2!8m2!3d-6.0660766!4d105.8954507!16s%2Fg%2F1thv1zjv!19sChIJSSizXBSEQS4RcC0NVTXJ63M?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "My Pisita Anyer Resort",
+   "ratingLabel": "4,3 bintang 4.696 Ulasan",
+   "text": "My Pisita Anyer Resort\nMy Pisita Anyer Resort\n4,3(4.696)\nHotel bintang 4\nApartemen santai dengan dapur kecil\n \n\nKolam renang\n\nParkir gratis\n\nAkses ke pantai\n\nAC"
+  },
+  {
+   "query": "spa anyer",
+   "searchUrl": "https://www.google.com/maps/search/spa+anyer/@-6.0624549,105.9001458,13z?hl=id",
+   "observedAt": "2026-11-15T11:05:06.119Z",
+   "href": "https://www.google.com/maps/place/Green+Garden+Resort/data=!4m10!3m9!1s0x2e41844674ef0b6b:0xe0b811516048f388!5m2!4m1!1i2!8m2!3d-6.0568453!4d105.9096936!16s%2Fg%2F11bvv_5cjt!19sChIJawvvdEaEQS4RiPNIYFERuOA?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Green Garden Resort",
+   "ratingLabel": "4,3 bintang 477 Ulasan",
+   "text": "Green Garden Resort\nGreen Garden Resort\n4,3(477)\nHotel bintang 3\nHotel tepi laut mewah plus restoran\n \n\nKolam renang\n\nParkir gratis\n\nWi-Fi gratis\n\nSarapan"
+  },
+  {
+   "query": "spa anyer",
+   "searchUrl": "https://www.google.com/maps/search/spa+anyer/@-6.0624549,105.9001458,13z?hl=id",
+   "observedAt": "2026-11-15T11:05:06.119Z",
+   "href": "https://www.google.com/maps/place/Allisa+Resort+Hotel+Anyer/data=!4m10!3m9!1s0x2e418446050b2fa7:0xdedee4b9287f440a!5m2!4m1!1i2!8m2!3d-6.0568472!4d105.9106727!16s%2Fg%2F1pzt861qr!19sChIJpy8LBUaEQS4RCkR_KLnk3t4?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Allisa Resort Hotel Anyer",
+   "ratingLabel": "4,3 bintang 1.929 Ulasan",
+   "text": "Allisa Resort Hotel Anyer\nAllisa Resort Hotel Anyer\n4,3(1.929)\nHotel bintang 2\nHotel simpel, restoran dan kolam renang\nRp 290 rb\n \n\nKolam renang\n\nSpa\n\nParkir gratis\n\nSarapan gratis\n \nPROMO\n18% lebih murah dari biasanya"
+  },
+  {
+   "query": "spa anyer",
+   "searchUrl": "https://www.google.com/maps/search/spa+anyer/@-6.0624549,105.9001458,13z?hl=id",
+   "observedAt": "2026-11-15T11:05:06.119Z",
+   "href": "https://www.google.com/maps/place/Grand+Anyer+Palazo+Boutique+Resort/data=!4m10!3m9!1s0x2e41859a953ac889:0x81aa897157613ec4!5m2!4m1!1i2!8m2!3d-6.0687997!4d105.8882445!16s%2Fg%2F11trk4m_jx!19sChIJicg6lZqFQS4RxD5hV3GJqoE?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Grand Anyer Palazo Boutique Resort",
+   "ratingLabel": "4,6 bintang 189 Ulasan",
+   "text": "Grand Anyer Palazo Boutique Resort\nGrand Anyer Palazo Boutique Resort\n4,6(189)\nVila\nRp 1,02 jt"
+  },
+  {
+   "query": "spa anyer",
+   "searchUrl": "https://www.google.com/maps/search/spa+anyer/@-6.0624549,105.9001458,13z?hl=id",
+   "observedAt": "2026-11-15T11:05:06.119Z",
+   "href": "https://www.google.com/maps/place/RedDoorz+Plus+near+Tugu+Mercusuar+Anyer/data=!4m10!3m9!1s0x2e418440938a4b53:0x752257addc2d4b19!5m2!4m1!1i2!8m2!3d-6.060934!4d105.903522!16s%2Fg%2F11pdwhjxj7!19sChIJU0uKk0CEQS4RGUst3K1XInU?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "RedDoorz Plus near Tugu Mercusuar Anyer",
+   "ratingLabel": "3,4 bintang 141 Ulasan",
+   "text": "RedDoorz Plus near Tugu Mercusuar Anyer\nBersponsor\nOleh Booking.com\n\nRedDoorz Plus near Tugu Mercusuar Anyer\n3,4(141)\nRp 226.904\n \n \nRp 226.904/malam pada 30 Nov - 1 Des\nWi-Fi gratis\nKunjungi Situs"
+  },
+  {
+   "query": "hotel carita",
+   "searchUrl": "https://www.google.com/maps/search/hotel+carita?hl=id",
+   "observedAt": "2026-11-15T13:23:01.009Z",
+   "href": "https://www.google.com/maps/place/Mutiara+Carita+Cottages/data=!4m10!3m9!1s0x2e422d8cbfffffff:0x8f1fb6dd8a341d5a!5m2!4m1!1i2!8m2!3d-6.3192257!4d105.8371513!16s%2Fg%2F122_sfvd!19sChIJ____v4wtQi4RWh00it22H48?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Mutiara Carita Cottages",
+   "ratingLabel": "4,5 bintang 2.994 Ulasan",
+   "text": "Mutiara Carita Cottages\nBersponsor\n\nMutiara Carita Cottages\n4,5(2.994)\nHotel bintang 4\n \n\nKolam renang\n\nWi-Fi gratis\n\nParkir gratis\n\nAkses ke pantai\n \nResort Keluarga di Carita\nLooking for an eco friendly resort near me? Explore our unique cottages now.\nKunjungi Situs"
+  },
+  {
+   "query": "hotel carita",
+   "searchUrl": "https://www.google.com/maps/search/hotel+carita?hl=id",
+   "observedAt": "2026-11-15T13:23:01.009Z",
+   "href": "https://www.google.com/maps/place/THE+WEST+COVE+HOTEL/data=!4m10!3m9!1s0x2e422bee2228f817:0x3e5ffa5134bd8365!5m2!4m1!1i2!8m2!3d-6.1937942!4d105.8411943!16s%2Fg%2F11rmwb93h3!19sChIJF_goIu4rQi4RZYO9NFH6Xz4?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "THE WEST COVE HOTEL",
+   "ratingLabel": "4,8 bintang 3.463 Ulasan",
+   "text": "THE WEST COVE HOTEL\nTHE WEST COVE HOTEL\n4,8(3.463)\nHotel bintang 3\nHotel santai di seberang pantai\nRp 597 rb\n \n\nKolam renang\n\nParkir gratis\n\nAkses ke pantai\n\nWi-Fi gratis\n \nPROMO TERBAIK\n26% lebih murah dari biasanya"
+  },
+  {
+   "query": "kafe anyer",
+   "searchUrl": "https://www.google.com/maps/search/kafe+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:52.075Z",
+   "href": "https://www.google.com/maps/place/Pantai+Pandan+Carita+Cafe+and+Resto/data=!4m7!3m6!1s0x2e422d5a036aa4b1:0x60daca8cbaed52a9!8m2!3d-6.3031266!4d105.841612!16s%2Fg%2F11lgc_7lhn!19sChIJsaRqA1otQi4RqVLtuozK2mA?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Pantai Pandan Carita Cafe and Resto",
+   "ratingLabel": "4,3 bintang 2.816 Ulasan",
+   "text": "Pantai Pandan Carita Cafe and Resto\nPantai Pandan Carita Cafe and Resto\n4,3(2.816)\nKafe ·  · Jl. Raya Carita No.29\nBuka · Tutup pukul 22.00"
+  },
+  {
+   "query": "kafe anyer",
+   "searchUrl": "https://www.google.com/maps/search/kafe+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:52.075Z",
+   "href": "https://www.google.com/maps/place/Way%27s+Cafe+Anyer/data=!4m7!3m6!1s0x2e41840500931507:0xd91093815f225017!8m2!3d-6.0753813!4d105.8849391!16s%2Fg%2F11c6c8kfrk!19sChIJBxWTAAWEQS4RF1AiX4GTENk?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Way's Cafe Anyer",
+   "ratingLabel": "4,5 bintang 147 Ulasan",
+   "text": "Way's Cafe Anyer\nWay's Cafe Anyer\n4,5(147)\nKafe ·  · Jl. Raya Karang Bolong No.123\nBuka · Tutup pukul 02.00"
+  },
+  {
+   "query": "kafe anyer",
+   "searchUrl": "https://www.google.com/maps/search/kafe+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:52.075Z",
+   "href": "https://www.google.com/maps/place/Momoyo+Anyer/data=!4m7!3m6!1s0x2e418594b511a377:0x481189072bf653af!8m2!3d-6.0556627!4d105.9217975!16s%2Fg%2F11ymh__h7q!19sChIJd6MRtZSFQS4Rr1P2KweJEUg?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Momoyo Anyer",
+   "ratingLabel": "4,9 bintang 431 Ulasan",
+   "text": "Momoyo Anyer\nMomoyo Anyer\n4,9(431)\nToko Es Krim · Jl. Raya Anyer-Sirih"
+  },
+  {
+   "query": "restoran anyer",
+   "searchUrl": "https://www.google.com/maps/search/restoran+anyer/@-6.0624549,105.9001458,13z?hl=id",
+   "observedAt": "2026-11-15T11:05:04.548Z",
+   "href": "https://www.google.com/maps/place/Kembang+Sari+Anyer/data=!4m7!3m6!1s0x2e41841955555555:0xf84e172f1fcf7f41!8m2!3d-6.0827013!4d105.8847053!16s%2Fg%2F11g_yrs31!19sChIJVVVVVRmEQS4RQX_PHy8XTvg?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Kembang Sari Anyer",
+   "ratingLabel": "4,5 bintang 400 Ulasan",
+   "text": "Kembang Sari Anyer\nKembang Sari Anyer\n4,5(400)\nRestoran Seafood · Jl. Raya Anyer-Sirih No.128\nBuka · Tutup pukul 22.00"
+  },
+  {
+   "query": "restoran anyer",
+   "searchUrl": "https://www.google.com/maps/search/restoran+anyer/@-6.0624549,105.9001458,13z?hl=id",
+   "observedAt": "2026-11-15T11:05:04.548Z",
+   "href": "https://www.google.com/maps/place/Rumah+Makan+Cemara+Anyer/data=!4m7!3m6!1s0x2e4185c3de89b791:0xac16df248096e30b!8m2!3d-6.0601894!4d105.9057056!16s%2Fg%2F11fps1tw8k!19sChIJkbeJ3sOFQS4RC-OWgCTfFqw?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Rumah Makan Cemara Anyer",
+   "ratingLabel": "4,8 bintang 287 Ulasan",
+   "text": "Rumah Makan Cemara Anyer\nRumah Makan Cemara Anyer\n4,8(287)\nRestoran Seafood ·  · Jl. Raya Anyer-Sirih No.129\nBuka · Tutup pukul 21.00"
+  },
+  {
+   "query": "bar anyer",
+   "searchUrl": "https://www.google.com/maps/search/bar+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:57.186Z",
+   "href": "https://www.google.com/maps/place/Pantai+Batu+Saung/data=!4m7!3m6!1s0x2e4180c5c68fa9d5:0xa395563677e2d1ec!8m2!3d-6.1391379!4d105.8632335!16s%2Fg%2F11dxdzxlq5!19sChIJ1amPxsWAQS4R7NHidzZWlaM?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Pantai Batu Saung",
+   "ratingLabel": "4,4 bintang 3.720 Ulasan",
+   "text": "Pantai Batu Saung\nPantai Batu Saung\n4,4(3.720)\nKlub pantai ·  · Kawasan Wisata, Jl. Raya Karang Bolong, Km. 138, Kp. Teneng Desa Cinangka, Kecamatan Cinangka\nBuka · Tutup pukul 00.00 · 0878-7103-0566\n\nSitus Web\n\nRute"
+  },
+  {
+   "query": "bar anyer",
+   "searchUrl": "https://www.google.com/maps/search/bar+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:57.186Z",
+   "href": "https://www.google.com/maps/place/TONS+Billiard+%26+Warmindo/data=!4m7!3m6!1s0x2e418d00132ddcbb:0x3359a8bb4f9c47f!8m2!3d-6.0380041!4d106.0777539!16s%2Fg%2F11vx7kkwrn!19sChIJu9wtEwCNQS4Rf8T5tIuaNQM?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "TONS Billiard & Warmindo",
+   "ratingLabel": "4,9 bintang 156 Ulasan",
+   "text": "TONS Billiard & Warmindo\nTONS Billiard & Warmindo\n4,9(156)\nBar Olahraga · Jalan Pondok Cilegon Indah.05 Blok A 19\nBuka · Tutup pukul 03.30 · 0897-9334-146\n\nRute"
+  },
+  {
+   "query": "bar anyer",
+   "searchUrl": "https://www.google.com/maps/search/bar+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:57.186Z",
+   "href": "https://www.google.com/maps/place/Soccer+Arena+X+Kebita+Jus/data=!4m7!3m6!1s0x2e4187207ede6b33:0xea89488c51005e70!8m2!3d-6.0844457!4d105.9190407!16s%2Fg%2F11nbqpscf3!19sChIJM2vefiCHQS4RcF4AUYxIieo?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Soccer Arena X Kebita Jus",
+   "ratingLabel": "5,0 bintang 19 Ulasan",
+   "text": "Soccer Arena X Kebita Jus\nSoccer Arena X Kebita Jus\n5,0(19)\nKlub Olahraga · \nBuka · Tutup pukul 23.30 · 0813-8291-926\n\nRute"
+  },
+  {
+   "query": "bar anyer",
+   "searchUrl": "https://www.google.com/maps/search/bar+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:57.186Z",
+   "href": "https://www.google.com/maps/place/Dragon+Beach+Club+-+Sanghyang+Indah+Spa+Resort/data=!4m7!3m6!1s0x2e4184155322436f:0xcc6e0ab6c701ee49!8m2!3d-6.0623289!4d105.8985666!16s%2Fg%2F11g6b3h060!19sChIJb0MiUxWEQS4RSe4Bx7YKbsw?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Dragon Beach Club - Sanghyang Indah Spa Resort",
+   "ratingLabel": "4,1 bintang 41 Ulasan",
+   "text": "Dragon Beach Club - Sanghyang Indah Spa Resort\nDragon Beach Club - Sanghyang Indah Spa Resort\n4,1(41)\nKlub Malam · Jalan Raya Sirih No.KM. 128\nTutup · Buka pukul 21.00\n\nSitus Web\n\nRute"
+  },
+  {
+   "query": "bar anyer",
+   "searchUrl": "https://www.google.com/maps/search/bar+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:57.186Z",
+   "href": "https://www.google.com/maps/place/Campo+del+Sol+Pool+Bar+-+Marbella+Hotel/data=!4m7!3m6!1s0x2e4187d508d54cb5:0x73b36ed5256a6845!8m2!3d-6.1065252!4d105.8814971!16s%2Fg%2F11tsg8kxj8!19sChIJtUzVCNWHQS4RRWhqJdVus3M?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Campo del Sol Pool Bar - Marbella Hotel",
+   "ratingLabel": "4,8 bintang 8 Ulasan",
+   "text": "Campo del Sol Pool Bar - Marbella Hotel\nCampo del Sol Pool Bar - Marbella Hotel\n4,8(8)\nRestoran · VVVJ+6PH, Jl. Raya Karang Bolong No.KM 135\nTutup · Buka Sen pukul 08.00 · 0821-2207-3441\n\nRute"
+  },
+  {
+   "query": "bar anyer",
+   "searchUrl": "https://www.google.com/maps/search/bar+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:57.186Z",
+   "href": "https://www.google.com/maps/place/Oceana+Pool+Bar/data=!4m7!3m6!1s0x2e422b1fe33d7f29:0x7dd587e49e862db9!8m2!3d-6.2398198!4d105.8270141!16s%2Fg%2F11zg9crfq2!19sChIJKX894x8rQi4RuS2GnuSH1X0?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Oceana Pool Bar",
+   "ratingLabel": "5,0 bintang 1 Ulasan",
+   "text": "Oceana Pool Bar\nOceana Pool Bar\n5,0(1)\nBar ·  · Jl. Raya Anyer-Sirih\nBuka · Tutup pukul 22.00 · 0817-9051-113\n\nRute"
+  },
+  {
+   "query": "pijat anyer",
+   "searchUrl": "https://www.google.com/maps/search/pijat+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:58.809Z",
+   "href": "https://www.google.com/maps/place/d%27Spa+Terapi+Air+Panas+Alami/data=!4m7!3m6!1s0x2e41843ff7b7181d:0x1272177727782d41!8m2!3d-6.0629335!4d105.9001794!16s%2Fg%2F11g68xpq85!19sChIJHRi39z-EQS4RQS14J3cXchI?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "d'Spa Terapi Air Panas Alami",
+   "ratingLabel": "5,0 bintang 6 Ulasan",
+   "text": "d'Spa Terapi Air Panas Alami\nd'Spa Terapi Air Panas Alami\n5,0(6)\nKlub Spa dan Kesehatan · Jalan Raya Sirih No.KM. 128\nBuka · Tutup pukul 22.00"
+  },
+  {
+   "query": "pijat anyer",
+   "searchUrl": "https://www.google.com/maps/search/pijat+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:58.809Z",
+   "href": "https://www.google.com/maps/place/Spa/data=!4m7!3m6!1s0x2e41878173a6e8d3:0x1acee4e2a425ae96!8m2!3d-6.1057531!4d105.8817945!16s%2Fg%2F11fgjgql18!19sChIJ0-imc4GHQS4Rlq4lpOLkzho?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Spa",
+   "ratingLabel": "5,0 bintang 1 Ulasan",
+   "text": "Spa\nSpa\n5,0(1)\nKlub Spa dan Kesehatan · VVVJ+MPV Marbella Place Anyer by Jayakarta"
+  },
+  {
+   "query": "pijat anyer",
+   "searchUrl": "https://www.google.com/maps/search/pijat+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:58.809Z",
+   "href": "https://www.google.com/maps/place/Eklusive+massage+home+spa/data=!4m7!3m6!1s0x2e69f575020ab443:0xcf4c89ae471f9113!8m2!3d-6.2036449!4d106.8430119!16s%2Fg%2F11mm86mst2!19sChIJQ7QKAnX1aS4RE5EfR66JTM8?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Eklusive massage home spa",
+   "ratingLabel": "5,0 bintang 48 Ulasan",
+   "text": "Eklusive massage home spa\nEklusive massage home spa\n5,0(48)\nTerapis Pijat · Jl. Anyer I No.35, RT.4/RW.2\nBuka 24 jam"
+  },
+  {
+   "query": "pijat anyer",
+   "searchUrl": "https://www.google.com/maps/search/pijat+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:58.809Z",
+   "href": "https://www.google.com/maps/place/URUT/data=!4m7!3m6!1s0x2e41856db3106dc7:0xd4241114e1a5080b!8m2!3d-6.0519662!4d105.9228633!16s%2Fg%2F11wh30880c!19sChIJx20Qs22FQS4RCwil4RQRJNQ?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "URUT",
+   "ratingLabel": null,
+   "text": "URUT\nURUT\nTidak ada ulasan\nLayanan Kesehatan di Rumah · Jl. Raya Anyer-Sirih\nBuka · Tutup pukul 23.30"
+  },
+  {
+   "query": "pijat anyer",
+   "searchUrl": "https://www.google.com/maps/search/pijat+anyer?hl=id",
+   "observedAt": "2026-11-15T13:22:58.809Z",
+   "href": "https://www.google.com/maps/place/Alta+Salon+dan+Spa/data=!4m7!3m6!1s0x2e4185002597b38f:0x8fb88ed333eea6cc!8m2!3d-6.0695557!4d105.8893733!16s%2Fg%2F11xh4f8nt4!19sChIJj7OXJQCFQS4RzKbuM9OOuI8?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Alta Salon dan Spa",
+   "ratingLabel": null,
+   "text": "Alta Salon dan Spa\nAlta Salon dan Spa\nTidak ada ulasan\nSalon Kecantikan · WVJQ+5QM, Jl. Raya Anyer-Sirih\nSegera tutup · 21.00 · Buka Sen pukul 09.00"
+  },
+  {
+   "query": "restoran cinangka",
+   "searchUrl": "https://www.google.com/maps/search/restoran+cinangka?hl=id",
+   "observedAt": "2026-11-15T13:23:02.544Z",
+   "href": "https://www.google.com/maps/place/Kampung+Kecil+Cinere/data=!4m7!3m6!1s0x2e69ef142f7816a5:0xf8f9ccde5154f4d7!8m2!3d-6.3202861!4d106.7820581!16s%2Fg%2F11svh85h4k!19sChIJpRZ4LxTvaS4R1_RUUd7M-fg?authuser=0&hl=id&g_ep=EgoyMDI2MTExMC4wIJJjKgBIAVAD&rclk=1",
+   "name": "Kampung Kecil Cinere",
+   "ratingLabel": "4,9 bintang 17.148 Ulasan",
+   "text": "Kampung Kecil Cinere\nKampung Kecil Cinere\n4,9(17.148)\nRestoran Indonesia · Jl. Telaga Warna, RT.07/RW.05\nBuka · Tutup pukul 22.00"
+  }
+ ],
+ "placePages": {
+  "singleResult": {
+   "requestUrl": "https://www.google.com/maps/search/beach+club+anyer/@-6.0624549,105.9001458,12z?hl=id",
+   "url": "https://www.google.com/maps/place/Dragon+Beach+Club+-+Sanghyang+Indah+Spa+Resort/@-6.0624549,105.9001458,12z/data=!4m6!3m5!1s0x2e4184155322436f:0xcc6e0ab6c701ee49!8m2!3d-6.0623289!4d105.8985666!16s%2Fg%2F11g6b3h060?hl=id&entry=ttu&g_ep=EgoyMDI2MTExMC4wIKXMDSoASAFQAw%3D%3D",
+   "name": "Dragon Beach Club - Sanghyang Indah Spa Resort",
+   "mainText": "\nLihat foto\nDragon Beach Club - Sanghyang Indah Spa Resort\n4,1\n(41)\nKlub Malam\nRingkasan\nUlasan\nTentang\n\nRute\n\nSimpan\n\nDi Sekitar\n\nKirim ke ponsel\n\nBagikan\n \n\nJalan Raya Sirih No.KM. 128, Cikoneng, Kec. Anyar, Kabupaten Serang, Banten 42166\n\nTerletak di: Sanghyang Indah Spa Resort\n\nTutup · ",
+   "addressLabel": "Alamat: Jalan Raya Sirih No.KM. 128, Cikoneng, Kec. Anyar, Kabupaten Serang, Banten 42166 ",
+   "observedAt": "2026-11-15T13:25:06.596Z"
+  },
+  "lodging": {
+   "requestUrl": "https://www.google.com/maps/place/My+Pisita+Anyer+Resort/data=!4m10!3m9!1s0x2e4184145cb32849:0x73ebc935550d2d70!5m2!4m1!1i2!8m2!3d-6.0660766!4d105.8954507!16s%2Fg%2F1thv1zjv!19sChIJSSizXBSEQS4RcC0NVTXJ63M?hl=id",
+   "url": "https://www.google.com/maps/place/My+Pisita+Anyer+Resort/data=!4m10!3m9!1s0x2e4184145cb32849:0x73ebc935550d2d70!5m2!4m1!1i2!8m2!3d-6.0660766!4d105.8954507!16s%2Fg%2F1thv1zjv!19sChIJSSizXBSEQS4RcC0NVTXJ63M?hl=id",
+   "name": "My Pisita Anyer Resort",
+   "mainText": "\nLihat foto\nMy Pisita Anyer Resort\n4,3\n(4.696)·Hotel bintang 4\nRingkasan\nHarga\nUlasan\nTentang\n\nRute\n\nSimpan\n\nDi Sekitar\n\nBagikan\n\nPeriksa ketersediaan\n \nBandingkan harga\nHanya bebas biaya pembatalan\n\nCheck in / Check out\nSen, 30 Nov\n\n\nSel, 1 Des\n\n\n\n2\n\n \n\nHubungi properti ini untuk melihat tarif dan ketersediaan\n\nHotel serupa di sekitar\nRp 1.023.584\nGrand Anyer Palazo Boutique Resort\n4,6(188)\nBerjarak 0,9 km\nRp 880.000\nMambruk Hotel & Convention\n4,6(9.672)\nGratis sarapan dan Wi-Fi\nBerjarak 1,4 km\nRp 934.304\nPondok Pantai Tambang Ayam 3K\n4,4(90)\nBerjarak 2,9 km\nGreen Garden Resort\n4,3(477)\nGratis Wi-Fi\nBerjarak 1,9 km\n \nLihat hotel lainnya di sekitar\n \n \n\nJl. Raya Anyer-Sirih No.",
+   "addressLabel": "Alamat: Jl. Raya Anyer-Sirih No.Km.129, Anyar, Kec. Anyar, Kabupaten Serang, Banten 42166 ",
+   "observedAt": "2026-11-15T11:06:00Z"
+  }
+ },
+ "osrm": {
+  "observedAt": "2026-11-15T13:29:26Z",
+  "kembangSari": {
+   "code": "Ok",
+   "routes": [
+    {
+     "legs": [
+      {
+       "steps": [],
+       "weight": 155.8,
+       "summary": "",
+       "duration": 155.8,
+       "distance": 3321.2
+      }
+     ],
+     "weight_name": "routability",
+     "weight": 155.8,
+     "duration": 155.8,
+     "distance": 3321.2
+    }
+   ],
+   "waypoints": [
+    {
+     "hint": "IZdUhUOXVIUhAAAAPwAAAAAAAAApAAAA3tNfQahA0UEAAAAAdE2JQSEAAAA_AAAAAAAAACkAAAD0QgAAhuhPBo1-o_9y6E8GiX6j_wAAzxUAAAAA",
+     "location": [
+      105.900166,
+      -6.062451
+     ],
+     "name": "",
+     "distance": 2.257727489
+    },
+    {
+     "hint": "oncihWR6soUPAAAADgAAAAAAAAAZAAAA2EUWQn8nAEIAAAAAey9rQg8AAAAOAAAAAAAAABkAAAD0QgAAEqtPBqQvo_8hrE8Gcy-j_wAArwAAAAAA",
+     "location": [
+      105.884434,
+      -6.082652
+     ],
+     "name": "",
+     "distance": 30.48475623
+    }
+   ]
+  },
+  "myPisita": {
+   "code": "Ok",
+   "routes": [
+    {
+     "legs": [
+      {
+       "steps": [],
+       "weight": 49.1,
+       "summary": "",
+       "duration": 49.1,
+       "distance": 711.3
+      }
+     ],
+     "weight_name": "routability",
+     "weight": 49.1,
+     "duration": 49.1,
+     "distance": 711.3
+    }
+   ],
+   "waypoints": [
+    {
+     "hint": "IZdUhUOXVIUhAAAAPwAAAAAAAAApAAAA3tNfQahA0UEAAAAAdE2JQSEAAAA_AAAAAAAAACkAAAD0QgAAhuhPBo1-o_9y6E8GiX6j_wAAzxUAAAAA",
+     "location": [
+      105.900166,
+      -6.062451
+     ],
+     "name": "",
+     "distance": 2.257727489
+    },
+    {
+     "hint": "EAZigDVwc4gSAAAAHgAAAAAAAAAAAAAAEDb3QJvmREEAAAAAAAAAABIAAAAeAAAAAAAAAAAAAAD0QgAAMtZPBoFwo_8b1k8GY3Cj_wAAPxMAAAAA",
+     "location": [
+      105.895474,
+      -6.066047
+     ],
+     "name": "",
+     "distance": 4.181976547
+    }
+   ]
+  },
+  "invalidUrl": {
+   "status": 400,
+   "body": {
+    "message": "URL string malformed close to position 11: \"txt\"",
+    "code": "InvalidUrl"
+   }
+  }
+ },
+ "registry": [
+  {
+   "id": "10000000-0000-4000-8000-000000000005",
+   "name": "Allisa Resort Anyer",
+   "category": "resort",
+   "placeId": "allisa",
+   "googleMapsUrl": "https://www.google.com/maps/place/Allisa+Resort+Hotel+Anyer/@-6.0568472,105.9106727,17z/data=!4m9!3m8!1s0x2e418446050b2fa7:0xdedee4b9287f440a!5m2!4m1!1i2!8m2!3d-6.0568472!4d105.9106727!16s%2Fg%2F1pzt861qr",
+   "mapsUrl": "https://www.google.com/maps/place/Allisa+Resort+Hotel+Anyer/@-6.0568472,105.9106727,17z/data=!4m9!3m8!1s0x2e418446050b2fa7:0xdedee4b9287f440a!5m2!4m1!1i2!8m2!3d-6.0568472!4d105.9106727!16s%2Fg%2F1pzt861qr",
+   "parentId": null,
+   "roadKm": 1.3,
+   "active": false,
+   "compsetRole": null
+  },
+  {
+   "id": "10000000-0000-4000-8000-000000000001",
+   "name": "Aston Anyer Beach Hotel",
+   "category": "hotel",
+   "placeId": "aston_anyer",
+   "googleMapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+   "mapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+   "parentId": null,
+   "roadKm": 11.8,
+   "active": true,
+   "compsetRole": "inti"
+  },
+  {
+   "id": "c8c42a4e-932d-47bc-8061-9b9c39f21873",
+   "name": "Beach Point Anyer",
+   "category": "resto",
+   "placeId": "beach_point",
+   "googleMapsUrl": "https://www.google.com/maps/place/Beach+Point+Anyer/@-6.0504507,105.9206514,17z/data=!3m1!4b1!4m6!3m5!1s0x2e418582d4c0d86f:0x484ec6498d17e9c6!8m2!3d-6.0504507!4d105.9206514!16s%2Fg%2F11sx3bdtl3",
+   "mapsUrl": "https://www.google.com/maps/place/Beach+Point+Anyer/@-6.0504507,105.9206514,17z/data=!3m1!4b1!4m6!3m5!1s0x2e418582d4c0d86f:0x484ec6498d17e9c6!8m2!3d-6.0504507!4d105.9206514!16s%2Fg%2F11sx3bdtl3",
+   "parentId": null,
+   "roadKm": 3.6,
+   "active": true,
+   "compsetRole": "inti"
+  },
+  {
+   "id": "1698f7e0-ab59-47c9-a5a3-344bb4c759cb",
+   "name": "Campo del Sol Pool Bar Marbella",
+   "category": "bar",
+   "placeId": "campo_del_sol_pool_bar_marbella",
+   "googleMapsUrl": "https://www.google.com/maps/place/Marbella+Place+Anyer+by+Jayakarta/@-6.1071286,105.8825838,17z/data=!4m9!3m8!1s0x2e41869157a2e2ad:0xdf993409f93aa690!5m2!4m1!1i2!8m2!3d-6.1071286!4d105.8825838!16s%2Fg%2F1tfysncg",
+   "mapsUrl": "https://www.google.com/maps/place/Marbella+Place+Anyer+by+Jayakarta/@-6.1071286,105.8825838,17z/data=!4m9!3m8!1s0x2e41869157a2e2ad:0xdf993409f93aa690!5m2!4m1!1i2!8m2!3d-6.1071286!4d105.8825838!16s%2Fg%2F1tfysncg",
+   "parentId": "2feb8712-ef96-4132-8f08-4484929ea2c4",
+   "roadKm": 6.1,
+   "active": true,
+   "compsetRole": "inti"
+  },
+  {
+   "id": "73059de7-77c7-42ab-888a-4ec979dd26dc",
+   "name": "D'Bistro (Sanghyang)",
+   "category": "resto",
+   "placeId": "dbistro_sanghyang",
+   "googleMapsUrl": "https://www.google.com/maps/place/d%27Bistro+Restaurant/@-6.0626343,105.8997646,17z",
+   "mapsUrl": "https://www.google.com/maps/place/d%27Bistro+Restaurant/@-6.0626343,105.8997646,17z",
+   "parentId": null,
+   "roadKm": 0,
+   "active": true,
+   "compsetRole": null
+  },
+  {
+   "id": "df8aea36-c532-4a60-9155-a43a2bcbe2f3",
+   "name": "Dragon Beach Club (Sanghyang)",
+   "category": "bar",
+   "placeId": "dragon_beach_club_sanghyang",
+   "googleMapsUrl": "https://www.google.com/maps/place/Dragon+Beach+Club+-+Sanghyang+Indah+Spa+Resort/@-6.0623289,105.8985666,17z",
+   "mapsUrl": "https://www.google.com/maps/place/Dragon+Beach+Club+-+Sanghyang+Indah+Spa+Resort/@-6.0623289,105.8985666,17z",
+   "parentId": null,
+   "roadKm": 0,
+   "active": true,
+   "compsetRole": null
+  },
+  {
+   "id": "c3c937e1-ad28-4cdd-8dc7-37d1ad7aaa42",
+   "name": "D'Spa & Hot Spring Aquamedic (Sanghyang)",
+   "category": "spa",
+   "placeId": "dspa_sanghyang",
+   "googleMapsUrl": "https://www.google.com/maps/place/Sanghyang+Spa+And+Massage/data=!4m7!3m6!1s0x2e41843f8ae9b7c1:0xd2135522e4ddef2!8m2!3d-6.0621685!4d105.9010617",
+   "mapsUrl": "https://www.google.com/maps/place/Sanghyang+Spa+And+Massage/data=!4m7!3m6!1s0x2e41843f8ae9b7c1:0xd2135522e4ddef2!8m2!3d-6.0621685!4d105.9010617",
+   "parentId": null,
+   "roadKm": 0,
+   "active": true,
+   "compsetRole": null
+  },
+  {
+   "id": "1b67271d-22bc-4228-839c-78589b4acc9a",
+   "name": "Kalani Beach Resto Anyer",
+   "category": "resto",
+   "placeId": "kalani",
+   "googleMapsUrl": "https://www.google.com/maps/place/Kalani+Beach+Resto/@-6.1702936,105.8486378,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422bbd15819ef7:0xeae487b7d314a2d1!8m2!3d-6.1702936!4d105.8486378!16s%2Fg%2F11tjv2cqvw",
+   "mapsUrl": "https://www.google.com/maps/place/Kalani+Beach+Resto/@-6.1702936,105.8486378,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422bbd15819ef7:0xeae487b7d314a2d1!8m2!3d-6.1702936!4d105.8486378!16s%2Fg%2F11tjv2cqvw",
+   "parentId": null,
+   "roadKm": 15.1,
+   "active": true,
+   "compsetRole": "inti"
+  },
+  {
+   "id": "d3cf0c00-7107-42ae-9040-9eb7287dc86c",
+   "name": "Kamalika Beach Cafe & Resto",
+   "category": "resto",
+   "placeId": "kamalika",
+   "googleMapsUrl": "https://www.google.com/maps/place/Kamalika+Beach+Cafe+%26+Resto/data=!4m7!3m6!1s0x2e4185003a6a47a3:0x31b9c161b5470370!8m2!3d-6.0539428!4d105.9140892!16s%2Fg%2F11xnpvrfqk!19sChIJo0dqOgCFQS4RcANHtWHBuTE",
+   "mapsUrl": "https://www.google.com/maps/place/Kamalika+Beach+Cafe+%26+Resto/data=!4m7!3m6!1s0x2e4185003a6a47a3:0x31b9c161b5470370!8m2!3d-6.0539428!4d105.9140892!16s%2Fg%2F11xnpvrfqk!19sChIJo0dqOgCFQS4RcANHtWHBuTE",
+   "parentId": null,
+   "roadKm": 2,
+   "active": true,
+   "compsetRole": "inti"
+  },
+  {
+   "id": "10000000-0000-4000-8000-000000000002",
+   "name": "Mambruk Hotel & Convention",
+   "category": "hotel",
+   "placeId": "mambruk",
+   "googleMapsUrl": "https://www.google.com/maps/place/Mambruk+Hotel+%26+Convention/@-6.0730137,105.8845296,17z/data=!4m9!3m8!1s0x2e422a6bf3e2279d:0x7352b852bda8d71e!5m2!4m1!1i2!8m2!3d-6.0730137!4d105.8845296!16s%2Fg%2F11b6d59cr7",
+   "mapsUrl": "https://www.google.com/maps/place/Mambruk+Hotel+%26+Convention/@-6.0730137,105.8845296,17z/data=!4m9!3m8!1s0x2e422a6bf3e2279d:0x7352b852bda8d71e!5m2!4m1!1i2!8m2!3d-6.0730137!4d105.8845296!16s%2Fg%2F11b6d59cr7",
+   "parentId": null,
+   "roadKm": 2.2,
+   "active": true,
+   "compsetRole": "inti"
+  },
+  {
+   "id": "2feb8712-ef96-4132-8f08-4484929ea2c4",
+   "name": "Marbella Place Anyer by Jayakarta",
+   "category": "hotel",
+   "placeId": "marbella",
+   "googleMapsUrl": "https://www.google.com/maps/place/Marbella+Place+Anyer+by+Jayakarta/@-6.1071286,105.8825838,17z/data=!4m9!3m8!1s0x2e41869157a2e2ad:0xdf993409f93aa690!5m2!4m1!1i2!8m2!3d-6.1071286!4d105.8825838!16s%2Fg%2F1tfysncg",
+   "mapsUrl": "https://www.google.com/maps/place/Marbella+Place+Anyer+by+Jayakarta/@-6.1071286,105.8825838,17z/data=!4m9!3m8!1s0x2e41869157a2e2ad:0xdf993409f93aa690!5m2!4m1!1i2!8m2!3d-6.1071286!4d105.8825838!16s%2Fg%2F1tfysncg",
+   "parentId": null,
+   "roadKm": 6.1,
+   "active": true,
+   "compsetRole": "inti"
+  },
+  {
+   "id": "3517724b-254c-426b-838c-7c1d5583fc7b",
+   "name": "Mövenpick Resort Carita",
+   "category": "resort",
+   "placeId": "movenpick",
+   "googleMapsUrl": "https://www.google.com/maps/place/M%C3%B6venpick+Resort+Carita/@-6.2399725,105.8270948,17z/data=!4m9!3m8!1s0x2e422b47b93a4645:0x30d753f6ff816db6!5m2!4m1!1i2!8m2!3d-6.2399725!4d105.8270948!16s%2Fg%2F11z2c2q0_l",
+   "mapsUrl": "https://www.google.com/maps/place/M%C3%B6venpick+Resort+Carita/@-6.2399725,105.8270948,17z/data=!4m9!3m8!1s0x2e422b47b93a4645:0x30d753f6ff816db6!5m2!4m1!1i2!8m2!3d-6.2399725!4d105.8270948!16s%2Fg%2F11z2c2q0_l",
+   "parentId": null,
+   "roadKm": 23.6,
+   "active": true,
+   "compsetRole": "inti"
+  },
+  {
+   "id": "10000000-0000-4000-8000-000000000004",
+   "name": "Mutiara Carita Cottages",
+   "category": "resort",
+   "placeId": "mutiara_carita",
+   "googleMapsUrl": "https://www.google.com/maps/place/Mutiara+Carita+Cottages/@-6.3192257,105.8371513,17z/data=!4m9!3m8!1s0x2e422d8cbfffffff:0x8f1fb6dd8a341d5a!5m2!4m1!1i2!8m2!3d-6.3192257!4d105.8371513!16s%2Fg%2F122_sfvd",
+   "mapsUrl": "https://www.google.com/maps/place/Mutiara+Carita+Cottages/@-6.3192257,105.8371513,17z/data=!4m9!3m8!1s0x2e422d8cbfffffff:0x8f1fb6dd8a341d5a!5m2!4m1!1i2!8m2!3d-6.3192257!4d105.8371513!16s%2Fg%2F122_sfvd",
+   "parentId": null,
+   "roadKm": 34.3,
+   "active": false,
+   "compsetRole": null
+  },
+  {
+   "id": "dc7c653b-6611-42cd-9638-151f88701fe9",
+   "name": "Oceana Pool Bar Mövenpick",
+   "category": "bar",
+   "placeId": "oceana_pool_bar_movenpick",
+   "googleMapsUrl": "https://www.google.com/maps/place/M%C3%B6venpick+Resort+Carita/@-6.2399725,105.8270948,17z/data=!4m9!3m8!1s0x2e422b47b93a4645:0x30d753f6ff816db6!5m2!4m1!1i2!8m2!3d-6.2399725!4d105.8270948!16s%2Fg%2F11z2c2q0_l",
+   "mapsUrl": "https://www.google.com/maps/place/M%C3%B6venpick+Resort+Carita/@-6.2399725,105.8270948,17z/data=!4m9!3m8!1s0x2e422b47b93a4645:0x30d753f6ff816db6!5m2!4m1!1i2!8m2!3d-6.2399725!4d105.8270948!16s%2Fg%2F11z2c2q0_l",
+   "parentId": "3517724b-254c-426b-838c-7c1d5583fc7b",
+   "roadKm": 23.6,
+   "active": true,
+   "compsetRole": "inti"
+  },
+  {
+   "id": "58ff7930-b3ef-450b-ac5e-a62438ca1db2",
+   "name": "Patra Anyer Hotel",
+   "category": "hotel",
+   "placeId": "patra_anyer",
+   "googleMapsUrl": null,
+   "mapsUrl": null,
+   "parentId": null,
+   "roadKm": 2.1,
+   "active": false,
+   "compsetRole": null
+  },
+  {
+   "id": "41aa4e0d-2478-4d5a-a57a-b5423dd1763e",
+   "name": "Sanghyang Indah Spa Resort",
+   "category": "resort",
+   "placeId": "sanghyang",
+   "googleMapsUrl": "https://www.google.com/maps/place/Sanghyang+Indah+Spa+Resort/@-6.0624549,105.9001458,17z/data=!4m9!3m8!1s0x2e4185b3c4907635:0x64d6c8baa028325d!5m2!4m1!1i2!8m2!3d-6.0624549!4d105.9001458!16s%2Fg%2F1tgzkjlf",
+   "mapsUrl": "https://www.google.com/maps/place/Sanghyang+Indah+Spa+Resort/@-6.0624549,105.9001458,17z/data=!4m9!3m8!1s0x2e4185b3c4907635:0x64d6c8baa028325d!5m2!4m1!1i2!8m2!3d-6.0624549!4d105.9001458!16s%2Fg%2F1tgzkjlf",
+   "parentId": null,
+   "roadKm": 0,
+   "active": true,
+   "compsetRole": null
+  },
+  {
+   "id": "c05d6e41-b827-4e89-b703-225e9de3369f",
+   "name": "Sunset Cafe Aston Anyer",
+   "category": "resto",
+   "placeId": "sunset_cafe_aston_anyer",
+   "googleMapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+   "mapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+   "parentId": "10000000-0000-4000-8000-000000000001",
+   "roadKm": 11.8,
+   "active": true,
+   "compsetRole": "inti"
+  },
+  {
+   "id": "d83ae5da-a93b-4c8d-a786-c8b81e1e44d3",
+   "name": "Sunset Grill (Sanghyang)",
+   "category": "resto",
+   "placeId": "sunset_grill_sanghyang",
+   "googleMapsUrl": "https://www.google.com/maps/place/Sunset+Grill+Sanghyang/data=!4m7!3m6!1s0x2e41856a82c22189:0xc84934b1ab2230b5!8m2!3d-6.0620634!4d105.8979678",
+   "mapsUrl": "https://www.google.com/maps/place/Sunset+Grill+Sanghyang/data=!4m7!3m6!1s0x2e41856a82c22189:0xc84934b1ab2230b5!8m2!3d-6.0620634!4d105.8979678",
+   "parentId": null,
+   "roadKm": 0,
+   "active": true,
+   "compsetRole": null
+  },
+  {
+   "id": "10000000-0000-4000-8000-000000000006",
+   "name": "The West Cove Hotel Anyer",
+   "category": "hotel",
+   "placeId": "west_cove_anyer",
+   "googleMapsUrl": null,
+   "mapsUrl": null,
+   "parentId": null,
+   "roadKm": 6.1,
+   "active": false,
+   "compsetRole": null
+  },
+  {
+   "id": "7434ea1a-0828-483a-a140-7a055bf7ca98",
+   "name": "Sunset Bar & Lounge ASTON",
+   "category": "bar",
+   "placeId": "sunset_bar_aston",
+   "googleMapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+   "mapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/@-6.1443935,105.8558751,17z/data=!4m9!3m8!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md",
+   "parentId": null,
+   "roadKm": 11.8,
+   "active": false,
+   "compsetRole": null
+  }
+ ],
+ "dryRunPlaces": [
+  {
+   "name": "Aston Anyer Beach Hotel",
+   "mapsUrl": "https://www.google.com/maps/place/Aston+Anyer+Beach+Hotel/data=!4m10!3m9!1s0x2e4180c08e9c9235:0xce2613c0196aa3c8!5m2!4m1!1i2!8m2!3d-6.1443935!4d105.8558751!16s%2Fg%2F11b6c5v7md!19sChIJNZKcjsCAQS4RyKNqGcATJs4",
+   "featureId": "0x2e4180c08e9c9235:0xce2613c0196aa3c8",
+   "googlePlaceId": "ChIJNZKcjsCAQS4RyKNqGcATJs4",
+   "lat": -6.1443935,
+   "lng": 105.8558751,
+   "rating": 4.7,
+   "reviewCount": 17629,
+   "googleType": "Hotel",
+   "starRating": 4,
+   "address": null,
+   "sponsored": false,
+   "foundBy": [
+    "hotel Anyer",
+    "resort Anyer",
+    "resort Carita",
+    "beach club Cinangka",
+    "spa Anyer",
+    "spa Cinangka"
+   ],
+   "observedAt": "2026-11-15T23:52:18.720Z"
+  }
+ ]
+}

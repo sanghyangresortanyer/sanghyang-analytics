@@ -1,0 +1,5652 @@
+{
+  "$comment": "Sumber harga menu pesaing F&B, bar, dan spa, dikumpulkan dari sumber publik terverifikasi (toko daring resmi, buku menu digital, situs resmi, unggahan media sosial resmi, liputan publik, dan foto menu unggahan pengguna Google Maps). Item foto-maps diisi scripts/ops/read-competitor-menus.ts; pembaruan 19 Nov 2026 menambahkan harga nyata dari FlipHTML5, situs/blog resmi, Instagram resmi, dan liputan publik. checked = sumber yang sudah diperiksa tanpa hasil harga a la carte. kind = harga yang bukan per porsi dan sudah dicek ke sumbernya: paket-bersama (pax = jumlah orang bila sumber menyebutnya) atau sewa-ruang; item ini tetap tampil berlabel tetapi tidak masuk kisaran per porsi, rata-rata, dan perbandingan per item (keputusan pemilik 22 Nov 2026).",
+  "places": {
+    "Andalan Beach Resto & Coffee": {
+      "items": [
+        {
+          "name": "Bundling promo Iga Bakar Andalan + Pineapple Lychee (harga ++)",
+          "category": "Paket promo",
+          "price": 99000,
+          "priceMax": null,
+          "unit": null
+        }
+      ],
+      "sources": [
+        {
+          "kind": "media-sosial",
+          "label": "Unggahan Instagram resmi @andalanbeach, 9 Nov 2026",
+          "url": "https://www.instagram.com/andalanbeach/p/DfhWnqyyhFL/",
+          "capturedAt": "2026-11-15"
+        }
+      ],
+      "perPerson": {
+        "min": 50000,
+        "max": 75000,
+        "reporters": 43,
+        "url": "https://www.google.com/maps/place/Andalan+Beach+Resto+%26+Coffee/data=!4m7!3m6!1s0x2e4185b086a44675:0xf70acd5fe1f0ce1!8m2!3d-6.0529988!4d105.9153982!16s%2Fg%2F11nhjnsfn1!19sChIJdUakhrCFQS4R4Qwf_tWscA8",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [
+        "Google Maps: tab Menu hanya berisi foto hidangan tanpa daftar harga",
+        "Instagram @andalanbeach: sorotan MENU hanya terbuka setelah login",
+        "Pencarian web: tidak ada menu atau daftar harga"
+      ],
+      "readBy": null
+    },
+    "Beach Point Anyer": {
+      "items": [
+        {
+          "name": "PAKET KONGKOW 100K",
+          "category": "PAKET KONGKOW",
+          "price": 100000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "paket-bersama"
+        },
+        {
+          "name": "PAKET KONGKOW 50k",
+          "category": "PAKET KONGKOW",
+          "price": 50000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "paket-bersama"
+        },
+        {
+          "name": "PAKET KONGKOW 60K",
+          "category": "PAKET KONGKOW",
+          "price": 60000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "paket-bersama"
+        },
+        {
+          "name": "BURRITO POINT",
+          "category": "APPETIZER",
+          "price": 37000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CALAMARI POINT",
+          "category": "APPETIZER",
+          "price": 37000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CHILI CHEESE FRIES",
+          "category": "APPETIZER",
+          "price": 37000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CHIZ SPICY WINGS",
+          "category": "APPETIZER",
+          "price": 44000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "F.E.S. (FRIES EGG SAUSAGE)",
+          "category": "APPETIZER",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "NACHOS POINT",
+          "category": "APPETIZER",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "ONION RING",
+          "category": "APPETIZER",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "POINT FRIES",
+          "category": "APPETIZER",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "POINT FRITTERS",
+          "category": "APPETIZER",
+          "price": 58000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "POINT SANDWICH",
+          "category": "APPETIZER",
+          "price": 45000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "POINT WINGS",
+          "category": "APPETIZER",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "SATE TAICHAN 10 TUSUK",
+          "category": "APPETIZER",
+          "price": 48000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "WINGS PLATTER",
+          "category": "APPETIZER",
+          "price": 57000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "AYAM BAKAR & NASI",
+          "category": "MAIN COURSE",
+          "price": 42000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "AYAM GORENG & NASI",
+          "category": "MAIN COURSE",
+          "price": 42000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "AYAM SAUCE MENTEGA",
+          "category": "MAIN COURSE",
+          "price": 42000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "BEACH POINT FRIED RICE",
+          "category": "MAIN COURSE",
+          "price": 42000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "BEEF TERIYAKI",
+          "category": "MAIN COURSE",
+          "price": 42000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "BEO BURGER",
+          "category": "MAIN COURSE",
+          "price": 48000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "BLT BURGER",
+          "category": "MAIN COURSE",
+          "price": 48000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CUMI SAUCE MENTEGA",
+          "category": "MAIN COURSE",
+          "price": 42000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "MIE GORENG BEACH POINT",
+          "category": "MAIN COURSE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "MIE NYEMEUK BEACH POINT",
+          "category": "MAIN COURSE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "MIE REBUS BEACH POINT",
+          "category": "MAIN COURSE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "NASI GORENG KAMPUNG",
+          "category": "MAIN COURSE",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "SATE TAICHAN",
+          "category": "MAIN COURSE",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "SEAFOOD PAELLA",
+          "category": "MAIN COURSE",
+          "price": 32000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "TOM YAM FRIED RICE",
+          "category": "MAIN COURSE",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "UDANG SAUCE MENTEGA",
+          "category": "MAIN COURSE",
+          "price": 42000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CREAMY CHICKEN SPAGHETTI",
+          "category": "PASTA",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "MAC & CHEESE",
+          "category": "PASTA",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "SPAGHETTI AGLIO E OLIO CHICKEN",
+          "category": "PASTA",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "SPAGHETTI AGLIO E OLIO SMOKED BEEF",
+          "category": "PASTA",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "SPAGHETTI BOLOGNESE",
+          "category": "PASTA",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "SPAGHETTI CARBONARA",
+          "category": "PASTA",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "BUNTUT SAPI BAKAR",
+          "category": "SOUP",
+          "price": 66000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "IGA SAPI BAKAR",
+          "category": "SOUP",
+          "price": 62000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "SOUP BUNTUT SAPI",
+          "category": "SOUP",
+          "price": 66000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "SOUP IGA SAPI",
+          "category": "SOUP",
+          "price": 62000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "TOM YUM SOUP",
+          "category": "SOUP",
+          "price": 44000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "BROWNIES WITH ICE CREAM",
+          "category": "DESSERT",
+          "price": 38000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CHEESE CAKE LOTUS",
+          "category": "DESSERT",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CHEESSY BEACH",
+          "category": "DESSERT",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CHOCO BANANA",
+          "category": "DESSERT",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CHOCO LAVA",
+          "category": "DESSERT",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CLASSIC DONUTS",
+          "category": "DESSERT",
+          "price": 12000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "FRUIT PLATER",
+          "category": "DESSERT",
+          "price": 22000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "PANNA COTTA",
+          "category": "DESSERT",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "TASTY TOAST",
+          "category": "DESSERT",
+          "price": 39000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "BLUE SKY POINT",
+          "category": "MOCKTAIL",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "ITALIAN LYCHEE MOJITO",
+          "category": "MOCKTAIL",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "PINAPPLE JUMP",
+          "category": "MOCKTAIL",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "STRAWBERRY BREEZE",
+          "category": "MOCKTAIL",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "TROPICAL SUNRISE",
+          "category": "MOCKTAIL",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "VIRGIN MOJITO",
+          "category": "MOCKTAIL",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "BLUE POINT SQUASH",
+          "category": "SQUASH",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "LEMON SQUASH",
+          "category": "SQUASH",
+          "price": 22000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "ORANGE SQUASH",
+          "category": "SQUASH",
+          "price": 22000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "PINK BEACH SQUASH",
+          "category": "SQUASH",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "FRESH COCONUT",
+          "category": "COCONUT",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "GINGER TEA",
+          "category": "CHILL TEA",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "LEMON TEA",
+          "category": "CHILL TEA",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "LYCHEE TEA",
+          "category": "CHILL TEA",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "MILK TEA",
+          "category": "CHILL TEA",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "REGULAR TEA",
+          "category": "CHILL TEA",
+          "price": 11000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "THAI TEA",
+          "category": "CHILL TEA",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "AVOCADO JUICE",
+          "category": "JUICE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "DRAGON FRUIT JUICE",
+          "category": "JUICE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "MELON JUICE",
+          "category": "JUICE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "ORANGE JUICE",
+          "category": "JUICE",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "PINEAPPLE JUICE",
+          "category": "JUICE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "STRAWBERRY JUICE",
+          "category": "JUICE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "WATERMELON",
+          "category": "JUICE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CHOCOLATE MILKSHAKE",
+          "category": "MILKSHAKE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "STRAWBERRY MILKSHAKE",
+          "category": "MILKSHAKE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "VANILLA MILKSHAKE",
+          "category": "MILKSHAKE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "AFFOGATO",
+          "category": "COFFEE",
+          "price": 22000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "AMERICANO",
+          "category": "COFFEE",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "BEACH COFFEE",
+          "category": "COFFEE",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "BUTTERSCOCTH",
+          "category": "COFFEE",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CAFE LATTE",
+          "category": "COFFEE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "CAPPUCINO",
+          "category": "COFFEE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "HAZELNUT LATTE",
+          "category": "COFFEE",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "VANILLA LATTE WITH ICE CREAM",
+          "category": "COFFEE",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "GREEN TEA LATTE",
+          "category": "NON COFFEE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "RED VELVET",
+          "category": "NON COFFEE",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "SIGNATURE CHOCOLATE",
+          "category": "NON COFFEE",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "STRAWBERRY BUBBLE GUM",
+          "category": "NON COFFEE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "TARO LATTE",
+          "category": "NON COFFEE",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "AVOCADO SMOOTHIES",
+          "category": "SMOOTHIES BOWL",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "DRAGON SMOOTHIES",
+          "category": "SMOOTHIES BOWL",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "BEACH ICE CREAM DELIGHT",
+          "category": "ICE CREAM",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "ICE CRYSTAL",
+          "category": "ADD. DRINK",
+          "price": 5000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "MINERAL WATER 600ML",
+          "category": "ADD. DRINK",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "ONE SHOOT COFFEE",
+          "category": "ADD. DRINK",
+          "price": 5000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "SUSU KENTAL MANIS",
+          "category": "ADD. DRINK",
+          "price": 3000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "PACKAGING (TAKE AWAY/DELIVERY)",
+          "category": "TAKE AWAY",
+          "price": 3000,
+          "priceMax": null,
+          "unit": null
+        }
+      ],
+      "sources": [
+        {
+          "kind": "toko-daring",
+          "label": "Toko daring resmi Beach Point (iSeller) untuk pesan di lokasi, ditautkan dari Linktree resminya",
+          "url": "https://beachpointanyer.isellershop.com/?mode=take_away&outlet=Beach+Point+Anyer",
+          "capturedAt": "2026-11-15"
+        }
+      ],
+      "perPerson": {
+        "min": 25000,
+        "max": 50000,
+        "reporters": 71,
+        "url": "https://www.google.com/maps/place/Beach+Point+Anyer/@-6.0504507,105.9206514,17z/data=!3m1!4b1!4m6!3m5!1s0x2e418582d4c0d86f:0x484ec6498d17e9c6!8m2!3d-6.0504507!4d105.9206514!16s%2Fg%2F11sx3bdtl3",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [],
+      "readBy": null
+    },
+    "Bliss Spa Mövenpick Resort Carita": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Situs resmi Accor (all.accor.com/hotel/C6A5): hanya menyebut Bliss Spa, tanpa daftar perawatan dan harga",
+        "Google Maps: tidak ada listing terpisah, dan listing hotelnya tanpa tab Menu",
+        "Presentasi Mövenpick Resort Carita di Scribd, Expedia, Tripbtoz, pencarian web (diperiksa 19 Nov 2026): tidak ada pricelist perawatan publik"
+      ],
+      "readBy": null
+    },
+    "Bluewave Lounge Mövenpick": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Situs resmi Accor (all.accor.com/hotel/C6A5): hanya deskripsi lounge bergaya Italia, tanpa harga",
+        "Google Maps: listing Bluewave Lounge tanpa tab Menu dan tanpa kisaran harga",
+        "Presentasi Mövenpick Resort Carita di Scribd & pencarian web (diperiksa 19 Nov 2026): tidak ada daftar harga menu publik"
+      ],
+      "readBy": null
+    },
+    "BM Seaside View Cafe & Resto": {
+      "items": [
+        {
+          "name": "Udang Saos Padang",
+          "category": "UDANG",
+          "price": 71500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Udang Bakar",
+          "category": "UDANG",
+          "price": 71500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Udang Saos Tiram",
+          "category": "UDANG",
+          "price": 71500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Udang Goreng Tepung",
+          "category": "UDANG",
+          "price": 71500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Udang Rebus",
+          "category": "UDANG",
+          "price": 71500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Ikan Steam",
+          "category": null,
+          "price": 17600,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 2
+        },
+        {
+          "name": "Cumi Rica-rica",
+          "category": null,
+          "price": 71500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Cumi Saos Mentega",
+          "category": null,
+          "price": 71500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Cumi Saos Padang",
+          "category": null,
+          "price": 71500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Cumi Goreng Tepung",
+          "category": null,
+          "price": 71500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ayam Rica-rica",
+          "category": null,
+          "price": 27500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Ayam Bakar",
+          "category": null,
+          "price": 25300,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Tempe Mendoan",
+          "category": "LAIN-LAIN",
+          "price": 16500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Nasi Goreng Special",
+          "category": "LAIN-LAIN",
+          "price": 27500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Nasi Goreng Biasa",
+          "category": "LAIN-LAIN",
+          "price": 22000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Nasi Paket Lengkap - Lengkap",
+          "category": "LAIN-LAIN",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Nasi Paket Lengkap - Biasa",
+          "category": "LAIN-LAIN",
+          "price": 36000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Nasi Putih",
+          "category": "LAIN-LAIN",
+          "price": 9000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Nasi Putih Bakul",
+          "category": "LAIN-LAIN",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Tahu/Tempe",
+          "category": "LAIN-LAIN",
+          "price": 11000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Lalap Campur",
+          "category": "LAIN-LAIN",
+          "price": 5500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Petai",
+          "category": "LAIN-LAIN",
+          "price": 11000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Espresso",
+          "category": "ESPRESSO",
+          "price": 17000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Americano",
+          "category": "ESPRESSO",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "v60",
+          "category": "ESPRESSO",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Japanese Coffee",
+          "category": "ESPRESSO",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Vietnam Drip",
+          "category": "ESPRESSO",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Mont Blanc",
+          "category": "ESPRESSO",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Cafe Latte",
+          "category": "LATTE",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Palm Sugar",
+          "category": "LATTE",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Cappuccino",
+          "category": "LATTE",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Vanilla latte",
+          "category": "LATTE",
+          "price": 32000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Hazelnut Latte",
+          "category": "LATTE",
+          "price": 32000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Caramel Crumble",
+          "category": "LATTE",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Butterscotch Seasalt",
+          "category": "LATTE",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Cheesepresso",
+          "category": "LATTE",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Dirty Matcha",
+          "category": "LATTE",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Raspberry Sunset",
+          "category": "MOCKTAIL",
+          "price": 32000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Blue lagoon",
+          "category": "MOCKTAIL",
+          "price": 32000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Ocean Breeze",
+          "category": "MOCKTAIL",
+          "price": 32000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Matcha Latte",
+          "category": "NON COFFEE",
+          "price": 32000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Red Velvet",
+          "category": "NON COFFEE",
+          "price": 32000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Chocolate",
+          "category": "NON COFFEE",
+          "price": 32000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Taro",
+          "category": "NON COFFEE",
+          "price": 32000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Milo Dino",
+          "category": "NON COFFEE",
+          "price": 27500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Pisang Aroma",
+          "category": "LIGHT BITES",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Keju Aroma",
+          "category": "LIGHT BITES",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "French Fries",
+          "category": "LIGHT BITES",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Mix Platter",
+          "category": "LIGHT BITES",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Bakwan Jagung",
+          "category": "LIGHT BITES",
+          "price": 16500,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Matcha Mousse Cake",
+          "category": "DESSERT",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Choco Mousse Cake",
+          "category": "DESSERT",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Brownies Chocolate Cake",
+          "category": "DESSERT",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Lotus Cheesecake",
+          "category": "DESSERT",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Coconut Jelly",
+          "category": "DESSERT",
+          "price": 22000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Mariecotta",
+          "category": "DESSERT",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Buko Pandan",
+          "category": "DESSERT",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Buko Strawberry",
+          "category": "DESSERT",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Spagetthi Aglio Olio",
+          "category": "PASTA",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Creamy Fettucine",
+          "category": "PASTA",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        }
+      ],
+      "sources": [
+        {
+          "kind": "foto-maps",
+          "label": "Foto menu unggahan pengguna di Google Maps",
+          "url": "https://www.google.com/maps/place/BM+Seaside+View+Resto+%26+Cafe/@-6.176976,105.8092916,14z/data=!4m10!1m2!2m1!1sBM+Seaside+View+Cafe+%26+Resto+Anyer!3m6!1s0x2e422b000a511091:0x860bdb351a659255!8m2!3d-6.176976!4d105.8453405!15sCiJCTSBTZWFzaWRlIFZpZXcgQ2FmZSAmIFJlc3RvIEFueWVyWiQiImJtIHNlYXNpZGUgdmlldyBjYWZlICYgcmVzdG8gYW55ZXKSARJzZWFmb29kX3Jlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnRzVWxKSVNrSmFNRkpyVjBadmQyUnRkek5VTTBwb1ltMTNkMWRzUlJBQuABAPoBBAg1ED4!16s%2Fg%2F11yc86zwyz",
+          "capturedAt": "2026-11-15",
+          "photos": [
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLewd8jxoCm4u93XHqVV3ZfxcdrMWaWiCLcETXDTELv2fFrEYJW75w59vaVfmZh8E3l7d2t_omwwqfjBJ0LSnp63Kvbkjms4gFI8lZmb_6_hlcpMNpBV1ijC-xDz8ZNWfVDY2iB7JVeU_Pw=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLeVtab66rRf1VA51pjT_FShnPDkkPzj7Qf14dCKNniYebrl1LEw8xIkZyouT3lcsci4N8Pjlp21fxYPfDp_29YqpTvwopWjYyhPadd4az4rt4ZBv_zA94BfA4T0H74rjDoRdK1rYsvfG_oe=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLftWhgJYet-tvnC2OiR5zGvRHnmd29-W5eeETMg8Ix2jJjXK7T6adq1vaNToQZlSPIyCCwgjr6VvQS31SgHhMJAAA-RLX08ETRCYHDnk_vKQpTVifZ_5sVt4Zk2WDbj2ossy8jMaURW8iwC=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcV11Xf8gTxBAYhujqkaGrnCESv89hMaOZiRzCwRPFPp0ppGUD8Hu_P8BTVYsHIZkAFm-7Mm2nvRfp__nvkgYzqn6elqHN3hEWNt2RdMrPnlk8eCVnNndPjbEPjiyMjC-VPqL7hRxij3aZp=w1600-h2000-k-no"
+          ]
+        }
+      ],
+      "perPerson": {
+        "min": 50000,
+        "max": 150000,
+        "reporters": 396,
+        "url": "https://www.google.com/maps/place/BM+Seaside+View+Resto+%26+Cafe/@-6.176976,105.8092916,14z/data=!4m10!1m2!2m1!1sBM+Seaside+View+Cafe+%26+Resto+Anyer!3m6!1s0x2e422b000a511091:0x860bdb351a659255!8m2!3d-6.176976!4d105.8453405!15sCiJCTSBTZWFzaWRlIFZpZXcgQ2FmZSAmIFJlc3RvIEFueWVyWiQiImJtIHNlYXNpZGUgdmlldyBjYWZlICYgcmVzdG8gYW55ZXKSARJzZWFmb29kX3Jlc3RhdXJhbnSaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnRzVWxKSVNrSmFNRkpyVjBadmQyUnRkek5VTTBwb1ltMTNkMWRzUlJBQuABAPoBBAg1ED4!16s%2Fg%2F11yc86zwyz",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [],
+      "readBy": {
+        "model": "gemini-3.5-flash-lite",
+        "readAt": "2026-11-15"
+      }
+    },
+    "Campo del Sol Pool Bar Marbella": {
+      "items": [
+        {
+          "name": "Soto Ayam Madura",
+          "category": "SOUPS",
+          "price": 45000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Seafood Tom Yam",
+          "category": "SOUPS",
+          "price": 65000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sup Buntut",
+          "category": "SOUPS",
+          "price": 95000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Bakso Marbella",
+          "category": "SOUPS",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Alla Bolognaise",
+          "category": "PASTA & PIZZA",
+          "price": 89000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Alla Carbonara",
+          "category": "PASTA & PIZZA",
+          "price": 89000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Pizza Ala Marinara",
+          "category": "PASTA & PIZZA",
+          "price": 99000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Pizza Ala Margarita",
+          "category": "PASTA & PIZZA",
+          "price": 99000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Nasi Timbel",
+          "category": "INDONESIAN FAVORITES",
+          "price": 75000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Nasi Goreng Jawa Special",
+          "category": "INDONESIAN FAVORITES",
+          "price": 72000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Mie Goreng Karang Bolong",
+          "category": "INDONESIAN FAVORITES",
+          "price": 72000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sate Campur Bandulu",
+          "category": "INDONESIAN FAVORITES",
+          "price": 75000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Ayam Goreng Baduy",
+          "category": "INDONESIAN FAVORITES",
+          "price": 75000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Bebek Bakar Mancak",
+          "category": "INDONESIAN FAVORITES",
+          "price": 82000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "French Fries",
+          "category": "SNACKS & DISSERT",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "French Fries & Sausage",
+          "category": "SNACKS & DISSERT",
+          "price": 50000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Hotdog served w/ F. Fries",
+          "category": "SNACKS & DISSERT",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Beef Burger served w/ F. Fries",
+          "category": "SNACKS & DISSERT",
+          "price": 85000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sandwich served w/ F. Fries",
+          "category": "SNACKS & DISSERT",
+          "price": 72000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Crispy Fried Chicked w/ Rice",
+          "category": "SNACKS & DISSERT",
+          "price": 50000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Banana Split (Ice Cream)",
+          "category": "SNACKS & DISSERT",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Fried Banana served w/ Cheese",
+          "category": "SNACKS & DISSERT",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Fresh Fruit Platter",
+          "category": "SNACKS & DISSERT",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Chocolate Cake",
+          "category": "SNACKS & DISSERT",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Margarita Black/White Russian, Sex on the Beach Dry Martini, Caperina, Screw Driver, Pinacolda, Daiquiri, Manhattan",
+          "category": "COCKTAILS",
+          "price": 68000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Bacardi Rum, Dry Gin, Vodka, Tequila, Cointrau",
+          "category": "SPIRITS & WHISKEY",
+          "price": 69000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Whiskey Red Lable, Jack Daniel",
+          "category": "SPIRITS & WHISKEY",
+          "price": 89000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Chivas Regal, Black Lable",
+          "category": "SPIRITS & WHISKEY",
+          "price": 125000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Americano, Long Island, Gin Tonic, Gin Fizz, Cuba Libra, Singapore Sling, Blue Lagoon",
+          "category": "LONG DRINKS",
+          "price": 85000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Bintang Can",
+          "category": "BEER",
+          "price": 50000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Bintang Small 330ml",
+          "category": "BEER",
+          "price": 50000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Bintang Large 620ml",
+          "category": "BEER",
+          "price": 85000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Kelapa Muda",
+          "category": "SOFT DRINK & JUICE",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Mineral Water",
+          "category": "SOFT DRINK & JUICE",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Soft Drink (Coke/Fanta/Sprite)",
+          "category": "SOFT DRINK & JUICE",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Chilled Juice (Orange/Pineaple/Guava)",
+          "category": "SOFT DRINK & JUICE",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Orange/Apple",
+          "category": "Fresh Squeezed Fruits or Vegetables",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Watermelon/Honeydew/Papaya/Pineapple/Avocado/Manggo",
+          "category": "Fresh Squeezed Fruits or Vegetables",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Carrot/Tomato/Cucumber",
+          "category": "Fresh Squeezed Fruits or Vegetables",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Infused Water",
+          "category": "SOFT DRINK & JUICE",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Tea (Ice/Hot) by Pot or Glass",
+          "category": "COFFEE & TEA",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Lemon Tea (Ice/Hot)",
+          "category": "COFFEE & TEA",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Lechee Tea (Ice)",
+          "category": "COFFEE & TEA",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Thai Tea (Ice/Hot)",
+          "category": "COFFEE & TEA",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Green Tea (Ice/Hot)",
+          "category": "COFFEE & TEA",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Chocolate (Ice/Hot)",
+          "category": "COFFEE & TEA",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Cappuccino / Cafelate",
+          "category": "COFFEE & TEA",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Kopi Tubruk Marbella",
+          "category": "COFFEE & TEA",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Fresh Brewed Coffee",
+          "category": "COFFEE & TEA",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Double Espresso",
+          "category": "COFFEE & TEA",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Kahlua/Baileys/Blue Curacao",
+          "category": "LEQUEURS & APPERITIF",
+          "price": 69000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Dry Martini/Campari",
+          "category": "LEQUEURS & APPERITIF",
+          "price": 69000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Lemon Tea",
+          "category": null,
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Orange/Apple Fresh Squeezed Fruits",
+          "category": null,
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        }
+      ],
+      "sources": [
+        {
+          "kind": "foto-maps",
+          "label": "Foto menu unggahan pengguna di Google Maps",
+          "url": "https://www.google.com/maps/place/Campo+del+Sol+Pool+Bar+-+Marbella+Hotel/@-6.1065252,105.8814971,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4187d508d54cb5:0x73b36ed5256a6845!8m2!3d-6.1065252!4d105.8814971!16s%2Fg%2F11tsg8kxj8",
+          "capturedAt": "2026-11-15",
+          "photos": [
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdLWfyYXGKn_keVEHpJ9CwX4llqVYtxl6EkWrcrTsv1GBtvXLPV9IbZWDNkr0HvwdfpWGyQMelYk3_9npJwNv64Yt2BJGbES50LMwUElIy5V5CRSyKUEC73zN-_OG8BXlBHw9vp=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLezXoy5B6R9HBGU7jyaww_yuBAbxCTjJDhS1LPHtJ4oNIqmHu0J5Dpar-B6K6MCQGSGbEJeAch5kEdysHbrFrWcUd7xVY15IztZahYf_AvEwFK8tKCCrP_CaTghCgxkQ2Mibs4vlw=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfiywxwe39Z34z1w5EmVbLvz_LJn7U_S2ggN0kaksXnSZoKlXNY51SGAvBNrnW8R7KHSywpwXQWJyB6i0wgkL67J48fLa-CJHqXl9zBCKvdNojW8oVs9D62Zcl5EKhO93n9ip79=w1600-h2000-k-no"
+          ]
+        }
+      ],
+      "perPerson": null,
+      "checked": [],
+      "readBy": {
+        "model": "gemini-3.5-flash-lite",
+        "readAt": "2026-11-15"
+      }
+    },
+    "Daiva Spa Novus Jiva": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Situs resmi Novus Jiva (novushotels.com/novusjiva/wellness-experience-hotel-novus-anyer, diperiksa 15 & 19 Nov 2026): menyebut jenis perawatan dan voucher spa paket menginap Rp 300.000–350.000 nett tanpa pricelist perawatan satuan",
+        "Google Maps: listing Daiva Spa tanpa tab Menu dan tanpa kisaran harga",
+        "Novus Jiva E-Brochure di Scribd & pencarian web (diperiksa 19 Nov 2026): hanya daftar kategori perawatan (Foot Care, Facial, Massage, Body Treatment, Spa Packages) tanpa tarif satuan"
+      ],
+      "readBy": null
+    },
+    "El Patio Marbella": {
+      "items": [],
+      "sources": [],
+      "perPerson": {
+        "min": 75000,
+        "max": 100000,
+        "reporters": 5,
+        "url": "https://www.google.com/maps/place/El+Patio+Restaurant+-+Marbella+Hotel/@-6.1063721,105.8820773,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422a7308ee0079:0xab6512bdefbaeea8!8m2!3d-6.1063721!4d105.8820773!16s%2Fg%2F11bc7rfbkh",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [
+        "Situs resmi Marbella (https://marbellaplaceanyer.com/dining/el-patio/ & /offers/, diperiksa 15 & 19 Nov 2026): mencantumkan jam buka dan buffet tanpa daftar harga menu a la carte",
+        "Google Maps & Restaurant Guru (https://restaurantguru.com/El-Patio-Restaurant-Cilegon, diperiksa 15 & 19 Nov 2026): hanya memuat kisaran belanja Rp 75.000–100.000 per orang dan foto hidangan tanpa daftar harga",
+        "Pencarian FlipHTML5 & Scribd (diperiksa 19 Nov 2026): dokumen MarBella Guest FAQ di FlipHTML5 adalah milik MarBella Yunani dan menu a la carte di Scribd milik Jayakarta Yogyakarta, bukan Marbella Anyer"
+      ],
+      "readBy": null
+    },
+    "Happy Puppy Karaoke": {
+      "items": [
+        {
+          "name": "Small (Weekday)",
+          "category": "Paket Triple Delight",
+          "price": 350000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 1
+        },
+        {
+          "name": "Small (Weekend)",
+          "category": "Paket Triple Delight",
+          "price": 400000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 1
+        },
+        {
+          "name": "Medium (Weekday)",
+          "category": "Paket Triple Delight",
+          "price": 400000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 1
+        },
+        {
+          "name": "Medium (Weekend)",
+          "category": "Paket Triple Delight",
+          "price": 450000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 1
+        },
+        {
+          "name": "Junior Suite (Weekday)",
+          "category": "Paket Triple Delight",
+          "price": 700000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 1
+        },
+        {
+          "name": "Junior Suite (Weekend)",
+          "category": "Paket Triple Delight",
+          "price": 750000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 1
+        },
+        {
+          "name": "Suite (Weekday)",
+          "category": "Paket Triple Delight",
+          "price": 900000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 1
+        },
+        {
+          "name": "Suite (Weekend)",
+          "category": "Paket Triple Delight",
+          "price": 1000000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 1
+        },
+        {
+          "name": "Royal Suite (Weekday)",
+          "category": "Paket Triple Delight",
+          "price": 1200000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 1
+        },
+        {
+          "name": "Royal Suite (Weekend)",
+          "category": "Paket Triple Delight",
+          "price": 1300000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 1
+        },
+        {
+          "name": "Small (Weekday)",
+          "category": "Paket Super Hemat",
+          "price": 230000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 2
+        },
+        {
+          "name": "Small (Weekend)",
+          "category": "Paket Super Hemat",
+          "price": 245000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 2
+        },
+        {
+          "name": "Medium (Weekday)",
+          "category": "Paket Super Hemat",
+          "price": 270000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 2
+        },
+        {
+          "name": "Medium (Weekend)",
+          "category": "Paket Super Hemat",
+          "price": 285000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 2
+        },
+        {
+          "name": "Junior Suite (Weekday)",
+          "category": "Paket Super Hemat",
+          "price": 420000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 2
+        },
+        {
+          "name": "Junior Suite (Weekend)",
+          "category": "Paket Super Hemat",
+          "price": 445000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "sewa-ruang",
+          "photo": 2
+        },
+        {
+          "name": "Alpukat",
+          "category": "Juice",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Apel",
+          "category": "Juice",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Jeruk",
+          "category": "Juice",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Mangga",
+          "category": "Juice",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Melon",
+          "category": "Juice",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Mix",
+          "category": "Juice",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Semangka",
+          "category": "Juice",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Strawberry",
+          "category": "Juice",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Mikshake Cokelat",
+          "category": "Milkshake",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Milkshake Strawberry",
+          "category": "Milkshake",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Milkshake Vanilla",
+          "category": "Milkshake",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Lemon Squash",
+          "category": "Mocktail",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Happy Temple",
+          "category": "Mocktail",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Live Wire",
+          "category": "Mocktail",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Pinacolada",
+          "category": "Mocktail",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Sour Avocado",
+          "category": "Mocktail",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Orange Squash",
+          "category": null,
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Soda Gembira",
+          "category": null,
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Sparkling Punch",
+          "category": null,
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Coca Cola Can",
+          "category": "Soft Drink",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Coca Cola Pitcher",
+          "category": "Soft Drink",
+          "price": 80000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Fanta Merah Can",
+          "category": "Soft Drink",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Fanta Merah Pitcher",
+          "category": "Soft Drink",
+          "price": 80000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Ginger Ale",
+          "category": "Soft Drink",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Pokka Green Tea",
+          "category": "Soft Drink",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Sprite Can",
+          "category": "Soft Drink",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Sprite Pitcher",
+          "category": "Soft Drink",
+          "price": 80000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "After The Sunset",
+          "category": "Smoothies",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "CreamyPuppylycius",
+          "category": "Smoothies",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Frozen Happy",
+          "category": "Smoothies",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Pink Lady",
+          "category": "Smoothies",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Pink Panther",
+          "category": "Smoothies",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Strawberry Passionate",
+          "category": "Smoothies",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Cappuccino",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Es Cappuccino",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Es Kopi",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Kopi",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Kopi 3 in 1",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Kopi Susu",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Small (Minggu - Jumat)",
+          "category": "Daftar Harga Sewa Ruangan Per Jam",
+          "price": 35000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang",
+          "photo": 4
+        },
+        {
+          "name": "Small (Sabtu & Mbl)",
+          "category": "Daftar Harga Sewa Ruangan Per Jam",
+          "price": 40000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang",
+          "photo": 4
+        },
+        {
+          "name": "Medium (Minggu - Jumat)",
+          "category": "Daftar Harga Sewa Ruangan Per Jam",
+          "price": 40000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang",
+          "photo": 4
+        },
+        {
+          "name": "Medium (Sabtu & Mbl)",
+          "category": "Daftar Harga Sewa Ruangan Per Jam",
+          "price": 45000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang",
+          "photo": 4
+        },
+        {
+          "name": "Junior Suite (Minggu - Jumat)",
+          "category": "Daftar Harga Sewa Ruangan Per Jam",
+          "price": 60000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang",
+          "photo": 4
+        },
+        {
+          "name": "Junior Suite (Sabtu & Mbl)",
+          "category": "Daftar Harga Sewa Ruangan Per Jam",
+          "price": 70000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang",
+          "photo": 4
+        },
+        {
+          "name": "Suite (Minggu - Jumat)",
+          "category": "Daftar Harga Sewa Ruangan Per Jam",
+          "price": 90000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang",
+          "photo": 4
+        },
+        {
+          "name": "Suite (Sabtu & Mbl)",
+          "category": "Daftar Harga Sewa Ruangan Per Jam",
+          "price": 100000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang",
+          "photo": 4
+        },
+        {
+          "name": "Royal Suite (Minggu - Jumat)",
+          "category": "Daftar Harga Sewa Ruangan Per Jam",
+          "price": 110000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang",
+          "photo": 4
+        },
+        {
+          "name": "Royal Suite (Sabtu & Mbl)",
+          "category": "Daftar Harga Sewa Ruangan Per Jam",
+          "price": 120000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang",
+          "photo": 4
+        }
+      ],
+      "sources": [
+        {
+          "kind": "foto-maps",
+          "label": "Foto menu unggahan pengguna di Google Maps",
+          "url": "https://www.google.com/maps/place/Happy+Puppy+Karaoke/data=!4m7!3m6!1s0x2e418dcfee51d02f:0x1ab867537d45a232!8m2!3d-6.0282272!4d106.0766928!16s%2Fg%2F11b6_d_94x!19sChIJL9BR7s-NQS4RMqJFfVNnuBo",
+          "capturedAt": "2026-11-15",
+          "photos": [
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLf51KhYNMz-V7IH2dN1oTJfuDFcG4MiwOzPyiKK1nsIlq08PorQ0d-EHRnDaooflA5aFIXa-r6PjkPJaAYNc-nek5QS3J_nIzUUPFtEJRVWNRSGND86aEsRIt7ZnWsnjlpWtZWfz9C0prc=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfmltmVY8Qif0dfTs63hqRt2pteei_JlbsqQOK3TLiDvs31n6Fcad-eMO-tt7rJj8vVhQxDV8g_hH9zEU48sDBKUqXq2fF4MrppwiTlPAoowaNhM63C-Ui8TxtmQzMaLZngSPT9ftwWYT7u=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLeau7BH4YxfeUvtMMwgWG2r1NyVcjxBcqIsW1aesvGjF7JyUg1-gQhkPBnIRZ9o8vgzSSz3oX9IPpnUFEKNrHXXrG4t04tPmqXkcpaM2aSZCoNrJ9uhCYk94rULeQ-S1sMM-Ftj=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLetlxMKSP44bYk_UFXXIs7ATsWOZJOtuwR4SL-PzGmIkMvnqHikgQ3nQGKEYTLNlJoLGEKd84ZEe8uvWBMSNH5kBZ4Tw3S0_nm9m1a2XatAt4n0YDntVOwDcmUzjRgWkNM6ELBF=w1600-h2000-k-no"
+          ]
+        }
+      ],
+      "perPerson": null,
+      "checked": [],
+      "readBy": {
+        "model": "gemini-3.5-flash-lite",
+        "readAt": "2026-11-15"
+      }
+    },
+    "Hotel Pier Aston Anyer": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Situs resmi Aston (anyer.astonhotelsinternational.com, diperiksa 15 & 19 Nov 2026): hanya deskripsi restoran overwater The Pier tanpa daftar harga menu",
+        "Google Maps: tidak ada listing terpisah, dan listing hotelnya tanpa tab Menu",
+        "Pencarian web, Radar Banten, FlipHTML5, Scribd (diperiksa 19 Nov 2026): tidak ada daftar harga a la carte terpisah untuk The Pier"
+      ],
+      "readBy": null
+    },
+    "Ikan Bakar Tanjung Pinang 88": {
+      "items": [],
+      "sources": [
+        {
+          "kind": "foto-maps",
+          "label": "Foto menu unggahan pengguna di Google Maps",
+          "url": "https://www.google.com/maps/place/Ikan+Bakar+Tanjung+Pinang+88/data=!4m7!3m6!1s0x2e41844cbc7f4ac1:0x29f5a42be547e991!8m2!3d-6.0547984!4d105.9165164!16s%2Fg%2F11bc7qfrzg!19sChIJwUp_vEyEQS4RkelH5Suk9Sk",
+          "capturedAt": "2026-11-15",
+          "photos": [
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcaXz84qcFJ1BjUs-pji-XyhOy5r-sAS4Vimhuc-oeRo2VaEPZCqE-ImxORycabkzKtu4_6ofDw3dbJZGNaSLeVpfZJrUun5-svGaE4j3M0d-ieUuvxJshRkHVdNgcT0xlVYiQGGg=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLf3sHwuVA1pNhm8t00mYZZyBQ9EHnjNZaWUt7epNi2S3XEEHQCe5H17gCzLAaOLVj4ByGkgNLZ4zqFP0TqPMdp7Q5j8FRlnv-EPi3f0vigbS372IEjC04hmofGt_8c2WV-uxFE=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLer3oPTn1gHUE9Pt_E5mGXQgJ9T81FDpIZg6uXZTCb-eKwA0xkhRwisx8ay67JVliJ4gtdaVXfCXJ6RPSgOvEG0J48xsL7h6IWakeFKU968QEb3lAGNR2zlOxL2cn3eTKcjYaFbrA=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfz3SYEKJpSeFPNalDquXHs7zP-Bl6DHCbfPaTFEtga6R4mD2ilRbbSeMhFzhkAl-JWTrtRLAClABqpohGuP0gX5JoPkFSXkEy6Fo0h5Mq3HmbdBiUbS6TiRn-F7XaJPas1X4maKw=w1600-h2000-k-no"
+          ]
+        }
+      ],
+      "perPerson": {
+        "min": 25000,
+        "max": 100000,
+        "reporters": 26,
+        "url": "https://www.google.com/maps/place/Ikan+Bakar+Tanjung+Pinang+88/data=!4m7!3m6!1s0x2e41844cbc7f4ac1:0x29f5a42be547e991!8m2!3d-6.0547984!4d105.9165164!16s%2Fg%2F11bc7qfrzg!19sChIJwUp_vEyEQS4RkelH5Suk9Sk",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [
+        "Google Maps: 4 foto menu hanya memuat nama dan gambar hidangan, tanpa harga",
+        "Menu QR publik https://qrmn.co/wplmup (Rumah Makan 88, diperiksa 19 Nov 2026): memuat nama hidangan ayam, udang, ikan, dan cumi tanpa harga",
+        "GoFood & pencarian web (diperiksa 19 Nov 2026): listing GoFood milik cabang Batam; blog ulasan yang menyebut harga berasal dari Feb 2016 sehingga tidak dipakai untuk patokan harga 2026"
+      ],
+      "readBy": {
+        "model": "gemini-3.5-flash-lite",
+        "readAt": "2026-11-15"
+      }
+    },
+    "Infinity Restaurant Mambruk": {
+      "items": [
+        {
+          "name": "Daging Cabe Ijo + Free Ice Tea",
+          "category": "Nusantara Spesial",
+          "price": 100000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Ikan Goreng Sambel Matah + Free Ice Tea",
+          "category": "Nusantara Spesial",
+          "price": 85000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Ayam Penyet + Free Ice Tea",
+          "category": "Nusantara Spesial",
+          "price": 85000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Singkong Goreng Keju",
+          "category": "APPETIZER",
+          "price": 45000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Lumpia Goreng",
+          "category": "APPETIZER",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Gado-gado",
+          "category": "SALAD",
+          "price": 60000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Caesar Salad",
+          "category": "SALAD",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Club Sandwich",
+          "category": "SANDWICH & BURGER",
+          "price": 90000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Cheese Burger",
+          "category": "SANDWICH & BURGER",
+          "price": 95000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Soto Ayam Lamongan",
+          "category": "SOUP",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Sop Buntut",
+          "category": "SOUP",
+          "price": 180000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Mie Goreng",
+          "category": "NUSANTARA DELIGHT",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Sate Ayam",
+          "category": "NUSANTARA DELIGHT",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Nasi Goreng Kampung",
+          "category": "NUSANTARA DELIGHT",
+          "price": 95000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Iga Bakar Baduy",
+          "category": "NUSANTARA DELIGHT",
+          "price": 190000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Cumi bakar",
+          "category": "SEAFOOD KHAS MAMBRUK",
+          "price": 100000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Udang Goreng saus padang",
+          "category": "SEAFOOD KHAS MAMBRUK",
+          "price": 100000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Chicken Teriyaki",
+          "category": "ASIAN SELECTION",
+          "price": 90000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Beef Blackpepper",
+          "category": "ASIAN SELECTION",
+          "price": 100000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Udang Telur Asin",
+          "category": "ASIAN SELECTION",
+          "price": 150000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Roti Bakar",
+          "category": "DESSERT",
+          "price": 45000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Mixed Slice Fruit",
+          "category": "DESSERT",
+          "price": 45000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Pisang Goreng Keju",
+          "category": "DESSERT",
+          "price": 55000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Spaghetti (Bolognese/Carbonara/Marinara)",
+          "category": "WESTERN LOVER",
+          "price": 85000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Pizza Pepperoni",
+          "category": "WESTERN LOVER",
+          "price": 125000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Pizza Hawaiian",
+          "category": "WESTERN LOVER",
+          "price": 125000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Pan-fried Salmon",
+          "category": "WESTERN LOVER",
+          "price": 190000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Grilled Sirloin Steak",
+          "category": "WESTERN LOVER",
+          "price": 205000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Americano",
+          "category": "COFFEE",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Espresso",
+          "category": "COFFEE",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Cappuccino",
+          "category": "COFFEE",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Coffee Latte",
+          "category": "COFFEE",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Coffee Mocha",
+          "category": "COFFEE",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Vanilla Latte",
+          "category": "COFFEE",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Caramel Latte",
+          "category": "COFFEE",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Cokelat",
+          "category": "COFFEE",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Regular Tea",
+          "category": "NON-COFFEE",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Flavour Tea",
+          "category": "NON-COFFEE",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Ice Lemon Tea",
+          "category": "NON-COFFEE",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Ice Lychee Tea",
+          "category": "NON-COFFEE",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Aqua Reflections",
+          "category": "NON-ALCOHOL",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Coke, Sprite, Soda Water",
+          "category": "SOFTDRINK",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Ginger Ale, Tonic Water",
+          "category": "SOFTDRINK",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Pokka Green Tea",
+          "category": "SOFTDRINK",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Bir Jawa",
+          "category": "MOCKTAILS",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Mambruk Punch",
+          "category": "MOCKTAILS",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Green Violet",
+          "category": "MOCKTAILS",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Passion Summer",
+          "category": "MOCKTAILS",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Tropical Sunrise",
+          "category": "MOCKTAILS",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Virgin Mojito",
+          "category": "MOCKTAILS",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Bali Hai",
+          "category": "BEER",
+          "price": 55000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Bintang Beer Botol 330 ml",
+          "category": "BEER",
+          "price": 60000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Bintang Beer Botol 620 ml",
+          "category": "BEER",
+          "price": 115000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Guinness Beer Botol 330 ml",
+          "category": "BEER",
+          "price": 75000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Guinness Beer Botol 620 ml",
+          "category": "BEER",
+          "price": 150000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "The Mambruk Sizzling Grill (Asian Fusion Grill & Steamboat)",
+          "category": "Paket Dining",
+          "price": 250000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Seafood Grill by the Sea (All-You-Can-Eat BBQ Sabtu Malam)",
+          "category": "Paket Dining",
+          "price": 250000,
+          "priceMax": null,
+          "unit": "per orang"
+        },
+        {
+          "name": "Floating Breakfast (per pasangan / 2 pax)",
+          "category": "Paket Dining",
+          "price": 400000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "paket-bersama",
+          "pax": 2
+        },
+        {
+          "name": "High Tea (per pasangan / 2 pax)",
+          "category": "Paket Dining",
+          "price": 400000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "paket-bersama",
+          "pax": 2
+        },
+        {
+          "name": "Seaside Candlelight Dinner (per pasangan / 2 pax)",
+          "category": "Paket Dining",
+          "price": 950000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "paket-bersama",
+          "pax": 2
+        }
+      ],
+      "sources": [
+        {
+          "kind": "dokumen-menu",
+          "label": "Buku menu resmi Room Service Mambruk Hotel & Convention (FlipHTML5, 5 halaman; harga belum termasuk pajak & layanan 21%)",
+          "url": "https://online.fliphtml5.com/mnhlb/xine/",
+          "capturedAt": "2026-11-19"
+        },
+        {
+          "kind": "situs-resmi",
+          "label": "Halaman penawaran dining resmi Mambruk Hotel & Convention (mambruk.co.id/offers)",
+          "url": "https://mambruk.co.id/offers",
+          "capturedAt": "2026-11-19"
+        }
+      ],
+      "perPerson": null,
+      "checked": [],
+      "readBy": null
+    },
+    "Kalani Beach Resto Anyer": {
+      "items": [
+        {
+          "name": "Ikan Goreng",
+          "category": "GORENG/FRIED",
+          "price": 13500,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 1
+        },
+        {
+          "name": "Udang Goreng",
+          "category": "GORENG/FRIED",
+          "price": 60000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Cumi Goreng",
+          "category": "GORENG/FRIED",
+          "price": 60000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Ayam Goreng",
+          "category": "GORENG/FRIED",
+          "price": 20000,
+          "priceMax": null,
+          "unit": "per orang",
+          "photo": 1
+        },
+        {
+          "name": "Ikan Bakar",
+          "category": "BAKAR/GRILLED",
+          "price": 13500,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 2
+        },
+        {
+          "name": "Cumi Bakar",
+          "category": "BAKAR/GRILLED",
+          "price": 60000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Udang Bakar",
+          "category": "BAKAR/GRILLED",
+          "price": 60000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ayam Bakar",
+          "category": "BAKAR/GRILLED",
+          "price": 20000,
+          "priceMax": null,
+          "unit": "per orang",
+          "photo": 2
+        },
+        {
+          "name": "BAKAR",
+          "category": "IKAN",
+          "price": 14000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 3
+        },
+        {
+          "name": "GORENG",
+          "category": "IKAN",
+          "price": 14000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 3
+        },
+        {
+          "name": "IKAN KAKAP",
+          "category": "IKAN",
+          "price": 13000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 3
+        },
+        {
+          "name": "IKAN KUE",
+          "category": "IKAN",
+          "price": 15000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 3
+        },
+        {
+          "name": "Add saus",
+          "category": "IKAN",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "KEPITING",
+          "category": "KEPITING / Porsi",
+          "price": 200000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "KEPITING Mix Platter",
+          "category": "KEPITING / Porsi",
+          "price": 240000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "BAKAR",
+          "category": "CUMI / Porsi",
+          "price": 60000,
+          "priceMax": 70000,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "GORENG",
+          "category": "CUMI / Porsi",
+          "price": 60000,
+          "priceMax": 70000,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "SAUS PADANG",
+          "category": "CUMI / Porsi",
+          "price": 60000,
+          "priceMax": 70000,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "SAUNG A. MANIS",
+          "category": "CUMI / Porsi",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "SAUS TIRAM",
+          "category": "CUMI / Porsi",
+          "price": 60000,
+          "priceMax": 70000,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "BAKUL",
+          "category": "NASI",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Porsi",
+          "category": "NASI",
+          "price": 5000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "KERANG IJO",
+          "category": null,
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "AYAM Per Potong",
+          "category": null,
+          "price": 20000,
+          "priceMax": null,
+          "unit": "per orang",
+          "photo": 3
+        },
+        {
+          "name": "KANGKUNG",
+          "category": null,
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "TOGE",
+          "category": null,
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "BAKAR",
+          "category": "UDANG / Porsi",
+          "price": 60000,
+          "priceMax": 70000,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "GORENG",
+          "category": "UDANG / Porsi",
+          "price": 60000,
+          "priceMax": 70000,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "SAUS PADANG",
+          "category": "UDANG / Porsi",
+          "price": 60000,
+          "priceMax": 70000,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "SAUNG A. MANIS",
+          "category": "UDANG / Porsi",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "SAUS TIRAM",
+          "category": "UDANG / Porsi",
+          "price": 60000,
+          "priceMax": 70000,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "KELAPA",
+          "category": "MINUMAN",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "LYCHEE",
+          "category": "MINUMAN",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "PEACH TEA",
+          "category": "MINUMAN",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "STRAWBERRY TEA",
+          "category": "MINUMAN",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "LEMON TEA",
+          "category": "MINUMAN",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "LEMON SQUASH",
+          "category": "MINUMAN",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "MILKSHAKE",
+          "category": "MINUMAN",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "JERUK PERAS",
+          "category": "MINUMAN",
+          "price": 12000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "ES TEH MANIS",
+          "category": "MINUMAN",
+          "price": 7000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "MINERAL",
+          "category": "MINUMAN",
+          "price": 7000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Vanilla Coffee",
+          "category": "Coffee",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Ketapang Coffee",
+          "category": "Coffee",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Butterscoth Coffee",
+          "category": "Coffee",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Popcorn Coffee",
+          "category": "Coffee",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Salted caramel Coffee",
+          "category": "Coffee",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Huzelnut Coffee",
+          "category": "Coffee",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Coffee latte",
+          "category": "Coffee",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Americano",
+          "category": "Coffee",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Cappucino",
+          "category": "Coffee",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Saus A. Manis",
+          "category": "CUMI 60K/Porsi",
+          "price": 60000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Ayam",
+          "category": null,
+          "price": 20000,
+          "priceMax": null,
+          "unit": "per orang",
+          "photo": 4
+        },
+        {
+          "name": "Saus A. Manis",
+          "category": "UDANG 60K/Porsi",
+          "price": 60000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Lychee tea",
+          "category": "MINUMAN",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Rice bowl",
+          "category": null,
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Spagheti",
+          "category": null,
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        }
+      ],
+      "sources": [
+        {
+          "kind": "foto-maps",
+          "label": "Foto menu unggahan pengguna di Google Maps",
+          "url": "https://www.google.com/maps/place/Kalani+Beach+Resto/@-6.1702936,105.8486378,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422bbd15819ef7:0xeae487b7d314a2d1!8m2!3d-6.1702936!4d105.8486378!16s%2Fg%2F11tjv2cqvw",
+          "capturedAt": "2026-11-15",
+          "photos": [
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcmXPmUs8uZzaAqggwdlWvIEiXwZYGHZ05hAOsTqFyDJamRil5JfZgsjEE0bYNZUQviYF1eKk1VQZEvXPBAiyZgaysI0raRbuvVWNZFJtqI4XN0L1McyHI6NeDmH1lg3DGGDHhc=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLf75D1oQZIUcl1nPFsdWY1inFmhlxnEoRdPrkyeeynv0BdDDmtGU8xjJlOU3whpBu-wJxJih_e7lp36geAl6ydTAStbawnfC9iLuyW_9yw4YcmRepTwb8rxK70fLWWM_MKTX2do=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLewSR9EjJvMC2Yr_xLIFDLeiaxNuwpcYmovQ5aVwnsX1MA1kjAoNRBeCupO9De3_4Le2TduTVyUlOA7fzjWU6lEHI2gduj7l4TnW49xLA7FofK2n3LtIvWyRmF4e_v986t369wS9i3N5GeW=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcryd9CHrBZTyEI7G2M54_XcQOY_DPe-548mwBzddS72xlqJMPqYs3qL7apGxmufoCxC5krwZVUoWU69mDEc1keKzA-Py7cQ9nExvdO3m2ZSFN97Ss6HpjzyWR26qFpA807vfS3OiEo-aI=w1600-h2000-k-no"
+          ]
+        }
+      ],
+      "perPerson": {
+        "min": 25000,
+        "max": 150000,
+        "reporters": 85,
+        "url": "https://www.google.com/maps/place/Kalani+Beach+Resto/@-6.1702936,105.8486378,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422bbd15819ef7:0xeae487b7d314a2d1!8m2!3d-6.1702936!4d105.8486378!16s%2Fg%2F11tjv2cqvw",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [],
+      "readBy": {
+        "model": "gemini-3.5-flash-lite",
+        "readAt": "2026-11-15"
+      },
+      "corrections": [
+        {
+          "from": "Keping",
+          "to": "KEPITING",
+          "reason": "Salah baca: foto menu Kalani menulis \"Kepiting: 200K/Porsi\" (dicek 15 Nov 2026)."
+        },
+        {
+          "from": "Keping Mix Platter",
+          "to": "KEPITING Mix Platter",
+          "reason": "Salah baca: foto menu Kalani menulis \"Kepiting Mix Platter: 240K/Porsi\" (dicek 15 Nov 2026)."
+        },
+        {
+          "from": "POSRSI",
+          "to": "Porsi",
+          "reason": "Salah ketik di menu cetak Kalani; foto lain di bagian NASI menulis \"Porsi 5K\" (dicek 15 Nov 2026)."
+        }
+      ]
+    },
+    "Kamalika Beach Cafe & Resto": {
+      "items": [
+        {
+          "name": "Kamalika coffee",
+          "category": "COFFEE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Brulee coffee",
+          "category": "COFFEE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Brulee cheese coffee",
+          "category": "COFFEE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Salted caramel coffee",
+          "category": "COFFEE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Cheese coffee",
+          "category": "COFFEE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Butterscoth coffee",
+          "category": "COFFEE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Pandan coffee",
+          "category": "COFFEE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Vanilla coffee",
+          "category": "COFFEE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Triple peach americano",
+          "category": "COFFEE",
+          "price": 26000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Americano",
+          "category": "COFFEE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Cappucino",
+          "category": "COFFEE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Caffe latte",
+          "category": "COFFEE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Taro cheese",
+          "category": "NON - COFFEE",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Matcha cheese",
+          "category": "NON - COFFEE",
+          "price": 28000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Strawberry milkshake",
+          "category": "NON - COFFEE",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Vanilla milkshake",
+          "category": "NON - COFFEE",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Chocolate milkshake",
+          "category": "NON - COFFEE",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Taro ice/hot",
+          "category": "NON - COFFEE",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Matcha ice/hot",
+          "category": "NON - COFFEE",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Chocolate ice/hot",
+          "category": "NON - COFFEE",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Lychee yakult",
+          "category": "NON - COFFEE",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Strawberry peach",
+          "category": "NON - COFFEE",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Lychee tea",
+          "category": "NON - COFFEE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Peach tea",
+          "category": "NON - COFFEE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Lemon tea ice/hot",
+          "category": "NON - COFFEE",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Coconut water",
+          "category": "NON - COFFEE",
+          "price": 21000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Alpukat juice",
+          "category": "NON - COFFEE",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Strawberry juice",
+          "category": "NON - COFFEE",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Orange juice",
+          "category": "NON - COFFEE",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Ice tea",
+          "category": "NON - COFFEE",
+          "price": 8000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Mineral water",
+          "category": "NON - COFFEE",
+          "price": 7000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Strawberry mojito",
+          "category": "MOJITO",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Lychee mojito",
+          "category": "MOJITO",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Grape mojito",
+          "category": "MOJITO",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Peach mojito",
+          "category": "MOJITO",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Virgin mojito",
+          "category": "MOJITO",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Ikan bakar madu/manado",
+          "category": "SEAFOOD",
+          "price": 17000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 2
+        },
+        {
+          "name": "Kepiting saos tiram/padang/asam manis",
+          "category": "SEAFOOD",
+          "price": 200000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Kepiting mix platter",
+          "category": "SEAFOOD",
+          "price": 300000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Cumi bakar madu/manado",
+          "category": "SEAFOOD",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Cumi tinta hitam",
+          "category": "SEAFOOD",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Cumi goreng tepung",
+          "category": "SEAFOOD",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Cumi saos tiram/padang/asam manis",
+          "category": "SEAFOOD",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Udang bakar madu/manado",
+          "category": "SEAFOOD",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Udang saos tiram/padang/asam manis",
+          "category": "SEAFOOD",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Udang goreng cabe garam",
+          "category": "SEAFOOD",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Udang goreng tepung",
+          "category": "SEAFOOD",
+          "price": 70000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Kerang ijo saos tiram/padang/asam manis",
+          "category": "SEAFOOD",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ayam bakar madu/manado",
+          "category": "NON - SEAFOOD",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ayam goreng",
+          "category": "NON - SEAFOOD",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Chicken wings",
+          "category": "NON - SEAFOOD",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Pindang kuah kuning",
+          "category": "SOUP",
+          "price": 50000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Sop ikan",
+          "category": "SOUP",
+          "price": 50000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Nasi goreng seafood",
+          "category": "NASI (RICE)",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Nasi goreng kampung",
+          "category": "NASI (RICE)",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Nasi putih bakul",
+          "category": "NASI (RICE)",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Nasi daun jeruk",
+          "category": "NASI (RICE)",
+          "price": 9000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Nasi putih",
+          "category": "NASI (RICE)",
+          "price": 8000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Tumis tauge",
+          "category": "TUMIS",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Cah kangkung",
+          "category": "TUMIS",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Kangkung balacan",
+          "category": "TUMIS",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Saos padang/asam manis",
+          "category": "ADD",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Sambal merah/ijo/matah/mangga",
+          "category": "ADD",
+          "price": 5000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Susu",
+          "category": "ADD",
+          "price": 5000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Ice",
+          "category": "ADD",
+          "price": 3000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        }
+      ],
+      "sources": [
+        {
+          "kind": "foto-maps",
+          "label": "Foto menu unggahan pengguna di Google Maps",
+          "url": "https://www.google.com/maps/place/Kamalika+Beach+Cafe+%26+Resto/data=!4m7!3m6!1s0x2e4185003a6a47a3:0x31b9c161b5470370!8m2!3d-6.0539428!4d105.9140892!16s%2Fg%2F11xnpvrfqk!19sChIJo0dqOgCFQS4RcANHtWHBuTE",
+          "capturedAt": "2026-11-15",
+          "photos": [
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLc9100qP66bKL8RXslkHYwzAmgj-wXiUYyBYWZ8AkWC189S20zWd4JIMiQNGEDO_Xftsq5NMdDP73h-mN0eVk0Ez6d06P9k0_FadoaiOZnlTbY3QroI4TJcKz5bgUPjk8dBy_OQuV23NLmH=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdVcEKuUO--DlXKcwddjVoyVAEedyBK2tpe5sF1RJGdP-O4iZKwwzIknz3-AFBmqW3MYpF8OCeZ8uJQrwHL65uPoDAIZuloGdZ91HjqiRI0TDb9ptXKPc3prtADgC5VjiSx3uagB7bzaEEN=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcXoQQQNC7TqyC9Yg4p0iJLnNBt80-PbUuTn8_d-3M8YURiTdHB7jsJAnhMOq5JJV17xLqLeZy0-lKO-nEnMikkMR1UO1PC6jr6VEK7HT0Fpb7W03rzEsRCB037woQQNzHPYw2m9gYZx1ih=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLeY59IiEEyXNegFeMfTWrnrmHS_pubLCpvIin4QdV4wohEvwrUVp6gOxs7wS2j3IOK5Ibdo9_sOu4I8Rsh7KL6iKPEfJnpaONIo1y7Y7SsTIy_sTKfW2J_B-lXVUOGbPfUcOEHJAaaTqgo8=w1600-h2000-k-no"
+          ]
+        }
+      ],
+      "perPerson": {
+        "min": 25000,
+        "max": 50000,
+        "reporters": 204,
+        "url": "https://www.google.com/maps/place/Kamalika+Beach+Cafe+%26+Resto/data=!4m7!3m6!1s0x2e4185003a6a47a3:0x31b9c161b5470370!8m2!3d-6.0539428!4d105.9140892!16s%2Fg%2F11xnpvrfqk!19sChIJo0dqOgCFQS4RcANHtWHBuTE",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [],
+      "readBy": {
+        "model": "gemini-3.5-flash-lite",
+        "readAt": "2026-11-15"
+      }
+    },
+    "Lagoon Restaurant Mövenpick": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Situs resmi Accor (all.accor.com/hotel/C6A5): hanya deskripsi restoran, tanpa daftar harga menu",
+        "Google Maps: tidak ada listing terpisah, dan listing hotelnya tanpa tab Menu",
+        "OTA Tripbtoz (https://www.tripbtoz.com/id-ID/hotels/30532138, diperiksa 19 Nov 2026): hanya mencatat biaya tambahan sarapan prasmanan hotel sekitar Rp 388.000/dewasa dan Rp 194.000/anak, tanpa menu a la carte Lagoon Restaurant",
+        "Dokumen Scribd & media (diperiksa 19 Nov 2026): presentasi Mövenpick Resort Carita tanpa harga menu; dokumen IRD-Diner di Scribd terverifikasi milik Mövenpick Jakarta Pecenongan, bukan Carita"
+      ],
+      "readBy": null
+    },
+    "Lighthouse Restaurant & Bar Mambruk": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Situs resmi Mambruk (mambruk.co.id/facilities & /offers, diperiksa 15 & 19 Nov 2026): hanya deskripsi Lighthouse Restaurant & Bar tanpa daftar harga khusus outlet ini",
+        "Buku menu FlipHTML5 Mambruk (https://online.fliphtml5.com/mnhlb/xine/, diperiksa 19 Nov 2026): memuat Room Service Menu umum hotel (tercatat di Infinity Restaurant Mambruk), bukan daftar harga khusus Lighthouse Steak & Bar",
+        "Google Maps, Fakta Banten, Serpong Update, Lemon8 (diperiksa 19 Nov 2026): tidak ada daftar harga menu satuan khusus Lighthouse"
+      ],
+      "readBy": null
+    },
+    "Oceana Pool Bar Mövenpick": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Situs resmi Accor (all.accor.com/hotel/C6A5): hanya deskripsi pool bar, tanpa harga",
+        "Google Maps: listing Oceana Pool Bar tanpa tab Menu dan tanpa kisaran harga",
+        "Presentasi Mövenpick Resort Carita di Scribd & pencarian web (diperiksa 19 Nov 2026): tidak ada daftar harga menu publik"
+      ],
+      "readBy": null
+    },
+    "Omah Laut Cafe & Resto": {
+      "items": [],
+      "sources": [
+        {
+          "kind": "foto-maps",
+          "label": "Foto menu unggahan pengguna di Google Maps",
+          "url": "https://www.google.com/maps/place/Omah+Laut+Cafe+%26+Resto/@-6.202712,105.83541,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b004382dee1:0xf81088ae5527e562!8m2!3d-6.202712!4d105.83541!16s%2Fg%2F11zx2cv0v4",
+          "capturedAt": "2026-11-15",
+          "photos": [
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdUNB4HJJGdrH0Z7P7XFznxkgJLixMvKCsOhuBEb0baxAw9887-47_pkFbzrpJyp5DotAMrjjwY5IQp19H3uctyaWilbkC9N_2NYM2dyX_kr_kswdx1Y6yxbTLEvTgftZSjfn0gghFjeVKn=w1600-h2000-k-no"
+          ]
+        }
+      ],
+      "perPerson": {
+        "min": 25000,
+        "max": 50000,
+        "reporters": 22,
+        "url": "https://www.google.com/maps/place/Omah+Laut+Cafe+%26+Resto/@-6.202712,105.83541,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b004382dee1:0xf81088ae5527e562!8m2!3d-6.202712!4d105.83541!16s%2Fg%2F11zx2cv0v4",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [
+        "Google Maps: satu-satunya foto di bagian Menu adalah foto hidangan, bukan daftar harga",
+        "Instagram @omahlautcaferesto: tidak ada unggahan atau sorotan daftar harga",
+        "GoFood dan GrabFood (pencarian web): tidak ada listing"
+      ],
+      "readBy": {
+        "model": "gemini-3.5-flash-lite",
+        "readAt": "2026-11-15"
+      }
+    },
+    "RM.MUARO": {
+      "items": [
+        {
+          "name": "Kue",
+          "category": "MENU UTAMA",
+          "price": 15000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 1
+        },
+        {
+          "name": "Kakap Merah/ Kerapu",
+          "category": "MENU UTAMA",
+          "price": 16000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 1
+        },
+        {
+          "name": "Gurame/ Kakap Putih",
+          "category": "MENU UTAMA",
+          "price": 15000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 1
+        },
+        {
+          "name": "Kepiting",
+          "category": "MENU UTAMA",
+          "price": 22000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 1
+        },
+        {
+          "name": "Rajungan",
+          "category": "MENU UTAMA",
+          "price": 20000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 1
+        },
+        {
+          "name": "Udang (Medium)",
+          "category": "MENU UTAMA",
+          "price": 25000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 1
+        },
+        {
+          "name": "Udang (Gala/ Besar)",
+          "category": "MENU UTAMA",
+          "price": 30000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 1
+        },
+        {
+          "name": "Cumi",
+          "category": "MENU UTAMA",
+          "price": 20000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 1
+        },
+        {
+          "name": "Lobster",
+          "category": "MENU UTAMA",
+          "price": 50000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 1
+        },
+        {
+          "name": "Ikan Mas/ Nila",
+          "category": "MENU UTAMA",
+          "price": 10000,
+          "priceMax": null,
+          "unit": "per ons",
+          "photo": 1
+        },
+        {
+          "name": "Bandeng",
+          "category": "MENU UTAMA",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Kerang Dara/ Kerang Ijo",
+          "category": "MENU UTAMA",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Ayam Kampung",
+          "category": "MENU UTAMA",
+          "price": 35000,
+          "priceMax": 65000,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Ayam Negri",
+          "category": "MENU UTAMA",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Ayam Negri Saus mentega",
+          "category": "MENU UTAMA",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Bebek",
+          "category": "MENU UTAMA",
+          "price": 35000,
+          "priceMax": 65000,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sate Ayam",
+          "category": "MENU UTAMA",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sate Bebek",
+          "category": "MENU UTAMA",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sate Sapi",
+          "category": "MENU UTAMA",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Amprakan Seafood",
+          "category": "MENU UTAMA 2",
+          "price": 150000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Ayam teriyaki/Mentega/Rica",
+          "category": "MENU UTAMA 2",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Pepes Tahu",
+          "category": "MENU UTAMA 2",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Pepes Peda/ teri",
+          "category": "MENU UTAMA 2",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sate Bandeng",
+          "category": "MENU UTAMA 2",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Oseng Cumi Asin",
+          "category": "MENU UTAMA 2",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Ikan Asin",
+          "category": "MENU UTAMA 2",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Pecak Telor",
+          "category": "MENU UTAMA 2",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Nasi Kampung",
+          "category": "MENU UTAMA 2",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Nasi Goreng Spesial",
+          "category": "MENU UTAMA 2",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Nasi Goreng Seafood",
+          "category": "MENU UTAMA 2",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Nasi Putih",
+          "category": "MENU UTAMA 2",
+          "price": 7000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Karedok",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Cah Kangkung",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Cah Toge",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Cap Cay",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sayur Asem",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Cah Genjer",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sop Ayam",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sop Daging Sapi",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sop Ikan",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Tempe/Tahu",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Mendoan",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Jengkol +Sambal Terasi",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Pete",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Lalapan Mentah + Sambal",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Lalapan Rebus & S. Terasi",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Sambal mangga",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "sambal Terasi",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Kailan",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Kailan Ikan Asin",
+          "category": "ANEKA SAYUR & SAMBAL",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Otak-otak",
+          "category": "MENU PEMBUKA & ANEKA BUAH",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Mix platter",
+          "category": "MENU PEMBUKA & ANEKA BUAH",
+          "price": 30000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Piscok Lumer",
+          "category": "MENU PEMBUKA & ANEKA BUAH",
+          "price": 17000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Kentang Goreng",
+          "category": "MENU PEMBUKA & ANEKA BUAH",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Dim Sum",
+          "category": "MENU PEMBUKA & ANEKA BUAH",
+          "price": 17000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Rujak Cireng",
+          "category": "MENU PEMBUKA & ANEKA BUAH",
+          "price": 17000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Semangka",
+          "category": "MENU PEMBUKA & ANEKA BUAH",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Melon",
+          "category": "MENU PEMBUKA & ANEKA BUAH",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Pepaya",
+          "category": "MENU PEMBUKA & ANEKA BUAH",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Buah Naga",
+          "category": "MENU PEMBUKA & ANEKA BUAH",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Kopyor",
+          "category": "ANEKA MINUMAN",
+          "price": 17000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Kelapa Spesial",
+          "category": "ANEKA MINUMAN",
+          "price": 17000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Kelapa Buah",
+          "category": "ANEKA MINUMAN",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Es Teh Manis/panas",
+          "category": "ANEKA MINUMAN",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Es Jeruk/ panas",
+          "category": "ANEKA MINUMAN",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Sop Durian",
+          "category": "ANEKA MINUMAN",
+          "price": 17000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Es Teler",
+          "category": "ANEKA MINUMAN",
+          "price": 17000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Fanta/Sprite/Cola",
+          "category": "ANEKA MINUMAN",
+          "price": 7000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Kopi/Susu",
+          "category": "ANEKA MINUMAN",
+          "price": 10000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Air Mineral",
+          "category": "ANEKA MINUMAN",
+          "price": 7000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Aneka Jus",
+          "category": "ANEKA MINUMAN",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Coffee Brown Sugar",
+          "category": "Coffee",
+          "price": 25000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Vanilla Coffee",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Lemoned Coffee",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "ice Coffee Pandan",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Coffee Grenadine",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Caramel Coffee Latte",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Mochachino",
+          "category": "Coffee",
+          "price": 23000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Coffee Latte",
+          "category": "Coffee",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Americano",
+          "category": "Coffee",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Lemon Tea",
+          "category": "Other Drinks",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Millo",
+          "category": "Other Drinks",
+          "price": 15000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Lychee Tea",
+          "category": "Other Drinks",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Lemon Squash",
+          "category": "Other Drinks",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Yakult Lychee",
+          "category": "Other Drinks",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Blue Summer",
+          "category": "Other Drinks",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Taro",
+          "category": "Other Drinks",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Matcha Latte",
+          "category": "Other Drinks",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Milkshake Vanila",
+          "category": "Other Drinks",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Ice Milkshake Oreo",
+          "category": "Other Drinks",
+          "price": 20000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        }
+      ],
+      "sources": [
+        {
+          "kind": "foto-maps",
+          "label": "Foto menu unggahan pengguna di Google Maps",
+          "url": "https://www.google.com/maps/place/RM.MUARO/data=!4m7!3m6!1s0x2e41840fb68808f3:0x4a1856bba9cdee9a!8m2!3d-6.0705315!4d105.8861212!16s%2Fg%2F11bc7t5jq6!19sChIJ8wiItg-EQS4Rmu7NqbtWGEo",
+          "capturedAt": "2026-11-15",
+          "photos": [
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfSqjSsxe1yin2jUlgkNAcqwnv7Z8OQngZMm9WT8nFPEdbLe3NbRC-QuBuZPn8M7UazFFFBTqOG0wgSeYUgL7sw3Jqhdo_0zsPw9I6Ix7wt607rp63j6PSXxyLSQ-7HSVn9o3eXP2nD6KI0=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcCst8ZYbKjKki4t80yU6l2cN6qe-WDObs80UlO7c4imRpSmBnyzvKHWKgPSviCFjsvlcifwNXPsFcp2AztUAOzSAUAEIt4pbvvH27atPLLJ6m7ECA4GLthQRpVaZCMumhfVFAvLiTzLehC=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcJXm2rD9PX5uecggc68MtPwuqMYiTb7dtiWH0mOn_KTTMQ-oSwmlIgcky0FEDzxhgbs1OR_Pjy6JAubRBjD_oz37NWStIsDE2JU7vW36MvHKnHRF01j6tpTS4nHXCaq7zoMLaP9EqDK1w=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLe5A7pqs457iqENi4N6xPe2hyENoYRdZgh5rp5VfUNvOzxkBZk7XDFgtz79eslA-j1WF2c7pAYJxAeiNU-adrHDBCdgxWrMgTGVezlkpsVMDs2_1A6EAeznUnfeLdFVutTzJY3ZCw=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcaHBACpboaEpiv1Q2K5iBfuK46LiO0tp2RPzrJIUR8maK6Zn4Fj7-wz7EPrGiYizOM6mnLGsHFglbZcOu1rZwxEE7xgmfJcoSQGn1ktzHEtFzAIUmB9vEHXWEyKI07CwDW4JFdl2QEAKZc=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdedKhprcWNZ-1LnAzp2R2TPxK-XSD9z4OzuY2BDIJPTbQjubJmZq5W49ax-bHr4R4_-iw-raKLS7cjXRgSBWkRuJ1RdXVmELgByWEF1n8WoYE8jNU7hfb4sAIwI407Xkt0AGuPWTO7Aq_Q=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLc_iOJWnrrG6yQdWFrIx5Wozz2FULBEYcm-gG5LYwow1-FN39v6M_5bFTxJp2vFxX3rIW3iittDBdmqDlKplHonCGsO4cAWA01O78mEgIPv6IXp_i96lxBQq75Wmn9wmzzS4DVeCw=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdU8d1aT_dQ0eTsWFQ7rErCn3yiUmtVM-a8yrWc-x59BqHcuyrpv5XgC8xgqrW3HSGsQIVGQ_kQ_PRSThKberQc0X4M8IXEg84x5I2ogCtNmO3CKXUAKnNCJwBIB85BTVPE_-Ml=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdtWcaIoeFPPHv46--B2XU_EQM52s1GUUU8AcDk5yJXM100arCboprJZme_GNTCmvXAIWbCZ-KNcSfblOPc4SIZ_sJGsXJ65IXwiyDlyfQb1t-IwjccW13c2OS5ofUKfaveQRQg6bFhwu8=w1600-h2000-k-no"
+          ]
+        }
+      ],
+      "perPerson": {
+        "min": 25000,
+        "max": 175000,
+        "reporters": 55,
+        "url": "https://www.google.com/maps/place/RM.MUARO/data=!4m7!3m6!1s0x2e41840fb68808f3:0x4a1856bba9cdee9a!8m2!3d-6.0705315!4d105.8861212!16s%2Fg%2F11bc7t5jq6!19sChIJ8wiItg-EQS4Rmu7NqbtWGEo",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [],
+      "readBy": {
+        "model": "gemini-3.5-flash-lite",
+        "readAt": "2026-11-15"
+      }
+    },
+    "Sarasa Lounge Novus Jiva Anyer": {
+      "items": [
+        {
+          "name": "Choice of Coffee and Chocolate",
+          "category": "Beverages Corner",
+          "price": 43000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Kind of Tea",
+          "category": "Beverages Corner",
+          "price": 33000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Flavored Iced Tea",
+          "category": "Beverages Corner",
+          "price": 43000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Fresh Juice",
+          "category": "Beverages Corner",
+          "price": 53000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Pineapple / Watermelon / Honeydew (Fresh Juice)",
+          "category": "Beverages Corner",
+          "price": 43000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Mineral Water",
+          "category": "Beverages Corner",
+          "price": 18000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Soft Drinks",
+          "category": "Beverages Corner",
+          "price": 27000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Milk Shake",
+          "category": "Beverages Corner",
+          "price": 53000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Mocktails",
+          "category": "Beverages Corner",
+          "price": 53000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Beer Bottle",
+          "category": "Beverages Corner",
+          "price": 58000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        }
+      ],
+      "sources": [
+        {
+          "kind": "foto-maps",
+          "label": "Foto menu unggahan pengguna di Google Maps",
+          "url": "https://www.google.com/maps/place/Sarasa+Lounge+at+Novus+Jiva/@-6.2182734,105.8338705,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b295764287b:0xdc3d91efca53bd7a!8m2!3d-6.2182734!4d105.8338705!16s%2Fg%2F11m_ykjvbw",
+          "capturedAt": "2026-11-15",
+          "photos": [
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdaG3meEr2B8luJiXoxhoV6mBDC0K1V4vuL8gFAtl12A3X6HynvDXI5KU8z-56jN1VXaM3T6Uqz2vgCVTWlzeAbSvMIJZVeJEFkCOauXqci464bczMUQyKAZSpP0W_KJGCVgGXo=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLeNoCYNsImiWoMkwjPNp2aQZ-6-hmUnf7JdTEKhxPbc6aP8wE5fGTnoXN9Zixh47i0WI-DTK81JpTorQ77TlKvK29QGZDz-oF98EvK977qjTbjFX3L7FzJRvuZQhsE3_3yz8A6q=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLe8tc6M8IcJA1scyqYf9-x0-p6gYZGLuLkxNif0hjvuZn9i3kE31KPO0kp_aKM3qM8q_6EDiUaPgoBrLO4URli6I6ii-GyPXtzwXHScAYfhpo5VfsLjnOOoKvLP7YThsVS9gYJJ=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLeUd38MuTE2N_qjksHerdcfOWelaAgW5cQcqqjXY0cMUB0Iy5GwXMcAzuOcDlSvxCDWulj3tW8o4PAdTNNjr1A_Q_zdlNXbtBjAehLQq5FbWA2H-ExP7D5rzMMJbW4iUyRvQDj8Xg=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLedojOqoIs24dMEylCwy4X6swo1cQ16sKbcPb-VAMNCJUMUv44Y9nAqQ4QUAYipgR9o2E00LsFqvTWZO_II1QQG5TlqK1Mhh9Jy6JidLUG2anGFDynUBNh4OPM4N6e2_Bt58qX0=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcIlZQUqEDYAlyhbcTk-hrM1slYDLUHsJ084erPqv5UKry5V7CJyScR2L6SU1uQ6yVP5XhFDWi6_xTR53u9XpF9YytXcfz7Hwjbd1WLzNdvkHNOMc033w-fy5qzPoBskoP9s8bh=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdCnqtBHxVTxpj2NNXDZBv_rgkbdPReIpaNCK5_XNt-sR02MOhVBvMThufXmpilbuklENm-Kb5U3a8MdYwIT1Oe5KUmNOQZt9k2lFHik72Ga_tOc8GOc9haS1w0NcDko_eX4HnQAjZcYRC1=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfGcvgE4gxD31qhOP17wDk5VPB5P2f3BkL-zbGSLnLxUMYPiLpGv_2mxArE7pjLF4DP_66Zk3tKlHBQ4O5PnVkxLNnBxj6SGhfnwyPVwJAeT47uWwcQvzzcjqUWZyhIr90XDc8i=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLf8315R3_IbHqSlE8oqPx2fDrw7xvTgd8RsEt7dC7m-dBdmEQEhbzBF-GegI-8fS6WjBzEecdVneoCAeqk8jvTIjYyEJtNB_Zc3CSakrfWwmshXhcM7utNRcdXkrnjRc_9fzE-9=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfwwaZEhEplnlNue2_7g94Eadu0g3nxJH9-k6PfXQqgilaXeMcofWsLq20W-Egu9h4nf4EWQgUSPIQAdW1-0LCCNbKRqPrsRGEGzdnSLmBlO-RWaeo65OMLWW74vrkaGN777RAxhw=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLeWWx4FrGNRLtt0ZdOWwT84Gg_L_1ChjJ7J8nI4BP3SzMi9-LzhaYcnHwgESI0wc7_DvW4JXv03exJwvRY0bMczUddzbBGynVZQMNwieCSUe6zkACewu1Acuma50FwzgE8pPo3V=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLevwdQVOosWLtI3a7uBmWhatzY1jidUQv3E_joaaYy3CyzD5_9WTK2suvtIpBRtQgVKXUXkXD3mvvfMylUNMLzLxT8gxPy-OyrmWSV_M6onnxW1L6kEPOGZNPPgtc3zdaF4uHI4=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfwJk8re-NJcyPL2zVbLH2f3l9i-DUkorKm23cH8lt3Ywjy1hARa-mXbbk0_UK3V2-ELuYytkiNiBO4nvNv-wYQlQvftzA0FT2lDQmnliC-yF_prGI9uyfShJtr5Vpq1B1G8m2v=w1600-h2000-k-no"
+          ]
+        }
+      ],
+      "perPerson": {
+        "min": 75000,
+        "max": 100000,
+        "reporters": 12,
+        "url": "https://www.google.com/maps/place/Sarasa+Lounge+at+Novus+Jiva/@-6.2182734,105.8338705,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b295764287b:0xdc3d91efca53bd7a!8m2!3d-6.2182734!4d105.8338705!16s%2Fg%2F11m_ykjvbw",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [],
+      "readBy": {
+        "model": "gemini-3.5-flash-lite",
+        "readAt": "2026-11-15"
+      }
+    },
+    "Serai Restaurant Novus Jiva Anyer": {
+      "items": [
+        {
+          "name": "Baked Rice Seafood Dynamite",
+          "category": null,
+          "price": 78000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Seafood Mie Goreng",
+          "category": null,
+          "price": 88000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Chicken Mie Goreng",
+          "category": null,
+          "price": 78000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Seafood Spicy Mint Fried Rice",
+          "category": null,
+          "price": 88000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Serai's Signature Grilled Chicken",
+          "category": null,
+          "price": 98000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 1
+        },
+        {
+          "name": "Pineapple Teriyaki Chicken",
+          "category": null,
+          "price": 88000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Hainanese Chicken Rice",
+          "category": null,
+          "price": 88000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Gyudon",
+          "category": null,
+          "price": 118000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Sweet & Sour Chicken",
+          "category": null,
+          "price": 88000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 2
+        },
+        {
+          "name": "Crab Rangoon",
+          "category": null,
+          "price": 58000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Buffalo Wings",
+          "category": "Starters",
+          "price": 58000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Calamari",
+          "category": "Starters",
+          "price": 58000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Gado-Gado",
+          "category": "Starters",
+          "price": 58000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Soto Ayam",
+          "category": "Starters",
+          "price": 58000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Tom Yum Seafood Soup",
+          "category": "Starters",
+          "price": 98000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Serai's Signature Salad",
+          "category": "Serai's Signature",
+          "price": 88000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 3
+        },
+        {
+          "name": "Creamy Mushroom Pizza",
+          "category": null,
+          "price": 88000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Pizza Margherita",
+          "category": "Burgers, Pizza & Western Selection",
+          "price": 88000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Pepperoni Pizza",
+          "category": "Burgers, Pizza & Western Selection",
+          "price": 108000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Tenderloin Steak",
+          "category": null,
+          "price": 238000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Sirloin Steak",
+          "category": null,
+          "price": 238000,
+          "priceMax": null,
+          "unit": null,
+          "photo": 4
+        },
+        {
+          "name": "Yellow Oxtail Fried Rice",
+          "category": "Indonesian & Asian",
+          "price": 168000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "King Prawn Rose Pasta",
+          "category": "Pasta",
+          "price": 138000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Iga Konro Bakar",
+          "category": "Indonesian & Asian",
+          "price": 108000,
+          "priceMax": null,
+          "unit": null
+        }
+      ],
+      "sources": [
+        {
+          "kind": "foto-maps",
+          "label": "Foto menu unggahan pengguna di Google Maps",
+          "url": "https://www.google.com/maps/place/Serai+Cafe+at+Novus+Jiva/@-6.2180252,105.8340536,17z/data=!3m1!4b1!4m6!3m5!1s0x2e422b15b7f93d6d:0xd9cf781cb2b96202!8m2!3d-6.2180252!4d105.8340536!16s%2Fg%2F11m_g37l68",
+          "capturedAt": "2026-11-15",
+          "photos": [
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfIpiTPU86CK_5NH55tZwmdqhoHiLa9XOQuLa5t2GFteYPuf3ltuiK1vJl1mHQQlZitY_XzFilPKs1wGKt_KFnJW5LA90Hu66L05l9__AEDiy-fLBht-uvBszdBy3nYN0aEB3csH6RgxP5u=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcloKgO3ERRVxElnsj2Sg_Wg9FpQxa8ytZsT1zG7zXh_xyubZaa8M8rBezsZxQfbSLXj1HoPJW24vGI4foqZxhTCtqaE6HCguCZACDMMTgUujqdK5bEiR3H3UO5f-uZ0M2v9V2KQL_9yCI=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcuAMINpDuwjf9X0QhV3H456NIs-ptPMy1dXXYNZ8E0WHh1t6Qv-SpJxvGUD1tFjXu-5krsXqgkwF_U9Sy0eOT2CoYw7yTwaB5z8HKFKHwxQulLcQThfyoY1o-UluuS_p335HPEDDCZhnro=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLedhHcWnBIlvzr43K4OPgoxW_5q8H3zgXMtoLR-K5QuZupvgETW8akdIIQN2Bk1ltYdEQ49uHJ4Of9PRdWvLudTa_hoGyd9VjuaVwMBul_1Ztda2XzRnW7JwMh_QrFicUtE0y1_0dSan6w=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcT_BLeVKJ_Yys72FSOHbcUk7Zi_vEkqEWTogGTJyRwylHE95TGcn57cIrbt28SBi9q00Sm2GWfAC55DlRjCqAWl6D8mfNebU-WSs6SrJCPf08wQ-SNGx78uHuBzhTmWDAVyyRD=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfCaKU98cO3gtT4DF3WlFC-qmmPcCbxgeMzqh-NnsaCCaIJM-TH8JADM1Bl6eWy0b1H_7DxoZQuKbK1sTGPLYqFOemOFM3Cl7PvUlIrbQCy-IcIZBhRTgDLX6EOjhf3m0rHssk=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLd4eM6mIywmWVjsMIxLE9xISgn7gfxKATl1T6hvzBP19nrPPtynEFEb6AEF5s2NXwkwpL2Ubtzn4EK4vYVOO6t55S-nlIK4xoL8BC_kC9FTTZNpnDXaWPfjhZ4JEfda9IvsvL--7fqugBA=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdPdVTqgSb4my_nvCAjhr2gNfNmEHKGqVi40k4GLCVDlk7txKw8PSSii8eR7vtc9YHyqOI_7PAEPDvJuuY2RHhSrbLlBYNMUMuiaHtPI2s91Ueg2VJyKMwi3jdE5qFEF0BSLlx-rojtRKk=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfVuT5dVmF86MqUaL-P6Z6FiDKNNtGq-bHUilyik0vK-7X3czLkbyVi1fpIXs0iZ7sJKBObm8r8ngSt-PKaC6BgYO9GdSX6OhoX_GdHBax1cS8-m0Rf9HpNXJMRJzYqiAk4QhnrTQ=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLene3FcwfES6HM_zfECokXkPzD3eRZ7bEjH90FH_KB5Djc-QdpsVUlr6BED_IV0zqhxXF_y0-wABth3aVi6oEHNUGM8PeqrVfrfq2qyxGmwRDyXAX7mlTus_1oHBOMEtCutnT-D=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcmA82UzYu-xeI4MFbBM1SdFkG3Wt5i6kvoHjkcm-vyrgxcJRCc_QNNb9eHaOIH_Ko8VUpXAcZYx7fwcu_qnmrqpxtgPMtykBmJVxx-k2UWm2_qh0gZDSLXzQ-By0KcXow1JMUI=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLe_J_94vfwKrtZMzPTWiW5GMvmM4BN8WlBd8IDRxgorKF0LeN4Hl5AHeMcAXAoQ4pukQzNkC6uh8e3RXeZRUiCPuFV9kDFRFbQ9vcgI4RRvPSEW1yojYP_rDezmpqro8mkDzIpuVw=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLeOZ22VhLj9qe2UQWrXwI0hmvjbb_GaEFBjTfSyewvn5sDWteK1NnLk3vWi0dAkGBgS28JhwvdQQKlVFNJGGkZQw3cs8FkkuMcnpuH1ybVq9pses8EC4hd_dN6yOs6myWFZDzwMgoj-I8Zk=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfK8-g7vOmPrrMSO3JY0XIqDrHrl1udboIWy8AJQoevNKIJCiKmusacxYr58vlnLv_NcZtpvdr2Xv8gnu_AgNe6kUb5588BYaU9Xrtz-U4J7djD3uCv9EfH_t_yZBZfnA7pOOpM=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdQNo34h7N3hxavTz2z7PGE7A2mBVpi5oNtChQwps5mSaxkmU6cNsykDTFEbuRh4H0pSN4j_uDcXoAnTwx60QEgS_M3NWKb0khyxrbp1942ajJFQu0Q8pEPWjmjg-AD6LBv54ZY=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdd84z3zoUJBUSbEIYJ7VaRcHeksFDFnVVkwRiJ1Uvm3v-jcs5upYfSGPlZX3kLefxB5Fc8fY7ija-hiEWJH7c1FKVgZy9iPn0qfzPXu6FNfxJqRWwfuyH2IdXnl2ZYtpWLY48mOw=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLeNEMmaWZdThs0ofEL_VkAbB_oDirSsKx8VrsZqFDvM494PJO-Pt4W_0P6nlzgatag8aZuDqxgQ_lkpthSH2_QaKZ9AaGOIx_Ee_R34kwDlSwckAF6hQO6d8eXD2LF1GHve4iE=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLfwosrQZsviRze5Y2-UD1b8N_7Sl634EFYKpYDaM5vLn7ofRQE88orWYL7whN8hb1xh5PR4NJy0xC9GVBa-NPV1Pkha3bwRaLHEsN1Ty0daqffTcwYUqsH3eNmdzsz-zjwOLmZ3=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLclKmmxUCcnTHZqSN0Aadq_AfHfY_KTU2CJwYwNCQkZInskg-pM3XusudBiL2obSm6DaKXbm691dTWWRTJsRcrE8SpocCYmDDUmfiDm_CCjOGf_oXrnCAUjb_MNSXSxnQ1mv2M=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLf4Yf8HwjFzQ9NBt4Kt7CcyCCcC4yFTG0CkzgA9vkV9vRzGJmvM-yw9EaytI-ouCvuNmClAhOcZ6GpVW6zTpPETj3lAa-r0P_s6TJ_BCK6lD17J0-niUlVxO1RMAD-sngs8szi-qQ=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcjdYHtWxaNKSCMjTck3EnnPEdeJomGa_xTBg-XVZXgw3wr10YCuOQ0AEK6sAGuA1kxQ3OWiz8ElMfsrIjJQhIGZRI9M5VMWOZKnhhY7s8NaJTohVxp2ZWGoFUfff-oid_qLQfxbg=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLc5PRdp4R17eAr9Gh1ewr9mESCKI54NGjAQ1xvxGOqxCQQWbsRNxkn1cf2Y3LmdGXu7LsIWAlnU0rpigarHTPHwmg4Ij_LYDhlR4WcmLam3HNW1CI2tM17mjRaRntNjERIEqKU=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLdIjJR1xL2ncvzAp0-urZjjGAvKGWc0bQDVJZz0_oSYbd2N0u9uaby28Kt-UxqCUZuKYucccb75ubf6rz8oebqWoo4NTETOtnVEmlRS47BN0vSODrVoQ4EY1j_i0ZAgjf7bPqmrOA=w1600-h2000-k-no",
+            "https://lh3.googleusercontent.com/grass-cs/AABkmLcoP_j7pvrhfuzjDG1g5krqsZv_4Pdab2ECLJkwLwP-rFgka3wqAsG5t2XohMFvCSy_gybLxvePcyVgsjU0KkrHfq0b8sk42nHeJ_zjhUk5YwG33F-HKot2CqMfhVMGS3CxKW_l=w1600-h2000-k-no"
+          ]
+        },
+        {
+          "kind": "dokumen-menu",
+          "label": "Buku menu resmi Serai Restaurant Novus Jiva Anyer (dokumen menu Agustus 2023 di Scribd; harga belum termasuk pajak & layanan 21%)",
+          "url": "https://www.scribd.com/document/698573332/20230824-Serai-Menu-Fin",
+          "capturedAt": "2026-11-19"
+        }
+      ],
+      "perPerson": null,
+      "checked": [],
+      "readBy": {
+        "model": "gemini-3.5-flash-lite",
+        "readAt": "2026-11-15"
+      }
+    },
+    "Star Queen Restoran N Karaoke Cilegon": {
+      "items": [],
+      "sources": [],
+      "perPerson": {
+        "min": 25000,
+        "max": 150000,
+        "reporters": 6,
+        "url": "https://www.google.com/maps/place/Star+Queen+Restoran+N+Karaoke+Cilegon/data=!4m7!3m6!1s0x2e418dcb6b8ffa79:0xcf0c11280f503b51!8m2!3d-6.0490044!4d106.0566951!16s%2Fg%2F11fslpjcq2!19sChIJefqPa8uNQS4RUTtQDygRDM8",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [
+        "Daftar kompetitor tidak mencatat situs resmi atau akun media sosial",
+        "Google Maps: listing tanpa tab Menu",
+        "Pencarian web: tidak ada menu atau daftar harga",
+        "GoFood dan GrabFood (pencarian web): tidak ada listing"
+      ],
+      "readBy": null
+    },
+    "Sunset Cafe Aston Anyer": {
+      "items": [
+        {
+          "name": "Menu 60 Seconds to Tokyo (mulai dari, harga nett)",
+          "category": "Menu Tematik Sunset Cafe",
+          "price": 48000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Fish Taco (harga ++)",
+          "category": "Menu Sunset Cafe",
+          "price": 88000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Hokkien Mie",
+          "category": "Menu Sunset Cafe",
+          "price": 88000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Seafood Market Akhir Pekan (ikan, cumi, udang, lobster segar)",
+          "category": "Seafood Market Akhir Pekan",
+          "price": 7000,
+          "priceMax": 10000,
+          "unit": "per ons"
+        },
+        {
+          "name": "Iftar Set Menu Individual (harga nett)",
+          "category": "Paket promo",
+          "price": 128000,
+          "priceMax": null,
+          "unit": "per orang"
+        },
+        {
+          "name": "Iftar Set Menu Sunset Cafe (harga ++)",
+          "category": "Paket promo",
+          "price": 158000,
+          "priceMax": null,
+          "unit": "per orang"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "liputan-publik",
+          "label": "Liputan menu 60 Seconds to Tokyo Aston Anyer (Jul–Des 2026, Urbanvibes)",
+          "url": "https://urbanvibes.id/travel/aston-anyer-cilegon-dan-serang-hadirkan-60-seconds-to-tokyo-pengalaman-kuliner-jepang-yang-imersif/",
+          "capturedAt": "2026-11-19"
+        },
+        {
+          "kind": "liputan-publik",
+          "label": "Liputan Seafood Market Akhir Pekan Aston Anyer (29 Okt 2026, Fakta Banten)",
+          "url": "https://faktabanten.co.id/serang/hotel-aston-anyer-hadirkan-seafood-market-setiap-akhir-pekan-dari-tangkapan-nelayan-lokal-harga-mulai-rp7-000-per-100-gram/",
+          "capturedAt": "2026-11-19"
+        },
+        {
+          "kind": "liputan-publik",
+          "label": "Liputan menu Sunset Cafe Aston Anyer (Ekbis Banten)",
+          "url": "https://ekbisbanten.com/berita/aston-anyer-beach-hotel-dan-aston-cilegon-boutique-hotel-hadirkan-makanan-meksiko/",
+          "capturedAt": "2026-11-19"
+        },
+        {
+          "kind": "liputan-publik",
+          "label": "Liputan menu mi Sunset Cafe Aston Anyer (Bisnis Banten)",
+          "url": "https://bisnisbanten.com/awal-2023-aston-anyer-dan-cilegon-hadirkan-menu-mi/",
+          "capturedAt": "2026-11-19"
+        },
+        {
+          "kind": "liputan-publik",
+          "label": "Liputan Iftar Set Menu Sunset Cafe Aston Anyer (PalapaNews & Harmony FM Serang)",
+          "url": "https://palapanews.com/2024/03/13/aston-anyer-beach-hotel-tawarkan-hidangan-buka-puasa-iftar-set-menu-dan-buffet-nan-menggoda/",
+          "capturedAt": "2026-11-19"
+        }
+      ],
+      "perPerson": {
+        "min": 75000,
+        "max": 100000,
+        "reporters": 8,
+        "url": "https://www.google.com/maps/place/Sunset+Cafe+Aston/@-6.1442864,105.8559076,17z/data=!3m1!4b1!4m6!3m5!1s0x2e4180c08b9ccb87:0x12f00804ae84ff17!8m2!3d-6.1442864!4d105.8559076!16s%2Fg%2F11c5s643mn",
+        "capturedAt": "2026-11-15"
+      },
+      "checked": [
+        "Situs resmi anyer.astonhotelsinternational.com (diperiksa 15 & 19 Nov 2026): tidak mempublikasikan buku menu a la carte PDF (PDF Room Service di CDN Aston milik Aston Niu Manokwari, bukan Anyer)",
+        "Google Maps Sunset Cafe Aston (diperiksa 15 Nov 2026): tab Menu hanya berisi foto hidangan tanpa daftar harga, kisaran pengguna Rp 75–100 rb per orang"
+      ],
+      "readBy": null
+    },
+    "The Upper Circle Novus Jiva": {
+      "items": [
+        {
+          "name": "Skyline Serenade Dinner (7-course rooftop set menu, harga ++)",
+          "category": "Destination Dining",
+          "price": 580000,
+          "priceMax": null,
+          "unit": "per orang"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "media-sosial",
+          "label": "Unggahan Instagram resmi @novusjivaanyer, 3 Okt 2026 (Skyline Serenade Dinner)",
+          "url": "https://www.instagram.com/novusjivaanyer/reel/DeCLwu6B_H-/",
+          "capturedAt": "2026-11-19"
+        },
+        {
+          "kind": "liputan-publik",
+          "label": "Liputan Destination Dining Novus Jiva Anyer (NOW! Jakarta)",
+          "url": "https://www.nowjakarta.co.id/savour-the-shoreline-at-novus-jiva-anyer/",
+          "capturedAt": "2026-11-19"
+        }
+      ],
+      "perPerson": null,
+      "checked": [
+        "Situs resmi Novus Jiva (halaman dining & promo, diperiksa 15 & 19 Nov 2026): tanpa daftar harga satuan koktail/moktail Upper Circle",
+        "Google Maps listing Upper Circle (diperiksa 15 Nov 2026): tanpa tab Menu dan tanpa kisaran harga"
+      ],
+      "readBy": null
+    },
+    "TEMU KATSU RESTO Nemuru Palazo": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Situs resmi https://nemuruhotels.com/pallazo.html & Linktree Nemuru (diperiksa 17 & 19 Nov 2026): menyebut nama outlet dan jam buka 10.30–22.00 tanpa daftar harga menu publik",
+        "Pencarian Google Maps sekitar koordinat -6.068,105.888 (diperiksa 17 Nov 2026): belum memiliki pin menu atau daftar harga terpisah",
+        "Pencarian web, GoFood, GrabFood, media lokal (diperiksa 19 Nov 2026): daftar harga Temukatsu (mulai Rp 35.000 / AYCE Rp 65.000) terverifikasi milik cabang Nemuru Hotel Ciputat, bukan Nemuru Grand Anyer Palazo"
+      ],
+      "readBy": null
+    },
+    "Nemuru Light house lounge and karaoke": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Situs resmi https://nemuruhotels.com/pallazo.html (diperiksa 17 & 19 Nov 2026): menyebut lounge & karaoke berlatar pantai buka 10.30–22.00 tanpa daftar harga publik",
+        "Pencarian Google Maps & web (diperiksa 19 Nov 2026): tidak ada tarif sewa/menu publik untuk cabang Anyer (The Light House berharga di berita milik Nemuru Grand Bhuvana Ciawi)"
+      ],
+      "readBy": null
+    },
+    "The Bellezza Pool Bar": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Listing Google Maps The Bellezza Pool Bar (diperiksa 17 Nov 2026): hanya menampilkan rating 4,5 (2 ulasan) dan jam buka 12.00 tanpa daftar harga menu",
+        "Situs resmi Nemuru & pencarian web (diperiksa 19 Nov 2026): tidak ada daftar harga publik untuk The Bellezza Pool Bar Anyer (menu The Bellezza di pencarian milik The Bellezza Suites Permata Hijau Jakarta)"
+      ],
+      "readBy": null
+    },
+    "Lagoon Restaurant Jayakarta": {
+      "items": [
+        {
+          "name": "Soto Palangka (harga nett)",
+          "category": "Menu Spesial Lagoon Restaurant",
+          "price": 40000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Carbo Drink (harga nett)",
+          "category": "Minuman",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Sarapan Penuh (Buffet Breakfast)",
+          "category": "Sarapan",
+          "price": 140000,
+          "priceMax": null,
+          "unit": "per orang"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "media-sosial",
+          "label": "Unggahan Instagram resmi @thejayakartaanyer, 4 Okt 2026 (Special Promo Lagoon Restaurant)",
+          "url": "https://www.instagram.com/thejayakartaanyer/p/DeDdmfSzz6F/",
+          "capturedAt": "2026-11-19"
+        },
+        {
+          "kind": "liputan-publik",
+          "label": "Profil fasilitas The Jayakarta Anyer di Ohotel.id (tarif sarapan penuh per orang)",
+          "url": "https://the-jayakarta-anyer.ohotel.id/",
+          "capturedAt": "2026-11-19"
+        }
+      ],
+      "perPerson": null,
+      "checked": [
+        "Halaman resmi https://jayakartahotelsresorts.com/en/hotel/the-jayakarta-villa-anyer/dining/detail/lagoon-restaurant (diperiksa 17 & 19 Nov 2026): mencantumkan kapasitas 400 kursi dan hidangan Lokal/Tionghoa/Barat tanpa buku menu a la carte berharga",
+        "Listing Google Maps Lagoon Restaurant Jayakarta (diperiksa 17 Nov 2026): tidak menampilkan tab daftar harga menu",
+        "Pencarian dokumen Scribd & web (diperiksa 19 Nov 2026): menu a la carte Sup Buntut & Nasi Goreng Jayakarta di Scribd adalah milik Jayakarta Yogyakarta, bukan Anyer"
+      ],
+      "readBy": null
+    },
+    "RM. Benhil Jaya Seafood Anyer": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Listing Google Maps RM. Benhil Jaya Seafood Anyer (terakhir diperiksa 17 Nov 2026): tanpa situs resmi; daftar harga dan kisaran per orang tidak ditampilkan di tampilan terbatas"
+      ],
+      "readBy": null
+    },
+    "RM 195 Seafood": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Listing Google Maps RM 195 Seafood (terakhir diperiksa 17 Nov 2026): tanpa situs resmi; buka 24 jam, tidak menampilkan daftar harga menu"
+      ],
+      "readBy": null
+    },
+    "Warung Ikan Bakar ABAH JUNED": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Listing Google Maps Warung Ikan Bakar ABAH JUNED (diperiksa 17 Nov 2026): tanpa situs resmi; topik ulasan terbaca, tidak menampilkan daftar harga menu",
+        "GoFood & pencarian web (diperiksa 19 Nov 2026): listing GoFood milik cabang Jl. Pabean Serang/Cilegon; blog ulasan yang menyebut harga berasal dari Feb 2016 sehingga tidak dipakai untuk patokan harga 2026"
+      ],
+      "readBy": null
+    },
+    "Kembang Sari Anyer": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Listing Google Maps Kembang Sari Anyer (diperiksa 17 Nov 2026): tanpa situs resmi; tidak menampilkan daftar harga menu",
+        "Pencarian web, Wanderlog, Scribd 891760726 (diperiksa 19 Nov 2026): hanya menyebut kisaran mulai Rp 20.000 tanpa rincian harga per item yang terbuka di HTML publik"
+      ],
+      "readBy": null
+    },
+    "Rumah Makan Sunset": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Listing Google Maps Rumah Makan Sunset (terakhir diperiksa 17 Nov 2026): tanpa situs resmi; tidak menampilkan daftar harga menu"
+      ],
+      "readBy": null
+    },
+    "Padmadewi Beach Cafe & Resto": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Listing Google Maps Padmadewi Beach Cafe & Resto (terakhir diperiksa 17 Nov 2026): tidak menampilkan daftar harga menu"
+      ],
+      "readBy": null
+    },
+    "West Cove Terrace": {
+      "items": [
+        {
+          "name": "Paket Takjil (Kultur Rasa Ramadhan, harga nett)",
+          "category": "Paket promo",
+          "price": 35000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Main Course Nusantara (mulai dari, harga nett)",
+          "category": "Paket promo",
+          "price": 45000,
+          "priceMax": null,
+          "unit": null
+        }
+      ],
+      "sources": [
+        {
+          "kind": "liputan-publik",
+          "label": "Liputan promo Kultur Rasa Ramadhan The West Cove (Cyber88, Feb 2025)",
+          "url": "https://www.cyber88.co.id/berita/43078/rayakan-ramadhan-dengan-kultur-rasa-ramadhan-di-the-west-cove.html",
+          "capturedAt": "2026-11-19"
+        }
+      ],
+      "perPerson": null,
+      "checked": [
+        "Situs resmi https://thewestcove.com/restaurants/ & /special-offers/ (diperiksa 19 Nov 2026): menyebut restoran kapasitas 128 kursi dan diskon 10% minimal belanja Rp 300.000 tanpa buku menu a la carte publik",
+        "Listing Google Maps West Cove Terrace (diperiksa 17 Nov 2026): tidak menampilkan daftar harga menu atau kisaran per orang"
+      ],
+      "readBy": null
+    },
+    "Kalyana Mitta Lounge & Karaoke": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Listing Google Maps Kalyana Mitta Lounge & Karaoke (diperiksa 17 Nov 2026): tanpa situs resmi; tidak menampilkan daftar harga resmi",
+        "Pencarian web, Traveloka, Fakta Banten (diperiksa 19 Nov 2026): tidak mempublikasikan tarif ruang karaoke atau menu F&B secara daring"
+      ],
+      "readBy": null
+    },
+    "Angel Karaoke & Lounge": {
+      "items": [],
+      "sources": [],
+      "perPerson": {
+        "min": 50000,
+        "max": 150000,
+        "reporters": 3,
+        "url": "https://www.google.com/maps/place/Angel+Karaoke+%26+Lounge/@-6.049,106.057,13z/data=!4m6!3m5!1s0x2e418d041cb96561:0x6a1d5cbea7a2ca3a!8m2!3d-6.0393238!4d106.0796634!16s%2Fg%2F11h94wzbnr",
+        "capturedAt": "2026-11-20"
+      },
+      "checked": [
+        "Google Maps: listing lounge & karaoke di Jl. Lingkar Selatan Serdang",
+        "Pencarian web: tidak ada menu atau katalog harga publik daring"
+      ],
+      "readBy": null
+    },
+    "Anang Family Karaoke": {
+      "items": [
+        {
+          "name": "Room Aurel (Small, Weekday)",
+          "category": "Sewa Ruang Karaoke",
+          "price": 65000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang"
+        },
+        {
+          "name": "Room Ashanty (Medium, Weekday)",
+          "category": "Sewa Ruang Karaoke",
+          "price": 85000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang"
+        },
+        {
+          "name": "Room Anang (Large/VIP, Weekday)",
+          "category": "Sewa Ruang Karaoke",
+          "price": 110000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang"
+        },
+        {
+          "name": "Room Arsy (VVIP, Weekday)",
+          "category": "Sewa Ruang Karaoke",
+          "price": 125000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang"
+        },
+        {
+          "name": "Room Aurel (Small, Weekend)",
+          "category": "Sewa Ruang Karaoke",
+          "price": 85000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang"
+        },
+        {
+          "name": "Room Ashanty (Medium, Weekend)",
+          "category": "Sewa Ruang Karaoke",
+          "price": 95000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang"
+        },
+        {
+          "name": "Room Anang (Large/VIP, Weekend)",
+          "category": "Sewa Ruang Karaoke",
+          "price": 120000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang"
+        },
+        {
+          "name": "Room Arsy (VVIP, Weekend)",
+          "category": "Sewa Ruang Karaoke",
+          "price": 135000,
+          "priceMax": null,
+          "unit": "per jam",
+          "kind": "sewa-ruang"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "liputan-publik",
+          "label": "Liputan tarif room Anang Family Karaoke Cilegon Business Square (Tuntas Media, Agt 2017)",
+          "url": "https://tuntasmedia.com/anang-family-karaoke-favorit-keluarga/",
+          "capturedAt": "2026-11-19"
+        }
+      ],
+      "perPerson": null,
+      "checked": [
+        "Listing Google Maps Anang Family Karaoke (diperiksa 17 Nov 2026): tanpa situs resmi dan tanpa katalog F&B publik; satu ulasan tamu menyebut tarif ruang sekitar Rp 100.000/jam"
+      ],
+      "readBy": null
+    },
+    "Belia Spa and Reflexy Cilegon": {
+      "items": [
+        {
+          "name": "Pijat Refleksi",
+          "category": "Perawatan Spa",
+          "price": 45000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Totok Wajah",
+          "category": "Perawatan Spa",
+          "price": 50000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Face Spa",
+          "category": "Perawatan Spa",
+          "price": 75000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Body Massage",
+          "category": "Perawatan Spa",
+          "price": 110000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Paket Cantik Belia",
+          "category": "Paket Spa",
+          "price": 250000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Paket Belia Orchid",
+          "category": "Paket Spa",
+          "price": 250000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Paket Belia Lotus",
+          "category": "Paket Spa",
+          "price": 250000,
+          "priceMax": null,
+          "unit": null
+        }
+      ],
+      "sources": [
+        {
+          "kind": "liputan-publik",
+          "label": "Direktori spa Cilegon (Cilegon Hills, daftar tarif Belia Spa and Reflexy Cilegon)",
+          "url": "https://cilegonhills.id/rekomendasi-spa-cilegon-pelayanan-terbaik-dan-populer/",
+          "capturedAt": "2026-11-19"
+        }
+      ],
+      "perPerson": null,
+      "checked": [],
+      "readBy": null
+    },
+    "Alta Spa Marbella Anyer": {
+      "items": [
+        {
+          "name": "Balitan Bongan (90 menit: Body Massage + Face Pressure Point)",
+          "category": "Spa Package",
+          "price": 400000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "The Interlude (90 menit: Body Massage + Body Scrub)",
+          "category": "Spa Package",
+          "price": 450000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Bali Bungah (120 menit: Body Massage + Body Scrub + Face Pressure Point + Herbal Bath)",
+          "category": "Spa Package",
+          "price": 750000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Honeymooner (2 orang, 90 menit: Body Massage + Body Scrub + Herbal Bath)",
+          "category": "Spa Package",
+          "price": 850000,
+          "priceMax": null,
+          "unit": null,
+          "kind": "paket-bersama",
+          "pax": 2
+        },
+        {
+          "name": "Javanese Massage (60 menit)",
+          "category": "Spa Ala Carte",
+          "price": 280000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Javanese Massage (90 menit)",
+          "category": "Spa Ala Carte",
+          "price": 350000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Balinese Massage (60 menit)",
+          "category": "Spa Ala Carte",
+          "price": 280000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Balinese Massage (90 menit)",
+          "category": "Spa Ala Carte",
+          "price": 350000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Foot Reflexology (60 menit)",
+          "category": "Spa Ala Carte",
+          "price": 195000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Foot Reflexology (90 menit)",
+          "category": "Spa Ala Carte",
+          "price": 250000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Body Scrub (45 menit)",
+          "category": "Spa Ala Carte",
+          "price": 230000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Face Pressure Point (30 menit)",
+          "category": "Spa Ala Carte",
+          "price": 200000,
+          "priceMax": null,
+          "unit": null
+        },
+        {
+          "name": "Spa Bath (Milk Bath / Herbal Bath, 20 menit)",
+          "category": "Spa Ala Carte",
+          "price": 150000,
+          "priceMax": null,
+          "unit": null
+        }
+      ],
+      "sources": [
+        {
+          "kind": "situs-resmi",
+          "label": "Brosur daftar harga resmi Alta Spa Marbella Anyer (blog resmi altaspa.blogspot.com, Nov 2018)",
+          "url": "https://altaspa.blogspot.com/2018/11/alta-natural-mandiri-spa-website.html",
+          "capturedAt": "2026-11-19"
+        }
+      ],
+      "perPerson": null,
+      "checked": [],
+      "readBy": null
+    },
+    "Spa & Wellness Aston Anyer": {
+      "items": [],
+      "sources": [],
+      "perPerson": null,
+      "checked": [
+        "Data resmi Archipelago (aston_amenities.json) & situs resmi anyer.astonhotelsinternational.com (diperiksa 17 & 19 Nov 2026): layanan spa terpadu hotel tanpa daftar harga publik terpisah",
+        "OTA (Booking.com, Agoda, Expedia) & pencarian web (diperiksa 19 Nov 2026): tidak ada pricelist perawatan spa publik"
+      ],
+      "readBy": null
+    }
+  }
+}

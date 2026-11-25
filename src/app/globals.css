@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+/* Palette "tampilan A" (owner, 24 Nov 2026): light grey canvas, soft white cards, black chrome, lemon accent.
+   The old token names stay (navy = ink, cream = greys, ember = red), so every page follows at once. */
+@theme {
+  --color-navy-50: #f3f5f6;
+  --color-navy-100: #e7eaed;
+  --color-navy-200: #cdd3d8;
+  --color-navy-300: #a9afb6;
+  --color-navy-400: #6f777f;
+  --color-navy-500: #565d65;
+  --color-navy-600: #474e55;
+  --color-navy-700: #343a40;
+  --color-navy-800: #24282c;
+  --color-navy-900: #17191c;
+  --color-navy-950: #0e1012;
+
+  --color-cream-50: #fbfcfc;
+  --color-cream-100: #f3f5f6;
+  --color-cream-200: #e4e8eb;
+  --color-cream-300: #d6dbe0;
+  --color-cream-400: #bfc6cc;
+
+  --color-ember-50: #fdf0ee;
+  --color-ember-100: #fadcd7;
+  --color-ember-400: #e5604c;
+  --color-ember-500: #d8432f;
+  --color-ember-600: #b8321f;
+  --color-ember-700: #962516;
+
+  /* Legacy slate/blue classes use the same greys and ink. */
+  --color-slate-50: #f6f7f8;
+  --color-slate-100: #eef0f2;
+  --color-slate-200: #dde1e5;
+  --color-slate-300: #c9cfd4;
+  --color-slate-400: #8b939b;
+  --color-slate-500: #626970;
+  --color-slate-600: #4f565d;
+  --color-slate-700: #3d444a;
+  --color-slate-800: #2b3036;
+  --color-slate-900: #1b1e21;
+  --color-slate-950: #121416;
+  --color-blue-50: #f3f5f6;
+  --color-blue-100: #e7eaed;
+  --color-blue-200: #cdd3d8;
+  --color-blue-300: #a9afb6;
+  --color-blue-400: #6f777f;
+  --color-blue-500: #565d65;
+  --color-blue-600: #474e55;
+  --color-blue-700: #343a40;
+  --color-blue-800: #24282c;
+  --color-blue-900: #17191c;
+  --color-white: #ffffff;
+
+  /* Lemon: only for what matters (counts, the selected thing, the data-until marker), always with dark text or a dark edge. */
+  --color-lemon: #d5f34d;
+  /* Up is dark green, down is red (owner, 24 Nov 2026); always with the word or an arrow beside it. */
+  --color-naik: #14532d;
+  --color-turun: #c62f1d;
+  --color-netral: #3a4047;
+
+  /* System UI stack: zero font download, so first paint is never delayed. */
+  --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Surfaces: one light source from above, soft grey shadows. */
+.skeuo-backdrop { background: linear-gradient(160deg, #e9ecef 0%, #d5dade 60%, #c9ced3 100%); }
+.skeuo-canvas {
+  position: relative;
+  border-radius: 28px;
+  background: #dee2e6;
+  border: 5px solid #f1f3f5;
+  box-shadow: 0 24px 54px -18px rgba(40, 46, 54, .28), inset 0 1px 6px rgba(40, 46, 54, .1);
+}
+.skeuo-card {
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fbfcfc 0%, #f1f3f5 100%);
+  box-shadow: 0 1px 0 #ffffff inset, 0 10px 22px -6px rgba(40, 46, 54, .16), 0 1px 3px rgba(40, 46, 54, .06);
+}
+.skeuo-inset {
+  border-radius: 16px;
+  background: #e2e6e9;
+  box-shadow: inset 0 1px 3px rgba(40, 46, 54, .14);
+}
+.skeuo-pill-dark {
+  background: linear-gradient(180deg, #34393f 0%, #121416 100%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .14) inset, 0 6px 12px -4px rgba(20, 22, 25, .4);
+  color: #ffffff;
+}
+.skeuo-pill-light {
+  background: #ffffff;
+  box-shadow: 0 3px 8px -1px rgba(40, 46, 54, .18);
+  color: #24282c;
+}
+/* Round light buttons: initial, sign out. */
+.skeuo-knob {
+  background: linear-gradient(180deg, #ffffff 0%, #e4e8eb 100%);
+  box-shadow: 0 3px 8px -1px rgba(40, 46, 54, .24);
+  color: #17191c;
+}
+.skeuo-track {
+  border-radius: 9999px;
+  background: #d6dbe0;
+  box-shadow: inset 0 1px 2px rgba(40, 46, 54, .2);
+}
+
+html { font-size: 16px; }
+body {
+  background: var(--color-cream-300);
+  color: var(--color-slate-900);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+}
+
+h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.25; }
+
+button, label, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, label:focus-visible {
+  outline: 3px solid var(--color-navy-900);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--color-lemon);
+}
+/* Colour-only transitions: instant feedback, no layout shift. */
+button, a { transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease; }
+button:not(:disabled) { cursor: pointer; }
+
+.btn-primary { min-height: 46px; border-radius: 9999px; background: var(--color-navy-800); padding: 0 20px; font-size: 16px; font-weight: 600; color: white; }
+.btn-primary:hover { background: var(--color-navy-900); }
+.btn-primary:disabled { cursor: not-allowed; opacity: .55; }
+.btn-secondary { min-height: 46px; border: 1px solid var(--color-cream-300); border-radius: 9999px; background: var(--color-cream-50); padding: 0 20px; font-size: 16px; font-weight: 600; color: var(--color-slate-700); }
+.btn-secondary:hover { background: var(--color-slate-50); }
+.card { border-radius: 22px; background: linear-gradient(180deg, #fbfcfc 0%, #f1f3f5 100%); padding: 24px; box-shadow: 0 1px 0 #fff inset, 0 10px 22px -6px rgba(40,46,54,.16), 0 1px 3px rgba(40,46,54,.06); }
+
+input, select, textarea { color: var(--color-slate-900); background: #fff; }
+input::placeholder, textarea::placeholder { color: var(--color-slate-500); opacity: 1; }
+
+table { border-collapse: separate; border-spacing: 0; color: var(--color-slate-700); }
+table thead th {
+  background: var(--color-cream-100) !important;
+  color: var(--color-navy-500) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: .03em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  padding: 0.75rem 0.875rem !important;
+  border-bottom: 1px solid var(--color-cream-300) !important;
+}
+table tbody tr { transition: background-color 120ms ease; }
+table tbody tr:hover { background: rgba(255, 255, 255, .55) !important; }
+table tbody td { border-bottom: 1px solid var(--color-cream-200) !important; padding: 0.8rem 0.875rem !important; }
+table tbody tr:last-child td { border-bottom: 0 !important; }
+/* Compact tables (owner, 23 Nov: "tidak usah digeser"): headers may wrap, tighter cells. */
+table.table-compact thead th { white-space: normal !important; padding: 0.5rem 0.6rem !important; line-height: 1.25; vertical-align: bottom; }
+table.table-compact tbody td { padding: 0.5rem 0.6rem !important; }
+
+@keyframes login-stat-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.login-stat-fade { opacity: 0; animation: login-stat-fade-in 0.4s ease-out forwards; }
+@media (prefers-reduced-motion: reduce) {
+  .login-stat-fade { animation: none; opacity: 1; }
+}
+
+/* Money and counts never break across lines; rows centre their content. */
+.tabular-nums { white-space: nowrap; }
+table td { vertical-align: middle; }
+
+/* Flat white cards from older pages get the same soft raised look as .skeuo-card. */
+.bg-white.border, .bg-white.rounded-xl, .bg-white.rounded-2xl {
+  box-shadow: 0 1px 0 #ffffff inset, 0 10px 22px -10px rgba(40, 46, 54, .16), 0 1px 3px rgba(40, 46, 54, .05);
+}
+
+/* One-page report (owner, 2026-11-22): printing shows only #analytics-report, on one A4 landscape page. */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm;
+  }
+  body:not(.print-outlet) > *:not(#analytics-report) {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+  }
+  body:not(.print-outlet) #analytics-report {
+    display: block !important;
+  }
+  /* One outlet's report (owner, 24 Nov): "Unduh PDF / cetak" on Detail per outlet adds .print-outlet. */
+  body.print-outlet > *:not(#analytics-outlet-report) {
+    display: none !important;
+  }
+  body.print-outlet #analytics-outlet-report {
+    display: block !important;
+  }
+}

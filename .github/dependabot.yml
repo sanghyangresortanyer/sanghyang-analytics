@@ -1,0 +1,16 @@
+# Pembaruan versi rutin hanya untuk action GitHub yang dipin ke SHA, sebulan sekali dalam satu PR. Kerentanan dependensi
+# npm dan Python ditangani pembaruan keamanan Dependabot (Settings > Advanced Security), tanpa PR versi rutin lain.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    # Rilis baru ditunggu seminggu dulu: rilis action yang dibajak biasanya ketahuan dan ditarik dalam beberapa hari.
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns: ["*"]
+    commit-message:
+      prefix: ci

@@ -1,0 +1,135 @@
+name: Security checks
+
+# Hanya pemeriksaan keamanan; lint dan tes dijalankan di mesin kerja sebelum commit (lihat quality-ci.yml untuk run manual).
+on:
+  push:
+    branches: [main]
+    # Commit data tarif harian dan dokumen tidak mengubah kode. Rahasia di dalamnya tetap ditangkap secret scanning dan
+    # push protection bawaan GitHub saat push, serta pemindaian gitleaks mingguan atas seluruh riwayat.
+    paths-ignore:
+      - "**/*.md"
+      - "docs/**"
+      - "src/lib/market/*.data.json"
+  pull_request:
+    branches: [main]
+  schedule:
+    # Senin 09:41 WIB: kode dibaca ulang dengan basis kerentanan terbaru walau tidak ada push.
+    - cron: "41 2 * * 1"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: security-${{ github.event_name }}-${{ github.ref }}
+  # Run pull request lama boleh dibatalkan; run di main tidak, supaya rentang commit setiap push tetap terpindai.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  secrets:
+    name: Pindai rahasia (gitleaks)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      # Arsip resmi dicocokkan dengan hash yang ditulis di sini, bukan dengan berkas checksum dari rilis yang sama.
+      - name: Install gitleaks
+        env:
+          GITLEAKS_VERSION: "8.30.1"
+          GITLEAKS_SHA256: "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+        run: |
+          archive="$RUNNER_TEMP/gitleaks.tar.gz"
+          curl -sSfL -o "$archive" "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          echo "${GITLEAKS_SHA256}  ${archive}" | sha256sum -c -
+          tar -xzf "$archive" -C "$RUNNER_TEMP" gitleaks
+
+      # Push dan pull request hanya memindai commit barunya; jadwal mingguan, run manual, dan push pertama memindai
+      # seluruh riwayat.
+      - name: Scan commits
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PUSH_BEFORE: ${{ github.event.before }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          range=""
+          case "$EVENT_NAME" in
+            push)
+              # SHA sebelum yang berisi nol semua berarti cabang baru, jadi seluruh riwayat dipindai.
+              if [ -n "$PUSH_BEFORE" ] && [ -n "${PUSH_BEFORE//0/}" ]; then
+                range="${PUSH_BEFORE}..${GITHUB_SHA}"
+              fi
+              ;;
+            pull_request)
+              range="${PR_BASE_SHA}..${PR_HEAD_SHA}"
+              ;;
+          esac
+          args=(git --no-banner --redact --exit-code 1 --config .gitleaks.toml)
+          if [ -n "$range" ]; then
+            args+=("--log-opts=${range}")
+            echo "Memindai rentang ${range}"
+          else
+            echo "Memindai seluruh riwayat"
+          fi
+          "$RUNNER_TEMP/gitleaks" "${args[@]}" .
+
+  codeql:
+    name: CodeQL (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      security-events: write # mengunggah hasil CodeQL ke tab Security
+    strategy:
+      fail-fast: false
+      matrix:
+        # "actions" memeriksa workflow ini sendiri (injeksi ekspresi, checkout tak tepercaya, izin berlebih).
+        language: [actions, javascript-typescript, python]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@915412ff23e8b7659517e607487dbeae018f2934 # v4.39.5
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: none
+          queries: security-extended
+          config: |
+            paths-ignore:
+              - tests
+              - "**/*.test.ts"
+              - "**/*.test.mts"
+              - docs
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@915412ff23e8b7659517e607487dbeae018f2934 # v4.39.5
+        with:
+          category: "/language:${{ matrix.language }}"
+
+  dependency-review:
+    name: Tinjau dependensi baru
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Review dependency changes
+        uses: actions/dependency-review-action@bbc44d14a204704ccc493733616cd1e93a0321ec # v5.0.1
+        with:
+          fail-on-severity: high

@@ -1,0 +1,924 @@
+{
+ "_sumber": "DB kerja lokal sanghyang_news dibaca 23 Nov 2026 tanpa menulis: fakta kamar/tipe_kamar_terstruktur hasil penyegaran otomatis tipe kamar (\"Perbarui Semua Data\" langkah 10, 23 Nov 2026 08.50 WIB, dan 19 Nov untuk Hawaii dan My Pisita) per hotel aktif, kunci placeId. Aston, Nemuru, dan Jayakarta hanya membawa nama kamar OTA atau tipe tanpa luas karena situs resminya tidak terbaca tanpa render JavaScript.",
+ "hotels": {
+  "nemuru_palazo": {
+   "competitor": "Nemuru Grand Anyer Palazo",
+   "observedAt": "2026-11-23T01:50:08.321Z",
+   "sourceUrl": "https://nemuruhotels.com/pallazo.html",
+   "roomTypes": [
+    {
+     "name": "1 Bedroom Town House Villa.",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": null,
+     "sourceUrl": "https://www.google.com/travel/hotels/entity/ChkIo6uYnNriyuVxGg0vZy8xMXdwOHY0OWoxEAE/prices?hl=en&gl=id&curr=IDR&ts=CAAaGhIYEhIKBwjqDxALGBgSBwjqDxALGBkyAggAKgcKBToDSURS",
+     "highlights": [],
+     "observedAt": "2026-11-23",
+     "priceSource": "Agoda",
+     "sourceLabel": "Agoda",
+     "conflictNote": null,
+     "weekdayPrice": 569421,
+     "weekendPrice": null,
+     "sourcePriority": "ota"
+    },
+    {
+     "name": "TOWN HOUSE ONE BEDROOM",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": null,
+     "sourceUrl": "https://www.google.com/travel/hotels/entity/ChkIo6uYnNriyuVxGg0vZy8xMXdwOHY0OWoxEAE/prices?hl=en&gl=id&curr=IDR&ts=CAAaGhIYEhIKBwjqDxALGBgSBwjqDxALGBkyAggAKgcKBToDSURS",
+     "highlights": [],
+     "observedAt": "2026-11-23",
+     "priceSource": "Agoda",
+     "sourceLabel": "Agoda",
+     "conflictNote": null,
+     "weekdayPrice": 531460,
+     "weekendPrice": null,
+     "sourcePriority": "ota"
+    }
+   ]
+  },
+  "my_pisita_anyer": {
+   "competitor": "My Pisita Anyer Resort",
+   "observedAt": "2026-11-19T00:00:00.000Z",
+   "sourceUrl": "https://pisitahotelanyer.com/",
+   "roomTypes": [
+    {
+     "name": "Maisonette",
+     "areaSqm": null,
+     "bathtub": false,
+     "smartTv": null,
+     "bedrooms": 1,
+     "category": "cottage",
+     "areaLabel": null,
+     "sourceUrl": "https://pisitahotelanyer.com/",
+     "highlights": [
+      "1 kamar tidur & 1 kamar mandi",
+      "Kapasitas 2 tamu",
+      "Termasuk sarapan 2 orang"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi pisitahotelanyer.com",
+     "conflictNote": "Situs resmi pisitahotelanyer.com tidak mencantumkan luas m² dan spesifikasi Smart TV untuk Maisonette.",
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Karang Bolong",
+     "areaSqm": 32,
+     "bathtub": false,
+     "smartTv": null,
+     "bedrooms": 2,
+     "category": "cottage",
+     "areaLabel": "32–33 m²",
+     "sourceUrl": "https://pisitahotelanyer.com/",
+     "highlights": [
+      "2 kamar tidur & 1 kamar mandi",
+      "Kapasitas 4 tamu",
+      "Termasuk sarapan 4 orang"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi pisitahotelanyer.com (luas m² dari Traveloka/Trip.com)",
+     "conflictNote": "Situs resmi tidak mencantumkan luas m²; rentang 32–33 m² dilengkapi dari listing Traveloka dan Trip.com.",
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Bandulu",
+     "areaSqm": 33,
+     "bathtub": false,
+     "smartTv": null,
+     "bedrooms": 2,
+     "category": "cottage",
+     "areaLabel": "33 m²",
+     "sourceUrl": "https://pisitahotelanyer.com/",
+     "highlights": [
+      "2 kamar tidur & 1 kamar mandi",
+      "Kapasitas 4 tamu",
+      "Termasuk sarapan 4 orang"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi pisitahotelanyer.com (luas m² dari Traveloka/Trip.com)",
+     "conflictNote": "Situs resmi tidak mencantumkan luas m²; angka 33 m² dilengkapi dari listing Traveloka dan Trip.com.",
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Parangtritis",
+     "areaSqm": 40,
+     "bathtub": false,
+     "smartTv": null,
+     "bedrooms": 3,
+     "category": "cottage",
+     "areaLabel": "40 m²",
+     "sourceUrl": "https://pisitahotelanyer.com/",
+     "highlights": [
+      "3 kamar tidur & 2 kamar mandi",
+      "Kapasitas 6 tamu",
+      "Termasuk sarapan 6 orang"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi pisitahotelanyer.com (luas m² dari Traveloka/Trip.com)",
+     "conflictNote": "Situs resmi tidak mencantumkan luas m²; angka 40 m² dilengkapi dari listing Traveloka dan Trip.com.",
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Kuta",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": 3,
+     "category": "villa",
+     "areaLabel": null,
+     "sourceUrl": "https://pisitahotelanyer.com/",
+     "highlights": [
+      "3 kamar tidur (kelompok 3–4 kamar tidur)",
+      "Kapasitas 6 tamu",
+      "2–3 kamar mandi & sarapan 6 orang"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi pisitahotelanyer.com",
+     "conflictNote": "Situs resmi pisitahotelanyer.com tidak mencantumkan luas m² untuk tipe Kuta.",
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Kuta Plus",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": 4,
+     "category": "villa",
+     "areaLabel": null,
+     "sourceUrl": "https://pisitahotelanyer.com/",
+     "highlights": [
+      "4 kamar tidur untuk keluarga besar",
+      "Kapasitas 8 tamu",
+      "2–3 kamar mandi & sarapan 8 orang"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi pisitahotelanyer.com",
+     "conflictNote": "Situs resmi pisitahotelanyer.com tidak mencantumkan luas m² untuk tipe Kuta Plus.",
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    }
+   ]
+  },
+  "hawaii_anyer": {
+   "competitor": "Hawaii Resort Family Suites Anyer",
+   "observedAt": "2026-11-19T00:00:00.000Z",
+   "sourceUrl": "https://hawaiiresortanyer.com/room/studio-standard/",
+   "roomTypes": [
+    {
+     "name": "Studio Standard",
+     "areaSqm": 22.5,
+     "bathtub": false,
+     "smartTv": false,
+     "bedrooms": 1,
+     "category": "standard",
+     "areaLabel": "22,5 m²",
+     "sourceUrl": "https://hawaiiresortanyer.com/room/studio-standard/",
+     "highlights": [
+      "Studio queen + extra & sofa bed",
+      "TV kabel/satelit & kulkas",
+      "Kamar mandi standing shower"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+     "conflictNote": "OTA umumnya menggabungkan studio di ~29 m²; dipakai luas resmi 22,5 m² dari hawaiiresortanyer.com/room/studio-standard/.",
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Studio Deluxe",
+     "areaSqm": 29.25,
+     "bathtub": false,
+     "smartTv": false,
+     "bedrooms": 1,
+     "category": "standard",
+     "areaLabel": "29,25 m²",
+     "sourceUrl": "https://hawaiiresortanyer.com/room/studio-deluxe/",
+     "highlights": [
+      "Balkon pribadi & sofa bed",
+      "TV kabel/satelit, kulkas & ketel listrik",
+      "Kamar mandi standing shower"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": "Hotels.com (weekday) · tiket.com (weekend)",
+     "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+     "conflictNote": null,
+     "weekdayPrice": 611999,
+     "weekendPrice": 555824,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "One Bedroom Standard",
+     "areaSqm": 51.75,
+     "bathtub": true,
+     "smartTv": false,
+     "bedrooms": 1,
+     "category": "suite",
+     "areaLabel": "51,75 m²",
+     "sourceUrl": "https://hawaiiresortanyer.com/room/1-bedroom-standard/",
+     "highlights": [
+      "1 kamar tidur + ruang keluarga & balkon",
+      "Dapur lengkap, microwave & meja makan",
+      "Bathtub/jacuzzi (booking engine resmi)"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": "Hotels.com (weekday) · tiket.com (weekend)",
+     "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+     "conflictNote": "OTA membulatkan menjadi 52 m²; dipakai luas resmi 51,75 m² dari hawaiiresortanyer.com/room/1-bedroom-standard/.",
+     "weekdayPrice": 841499,
+     "weekendPrice": 648800,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "One Bedroom Deluxe",
+     "areaSqm": 51.75,
+     "bathtub": true,
+     "smartTv": false,
+     "bedrooms": 1,
+     "category": "suite",
+     "areaLabel": "51,75 m²",
+     "sourceUrl": "https://hawaiiresortanyer.com/room/1-bedroom-deluxe/",
+     "highlights": [
+      "Master bedroom + ruang keluarga (2 sofa bed)",
+      "Balkon pribadi & TV LCD",
+      "Bathtub/jacuzzi (booking engine resmi)"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": "Hotels.com",
+     "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+     "conflictNote": null,
+     "weekdayPrice": 927001,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Two Bedroom Standard",
+     "areaSqm": 58.5,
+     "bathtub": true,
+     "smartTv": false,
+     "bedrooms": 2,
+     "category": "suite",
+     "areaLabel": "58,5 m²",
+     "sourceUrl": "https://hawaiiresortanyer.com/room/2-bedrrom-standart/",
+     "highlights": [
+      "2 kamar tidur + ruang keluarga (kapasitas besar)",
+      "Dapur lengkap, microwave & balkon",
+      "Bathtub/jacuzzi (booking engine resmi)"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+     "conflictNote": "OTA (Traveloka/Agoda) mencantumkan 58,5–62 m²; dipakai luas resmi 58,5 m² dari hawaiiresortanyer.com.",
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Two Bedroom Deluxe",
+     "areaSqm": 58.5,
+     "bathtub": true,
+     "smartTv": false,
+     "bedrooms": 2,
+     "category": "suite",
+     "areaLabel": "58,5 m²",
+     "sourceUrl": "https://hawaiiresortanyer.com/room/2-bedroom-deluxe/",
+     "highlights": [
+      "2 kamar tidur (termasuk bunk bed anak)",
+      "Ruang keluarga, balkon & TV LCD",
+      "Bathtub/jacuzzi (booking engine resmi)"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+     "conflictNote": "OTA (Traveloka/Agoda) mencantumkan hingga 62 m²; dipakai luas resmi 58,5 m² dari hawaiiresortanyer.com.",
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Presidential Suites",
+     "areaSqm": 325.5,
+     "bathtub": false,
+     "smartTv": false,
+     "bedrooms": 4,
+     "category": "suite",
+     "areaLabel": "325,5 m²",
+     "sourceUrl": "https://hawaiiresortanyer.com/room/presidential-suites/",
+     "highlights": [
+      "4 kamar tidur (2 master + 2 family, maks 20 tamu)",
+      "Dapur lengkap, ruang makan & ruang keluarga",
+      "Balkon luas & TV kabel/LCD"
+     ],
+     "observedAt": "2026-11-19",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi hawaiiresortanyer.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    }
+   ]
+  },
+  "sanghyang": {
+   "competitor": "Sanghyang Indah Spa Resort",
+   "observedAt": "2026-11-23T01:50:08.321Z",
+   "sourceUrl": "https://sanghyang.com/rooms",
+   "roomTypes": [
+    {
+     "name": "Baduy Suite",
+     "areaSqm": 115,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "suite",
+     "areaLabel": "115 m²",
+     "sourceUrl": "https://sanghyang.com/rooms",
+     "highlights": [
+      "Garden view",
+      "Up to 4 guests",
+      "King bed & two twin beds"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi sanghyang.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Krakatau Suite",
+     "areaSqm": 94,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "suite",
+     "areaLabel": "94 m²",
+     "sourceUrl": "https://sanghyang.com/rooms",
+     "highlights": [
+      "Garden view",
+      "Up to 4 guests",
+      "King bed & twin beds"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi sanghyang.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Krakatau Beach View",
+     "areaSqm": 70,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "suite",
+     "areaLabel": "70 m²",
+     "sourceUrl": "https://sanghyang.com/rooms",
+     "highlights": [
+      "Sea view",
+      "Up to 4 guests",
+      "Queen bed & twin beds"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi sanghyang.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Krakatau Villa",
+     "areaSqm": 70,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "villa",
+     "areaLabel": "70 m²",
+     "sourceUrl": "https://sanghyang.com/rooms",
+     "highlights": [
+      "Garden view",
+      "Up to 4 guests",
+      "Queen bed & twin beds"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi sanghyang.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "New Baduy Condo",
+     "areaSqm": 60,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "condo",
+     "areaLabel": "60 m²",
+     "sourceUrl": "https://sanghyang.com/rooms",
+     "highlights": [
+      "Garden view",
+      "Up to 4 guests",
+      "Queen bed"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi sanghyang.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Sanghyang Suite",
+     "areaSqm": 28,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "suite",
+     "areaLabel": "28 m²",
+     "sourceUrl": "https://sanghyang.com/rooms",
+     "highlights": [
+      "Garden view",
+      "Up to 2 guests",
+      "King bed"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi sanghyang.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Sanghyang Deluxe",
+     "areaSqm": 25,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": "25 m²",
+     "sourceUrl": "https://sanghyang.com/rooms",
+     "highlights": [
+      "Garden view",
+      "Up to 2 guests",
+      "King bed"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi sanghyang.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    }
+   ]
+  },
+  "aston_anyer": {
+   "competitor": "Aston Anyer Beach Hotel",
+   "observedAt": "2026-11-23T01:50:08.321Z",
+   "sourceUrl": "https://www.astonhotelsinternational.com/en/hotel/view/3/aston-anyer-beach-hotel",
+   "roomTypes": [
+    {
+     "name": "Aston Ocean Suite",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": null,
+     "sourceUrl": "https://www.google.com/travel/hotels/entity/ChoIyMeqy4H4hJPOARoNL2cvMTFiNmM1djdtZBAB/prices?hl=en&gl=id&curr=IDR&ts=CAAaGhIYEhIKBwjqDxALGBwSBwjqDxALGB0yAggAKgcKBToDSURS",
+     "highlights": [],
+     "observedAt": "2026-11-23",
+     "priceSource": "Booking.com",
+     "sourceLabel": "Booking.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": 5778133,
+     "sourcePriority": "ota"
+    },
+    {
+     "name": "Deluxe Double or Twin Room",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": null,
+     "sourceUrl": "https://www.google.com/travel/hotels/entity/ChoIyMeqy4H4hJPOARoNL2cvMTFiNmM1djdtZBAB/prices?hl=en&gl=id&curr=IDR&ts=CAAaGhIYEhIKBwjqDxALGBgSBwjqDxALGBkyAggAKgcKBToDSURS",
+     "highlights": [],
+     "observedAt": "2026-11-23",
+     "priceSource": "Booking.com",
+     "sourceLabel": "Booking.com",
+     "conflictNote": null,
+     "weekdayPrice": 2201250,
+     "weekendPrice": 3081750,
+     "sourcePriority": "ota"
+    },
+    {
+     "name": "Superior Double or Twin Room",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": null,
+     "sourceUrl": "https://www.google.com/travel/hotels/entity/ChoIyMeqy4H4hJPOARoNL2cvMTFiNmM1djdtZBAB/prices?hl=en&gl=id&curr=IDR&ts=CAAaGhIYEhIKBwjqDxALGBgSBwjqDxALGBkyAggAKgcKBToDSURS",
+     "highlights": [],
+     "observedAt": "2026-11-23",
+     "priceSource": "Booking.com",
+     "sourceLabel": "Booking.com",
+     "conflictNote": null,
+     "weekdayPrice": 1694411,
+     "weekendPrice": 2007571,
+     "sourcePriority": "ota"
+    },
+    {
+     "name": "Deluxe Family Room",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": null,
+     "sourceUrl": "https://www.google.com/travel/hotels/entity/ChoIyMeqy4H4hJPOARoNL2cvMTFiNmM1djdtZBAB/prices?hl=en&gl=id&curr=IDR&ts=CAAaGhIYEhIKBwjqDxALGBgSBwjqDxALGBkyAggAKgcKBToDSURS",
+     "highlights": [],
+     "observedAt": "2026-11-23",
+     "priceSource": "Booking.com",
+     "sourceLabel": "Booking.com",
+     "conflictNote": null,
+     "weekdayPrice": 1988378,
+     "weekendPrice": null,
+     "sourcePriority": "ota"
+    }
+   ]
+  },
+  "mambruk": {
+   "competitor": "Mambruk Hotel & Convention",
+   "observedAt": "2026-11-23T01:50:08.321Z",
+   "sourceUrl": "https://www.mambruk.co.id/accomodation",
+   "roomTypes": [
+    {
+     "name": "Superior",
+     "areaSqm": 26,
+     "bathtub": false,
+     "smartTv": false,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": "26m²",
+     "sourceUrl": "https://www.mambruk.co.id/accomodation",
+     "highlights": [
+      "Newly built room",
+      "Studio type (1st floor)",
+      "Double bed / Twin bed"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": "Booking.com",
+     "sourceLabel": "Situs resmi mambruk.co.id",
+     "conflictNote": "Dipakai data situs resmi (nama di Booking.com \"Superior Twin Room\" vs resmi \"Superior\").",
+     "weekdayPrice": 1198800,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Premier Deluxe",
+     "areaSqm": 33,
+     "bathtub": false,
+     "smartTv": false,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": "33m²",
+     "sourceUrl": "https://www.mambruk.co.id/accomodation",
+     "highlights": [
+      "Newly renovated room",
+      "Studio type",
+      "Balcony with sea view"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi mambruk.co.id",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Residence",
+     "areaSqm": 56,
+     "bathtub": false,
+     "smartTv": false,
+     "bedrooms": 1,
+     "category": "suite",
+     "areaLabel": "56m²",
+     "sourceUrl": "https://www.mambruk.co.id/accomodation",
+     "highlights": [
+      "2-Story Suite type",
+      "Dining room",
+      "Balcony with garden view"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi mambruk.co.id",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Villa",
+     "areaSqm": 207,
+     "bathtub": true,
+     "smartTv": true,
+     "bedrooms": 2,
+     "category": "villa",
+     "areaLabel": "207m²",
+     "sourceUrl": "https://www.mambruk.co.id/accomodation",
+     "highlights": [
+      "2-bedroom villa",
+      "55” flat screen Smart TV",
+      "2 Bathroom with shower & bathtub on the master bathroom"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": "Booking.com",
+     "sourceLabel": "Situs resmi mambruk.co.id",
+     "conflictNote": "Dipakai data situs resmi (nama di Booking.com \"Two-Bedroom Villa\" vs resmi \"Villa\").",
+     "weekdayPrice": 10530000,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Presidential Suite",
+     "areaSqm": 715,
+     "bathtub": true,
+     "smartTv": true,
+     "bedrooms": 2,
+     "category": "suite",
+     "areaLabel": "715m²",
+     "sourceUrl": "https://www.mambruk.co.id/accomodation",
+     "highlights": [
+      "2-bedroom suite with Private Pool",
+      "55” flat screen Smart TV",
+      "Private bbq dinner/lunch in the room"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi mambruk.co.id",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Superior Room",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": null,
+     "sourceUrl": "https://www.google.com/travel/hotels/entity/ChkInq6j7auKrqlzGg0vZy8xMWI2ZDU5Y3I3EAE/prices?hl=en&gl=id&curr=IDR&ts=CAAaGhIYEhIKBwjqDxALGBgSBwjqDxALGBkyAggAKgcKBToDSURS",
+     "highlights": [],
+     "observedAt": "2026-11-23",
+     "priceSource": "Booking.com",
+     "sourceLabel": "Booking.com",
+     "conflictNote": null,
+     "weekdayPrice": 1061779,
+     "weekendPrice": null,
+     "sourcePriority": "ota"
+    }
+   ]
+  },
+  "marbella": {
+   "competitor": "Marbella Place Anyer by Jayakarta",
+   "observedAt": "2026-11-23T01:50:08.321Z",
+   "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+   "roomTypes": [
+    {
+     "name": "Studio Room",
+     "areaSqm": 36,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": "36 m 2",
+     "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+     "highlights": [
+      "King size bed or twin beds",
+      "Comfortable size of 36 sqm"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": "Booking.com",
+     "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+     "conflictNote": "Dipakai data situs resmi (nama di Booking.com \"Studio\" vs resmi \"Studio Room\").",
+     "weekdayPrice": 492258,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Deluxe Suite",
+     "areaSqm": 56,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "suite",
+     "areaLabel": "56 m 2",
+     "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+     "highlights": [
+      "56 sqm in size",
+      "King size bed or twin beds"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": "Booking.com",
+     "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+     "conflictNote": null,
+     "weekdayPrice": 930682,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Executive Suite",
+     "areaSqm": 90,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": 2,
+     "category": "suite",
+     "areaLabel": "90m 2",
+     "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+     "highlights": [
+      "Average size of 90 sqm",
+      "Consist of 2 bedrooms"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Master Suite",
+     "areaSqm": 130,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": 3,
+     "category": "suite",
+     "areaLabel": "130m 2",
+     "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+     "highlights": [
+      "Very large Master Suites",
+      "Consisting of 3 bedrooms"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Four Bedroom Suite",
+     "areaSqm": 240,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": 4,
+     "category": "suite",
+     "areaLabel": "240m 2",
+     "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+     "highlights": [
+      "4 Presidential Suites",
+      "Consisting of 4 bedrooms"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Studio Room – Santorini Style",
+     "areaSqm": 36,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": "36 m 2",
+     "sourceUrl": "https://marbellaplaceanyer.com/rooms/",
+     "highlights": [
+      "Santorini-inspired interior"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi marbellaplaceanyer.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    }
+   ]
+  },
+  "jayakarta": {
+   "competitor": "The Jayakarta Villas Anyer Beach Resort",
+   "observedAt": "2026-11-23T01:50:08.321Z",
+   "sourceUrl": "https://jayakartagroup.com/affiliated/view/9",
+   "roomTypes": [
+    {
+     "name": "Garden Cottage",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "cottage",
+     "areaLabel": null,
+     "sourceUrl": "https://jayakartagroup.com/affiliated/view/9",
+     "highlights": [
+      "3 and 4 bedrooms",
+      "Fully equipped living room",
+      "Full set kitchen facility"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": null,
+     "sourceLabel": "Situs resmi jayakartagroup.com",
+     "conflictNote": null,
+     "weekdayPrice": null,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Boutique Suites",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "suite",
+     "areaLabel": null,
+     "sourceUrl": "https://jayakartagroup.com/affiliated/view/9",
+     "highlights": [
+      "Minimalist design",
+      "Private balcony looking over the ocean",
+      "Facing the legendary volcano, Krakatoa"
+     ],
+     "observedAt": "2026-11-23",
+     "priceSource": "Booking.com",
+     "sourceLabel": "Situs resmi jayakartagroup.com",
+     "conflictNote": "Dipakai data situs resmi (nama di Booking.com \"Suite\" vs resmi \"Boutique Suites\").",
+     "weekdayPrice": 641853,
+     "weekendPrice": null,
+     "sourcePriority": "official"
+    },
+    {
+     "name": "Three-Bedroom Villa",
+     "areaSqm": null,
+     "bathtub": null,
+     "smartTv": null,
+     "bedrooms": null,
+     "category": "standard",
+     "areaLabel": null,
+     "sourceUrl": "https://www.google.com/travel/hotels/entity/ChgI6fi0t9v9_-hkGgwvZy8xcHp2cm41MDQQAQ/prices?hl=en&gl=id&curr=IDR&ts=CAAaGhIYEhIKBwjqDxALGBgSBwjqDxALGBkyAggAKgcKBToDSURS",
+     "highlights": [],
+     "observedAt": "2026-11-23",
+     "priceSource": "Booking.com",
+     "sourceLabel": "Booking.com",
+     "conflictNote": null,
+     "weekdayPrice": 2247521,
+     "weekendPrice": null,
+     "sourcePriority": "ota"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "regions": ["sin1"],
+  "crons": [
+    {
+      "path": "/api/cron/sync-sheets",
+      "schedule": "0 18 * * 0"
+    }
+  ],
+  "functions": {
+    "src/app/api/cron/scrape/route.ts": { "maxDuration": 300 },
+    "src/app/api/cron/sync-sheets/route.ts": { "maxDuration": 300 },
+    "src/app/api/market-intelligence/export-pdf/route.ts": { "maxDuration": 60, "memory": 1769 },
+    "src/app/api/market-intelligence/summary/route.ts": { "maxDuration": 60 },
+    "src/app/api/market-intelligence/generate-content/route.ts": { "maxDuration": 60 }
+  }
+}

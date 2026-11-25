@@ -1,0 +1,67 @@
+{
+ "_sumber": "Promo Mambruk Hotel & Convention dari satu tangkapan (capturedAt 2026-11-19T04:03:07.076Z) di DB kerja lokal, 19 Nov 2026; dibentuk seperti baris ringkasan kategori Promotions di app/api/market-intelligence/summary/route.ts. Baris ulasan: ulasan Google Maps asli terbaru di DB kerja lokal (tanggal 2026-11-19T03:00:32.937Z), dibentuk seperti baris kategori Reviews.",
+ "rows": [
+  {
+   "date": "2026-11-19T04:03:07.076Z",
+   "category": "Promotions",
+   "source": "Situs resmi (dibaca Gemini)",
+   "sourceUrl": "https://www.mambruk.co.id/offers",
+   "headline": "Mambruk Hotel & Convention · Floating Breakfast",
+   "sentiment": "neutral",
+   "activeFrom": "2026-11-19T04:03:07.076Z"
+  },
+  {
+   "date": "2026-11-19T04:03:07.076Z",
+   "category": "Promotions",
+   "source": "Situs resmi (dibaca Gemini)",
+   "sourceUrl": "https://www.mambruk.co.id/offers",
+   "headline": "Mambruk Hotel & Convention · High Tea",
+   "sentiment": "neutral",
+   "activeFrom": "2026-11-19T04:03:07.076Z"
+  },
+  {
+   "date": "2026-11-19T04:03:07.076Z",
+   "category": "Promotions",
+   "source": "Situs resmi (dibaca Gemini)",
+   "sourceUrl": "https://www.mambruk.co.id/offers",
+   "headline": "Mambruk Hotel & Convention · Seafood Grill by the sea",
+   "sentiment": "neutral",
+   "activeFrom": "2026-11-19T04:03:07.076Z"
+  },
+  {
+   "date": "2026-11-19T04:03:07.076Z",
+   "category": "Promotions",
+   "source": "Situs resmi (dibaca Gemini)",
+   "sourceUrl": "https://www.mambruk.co.id/offers",
+   "headline": "Mambruk Hotel & Convention · Sea Prosperity Cruise",
+   "sentiment": "neutral",
+   "activeFrom": "2026-11-19T04:03:07.076Z"
+  },
+  {
+   "date": "2026-11-19T04:03:07.076Z",
+   "category": "Promotions",
+   "source": "Situs resmi (dibaca Gemini)",
+   "sourceUrl": "https://www.mambruk.co.id/offers",
+   "headline": "Mambruk Hotel & Convention · Seaside Candlelight Dinner",
+   "sentiment": "neutral",
+   "activeFrom": "2026-11-19T04:03:07.076Z"
+  },
+  {
+   "date": "2026-11-19T04:03:07.076Z",
+   "category": "Promotions",
+   "source": "Situs resmi (dibaca Gemini)",
+   "sourceUrl": "https://www.mambruk.co.id/offers",
+   "headline": "Mambruk Hotel & Convention · The Mambruk Sizzling Grill",
+   "sentiment": "neutral",
+   "activeFrom": "2026-11-19T04:03:07.076Z"
+  }
+ ],
+ "ulasan": {
+  "date": "2026-11-19T03:00:32.937Z",
+  "category": "Reviews",
+  "source": "Google Maps",
+  "headline": "Mambruk Hotel & Convention · Hotelnya nyaman, bersih, breakfast nya enak lengkap, dan mba",
+  "sentiment": "positive",
+  "reviewDate": "2026-11-19T03:00:32.937Z"
+ }
+}

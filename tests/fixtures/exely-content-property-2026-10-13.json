@@ -1,0 +1,2074 @@
+{
+  "source": "Exely Connect produksi — direkam scripts/exely/contract-readonly.ts, tersanitasi",
+  "request": {
+    "method": "GET",
+    "path": "/api/content/v1/properties/500776",
+    "query": {
+      "languageCode": "en"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json; charset=utf-8",
+      "x-ratelimit-remaining-hour": "2993",
+      "x-ratelimit-remaining-minute": "197",
+      "x-ratelimit-remaining-second": "49"
+    },
+    "body": {
+      "id": "500776",
+      "name": "Sanghyang Indah Spa Resort",
+      "description": "",
+      "currency": "IDR",
+      "images": [],
+      "stayUnitKind": "NightRate",
+      "propertyKindId": 2,
+      "contactInfo": {
+        "address": {
+          "postalCode": "42166",
+          "countryCode": "IDN",
+          "region": "Banten",
+          "regionId": "602",
+          "cityName": "Anyer",
+          "cityId": "33105",
+          "addressLine": "Banten, Anyer,   Anyer, Jl. Raya Sirih KM. 128, Cikoneng, Anyar, Serang, Banten, 61",
+          "latitude": -6.062618,
+          "longitude": 105.900009
+        },
+        "phones": [],
+        "emails": []
+      },
+      "policy": {
+        "checkInTime": "15:00",
+        "checkOutTime": "12:00"
+      },
+      "timeZone": {
+        "id": "Asia/Bangkok"
+      },
+      "ratePlans": [
+        {
+          "id": "10005412",
+          "name": "Best price of the day",
+          "description": "The best available rate plan for booking on the official site.",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [],
+          "corporateOnly": false
+        },
+        {
+          "id": "10005436",
+          "name": "Room Only",
+          "description": "<p>The&nbsp;price includes,</p>\n<ul>\n<li>Room Service&nbsp;available 6:00 am - 10:00 pm</li>\n<li>Free WiFi access throughout the hotel area.</li>\n<li>Complimentary bottles of mineral water.</li>\n<li>Welcome drink upon check in.</li>\n</ul>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5055270,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055271,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055273,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10005437",
+          "name": "Room Breakfast",
+          "description": "<p>The&nbsp;price included:</p>\n<ul>\n<li>Daily Breakfast</li>\n<li>Room Service&nbsp;available 6:00 am - 10:00 pm</li>\n<li>Free WiFi access throughout the hotel area.</li>\n<li>Complimentary bottles of mineral water.</li>\n<li>Welcome drink upon check in</li>\n</ul>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5003342,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055270,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055271,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055273,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10005765",
+          "name": "Room Only with Hotspring Spa",
+          "description": "<p>Room Only Package with Spa</p>\n<p>* Sanghyang Deluxe : free 15 minutes Face Massage &amp; 15 minutes Hotspring Spa</p>\n<p>* Sanghyang Suite : free 15 minutes Foot Massage &amp; 15 minutes Hotspring Spa</p>\n<p>* New Baduy Condo &amp; Krakatau Vila : free 15 minutes Traditional Massage &amp; 15 minutes Hotspring Spa</p>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5055270,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055271,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055273,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10005768",
+          "name": "Breakfast with Hot Spring",
+          "description": "",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001700",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5003342,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10011382",
+          "name": "LEBARAN PACKAGE",
+          "description": "<p>The&nbsp;price included:</p>\n<ul>\n<li>Special Lebaran Breakfast.</li>\n<li>Free Hotspring Aquamedic.</li>\n<li>Free WiFi access throughout the hotel area.</li>\n<li>Complimentary bottles of mineral water.</li>\n<li>Welcome drink upon check in.</li>\n<li>Shopping Voucher.</li>\n</ul>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5003342,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10020715",
+          "name": "12 Hours Stay",
+          "description": "<p>Promo 12 Hours Stay on Weekdays Only</p>\n<ul>\n<li>Accomodation for maximum 12 hours stay</li>\n<li>Can check-in anytime</li>\n<li>Free WiFi access throughout the hotel area.</li>\n<li>Complimentary 2 bottles of mineral water.</li>\n</ul>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001700",
+          "extraStayRuleId": "1000817",
+          "availableServices": [],
+          "corporateOnly": false
+        },
+        {
+          "id": "10029857",
+          "name": "CHRISTMAS PACKAGE",
+          "description": "<p>The&nbsp;price included:</p>\n<ul>\n<li>Daily Breakfast</li>\n<li>Daily Dinner</li>\n<li>Christmas Gift</li>\n<li>Free 10 minutes Hotspring Aquamedic Spa.</li>\n<li>Shopping Voucher @100k</li>\n<li>Free WiFi access throughout the hotel area.</li>\n<li>Complimentary bottles of mineral water.</li>\n<li>Welcome drink upon check in</li>\n</ul>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5003342,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055270,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055271,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055273,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5057932,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10029942",
+          "name": "NEW YEAR PACKAGE",
+          "description": "<p>The&nbsp;price included:</p>\n<ul>\n<li>Daily Breakfast</li>\n<li>Fr<span>ee 10 Minutes Hotspring Aquamedic Spa</span></li>\n<li><span>Shopping Voucher @100K.</span></li>\n</ul>\n<p></p>\n<p><span>The&nbsp;price included only on 31/12/2025:</span></p>\n<ul>\n<li><span>Daily Breakfast</span></li>\n<li>Ticket Event @Sunset Grill</li>\n<li>New Year Gift</li>\n<li>Free 10 Minutes Hotspring Aquamedic Spa.</li>\n<li>Shopping Voucher @100K.</li>\n<li>Free Platinum Member Sanghyang.</li>\n</ul>\n<p>&nbsp; &nbsp; &nbsp; Activity on December 31st:</p>\n<ul>\n<li>Fire Work Show at Sunset Grill Cafe</li>\n<li>Live&nbsp;Band &amp; Live DJ at Dragon Beach Club</li>\n</ul>\n<p></p>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5003342,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055270,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055271,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055273,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10030751",
+          "name": "Room Breakfast Best Offer",
+          "description": "<p>Get 10% discount with promo code</p>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5003342,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055270,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055271,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055273,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10030896",
+          "name": "X-Mas Best offer",
+          "description": "<p><span>Get discount with promo code</span></p>\n<p>The&nbsp;price included:</p>\n<ul>\n<li>Daily Breakfast</li>\n<li>Daily Dinner</li>\n<li>Christmas Gift</li>\n<li>Free 30 minutes Hotspring Aquamedic Spa.</li>\n<li>Shopping Voucher @100k</li>\n<li>Free WiFi access throughout the hotel area.</li>\n<li>Complimentary bottles of mineral water.</li>\n<li>Welcome drink upon check in</li>\n</ul>\n<p></p>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5003342,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10031234",
+          "name": "Room Only Best offer",
+          "description": "<p><span>Get 10% discount with promo code</span></p>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5055270,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055271,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055273,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10069201",
+          "name": "XMas Early Bird Promo",
+          "description": "<p><span>Get 15% discount with promo code</span></p>\n<p><span>for booking before December 10, 2024</span></p>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5003342,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055270,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055271,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055273,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5057932,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10117868",
+          "name": "Room Dinner",
+          "description": "<p>Room &amp;&nbsp;Dinner Package</p>\n<p>* Sanghyang Deluxe : include Dinner for 2 pax (Signature Dish, Drinks &amp; Fruit Slice)</p>\n<p></p>\n<p>* New Baduy Condo : include&nbsp;<span>Dinner for 4 pax (Signature Dish, Drinks &amp; Fruit Slice)</span></p>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5055262,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055270,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055271,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055273,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10118581",
+          "name": "Best Deal: Room Breakfast",
+          "description": "<p>The&nbsp;price included:</p>\n<ul>\n<li>Daily Breakfast</li>\n<li>Room Service&nbsp;available 6:00 am - 10:00 pm</li>\n<li>Free WiFi access throughout the hotel area.</li>\n<li>Complimentary bottles of mineral water.</li>\n<li>Welcome drink upon check in</li>\n</ul>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5003342,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055270,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055271,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055273,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10118582",
+          "name": "Best Deal: Room Only",
+          "description": "<p>The&nbsp;price includes,</p>\n<ul>\n<li>Room Service&nbsp;available 6:00 am - 10:00 pm</li>\n<li>Free WiFi access throughout the hotel area.</li>\n<li>Complimentary bottles of mineral water.</li>\n<li>Welcome drink upon check in.</li>\n</ul>",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001701",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5055270,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055271,
+              "included": true,
+              "roomTypeAvailability": "All"
+            },
+            {
+              "id": 5055273,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10119083",
+          "name": "Room Breakfast OTA",
+          "description": "",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001700",
+          "extraStayRuleId": "1000817",
+          "availableServices": [
+            {
+              "id": 5003342,
+              "included": true,
+              "roomTypeAvailability": "All"
+            }
+          ],
+          "corporateOnly": false
+        },
+        {
+          "id": "10119084",
+          "name": "Room Only OTA",
+          "description": "",
+          "currency": "IDR",
+          "isStayWithChildrenOnly": false,
+          "cancellationRuleId": "5001700",
+          "extraStayRuleId": "1000817",
+          "availableServices": [],
+          "corporateOnly": false
+        }
+      ],
+      "roomTypes": [
+        {
+          "id": "5004758",
+          "name": "Sanghyang Deluxe",
+          "description": "Room Size 24m2, King Bed, Full Air Conditioning, TV Cable, Bathroom with Water Heater, Coffee Maker, Mini Bar, Refrigerator, Mineral Water for 2 pax.",
+          "amenities": [
+            {
+              "code": "cable_television",
+              "name": "cable television"
+            },
+            {
+              "code": "wifi_internet",
+              "name": "Wi-Fi"
+            },
+            {
+              "code": "telephone",
+              "name": "phone"
+            },
+            {
+              "code": "air_conditioning",
+              "name": "air conditioning"
+            },
+            {
+              "code": "lamp",
+              "name": "lamp"
+            },
+            {
+              "code": "desk_lamps",
+              "name": "desk lamp"
+            },
+            {
+              "code": "bathroom",
+              "name": "bathroom"
+            },
+            {
+              "code": "water_heater",
+              "name": "waterheater"
+            },
+            {
+              "code": "bath_towels",
+              "name": "bath towels"
+            },
+            {
+              "code": "slippers",
+              "name": "slippers"
+            },
+            {
+              "code": "balcony",
+              "name": "balcony "
+            },
+            {
+              "code": "king_bed",
+              "name": "king bed"
+            },
+            {
+              "code": "double_bed",
+              "name": "double bed"
+            },
+            {
+              "code": "nightstands",
+              "name": "bedside table"
+            },
+            {
+              "code": "closet_for_clothes",
+              "name": "wardrobe"
+            },
+            {
+              "code": "journal_table",
+              "name": "coffee table"
+            },
+            {
+              "code": "desk",
+              "name": "desk"
+            },
+            {
+              "code": "mirror",
+              "name": "mirror"
+            },
+            {
+              "code": "furniture set",
+              "name": "furniture set"
+            },
+            {
+              "code": "tea_set",
+              "name": "tea set"
+            },
+            {
+              "code": "maid_service",
+              "name": "room service"
+            },
+            {
+              "code": "information_card",
+              "name": "menu"
+            },
+            {
+              "code": "mineral_water",
+              "name": "mineral water"
+            },
+            {
+              "code": "kettle",
+              "name": "kettle"
+            },
+            {
+              "code": "toilet_bowl",
+              "name": "toilet bowl"
+            },
+            {
+              "code": "shower",
+              "name": "shower"
+            },
+            {
+              "code": "garden_view",
+              "name": "garden view"
+            },
+            {
+              "code": "armchair",
+              "name": "armchair"
+            },
+            {
+              "code": "chair",
+              "name": "chair"
+            },
+            {
+              "code": "table",
+              "name": "table"
+            },
+            {
+              "code": "toilet",
+              "name": "toilet"
+            },
+            {
+              "code": "split_air_conditioning_system",
+              "name": "split air conditioning system"
+            },
+            {
+              "code": "flat_screen_TV",
+              "name": "flat-screen TV"
+            },
+            {
+              "code": "bathroom_amenity_set",
+              "name": "bathroom amenity set"
+            },
+            {
+              "code": "working_table",
+              "name": "work table"
+            }
+          ],
+          "images": [
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004758/639059132687672988-49357160-db06-409a-80de-9e1e6a9c59db"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004758/639059132684948041-1187d750-009e-488e-aca0-585d2715fcc3"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004758/638605466016129573-06e31778-6d3f-4da8-88af-3fb77540cd2b"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004758/638605466013975106-955e20a4-0e56-45fa-b65f-a0a6541bbf59"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004758/638103268873349677-55665c0a-8405-42f8-9d12-1a027a0d2ae7"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004758/638103268922117216-1f0600e5-acf7-4bac-bd3c-ea4d42283ea4"
+            }
+          ],
+          "size": {
+            "value": 24,
+            "unit": "SquareMetre"
+          },
+          "categoryCode": "Room",
+          "categoryName": "Room",
+          "occupancy": {
+            "adultBed": 2,
+            "extraBed": 0,
+            "childWithoutBed": 0
+          },
+          "placements": [
+            {
+              "kind": "Adult",
+              "count": 1
+            },
+            {
+              "kind": "Adult",
+              "count": 2
+            }
+          ],
+          "position": 100
+        },
+        {
+          "id": "5004782",
+          "name": "Sanghyang Suite",
+          "description": "King Bed, Full Air Conditioning, Bathroom with Bathtub, TV Cable, Coffee Maker, Safety Box, Mini Bar, Refrigerator, Mineral Water for 2 pax.",
+          "amenities": [
+            {
+              "code": "tv",
+              "name": "TV set"
+            },
+            {
+              "code": "cable_television",
+              "name": "cable television"
+            },
+            {
+              "code": "wifi_internet",
+              "name": "Wi-Fi"
+            },
+            {
+              "code": "lamp",
+              "name": "lamp"
+            },
+            {
+              "code": "desk_lamps",
+              "name": "desk lamp"
+            },
+            {
+              "code": "hairdryer",
+              "name": "hair dryer"
+            },
+            {
+              "code": "bathroom",
+              "name": "bathroom"
+            },
+            {
+              "code": "bath_or_shower",
+              "name": "bathtub or shower"
+            },
+            {
+              "code": "bath_towels",
+              "name": "bath towels"
+            },
+            {
+              "code": "slippers",
+              "name": "slippers"
+            },
+            {
+              "code": "king_bed",
+              "name": "king bed"
+            },
+            {
+              "code": "double_bed",
+              "name": "double bed"
+            },
+            {
+              "code": "nightstands",
+              "name": "bedside table"
+            },
+            {
+              "code": "closet_for_clothes",
+              "name": "wardrobe"
+            },
+            {
+              "code": "journal_table",
+              "name": "coffee table"
+            },
+            {
+              "code": "mirror",
+              "name": "mirror"
+            },
+            {
+              "code": "furniture set",
+              "name": "furniture set"
+            },
+            {
+              "code": "toilet_bowl",
+              "name": "toilet bowl"
+            },
+            {
+              "code": "shower",
+              "name": "shower"
+            },
+            {
+              "code": "garden_view",
+              "name": "garden view"
+            },
+            {
+              "code": "armchair",
+              "name": "armchair"
+            },
+            {
+              "code": "chair",
+              "name": "chair"
+            },
+            {
+              "code": "table",
+              "name": "table"
+            },
+            {
+              "code": "toilet",
+              "name": "toilet"
+            },
+            {
+              "code": "split_air_conditioning_system",
+              "name": "split air conditioning system"
+            },
+            {
+              "code": "in_room_telephone",
+              "name": "in-room telephone"
+            },
+            {
+              "code": "mini_fridge",
+              "name": "mini-fridge"
+            },
+            {
+              "code": "bathroom_amenity_set",
+              "name": "bathroom amenity set"
+            },
+            {
+              "code": "working_table",
+              "name": "work table"
+            }
+          ],
+          "images": [
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004782/638103267875133295-ff6f6220-0fae-41b9-8cd7-da0e68191cd8"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004782/638636618178234596-513f647a-e4bc-40ff-864d-a3ba6fbda848"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004782/639059133730438678-a71026f2-16a0-4406-8990-0f7f392f68e7"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004782/639059133732767285-3a1003a8-a806-466a-9cd0-a149852c6e3d"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004782/638636618177839138-3a72b357-5522-4121-99ad-ca8492c6b2e5"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004782/638103267950916452-a34a2c9f-91ba-4540-bb5e-a3630cad98e9"
+            }
+          ],
+          "size": {
+            "value": 28,
+            "unit": "SquareMetre"
+          },
+          "categoryCode": "Room",
+          "categoryName": "Room",
+          "occupancy": {
+            "adultBed": 2,
+            "extraBed": 0,
+            "childWithoutBed": 0
+          },
+          "placements": [
+            {
+              "kind": "Adult",
+              "count": 1
+            },
+            {
+              "kind": "Adult",
+              "count": 2
+            }
+          ],
+          "position": 200
+        },
+        {
+          "id": "5004759",
+          "name": "New Baduy Condo",
+          "description": "Villa with 2 bedrooms on upper floor with living room in 1st floor. Queen Bed, Full Air Conditioning, Two Bathrooms with Water Heater, TV in Living Room, Dining Room, Kitchen Pantry, Gas Stove, Mineral Water for 4 Pax.",
+          "amenities": [
+            {
+              "code": "tv",
+              "name": "TV set"
+            },
+            {
+              "code": "cable_television",
+              "name": "cable television"
+            },
+            {
+              "code": "wifi_internet",
+              "name": "Wi-Fi"
+            },
+            {
+              "code": "telephone",
+              "name": "phone"
+            },
+            {
+              "code": "refrigerator",
+              "name": "refrigerator"
+            },
+            {
+              "code": "lamp",
+              "name": "lamp"
+            },
+            {
+              "code": "desk_lamps",
+              "name": "desk lamp"
+            },
+            {
+              "code": "hairdryer",
+              "name": "hair dryer"
+            },
+            {
+              "code": "stove",
+              "name": "stove"
+            },
+            {
+              "code": "bathroom",
+              "name": "bathroom"
+            },
+            {
+              "code": "water_heater",
+              "name": "waterheater"
+            },
+            {
+              "code": "bath_towels",
+              "name": "bath towels"
+            },
+            {
+              "code": "slippers",
+              "name": "slippers"
+            },
+            {
+              "code": "queen_bed",
+              "name": "queen bed"
+            },
+            {
+              "code": "sofa_bed",
+              "name": "sofa"
+            },
+            {
+              "code": "nightstands",
+              "name": "bedside table"
+            },
+            {
+              "code": "closet_for_clothes",
+              "name": "wardrobe"
+            },
+            {
+              "code": "desk",
+              "name": "desk"
+            },
+            {
+              "code": "dinner_table",
+              "name": "dining table"
+            },
+            {
+              "code": "mirror",
+              "name": "mirror"
+            },
+            {
+              "code": "furniture set",
+              "name": "furniture set"
+            },
+            {
+              "code": "kitchen",
+              "name": "kitchen "
+            },
+            {
+              "code": "tea_set",
+              "name": "tea set"
+            },
+            {
+              "code": "maid_service",
+              "name": "room service"
+            },
+            {
+              "code": "information_card",
+              "name": "menu"
+            },
+            {
+              "code": "safe",
+              "name": "safe"
+            },
+            {
+              "code": "mineral_water",
+              "name": "mineral water"
+            },
+            {
+              "code": "kettle",
+              "name": "kettle"
+            },
+            {
+              "code": "toilet_bowl",
+              "name": "toilet bowl"
+            },
+            {
+              "code": "sink",
+              "name": "sink"
+            },
+            {
+              "code": "dinner_zone",
+              "name": "dining area"
+            },
+            {
+              "code": "living_area",
+              "name": "living area"
+            },
+            {
+              "code": "shower",
+              "name": "shower"
+            },
+            {
+              "code": "tile_covering",
+              "name": "tile flooring"
+            },
+            {
+              "code": "two_bedrooms",
+              "name": "two bedrooms"
+            },
+            {
+              "code": "kitchen_utensils",
+              "name": "kitchen utensils"
+            },
+            {
+              "code": "two_bathrooms",
+              "name": "two bathrooms"
+            },
+            {
+              "code": "chair",
+              "name": "chair"
+            },
+            {
+              "code": "table",
+              "name": "table"
+            },
+            {
+              "code": "toilet",
+              "name": "toilet"
+            },
+            {
+              "code": "split_air_conditioning_system",
+              "name": "split air conditioning system"
+            },
+            {
+              "code": "flat_screen_TV",
+              "name": "flat-screen TV"
+            },
+            {
+              "code": "bathroom_amenity_set",
+              "name": "bathroom amenity set"
+            }
+          ],
+          "images": [
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004759/638103396859852703-b85ed68f-0311-417e-ab70-a303cf9869c7"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004759/638103396819416434-48cd986f-4d0e-41ef-9c26-8bc31ff50e65"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004759/638103396798673898-cbd4c115-5b1c-437f-a9f2-ea402ba78ea2"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004759/639059134257656492-500dd2c9-ddd8-4160-b709-210d7d5ddd1f"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004759/638103396831851434-d240ae2e-bcba-4327-bd45-9f49a04ec5e5"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004759/638112691809549162-0fc6207f-9a9a-4620-ae88-cd5c42860126"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004759/638112691921500800-a47962b3-9651-4af0-a8c1-4e7d65c787e9"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004759/638112691965069753-609d41c8-a655-42dd-9c23-86d53bb2673a"
+            }
+          ],
+          "size": {
+            "value": 60,
+            "unit": "SquareMetre"
+          },
+          "categoryCode": "Villa",
+          "categoryName": "Villa",
+          "occupancy": {
+            "adultBed": 4,
+            "extraBed": 0,
+            "childWithoutBed": 0
+          },
+          "placements": [
+            {
+              "kind": "Adult",
+              "count": 1
+            },
+            {
+              "kind": "Adult",
+              "count": 2
+            },
+            {
+              "kind": "Adult",
+              "count": 3
+            },
+            {
+              "kind": "Adult",
+              "count": 4
+            }
+          ],
+          "position": 300
+        },
+        {
+          "id": "5004778",
+          "name": "Krakatau Villa",
+          "description": "Queen Bed and Twin Bed, Full Air Conditioning, Two Bathroom with Water Heater, Fully Furnished, TV Cable, Dining Room, Kitchen Pantry, Mineral Water for 4 pax",
+          "amenities": [
+            {
+              "code": "cable_television",
+              "name": "cable television"
+            },
+            {
+              "code": "wifi_internet",
+              "name": "Wi-Fi"
+            },
+            {
+              "code": "telephone",
+              "name": "phone"
+            },
+            {
+              "code": "refrigerator",
+              "name": "refrigerator"
+            },
+            {
+              "code": "lamp",
+              "name": "lamp"
+            },
+            {
+              "code": "desk_lamps",
+              "name": "desk lamp"
+            },
+            {
+              "code": "stove",
+              "name": "stove"
+            },
+            {
+              "code": "bathroom",
+              "name": "bathroom"
+            },
+            {
+              "code": "bathroom_with_wc",
+              "name": "lavatory"
+            },
+            {
+              "code": "additional_bathroom",
+              "name": "additional bathroom"
+            },
+            {
+              "code": "water_heater",
+              "name": "waterheater"
+            },
+            {
+              "code": "bath_towels",
+              "name": "bath towels"
+            },
+            {
+              "code": "slippers",
+              "name": "slippers"
+            },
+            {
+              "code": "king_bed",
+              "name": "king bed"
+            },
+            {
+              "code": "two_single_beds",
+              "name": "two single beds"
+            },
+            {
+              "code": "toilet_bowl",
+              "name": "toilet bowl"
+            },
+            {
+              "code": "shower",
+              "name": "shower"
+            },
+            {
+              "code": "garden_view",
+              "name": "garden view"
+            },
+            {
+              "code": "flat_screen_TV",
+              "name": "flat-screen TV"
+            },
+            {
+              "code": "bathroom_amenity_set",
+              "name": "bathroom amenity set"
+            },
+            {
+              "code": "tv_bathroom",
+              "name": "TV in the bathroom"
+            }
+          ],
+          "images": [
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004778/638112692225795522-a6cf2a48-6b51-4d5d-a430-f4c22c67909d"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004778/638103265225607085-5e5e2d7d-6323-41b0-85f0-fd858c473c63"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004778/638112692294819687-4d47504c-00a2-473c-a708-4e6500f12298"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004778/638112692357571968-32c31231-ea97-4c44-baa1-db6b589effe1"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004778/638605466808307296-143faa76-6bab-43b8-9f27-70f9b0fe7002"
+            }
+          ],
+          "size": {
+            "value": 70,
+            "unit": "SquareMetre"
+          },
+          "categoryCode": "Villa",
+          "categoryName": "Villa",
+          "occupancy": {
+            "adultBed": 4,
+            "extraBed": 0,
+            "childWithoutBed": 0
+          },
+          "placements": [
+            {
+              "kind": "Adult",
+              "count": 1
+            },
+            {
+              "kind": "Adult",
+              "count": 2
+            },
+            {
+              "kind": "Adult",
+              "count": 3
+            },
+            {
+              "kind": "Adult",
+              "count": 4
+            }
+          ],
+          "position": 400
+        },
+        {
+          "id": "5004789",
+          "name": "Krakatau Beach View",
+          "description": "Villa with Sea View, Queen Bed and Twin Bed, Full Air Conditioning, Two Bathroom with Water Heater, Fully Furnished, TV Cable, Dining Room, Kitchen Pantry, Mineral Water for 4 pax",
+          "amenities": [
+            {
+              "code": "cable_television",
+              "name": "cable television"
+            },
+            {
+              "code": "wifi_internet",
+              "name": "Wi-Fi"
+            },
+            {
+              "code": "telephone",
+              "name": "phone"
+            },
+            {
+              "code": "refrigerator",
+              "name": "refrigerator"
+            },
+            {
+              "code": "lamp",
+              "name": "lamp"
+            },
+            {
+              "code": "desk_lamps",
+              "name": "desk lamp"
+            },
+            {
+              "code": "stove",
+              "name": "stove"
+            },
+            {
+              "code": "bathroom",
+              "name": "bathroom"
+            },
+            {
+              "code": "bath_towels",
+              "name": "bath towels"
+            },
+            {
+              "code": "slippers",
+              "name": "slippers"
+            },
+            {
+              "code": "king_bed",
+              "name": "king bed"
+            },
+            {
+              "code": "two_single_beds",
+              "name": "two single beds"
+            },
+            {
+              "code": "sofa_bed",
+              "name": "sofa"
+            },
+            {
+              "code": "nightstands",
+              "name": "bedside table"
+            },
+            {
+              "code": "chairs",
+              "name": "chairs"
+            },
+            {
+              "code": "closet_for_clothes",
+              "name": "wardrobe"
+            },
+            {
+              "code": "dinner_table",
+              "name": "dining table"
+            },
+            {
+              "code": "mirror",
+              "name": "mirror"
+            },
+            {
+              "code": "furniture set",
+              "name": "furniture set"
+            },
+            {
+              "code": "kitchen",
+              "name": "kitchen "
+            },
+            {
+              "code": "maid_service",
+              "name": "room service"
+            },
+            {
+              "code": "information_card",
+              "name": "menu"
+            },
+            {
+              "code": "mineral_water",
+              "name": "mineral water"
+            },
+            {
+              "code": "kettle",
+              "name": "kettle"
+            },
+            {
+              "code": "toilet_bowl",
+              "name": "toilet bowl"
+            },
+            {
+              "code": "sink",
+              "name": "sink"
+            },
+            {
+              "code": "dinner_zone",
+              "name": "dining area"
+            },
+            {
+              "code": "living_area",
+              "name": "living area"
+            },
+            {
+              "code": "shower",
+              "name": "shower"
+            },
+            {
+              "code": "sea_view",
+              "name": "sea view"
+            },
+            {
+              "code": "tile_covering",
+              "name": "tile flooring"
+            },
+            {
+              "code": "shared_bathroom",
+              "name": "shared bathroom"
+            },
+            {
+              "code": "two_bedrooms",
+              "name": "two bedrooms"
+            },
+            {
+              "code": "garbage_disposal",
+              "name": "garbage disposal"
+            },
+            {
+              "code": "chair",
+              "name": "chair"
+            },
+            {
+              "code": "table",
+              "name": "table"
+            },
+            {
+              "code": "flat_screen_TV",
+              "name": "flat-screen TV"
+            }
+          ],
+          "images": [
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004789/638103398332058340-96f3f831-b5f8-4591-96bd-916bfdf03043"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004789/638103398429576036-e7d56c09-ddd6-495c-9498-5a4ba897f143"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004789/638103398431933584-e33daab3-730a-45d4-aca6-973cce5861dd"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004789/638103398304092914-71f92975-b303-40d6-8287-5b5b38339b3d"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004789/638636619095817123-2f9c9bc7-1b7b-417c-9ed2-5ce5a6a96527"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004789/638112693014844787-3c6e6a6f-58f2-466c-b9c4-8c31f36c787a"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004789/638103398425134314-8019ca22-d94d-4669-8467-00571ab6def2"
+            }
+          ],
+          "size": {
+            "value": 70,
+            "unit": "SquareMetre"
+          },
+          "categoryCode": "Villa",
+          "categoryName": "Villa",
+          "occupancy": {
+            "adultBed": 4,
+            "extraBed": 0,
+            "childWithoutBed": 0
+          },
+          "placements": [
+            {
+              "kind": "Adult",
+              "count": 1
+            },
+            {
+              "kind": "Adult",
+              "count": 2
+            },
+            {
+              "kind": "Adult",
+              "count": 3
+            },
+            {
+              "kind": "Adult",
+              "count": 4
+            }
+          ],
+          "position": 401
+        },
+        {
+          "id": "5004790",
+          "name": "Krakatau Suite",
+          "description": "King Bed and Twin Bed, Full Air Conditioning, one bathroom and one connecting bathroom with Water Heater, Fully Furnished and TV in Living Room, Dining Room, Kitchen Pantry, Mineral Water for 4 Pax.",
+          "amenities": [
+            {
+              "code": "tv",
+              "name": "TV set"
+            },
+            {
+              "code": "cable_television",
+              "name": "cable television"
+            },
+            {
+              "code": "wifi_internet",
+              "name": "Wi-Fi"
+            },
+            {
+              "code": "telephone",
+              "name": "phone"
+            },
+            {
+              "code": "refrigerator",
+              "name": "refrigerator"
+            },
+            {
+              "code": "lamp",
+              "name": "lamp"
+            },
+            {
+              "code": "desk_lamps",
+              "name": "desk lamp"
+            },
+            {
+              "code": "hairdryer",
+              "name": "hair dryer"
+            },
+            {
+              "code": "stove",
+              "name": "stove"
+            },
+            {
+              "code": "bath_towels",
+              "name": "bath towels"
+            },
+            {
+              "code": "slippers",
+              "name": "slippers"
+            },
+            {
+              "code": "king_bed",
+              "name": "king bed"
+            },
+            {
+              "code": "two_single_beds",
+              "name": "two single beds"
+            },
+            {
+              "code": "sofa_bed",
+              "name": "sofa"
+            },
+            {
+              "code": "nightstands",
+              "name": "bedside table"
+            },
+            {
+              "code": "closet_for_clothes",
+              "name": "wardrobe"
+            },
+            {
+              "code": "mirror",
+              "name": "mirror"
+            },
+            {
+              "code": "furniture set",
+              "name": "furniture set"
+            },
+            {
+              "code": "two_rooms",
+              "name": "two rooms"
+            },
+            {
+              "code": "kitchen",
+              "name": "kitchen "
+            },
+            {
+              "code": "tea_set",
+              "name": "tea set"
+            },
+            {
+              "code": "maid_service",
+              "name": "room service"
+            },
+            {
+              "code": "information_card",
+              "name": "menu"
+            },
+            {
+              "code": "safe",
+              "name": "safe"
+            },
+            {
+              "code": "mineral_water",
+              "name": "mineral water"
+            },
+            {
+              "code": "kettle",
+              "name": "kettle"
+            },
+            {
+              "code": "toilet_bowl",
+              "name": "toilet bowl"
+            },
+            {
+              "code": "dinner_zone",
+              "name": "dining area"
+            },
+            {
+              "code": "living_area",
+              "name": "living area"
+            },
+            {
+              "code": "shower",
+              "name": "shower"
+            },
+            {
+              "code": "garden_view",
+              "name": "garden view"
+            },
+            {
+              "code": "tile_covering",
+              "name": "tile flooring"
+            },
+            {
+              "code": "kitchen_utensils",
+              "name": "kitchen utensils"
+            },
+            {
+              "code": "garbage_disposal",
+              "name": "garbage disposal"
+            },
+            {
+              "code": "table",
+              "name": "table"
+            },
+            {
+              "code": "toilet",
+              "name": "toilet"
+            },
+            {
+              "code": "flat_screen_TV",
+              "name": "flat-screen TV"
+            },
+            {
+              "code": "bathroom_amenity_set",
+              "name": "bathroom amenity set"
+            }
+          ],
+          "images": [
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004790/638112682327806766-11fa4765-7192-47e7-a9fc-75b1ad4ed43a"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004790/638605467811293593-e4934e5f-2e7a-4675-8718-79462f4851da"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004790/638112682414093016-de63228d-f96a-47a5-8614-c7c4a4c622a8"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004790/638605467984994589-2e22ff29-6b8b-41c2-be9d-9ca38e37b552"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004790/638112682502641045-9f8f1eef-aae3-4532-80a7-ae4637311754"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004790/638112682634024812-a84e7acb-6a91-4eee-bc37-904345b99a7e"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004790/638112682734305154-b02ecaa5-565a-4bee-8bd5-cd77652a1d02"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004790/638112682905406350-a0d28894-4a2e-42e4-98af-cf10348001d3"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004790/638112683007812264-2d86d077-edf2-47c2-b7b9-300f4f701f26"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004790/638605467809164460-dc989390-23fe-4012-a9e5-ce8815a5617f"
+            }
+          ],
+          "size": {
+            "value": 94,
+            "unit": "SquareMetre"
+          },
+          "categoryCode": "Villa",
+          "categoryName": "Villa",
+          "occupancy": {
+            "adultBed": 4,
+            "extraBed": 0,
+            "childWithoutBed": 0
+          },
+          "placements": [
+            {
+              "kind": "Adult",
+              "count": 1
+            },
+            {
+              "kind": "Adult",
+              "count": 2
+            },
+            {
+              "kind": "Adult",
+              "count": 3
+            },
+            {
+              "kind": "Adult",
+              "count": 4
+            }
+          ],
+          "position": 402
+        },
+        {
+          "id": "5004791",
+          "name": "Baduy Suite",
+          "description": "King Bed and Twin Bed, Full Air Conditioning, Two Bathrooms with Water Heater, Fully Furnished, TV Cable, Dining Room, Kitchen Pantry, Mineral Water 4 pax",
+          "amenities": [
+            {
+              "code": "cable_television",
+              "name": "cable television"
+            },
+            {
+              "code": "wifi_internet",
+              "name": "Wi-Fi"
+            },
+            {
+              "code": "refrigerator",
+              "name": "refrigerator"
+            },
+            {
+              "code": "air_conditioning",
+              "name": "air conditioning"
+            },
+            {
+              "code": "lamp",
+              "name": "lamp"
+            },
+            {
+              "code": "desk_lamps",
+              "name": "desk lamp"
+            },
+            {
+              "code": "hairdryer",
+              "name": "hair dryer"
+            },
+            {
+              "code": "electronic_locks",
+              "name": "electronic lock"
+            },
+            {
+              "code": "stove",
+              "name": "stove"
+            },
+            {
+              "code": "bathroom",
+              "name": "bathroom"
+            },
+            {
+              "code": "additional_bathroom",
+              "name": "additional bathroom"
+            },
+            {
+              "code": "water_heater",
+              "name": "waterheater"
+            },
+            {
+              "code": "bathroom_amenities",
+              "name": "bath accessories"
+            },
+            {
+              "code": "bath_towels",
+              "name": "bath towels"
+            },
+            {
+              "code": "slippers",
+              "name": "slippers"
+            },
+            {
+              "code": "king_bed",
+              "name": "king bed"
+            },
+            {
+              "code": "two_single_beds",
+              "name": "two single beds"
+            },
+            {
+              "code": "sofa_bed",
+              "name": "sofa"
+            },
+            {
+              "code": "nightstands",
+              "name": "bedside table"
+            },
+            {
+              "code": "chairs",
+              "name": "chairs"
+            },
+            {
+              "code": "closet_for_clothes",
+              "name": "wardrobe"
+            },
+            {
+              "code": "desk",
+              "name": "desk"
+            },
+            {
+              "code": "dinner_table",
+              "name": "dining table"
+            },
+            {
+              "code": "furniture set",
+              "name": "furniture set"
+            },
+            {
+              "code": "two_rooms",
+              "name": "two rooms"
+            },
+            {
+              "code": "kitchen",
+              "name": "kitchen "
+            },
+            {
+              "code": "tea_set",
+              "name": "tea set"
+            },
+            {
+              "code": "maid_service",
+              "name": "room service"
+            },
+            {
+              "code": "information_card",
+              "name": "menu"
+            },
+            {
+              "code": "safe",
+              "name": "safe"
+            },
+            {
+              "code": "mineral_water",
+              "name": "mineral water"
+            },
+            {
+              "code": "kettle",
+              "name": "kettle"
+            },
+            {
+              "code": "toilet_bowl",
+              "name": "toilet bowl"
+            },
+            {
+              "code": "sink",
+              "name": "sink"
+            },
+            {
+              "code": "dinner_zone",
+              "name": "dining area"
+            },
+            {
+              "code": "living_area",
+              "name": "living area"
+            },
+            {
+              "code": "shower",
+              "name": "shower"
+            },
+            {
+              "code": "garden_view",
+              "name": "garden view"
+            },
+            {
+              "code": "tile_covering",
+              "name": "tile flooring"
+            },
+            {
+              "code": "two_bedrooms",
+              "name": "two bedrooms"
+            },
+            {
+              "code": "kitchen_utensils",
+              "name": "kitchen utensils"
+            },
+            {
+              "code": "two_bathrooms",
+              "name": "two bathrooms"
+            },
+            {
+              "code": "chair",
+              "name": "chair"
+            },
+            {
+              "code": "table",
+              "name": "table"
+            },
+            {
+              "code": "toilet",
+              "name": "toilet"
+            },
+            {
+              "code": "in_room_telephone",
+              "name": "in-room telephone"
+            },
+            {
+              "code": "flat_screen_TV",
+              "name": "flat-screen TV"
+            },
+            {
+              "code": "bathroom_amenity_set",
+              "name": "bathroom amenity set"
+            }
+          ],
+          "images": [
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004791/638103399983852917-913c1739-33f8-42df-83b4-5fe8cb4166d1"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004791/638103399984049368-243ba371-c2fb-4763-b18e-7335c1a64d1a"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004791/638103399984496208-e32a91cf-7e83-4daa-837f-331f46df5b6e"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004791/638103399987174631-a3d21daa-fa18-48a6-be44-940dde356ca6"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004791/638103399977465030-cb244b02-9f72-404e-86d2-ceae781f0b1d"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004791/638103399956513265-7ffc99a1-9c62-4d0f-9aae-f06381bb5819"
+            },
+            {
+              "url": "https://connect-static.hopenapi.com/images/rt/5004791/638103399986574894-4b472a49-0f6c-4934-9e61-d867542803ff"
+            }
+          ],
+          "size": {
+            "value": 115,
+            "unit": "SquareMetre"
+          },
+          "categoryCode": "Villa",
+          "categoryName": "Villa",
+          "occupancy": {
+            "adultBed": 4,
+            "extraBed": 0,
+            "childWithoutBed": 0
+          },
+          "placements": [
+            {
+              "kind": "Adult",
+              "count": 1
+            },
+            {
+              "kind": "Adult",
+              "count": 2
+            },
+            {
+              "kind": "Adult",
+              "count": 3
+            },
+            {
+              "kind": "Adult",
+              "count": 4
+            }
+          ],
+          "position": 403
+        }
+      ],
+      "services": [
+        {
+          "id": "5003342",
+          "name": "Breakfast",
+          "description": "",
+          "kind": "Meal",
+          "mealPlanCode": "BreakFast",
+          "mealPlanName": "Breakfast",
+          "images": [],
+          "status": "Active"
+        },
+        {
+          "id": "5003351",
+          "name": "Extra Bed",
+          "description": "",
+          "kind": "Common",
+          "images": [],
+          "status": "Inactive"
+        },
+        {
+          "id": "5003478",
+          "name": "Dragon Beach Club",
+          "description": "",
+          "kind": "Common",
+          "images": [],
+          "status": "Inactive"
+        },
+        {
+          "id": "5003479",
+          "name": "Hot Spring Aqua Medic",
+          "description": "30 minutes Hot spring aqua medic",
+          "kind": "Common",
+          "images": [],
+          "status": "Inactive"
+        },
+        {
+          "id": "5005915",
+          "name": "Seafood BBQ 1kg",
+          "description": "FREE SEAFOOD BBQ 1KG for LEBARAN PACKAGE ONLY",
+          "kind": "Meal",
+          "mealPlanCode": "Custom",
+          "mealPlanName": "Custom",
+          "images": [],
+          "status": "Inactive"
+        },
+        {
+          "id": "5006017",
+          "name": "Free Extra Bed",
+          "description": "Free EXTRA BED for LEBARAN Package ONLY :\n1 for Hotel Type and 2 for Villa Type",
+          "kind": "Common",
+          "images": [],
+          "status": "Inactive"
+        },
+        {
+          "id": "5008617",
+          "name": "Free Hot Spring Aqua Medic 10 mins",
+          "description": "please confirm with receptionist upon check in.",
+          "kind": "Common",
+          "images": [
+            {
+              "url": "https://connect-static.hopenapi.com/images/opt/5008617/638234470932433017-a173c522-2c42-4f06-8cfa-7ceb69bf25e6"
+            }
+          ],
+          "status": "Inactive"
+        },
+        {
+          "id": "5008618",
+          "name": "Free Parking Space",
+          "description": "",
+          "kind": "Common",
+          "images": [
+            {
+              "url": "https://connect-static.hopenapi.com/images/opt/5008618/638234471229294992-a92f3be3-1df3-4e45-b93d-5f5b20f6ff34"
+            }
+          ],
+          "status": "Inactive"
+        },
+        {
+          "id": "5008619",
+          "name": "Free Outdoor Pool",
+          "description": "",
+          "kind": "Common",
+          "images": [
+            {
+              "url": "https://connect-static.hopenapi.com/images/opt/5008619/638234471553132762-d50f9fa9-cf6f-4172-abef-9f849454243c"
+            }
+          ],
+          "status": "Inactive"
+        },
+        {
+          "id": "5014102",
+          "name": "Dinner BBQ",
+          "description": "FREE Dinner BBQ Buffet on Sunday, 24th December ONLY. \n2 persons for hotel type and 4 persons for villa type.",
+          "kind": "Meal",
+          "mealPlanCode": "Custom",
+          "mealPlanName": "Custom",
+          "images": [],
+          "status": "Inactive"
+        },
+        {
+          "id": "5014123",
+          "name": "Dinner",
+          "description": "Dinner New Year's Eve at December 31st, ONLY..,",
+          "kind": "Meal",
+          "mealPlanCode": "Dinner",
+          "mealPlanName": "Dinner",
+          "images": [],
+          "status": "Inactive"
+        },
+        {
+          "id": "5055262",
+          "name": "Dinner",
+          "description": "Dinner (Signature Dish, Drinks & Fruit Slice)",
+          "kind": "Meal",
+          "mealPlanCode": "Dinner",
+          "mealPlanName": "Dinner",
+          "images": [
+            {
+              "url": "https://connect-static.hopenapi.com/images/opt/5055262/638971677292282259-fbf13922-8830-43b7-af3c-7207c246e502"
+            }
+          ],
+          "status": "Active"
+        },
+        {
+          "id": "5055264",
+          "name": "Mineral Water",
+          "description": "Free Mineral Water",
+          "kind": "Meal",
+          "mealPlanCode": "Custom",
+          "mealPlanName": "Custom",
+          "images": [],
+          "status": "Inactive"
+        },
+        {
+          "id": "5055270",
+          "name": "Mineral Water",
+          "description": "Complimentary bottles of mineral water",
+          "kind": "Common",
+          "images": [],
+          "status": "Active"
+        },
+        {
+          "id": "5055271",
+          "name": "Welcome Drink",
+          "description": "Complimentary Welcome Drink during arrival",
+          "kind": "Common",
+          "images": [],
+          "status": "Active"
+        },
+        {
+          "id": "5055273",
+          "name": "Free Wi-Fi",
+          "description": "Free WiFi access throughout the hotel area",
+          "kind": "Common",
+          "images": [],
+          "status": "Active"
+        },
+        {
+          "id": "5057932",
+          "name": "Dinner",
+          "description": "Dinner Package",
+          "kind": "Common",
+          "images": [],
+          "status": "Active"
+        }
+      ],
+      "multiLocationProperty": false,
+      "companyDetails": null,
+      "amenities": []
+    }
+  }
+}

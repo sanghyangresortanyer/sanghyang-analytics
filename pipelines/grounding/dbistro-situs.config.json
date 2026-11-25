@@ -1,0 +1,50 @@
+{
+ "allowed_hosts": [
+  "mambruk.co.id",
+  "marbellaplaceanyer.com",
+  "www.marbellaplaceanyer.com",
+  "llms.archipelagointernational.com",
+  "all.accor.com",
+  "www.novushotels.com"
+ ],
+ "assets": {
+  "download": false,
+  "hosts": []
+ },
+ "authorization": "Riset pasar internal: halaman publik restoran hotel pesaing di situs resminya, diizinkan robots.txt; tanpa login; tanpa data pribadi.",
+ "base_url": "https://www.mambruk.co.id",
+ "identity": {
+  "name": "SanghyangNewsCrawler/1.0",
+  "contact": "https://sanghyang.com"
+ },
+ "output_dir": "../../data/grounding/dbistro-situs",
+ "politeness": {
+  "delay_seconds": 2.0,
+  "denials_before_stop": 3,
+  "max_backoff_seconds": 60.0,
+  "max_bytes": 50000000,
+  "max_requests": 2000,
+  "max_retries": 3,
+  "timeout_seconds": 30.0
+ },
+ "sources": {
+  "endpoints": [],
+  "extra_urls": [
+   "https://www.mambruk.co.id/",
+   "https://marbellaplaceanyer.com/dining/el-patio/",
+   "https://marbellaplaceanyer.com/dining/campo-del-sol-pool-bar/",
+   "https://marbellaplaceanyer.com/dining/",
+   "https://www.mambruk.co.id/facilities",
+   "https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/dining/sunset-cafe.md",
+   "https://llms.archipelagointernational.com/brands/aston/properties/aston-anyer-beach-hotel/dining/hotel-pier.md",
+   "https://all.accor.com/hotel/C6A5/index.en.shtml",
+   "https://www.novushotels.com/novusjiva/restaurant-hotel-anyer"
+  ],
+  "sitemaps": []
+ },
+ "render": {
+  "wait_until": "domcontentloaded",
+  "settle_seconds": 5,
+  "chrome_channel": "chrome"
+ }
+}

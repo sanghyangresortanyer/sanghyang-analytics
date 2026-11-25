@@ -1,0 +1,255 @@
+{
+ "_sumber": "DB kerja lokal sanghyang_news (127.0.0.1:55432) dan DB produksi Supabase dibaca 22 Nov 2026 tanpa menulis: semua baris Source (nama sumber hanya disamakan bila domain dan metode sama), dan kolom rating kompetitor yang label ratingSource-nya berbeda antara kedua DB padahal waktu bacanya sama. Desimal tersimpan sebagai teks dan waktu sebagai ISO, seperti keluaran JSON Prisma.",
+ "sumber": {
+  "lokal": [
+   {
+    "id": "e65e0afa-d31e-4b67-b154-218814e9349a",
+    "name": "Foto Kompetitor",
+    "domain": "competitor-photos",
+    "method": "browser",
+    "category": "competitor",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "3fee4d6d-bff7-4329-9c87-4e303bd76216",
+    "name": "Situs Resmi Kompetitor",
+    "domain": "competitor-websites",
+    "method": "browser",
+    "category": "competitor",
+    "enabled": true,
+    "version": 2
+   },
+   {
+    "id": "d335c5b4-1e46-4ea2-9bad-bec4c6de4f45",
+    "name": "Ulasan Google Maps",
+    "domain": "google.com/maps",
+    "method": "browser",
+    "category": "review",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "4b90e8b5-3e82-4d9d-90c7-883a84c3b477",
+    "name": "Tarif Google Hotels",
+    "domain": "google.com/travel",
+    "method": "http",
+    "category": "review",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "3c64be8f-4972-42ca-8ffc-401b1c85844c",
+    "name": "Media Sosial Kompetitor",
+    "domain": "instagram.com",
+    "method": "http",
+    "category": "competitor",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "3708a973-aece-442a-a269-960f1d459206",
+    "name": "Promo & Event Kompetitor",
+    "domain": "instagram.com/promos",
+    "method": "http",
+    "category": "competitor",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "b9c8844c-30e1-426d-b57b-4263fb718ad6",
+    "name": "Menu Kompetitor Dinamis (Situs Resmi)",
+    "domain": "menu_pesaing_dinamis",
+    "method": "http",
+    "category": "fnb",
+    "enabled": true,
+    "version": 2
+   },
+   {
+    "id": "53e7c506-ae21-4bbd-a9ef-b242f783aabe",
+    "name": "Google News Anyer",
+    "domain": "news.google.com",
+    "method": "rss",
+    "category": "news",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "d70fa698-bd92-4f25-a198-5c8480413f23",
+    "name": "Tarif Kamar Resort Sanghyang",
+    "domain": "sanghyang.com/rates",
+    "method": "http",
+    "category": "review",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "66ce5804-a680-4aae-acf1-7eacaa61a318",
+    "name": "Rating Outlet Sanghyang",
+    "domain": "sanghyang-outlet-ratings",
+    "method": "http",
+    "category": "review",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "538a7730-ff84-4370-8876-437363fd8b56",
+    "name": "TikTok Trend Intelligence",
+    "domain": "tiktok.com",
+    "method": "http",
+    "category": "competitor",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "52640e9f-32e3-44f8-baca-689f4ca57f39",
+    "name": "Tipe Kamar Dinamis (Situs Resmi & OTA)",
+    "domain": "tipe_kamar_dinamis",
+    "method": "http",
+    "category": "competitor",
+    "enabled": true,
+    "version": 1
+   }
+  ],
+  "produksi": [
+   {
+    "id": "2996a297-4650-4cf9-94ec-e9949d75ac03",
+    "name": "Situs Resmi Pesaing",
+    "domain": "competitor-websites",
+    "method": "browser",
+    "category": "competitor",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "66830f5b-4a87-48a8-84a7-497d3a7cf868",
+    "name": "Ulasan Google Maps",
+    "domain": "google.com/maps",
+    "method": "browser",
+    "category": "review",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "4b90e8b5-3e82-4d9d-90c7-883a84c3b477",
+    "name": "Tarif Google Hotels",
+    "domain": "google.com/travel",
+    "method": "http",
+    "category": "review",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "3c64be8f-4972-42ca-8ffc-401b1c85844c",
+    "name": "Media Sosial Kompetitor",
+    "domain": "instagram.com",
+    "method": "http",
+    "category": "competitor",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "fe2e4729-6e19-41d7-aad9-3249537cc018",
+    "name": "Promo & Event Kompetitor",
+    "domain": "instagram.com/promos",
+    "method": "http",
+    "category": "competitor",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "53e7c506-ae21-4bbd-a9ef-b242f783aabe",
+    "name": "Google News",
+    "domain": "news.google.com",
+    "method": "rss",
+    "category": "news",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "9a47d705-c040-49b2-ab05-091624764c09",
+    "name": "Rating Outlet Sanghyang",
+    "domain": "sanghyang-outlet-ratings",
+    "method": "http",
+    "category": "review",
+    "enabled": true,
+    "version": 1
+   },
+   {
+    "id": "538a7730-ff84-4370-8876-437363fd8b56",
+    "name": "TikTok Trend Intelligence",
+    "domain": "tiktok.com",
+    "method": "http",
+    "category": "competitor",
+    "enabled": true,
+    "version": 1
+   }
+  ]
+ },
+ "rating": {
+  "lokal": [
+   {
+    "id": "aef736a1-a418-420d-8c31-d0faad870a4a",
+    "name": "Daiva Spa Novus Jiva",
+    "rating": "5",
+    "reviewCount": 19,
+    "ratingSource": "Google Maps (terakhir diperiksa 17 Nov 2026)",
+    "ratingSourceUrl": "https://www.google.com/maps/place/Daiva+Spa/@-6.2185309,105.8342407,17z/data=!4m7!3m6!1s0x2e422b99077f0aa1:0xae680bd4c63a5a6a!8m2!3d-6.2185309!4d105.8342407!16s%2Fg%2F11st935fyb",
+    "ratingObservedAt": "2026-11-16T17:00:00.000Z",
+    "version": 8
+   },
+   {
+    "id": "58ff7930-b3ef-450b-ac5e-a62438ca1db2",
+    "name": "Patra Anyer Hotel",
+    "rating": "4.2",
+    "reviewCount": 2471,
+    "ratingSource": "Google Maps (terakhir diperiksa 17 Nov 2026)",
+    "ratingSourceUrl": "https://www.google.com/maps/place/Patra+Anyer+Hotel/@-6.07,105.89,14z/data=!4m9!3m8!1s0x2e4186ae67120519:0xdd767b26f672d336!5m2!4m1!1i2!8m2!3d-6.0913083!4d105.8817979!16s%2Fg%2F1thzxprv",
+    "ratingObservedAt": "2026-11-16T17:00:00.000Z",
+    "version": 8
+   },
+   {
+    "id": "10000000-0000-4000-8000-000000000006",
+    "name": "THE WEST COVE HOTEL",
+    "rating": "4.8",
+    "reviewCount": 3466,
+    "ratingSource": "Google Maps (terakhir diperiksa 17 Nov 2026)",
+    "ratingSourceUrl": null,
+    "ratingObservedAt": "2026-11-16T17:00:00.000Z",
+    "version": 6
+   }
+  ],
+  "produksi": [
+   {
+    "id": "4ba65b82-ec9a-4336-abac-add58d023841",
+    "name": "Daiva Spa Novus Jiva",
+    "rating": "5",
+    "reviewCount": 19,
+    "ratingSource": "Google Maps (crawl Crawl4AI, 17 Nov 2026)",
+    "ratingSourceUrl": "https://www.google.com/maps/place/Daiva+Spa/@-6.2185309,105.8342407,17z/data=!4m7!3m6!1s0x2e422b99077f0aa1:0xae680bd4c63a5a6a!8m2!3d-6.2185309!4d105.8342407!16s%2Fg%2F11st935fyb",
+    "ratingObservedAt": "2026-11-16T17:00:00.000Z",
+    "version": 7
+   },
+   {
+    "id": "58ff7930-b3ef-450b-ac5e-a62438ca1db2",
+    "name": "Patra Anyer Hotel",
+    "rating": "4.2",
+    "reviewCount": 2471,
+    "ratingSource": "Google Maps (crawl Crawl4AI, 17 Nov 2026)",
+    "ratingSourceUrl": "https://www.google.com/maps/place/Patra+Anyer+Hotel/@-6.07,105.89,14z/data=!4m9!3m8!1s0x2e4186ae67120519:0xdd767b26f672d336!5m2!4m1!1i2!8m2!3d-6.0913083!4d105.8817979!16s%2Fg%2F1thzxprv",
+    "ratingObservedAt": "2026-11-16T17:00:00.000Z",
+    "version": 8
+   },
+   {
+    "id": "10000000-0000-4000-8000-000000000006",
+    "name": "THE WEST COVE HOTEL",
+    "rating": "4.8",
+    "reviewCount": 3466,
+    "ratingSource": "Google Maps (crawl Crawl4AI, 17 Nov 2026)",
+    "ratingSourceUrl": null,
+    "ratingObservedAt": "2026-11-16T17:00:00.000Z",
+    "version": 8
+   }
+  ]
+ }
+}

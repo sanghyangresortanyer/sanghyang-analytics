@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanghyang Analytics Sync</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 14px;
+      width: 320px;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 12px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .title {
+      font-weight: 700;
+      font-size: 14px;
+      color: #0f766e;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .badge.running { background: #ccfbf1; color: #0f766e; }
+    .badge.paused { background: #fef3c7; color: #92400e; }
+    .badge.done { background: #dcfce7; color: #166534; }
+    .meta {
+      color: #475569;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .alert {
+      background: #fffbeb;
+      border: 1px solid #f59e0b;
+      color: #78350f;
+      border-radius: 8px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    button {
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: #0f766e; color: #ffffff; }
+    .btn-amber { background: #d97706; color: #ffffff; }
+    .btn-ghost { background: #ffffff; color: #334155; border-color: #cbd5e1; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <span class="title">Sanghyang Analytics Sync</span>
+      <span id="status-badge" class="badge">Siap</span>
+    </div>
+    <div id="status-meta" class="meta">Memeriksa antrean sinkronisasi...</div>
+    <div id="pause-box" class="alert hidden"></div>
+    <div class="actions">
+      <button id="btn-focus" class="btn-ghost hidden" type="button">Buka Tab Verifikasi</button>
+      <button id="btn-resume" class="btn-amber hidden" type="button">Sudah Selesai · Lanjutkan</button>
+      <button id="btn-cancel" class="btn-ghost hidden" type="button">Batalkan Sinkronisasi</button>
+      <button id="btn-dashboard" class="btn-primary" type="button">Buka Insight Pasar</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

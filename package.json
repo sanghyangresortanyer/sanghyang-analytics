@@ -1,0 +1,80 @@
+{
+  "name": "sanghyang-analytics",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "postinstall": "prisma generate",
+    "prisma:generate": "prisma generate",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:market": "NODE_OPTIONS=--conditions=react-server node --env-file-if-exists=.env.development.local node_modules/tsx/dist/cli.mjs --test --test-concurrency=1 tests/unit/*.test.ts",
+    "test:unit": "npm run test:market",
+    "test:all": "npm run test && npm run test:market",
+    "test:e2e": "node --env-file-if-exists=.env.development.local node_modules/tsx/dist/cli.mjs tests/e2e/visual-audit.ts",
+    "test:security": "NODE_OPTIONS=--conditions=react-server node --env-file-if-exists=.env.development.local node_modules/tsx/dist/cli.mjs --test tests/unit/security-session.test.ts",
+    "audit:provenance": "node --env-file-if-exists=.env.development.local node_modules/tsx/dist/cli.mjs scripts/ops/audit_provenance.ts",
+    "health": "curl -f http://localhost:3001/api/health",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "tsx prisma/seed.ts",
+    "marketing": "node --disable-warning=ExperimentalWarning --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/marketing/cli.ts",
+    "sort-fixtures": "node scripts/sort-fixtures.mjs",
+    "check:gallery": "node --env-file-if-exists=.env.development.local node_modules/tsx/dist/cli.mjs scripts/ops/read-gallery-photos.ts",
+    "crawl:rooms": "node --env-file-if-exists=.env.development.local node_modules/tsx/dist/cli.mjs scripts/ops/crawl-room-rates.ts",
+    "sync:crawlai": "python scripts/ops/export_crawlai_for_ingest.py && node --env-file-if-exists=.env.development.local node_modules/tsx/dist/cli.mjs scripts/ops/ingest-crawlai-evidence.ts",
+    "sync:crawlai:produksi": "ALLOW_PRODUCTION_WRITE=1 python scripts/ops/export_crawlai_for_ingest.py && ALLOW_PRODUCTION_WRITE=1 node --env-file=.env.local node_modules/tsx/dist/cli.mjs scripts/ops/ingest-crawlai-evidence.ts",
+    "alert:morning": "node --env-file-if-exists=.env.development.local node_modules/tsx/dist/cli.mjs scripts/ops/send-morning-briefing.ts",
+    "alert:morning:produksi": "node --env-file=.env.local node_modules/tsx/dist/cli.mjs scripts/ops/send-morning-briefing.ts"
+  },
+  "dependencies": {
+    "@extractus/article-extractor": "^9.0.1",
+    "@google/genai": "^2.18.0",
+    "@prisma/client": "^6.19.0",
+    "@sparticuz/chromium": "^149.0.0",
+    "@supabase/ssr": "^0.12.4",
+    "@supabase/supabase-js": "^2.112.3",
+    "3d-force-graph": "1.73.4",
+    "exceljs": "^4.4.0",
+    "lucide-react": "^1.72.0",
+    "next": "16.4.6",
+    "puppeteer-core": "^25.9.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20.19.43 || ^24.0.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitest/ui": "^4.1.11",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "prisma": "^6.19.0",
+    "puppeteer": "^25.9.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.20.6",
+    "typescript": "^5",
+    "vitest": "^4.1.11"
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "11.1.1"
+    }
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "prisma@6.19.3": true,
+    "protobufjs@7.6.5": true,
+    "puppeteer@25.9.0": true,
+    "unrs-resolver@1.12.2": true,
+    "@google/genai@2.18.0": true,
+    "@prisma/client@6.19.3": true,
+    "@prisma/engines@6.19.3": true
+  }
+}

@@ -1,0 +1,322 @@
+{
+ "_sumber": "DB kerja lokal 127.0.0.1:55432 dan DB produksi Supabase, dibaca 19 Nov 2026 lewat probe baca-saja di .agents/local/probe/; tiap bagian direkam sebelum langkah sinkron yang mengujinya diterapkan. Teks ulasan, alamat berita, dan alamat ulasan disimpan sebagai sha256 16 karakter karena aturan pasangan hanya membandingkan kesamaan; isiUlasan memuat teks ulasan publik outlet Sanghyang apa adanya karena aturan teks terpotong membandingkan awal teks; postinganSatuBatch memuat alamat postingan Instagram publik pesaing.",
+ "ulasan": {
+  "lokal": [
+   {
+    "id": "0",
+    "competitor": "Sunset Grill (Sanghyang)",
+    "source": "Google Maps",
+    "externalId": "2cd56568906340a6b4e8e10905e394da",
+    "text": "2349e628f8d416db",
+    "archivedAt": "2026-11-14T02:20:26.434Z"
+   },
+   {
+    "id": "1",
+    "competitor": "Sunset Grill (Sanghyang)",
+    "source": "Google Maps",
+    "externalId": "e4eeb5f8a5db175253478c52fb6a070d",
+    "text": "5fc28b7505c31a7c",
+    "archivedAt": "2026-11-14T02:20:26.434Z"
+   },
+   {
+    "id": "2",
+    "competitor": "Sunset Grill (Sanghyang)",
+    "source": "Google Maps",
+    "externalId": "e98dde610c220854e147653f06a89db0",
+    "text": "2349e628f8d416db",
+    "archivedAt": null
+   },
+   {
+    "id": "3",
+    "competitor": "Sunset Grill (Sanghyang)",
+    "source": "Google Maps",
+    "externalId": "5aa25515e35a3268dd67adb94c63160e",
+    "text": "5fc28b7505c31a7c",
+    "archivedAt": null
+   }
+  ],
+  "produksi": [
+   {
+    "id": "0",
+    "competitor": "Sunset Grill (Sanghyang)",
+    "source": "Google Maps",
+    "externalId": "e4eeb5f8a5db175253478c52fb6a070d",
+    "text": "5fc28b7505c31a7c",
+    "archivedAt": null
+   },
+   {
+    "id": "1",
+    "competitor": "Sunset Grill (Sanghyang)",
+    "source": "Google Maps",
+    "externalId": "2cd56568906340a6b4e8e10905e394da",
+    "text": "2349e628f8d416db",
+    "archivedAt": null
+   },
+   {
+    "id": "2",
+    "competitor": "Sunset Grill (Sanghyang)",
+    "source": "Google Maps",
+    "externalId": "e98dde610c220854e147653f06a89db0",
+    "text": "2349e628f8d416db",
+    "archivedAt": null
+   },
+   {
+    "id": "3",
+    "competitor": "Sunset Grill (Sanghyang)",
+    "source": "Google Maps",
+    "externalId": "5aa25515e35a3268dd67adb94c63160e",
+    "text": "5fc28b7505c31a7c",
+    "archivedAt": null
+   },
+   {
+    "id": "4",
+    "competitor": "Marbella Place Anyer by Jayakarta",
+    "source": "Google Maps",
+    "externalId": "a3e40d91cdc1978059cf012ab082f473",
+    "text": "46374a9aff33d171",
+    "archivedAt": null
+   }
+  ]
+ },
+ "bacaanBerita": [
+  {
+   "artikel": "1decbd90574f227c",
+   "lokal": {
+    "readStatus": "relevan",
+    "readAt": "2026-11-18T11:43:33.031Z"
+   },
+   "produksi": {
+    "readStatus": "tidak_terbaca",
+    "readAt": "2026-11-18T19:00:03.107Z"
+   }
+  },
+  {
+   "artikel": "1d9f8633f96eedb4",
+   "lokal": {
+    "readStatus": "tidak_relevan",
+    "readAt": "2026-11-17T19:18:23.390Z"
+   },
+   "produksi": {
+    "readStatus": "tidak_terbaca",
+    "readAt": "2026-11-18T19:00:03.107Z"
+   }
+  },
+  {
+   "artikel": "00731664914e25cf",
+   "lokal": {
+    "readStatus": "relevan",
+    "readAt": "2026-11-17T19:28:38.702Z"
+   },
+   "produksi": {
+    "readStatus": "tidak_terbaca",
+    "readAt": "2026-11-18T22:42:57.681Z"
+   }
+  },
+  {
+   "artikel": "30da89a0abf7775e",
+   "lokal": {
+    "readStatus": "tidak_relevan",
+    "readAt": "2026-11-17T19:18:23.390Z"
+   },
+   "produksi": {
+    "readStatus": "tidak_terbaca",
+    "readAt": "2026-11-19T03:47:44.998Z"
+   }
+  }
+ ],
+ "artikelKembar": [
+  {
+   "lokal": {
+    "canonicalUrl": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQbVZQNVBVejhBaldjdzZvekZOT2wwbG12MUxsQjZ5eUlsX0lnVk9NY2RXZXg0dXU3YU9TcnVQaE5zVFhMQzVtVXN1RUlURVJNRWt4QmphUkVCS01ucmw2c3J3bDZqNWdnZ253ZHQ2OHZmbXJ2YUswNG9OTEpGSVY5Zm9ZR2hTNjNOb2JEWlZ1dzRGMG5BdFFDcUFLcUFrTm1XbkxRWWNqdFpJSGpPT2FDN3k4SGlleTNiSHRkSjFBZWY2QWluVVQzdlRiODZnMkdOT1dqSWtSNG41RUVHR2E5Y0Y5Y2VRMFZnampzUUdKcFhtT24xbDZUTXNkeVc4R3BneWkxY9IBhAJBVV95cUxQbVZQNVBVejhBaldjdzZvekZOT2wwbG12MUxsQjZ5eUlsX0lnVk9NY2RXZXg0dXU3YU9TcnVQaE5zVFhMQzVtVXN1RUlURVJNRWt4QmphUkVCS01ucmw2c3J3bDZqNWdnZ253ZHQ2OHZmbXJ2YUswNG9OTEpGSVY5Zm9ZR2hTNjNOb2JEWlZ1dzRGMG5BdFFDcUFLcUFrTm1XbkxRWWNqdFpJSGpPT2FDN3k4SGlleTNiSHRkSjFBZWY2QWluVVQzdlRiODZnMkdOT1dqSWtSNG41RUVHR2E5Y0Y5Y2VRMFZnampzUUdKcFhtT24xbDZUTXNkeVc4R3BneWkxYw?oc=5",
+    "contentHash": "0a63d79e40ff66e5b839a018c81c281eb0be34685fc22aa979260737c96dfa0e",
+    "normalizedTitle": "sambut libur nataru, pemkab serang dan phri benahi infrastruktur wisata anyar-cinangka kabupaten serang - kabar banten",
+    "publishedAt": "2026-11-13T00:00:00.000Z"
+   },
+   "produksi": {
+    "canonicalUrl": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOcFVNT1RLM21fVnRXUVQwUTFMc1lQR2VuR2FTUG1TbXJoRUpPZjh4V01wS3Nad2stR2ZFTFFWUTdnTFRrYlhBTVh3cjk1SHllUDZ4MDZZcm1jZ0RNU3A2YkJCbm5USWZMakFKeHhLQURXVkUzeDdBcWpNcWtFY0dmYUxxdFRqdTZQYzJsLUp3dk13SjdKNzdlUHdqaVVOSUJlRzNpZjRHOW1McGZzSUxVclN5N2pibFdiZ3g4VUdXUklZOVhKdjkxdHpfSTkzeDFMalowcVJiUmdQNTAzcVpGcVlRYzE1ZHRac3hnWE9iRDVWWFJCdG1xVG1WaDJjSnfSAYQCQVVfeXFMUG1WUDVQVXo4QWpXY3c2b3pGTk9sMGxtdjFMbEI2eXlJbF9JZ1ZPTWNkV2V4NHV1N2FPU3J1UGhOc1RYTEM1bVVzdUVJVEVSTUVreEJqYVJFQktNbnJsNnNyd2w2ajVnZ2dud2R0Njh2Zm1ydmFLMDRvTkxKRklWOWZvWUdoUzYzTm9iRFpWdXc0RjBuQXRRQ3FBS3FBa05tV25MUVljanRaSUhqT09hQzd5OEhpZXkzYkh0ZEoxQWVmNkFpblVUM3ZUYjg2ZzJHTk9XaklrUjRuNUVFR0dhOWNGOWNlUTBWZ2pqc1FHSnBYbU9uMWw2VE1zZHlXOEdwZ3lpMWM?oc=5",
+    "contentHash": "0a63d79e40ff66e5b839a018c81c281eb0be34685fc22aa979260737c96dfa0e",
+    "normalizedTitle": "sambut libur nataru, pemkab serang dan phri benahi infrastruktur wisata anyar-cinangka kabupaten serang - kabar banten",
+    "publishedAt": "2026-11-13T00:00:00.000Z"
+   }
+  }
+ ],
+ "isiUlasan": [
+  {
+   "kunci": "Sunset Grill (Sanghyang)|Google Maps|a19199eb1dea6fe3ac134a8d8bf7a1a2",
+   "lokal": {
+    "text": "Dateng sore-sore, langit lagi cakep, terus liat bean bag warna-warni di pinggir air—auto pengen duduk santai aja tanpa mikir apa-apa. Angin lautnya dapet, suasananya tenang tapi tetep hidup karena ada orang ngobrol santai di sekitar.\n\nYang paling kerasa sih chill-nya itu, bukan tipe tempat yang rame berisik, tapi lebih ke tempat buat nikmatin momen. Cocok banget buat lepas penat atau sekadar duduk sambil liat sunset pelan-pelan turun.",
+    "themes": [
+     "fasilitas & pantai"
+    ],
+    "sentiment": "neutral"
+   },
+   "produksi": {
+    "text": "Dateng sore-sore, langit lagi cakep, terus liat bean bag warna-warni di pinggir air—auto pengen duduk santai aja tanpa mikir apa-apa. Angin lautnya dapet, suasananya tenang tapi tetep hidup karena ada orang ngobrol santai di sekitar. …",
+    "themes": [
+     "fasilitas & pantai"
+    ],
+    "sentiment": "positive"
+   }
+  },
+  {
+   "kunci": "Dragon Beach Club (Sanghyang)|Google Maps|bff24712cd56d41632434d8465bea0c8",
+   "lokal": {
+    "text": "Nemu makanan yang luar biasa enak\nJika dibandingkan tempat lain …",
+    "themes": [
+     "makanan & sarapan"
+    ],
+    "sentiment": "positive"
+   },
+   "produksi": {
+    "text": "Nemu makanan yang luar biasa enak\nJika dibandingkan tempat lain\n\nHeran juga nemu menu terbaik ini malah di club\n\nTahu cabe lada garam terbaik",
+    "themes": [
+     "makanan & sarapan"
+    ],
+    "sentiment": "positive"
+   }
+  },
+  {
+   "kunci": "Sanghyang Indah Spa Resort|Tripadvisor|cf5eb3245c802e5bb103dd330725b086",
+   "lokal": {
+    "text": "(Diterjemahkan oleh Google) Suasananya keren... berlangganan di sini (Asli) …",
+    "themes": [
+     "umum"
+    ],
+    "sentiment": "positive"
+   },
+   "produksi": {
+    "text": "(Diterjemahkan oleh Google) Suasananya keren... berlangganan di sini (Asli) …",
+    "themes": [
+     "umum",
+     "outlet-dibaca-gemini"
+    ],
+    "sentiment": "positive"
+   }
+  }
+ ],
+ "promoBeda": [
+  {
+   "lokal": {
+    "kunci": "Aston Anyer Beach Hotel|Halloween Fiesta|2026-11-05T10:11:07.589Z",
+    "category": "F&B & Kuliner",
+    "description": "Acara makan bertema Halloween dengan hidangan spesial dan suasana meriah.\nVersi kita: Nikmati paket Halloween Fiesta di Sunset Grill dengan hidangan spesial berbonus minuman mocktail seram gratis untuk setiap pembelian menu keluarga.",
+    "startsAt": "2026-10-30T17:00:00.000Z",
+    "endsAt": "2026-10-31T16:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram (dibaca Gemini)",
+    "sourceUrl": "https://www.instagram.com/astonanyer/reel/De81vt9zIfJ/",
+    "imageUrl": "https://scontent.cdninstagram.com/v/t51.82787-15/858281190_18639380290037126_6549480888915094858_n.jpg?stp=cmp1_dst-jpg_e35_s640x640_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ECfACASglHUQ7kNvwF4KSYC&_nc_oc=Adqc7ZPH8vPBjsViJ9vBfWriFEfRguTFAvds0Zlu_m3OOEd8i9CAFRsxzwuh9rauJC0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=976-lBKrl0jyAUxcPg_dTQ&_nc_ss=7f689&oh=00_AQTMRyli5OdIrmNzrY2vpVrWBPGyag4jtqXdMk73tZAvYw&oe=6AF57C29",
+    "status": "expired",
+    "kind": "event",
+    "details": [],
+    "terms": []
+   },
+   "produksi": {
+    "kunci": "Aston Anyer Beach Hotel|Halloween Fiesta|2026-11-05T10:11:07.589Z",
+    "category": "F&B & Kuliner",
+    "description": "Acara makan bertema Halloween dengan hidangan spesial dan suasana meriah.\nVersi kita: Nikmati paket Halloween Fiesta di Sunset Grill dengan hidangan spesial berbonus minuman mocktail seram gratis untuk setiap pembelian menu keluarga.",
+    "startsAt": "2026-10-25T17:00:00.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram (dibaca Gemini)",
+    "sourceUrl": "https://www.instagram.com/astonanyer/reel/De81vt9zIfJ/",
+    "imageUrl": "https://scontent.cdninstagram.com/v/t51.82787-15/858281190_18639380290037126_6549480888915094858_n.jpg?stp=cmp1_dst-jpg_e35_s640x640_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=ECfACASglHUQ7kNvwF4KSYC&_nc_oc=Adqc7ZPH8vPBjsViJ9vBfWriFEfRguTFAvds0Zlu_m3OOEd8i9CAFRsxzwuh9rauJC0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=976-lBKrl0jyAUxcPg_dTQ&_nc_ss=7f689&oh=00_AQTMRyli5OdIrmNzrY2vpVrWBPGyag4jtqXdMk73tZAvYw&oe=6AF57C29",
+    "status": "new",
+    "kind": "event",
+    "details": [],
+    "terms": []
+   }
+  },
+  {
+   "lokal": {
+    "kunci": "Omah Laut Cafe & Resto|Halloween Night Party|2026-11-05T10:11:07.589Z",
+    "category": "Acara & Live Music",
+    "description": "Acara perayaan malam Halloween yang diadakan oleh restoran.\nVersi kita: Sanghyang Indah Spa Resort menawarkan paket makan malam Halloween spesial dengan hiburan musik di Sunset Grill dan akses gratis ke D'Bar & Karaoke.",
+    "startsAt": "2026-10-30T17:00:00.000Z",
+    "endsAt": "2026-10-31T16:59:59.000Z",
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram (dibaca Gemini)",
+    "sourceUrl": "https://www.instagram.com/omahlautcaferesto/p/DfJipGZGYfl/",
+    "imageUrl": "https://scontent.cdninstagram.com/v/t51.82787-15/883300322_18118551748997585_4698786110503681663_n.webp?stp=c288.0.864.864a_dst-jpg_e35_s640x640_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=pPbvaX3ubt4Q7kNvwHwhUdj&_nc_oc=AdqqTAdhU1hep8oed69bzIaHzuglWPeH8E3jHn2Rg0K3eg3HHkFd76PhEf3NsqkYxpQ&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=4Cr4Z2AHuE3dK4uJUxtuAw&_nc_ss=7f689&oh=00_AQQ0Nz0bWl1_Jc-1GSr_76e9I9MK3YHOihvi_EQU0x2aNg&oe=6AF57FE5",
+    "status": "expired",
+    "kind": "event",
+    "details": [],
+    "terms": []
+   },
+   "produksi": {
+    "kunci": "Omah Laut Cafe & Resto|Halloween Night Party|2026-11-05T10:11:07.589Z",
+    "category": "Acara & Live Music",
+    "description": "Acara perayaan malam Halloween yang diadakan oleh restoran.\nVersi kita: Sanghyang Indah Spa Resort menawarkan paket makan malam Halloween spesial dengan hiburan musik di Sunset Grill dan akses gratis ke D'Bar & Karaoke.",
+    "startsAt": "2026-10-29T17:00:00.000Z",
+    "endsAt": null,
+    "price": null,
+    "originalPrice": null,
+    "discount": null,
+    "source": "Instagram (dibaca Gemini)",
+    "sourceUrl": "https://www.instagram.com/omahlautcaferesto/p/DfJipGZGYfl/",
+    "imageUrl": "https://scontent.cdninstagram.com/v/t51.82787-15/883300322_18118551748997585_4698786110503681663_n.webp?stp=c288.0.864.864a_dst-jpg_e35_s640x640_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=pPbvaX3ubt4Q7kNvwHwhUdj&_nc_oc=AdqqTAdhU1hep8oed69bzIaHzuglWPeH8E3jHn2Rg0K3eg3HHkFd76PhEf3NsqkYxpQ&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=4Cr4Z2AHuE3dK4uJUxtuAw&_nc_ss=7f689&oh=00_AQQ0Nz0bWl1_Jc-1GSr_76e9I9MK3YHOihvi_EQU0x2aNg&oe=6AF57FE5",
+    "status": "new",
+    "kind": "event",
+    "details": [],
+    "terms": []
+   }
+  }
+ ],
+ "postinganSatuBatch": [
+  {
+   "competitor": "BM Seaside View Cafe & Resto",
+   "title": "Postingan baru @bmseasideview",
+   "capturedAt": "2026-11-05T10:11:07.589Z",
+   "sourceUrl": "https://www.instagram.com/bmseasideview/p/DfRzBruTfD1/"
+  },
+  {
+   "competitor": "BM Seaside View Cafe & Resto",
+   "title": "Postingan baru @bmseasideview",
+   "capturedAt": "2026-11-05T10:11:07.589Z",
+   "sourceUrl": "https://www.instagram.com/bmseasideview/p/DY43va9zU4w/"
+  }
+ ],
+ "ulasanTanggalBeda": {
+  "lokal": {
+   "competitor": "Marbella Place Anyer by Jayakarta",
+   "source": "Google Maps",
+   "externalId": "21c52fb31c61976cffb9f57d2eeb49fb",
+   "text": "2a2dfa50aec2ce74",
+   "reviewDate": "2026-11-12T02:17:31.890Z",
+   "rating": "1",
+   "title": null,
+   "sourceUrlHash": "b0655902c52aeca4"
+  },
+  "produksi": {
+   "competitor": "Marbella Place Anyer by Jayakarta",
+   "source": "Google Maps",
+   "externalId": "f866cb0dbc57072d9ddbdb22e0c9f662",
+   "text": "2a2dfa50aec2ce74",
+   "reviewDate": "2026-11-11T21:40:08.587Z",
+   "rating": "1",
+   "title": null,
+   "sourceUrlHash": "b0655902c52aeca4"
+  }
+ },
+ "tarifPindah": {
+  "catatan": "Satu tarif entity Resort Prima Anyer yang di produksi tercatat sebagai The Jayakarta Villas, sedangkan di lokal sudah dipindah ke Resort Prima Anyer oleh audit 17 Nov 2026 (dicadangkan scripts/ops/fix-prima-rates-2026-11-19.ts).",
+  "baris": {
+   "roomName": "Market rate",
+   "packageName": "Google Hotels displayed rate",
+   "checkIn": "2026-10-11T00:00:00.000Z",
+   "checkOut": "2026-10-12T00:00:00.000Z",
+   "observedAt": "2026-10-22T08:32:35.932Z",
+   "source": "Google Hotels lowest displayed rate",
+   "guests": 2,
+   "sourceUrl": "https://www.google.com/travel/hotels/entity/ChgI_9neisz9vOACGgwvZy8xcHpwaGt4MnMQAQ/prices?hl=id&checkin=2026-10-11&checkout=2026-10-12&adults=2&ts=CAEaIAoCGgASGhIUCgcI6g8QChgLEgcI6g8QChgMGAEyAggBKgkKBToDSURSGgA&ap=MAE"
+  },
+  "pemilikLokal": "Resort Prima Anyer",
+  "pemilikProduksi": "The Jayakarta Villas Anyer Beach Resort"
+ }
+}
