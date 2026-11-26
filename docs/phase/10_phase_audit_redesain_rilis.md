@@ -40,7 +40,9 @@ Koordinator mencentang butir setelah buktinya (perintah dan hasil, tautan, atau 
   Bukti: palet era situs hidup (cream #F3F3EC, ink #1F2B4D, velvet #22382D), Noto Serif Display dan Archivo hanya di /login, logo dan foto udara resmi dari `sanghyang_web`; slogan "A comprehensive analytics workspace for resort operations, marketing and market intelligence." Dicek di peramban desktop 1568 px dan emulasi ponsel 390 px tanpa gulir horizontal; `src/app/login/page.test.ts` 4/4 lulus.
 - [x] Redesain tab Media Sosial di halaman Marketing, dicek di desktop 1440 px dan ponsel 390 px (pelaksana `@pemeta-frontend`).
   Bukti 26 Nov 2026 di `http://localhost:3001` dengan sesi pemilik: tab "Sosmed Sanghyang" digabung ke "Media Sosial" (`?bagian=sosmed&lihat=audit` dialihkan ke `?bagian=media-sosial`), "Daftar Akun Sosmed" dihapus seutuhnya, Audit Promo Outlet menjadi bagian di atas evaluasi, dan evaluasi menjadi grid kartu (foto, lencana jenis dan sumber, metrik, skor total, Hook/Copy/CTA, saran perbaikan). Semua Outlet 33 kartu; Sunset Grill 7 kartu, menyempit ke 1 kartu saat periode 20–26 Nov; keterangan per akun menyebut akun yang belum tersambung ke Meta ("data dari ekstensi"). Grid `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`, jadi satu kolom di 390 px. 94 tes terkait lulus. Catatan: server dev diikat ke `localhost`; membuka lewat `127.0.0.1` membuat halaman tidak terhidrasi karena Next 16 menolak WebSocket HMR lintas-origin.
-- [ ] Rilis produksi ke `https://analytics.sanghyang.com` atas izin pemilik: env produksi lengkap (termasuk `DML_MIN_LIST_DATE=2026-11-01` dan ID sheet gudang, lihat P10 DML-1 dan GS-1), deploy Vercel READY, health dan login dicek, lalu tindakan pasca-deploy ROLLOUT "Tambahan 26 Nov 2026" §4 langkah 5 dijalankan (koordinator dan pemilik, diperiksa `@verifier-1`).
+- [x] Rilis produksi ke `https://analytics.sanghyang.com` atas izin pemilik: env produksi lengkap (termasuk `DML_MIN_LIST_DATE=2026-11-01` dan ID sheet gudang, lihat P10 DML-1 dan GS-1), deploy Vercel READY, health dan login dicek (koordinator).
+  Bukti 26 Nov 2026: env Vercel produksi `GOOGLE_SHEET_MAIN_ID`, `GOOGLE_SHEET_BEV_ID`, `GOOGLE_SHEET_ENG_ID` (sensitive) dan `DML_MIN_LIST_DATE=2026-11-01` terpasang dari `.env.local` sanghyang-analytics. Commit `cd29795` (sanghyangresortanyer, noreply) di-push ke `main`; deploy `dpl_GAbjXiXJ5fFwAeyWcU4FjjU12Udi` READY dalam 64 detik dengan alias `analytics.sanghyang.com`; workflow Security checks sukses; tanpa galat runtime satu jam pertama. `/api/health` 200, `/marketing`, `/data-sheets`, dan `/laporan-resort` mengalihkan ke login tanpa sesi, header `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, dan `Permissions-Policy` aktif, dan `/login` memuat slogan baru tanpa teks lama. Langkah 1 ROLLOUT (dump sebelum migrasi) terlewat; sebagai gantinya dibuat dump pasca-migrasi `backups/omuqbpxierdlfjascngz-pasca-0088-20261126-1851.dump` (11,2 MB, 69 tabel data) sebelum ada penulisan data baru.
+- [ ] Tindakan operasional pasca-deploy ROLLOUT "Tambahan 26 Nov 2026" §4 langkah 5 (pemilik): unggah ulang Penjualan per Artikel bulan berjalan dan bulan pembandingnya lewat `/upload-mingguan` agar `bill_no` terisi, impor `BOOKING BY WA.xlsx` di tab Google Ads, lalu tekan Tarik Data Sekarang di `/data-sheets` untuk Main Store, minuman (LH), dan Engineering (atau tunggu cron Senin 01.00 WIB). Ekspor VHP Januari sampai November 2026 tersedia di `fixtures/` lokal.
 
 ## 5. Berkas utama
 
@@ -59,6 +61,6 @@ Koordinator mencentang butir setelah buktinya (perintah dan hasil, tautan, atau 
 
 ## 7. Kriteria keluar
 
-- [ ] Semua butir §4 bercentang dengan bukti
-- [ ] `python3 .agents/scripts/brain.py phase --check` tanpa galat
+- [ ] Semua butir §4 bercentang dengan bukti (tersisa tindakan operasional pasca-deploy milik pemilik)
+- [x] `python3 .agents/scripts/brain.py phase --check` tanpa galat
 - [ ] Pemilik mengonfirmasi fase ditutup
