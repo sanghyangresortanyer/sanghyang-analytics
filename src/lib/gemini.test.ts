@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { aiConfig, buildInteraction, generateWithRetry, jedaDari, readInteraction } from "./gemini";
+import { aiConfig, buildInteraction, generateWithRetry, jedaDari, pesanKuota, readInteraction } from "./gemini";
 
 const ENV = { GEMINI_API_KEY: "kunci-uji", PRIMARY_MODEL: "gemini-4-hydrogen", PRIMARY_THINKING_LEVEL: "xhigh" };
 const CONFIG = { apiKey: "kunci-uji", model: "gemini-4-hydrogen", thinkingLevel: "xhigh" as const };
@@ -122,6 +122,17 @@ describe("generateWithRetry", () => {
     await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV })).rejects.toThrow(/PerDay/);
     expect(create).toHaveBeenCalledTimes(1);
     expect(sleep).not.toHaveBeenCalled();
+  });
+
+  it("kuota harian dengan tulisan 'per day' (Interactions API) juga langsung dilempar dan diberi pesan harian", async () => {
+    const pesan =
+      "429 Rate limit exceeded for model gemini-4-hydrogen (limit: 20 requests per day on Free Tier). Please retry in 19h30m53s or upgrade your tier.";
+    const create = vi.fn().mockRejectedValue(penuh(429, pesan));
+    const sleep = vi.fn();
+    await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV })).rejects.toThrow(/per day/);
+    expect(create).toHaveBeenCalledTimes(1);
+    expect(sleep).not.toHaveBeenCalled();
+    expect(pesanKuota(pesan)).toBe("Jatah harian AI sudah habis. Coba lagi besok siang.");
   });
 
   it("galat permintaan (400) tidak dicoba ulang", async () => {

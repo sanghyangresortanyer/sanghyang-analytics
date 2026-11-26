@@ -258,6 +258,11 @@ export function jedaDari(pesan: string, percobaan: number, acak: () => number = 
 }
 
 const STATUS_GAGAL = new Set(['failed', 'cancelled', 'budget_exceeded']);
+/**
+ * Kuota harian: generateContent menulis "GenerateRequestsPerDay", Interactions API menulis "20 requests per day on
+ * Free Tier" (26 Nov 2026). Keduanya baru pulih tengah malam Pacific, jadi menunggu di dalam permintaan sia-sia.
+ */
+const KUOTA_HARIAN = /per\s*day|perday|daily/i;
 
 function detailGalat(e: unknown): string {
   const r = isRecord(e) ? e : {};
@@ -295,7 +300,7 @@ export async function generateWithRetry(params: GenerateParams, deps: GenerateDe
     } catch (e) {
       const pesan = detailGalat(e);
       const bisaDitunggu = /HTTP (429|503)\b|503|UNAVAILABLE|429|RESOURCE_EXHAUSTED|high demand/i.test(pesan);
-      if (i + 1 >= tries || /PerDay/i.test(pesan) || !bisaDitunggu) throw e;
+      if (i + 1 >= tries || KUOTA_HARIAN.test(pesan) || !bisaDitunggu) throw e;
       await sleep(jedaDari(pesan, i));
     }
   }
@@ -312,8 +317,8 @@ export async function generateWithRetry(params: GenerateParams, deps: GenerateDe
  * pernah boleh sampai ke staf.
  */
 export function pesanKuota(galat: string): string | undefined {
-  if (!/429|RESOURCE_EXHAUSTED|quota/i.test(galat)) return undefined;
-  return /PerDay/i.test(galat)
+  if (!/429|RESOURCE_EXHAUSTED|quota|rate limit/i.test(galat)) return undefined;
+  return KUOTA_HARIAN.test(galat)
     ? 'Jatah harian AI sudah habis. Coba lagi besok siang.'
     : 'Layanan ringkasan sedang sibuk, tunggu sebentar lalu coba lagi.';
 }
