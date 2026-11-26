@@ -3,6 +3,7 @@
 
 const STATE_KEY = "sanghyang_sync_state";
 const ALLOWED_APP_ORIGINS = new Set([
+  "https://analytics.sanghyang.com",
   "https://sanghyang-analytics.vercel.app",
   "http://localhost:3001",
   "http://127.0.0.1:3001",

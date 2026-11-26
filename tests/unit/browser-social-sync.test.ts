@@ -1312,9 +1312,9 @@ test("v1.1.5 regresi gulir & dinding login IG: spinner height tidak memutus tung
   const parsers = require("../../extension/sanghyang-social-sync/parsers.js");
   const { loadExtensionManifestInfo } = await import("../../src/lib/market/extension-zip");
 
-  // 1. Versi manifest wajib 1.1.11 dengan key & Extension ID tetap
+  // 1. Versi manifest wajib 1.2.0 dengan key & Extension ID tetap
   const info = loadExtensionManifestInfo();
-  assert.equal(info.manifest.version, "1.1.11");
+  assert.equal(info.manifest.version, "1.2.0");
 
   // 2. Dinding login IG berbahasa Indonesia asli 2026 ("Tampilkan postingan lainnya dari", "Lihat foto, video, dan banyak lagi", "Daftar dan jangan lewatkan postingan")
   const igIdBodyWall = parsers.detectSocialChallenge({
@@ -2069,9 +2069,9 @@ test("v1.1.6 regresi background.js: TikTok 0 item dengan followers terbaca wajib
   const { loadExtensionManifestInfo } = await import("../../src/lib/market/extension-zip");
   const bgSrc = fs.readFileSync(path.resolve(process.cwd(), "extension/sanghyang-social-sync/background.js"), "utf8");
 
-  // 1. Versi manifest wajib 1.1.11 dengan Extension ID tetap
+  // 1. Versi manifest wajib 1.2.0 dengan Extension ID tetap
   const manifestInfo = loadExtensionManifestInfo();
-  assert.equal(manifestInfo.manifest.version, "1.1.11");
+  assert.equal(manifestInfo.manifest.version, "1.2.0");
   assert.equal(manifestInfo.extensionId, "kabomdcpiamnnncoifohknncamcddahl");
 
   type TabRec = { id: number; url: string; status: string; incognito: boolean; windowId: number; active: boolean };
@@ -5588,4 +5588,20 @@ test("v1.1.10 TDD background.js: profileCollected vs reelsAdded, anti-badai deta
   assert.equal(reelsRlRes?.profileCollected, 5);
   assert.equal(reelsRlRes?.reelsAdded, 2);
   assert.equal(reelsRlRes?.collected, 7);
+});
+
+test("domain produksi analytics.sanghyang.com boleh memanggil ekstensi (manifest, background, popup)", async () => {
+  const fs = await import("node:fs");
+  const path = await import("node:path");
+  const { loadExtensionManifestInfo } = await import("../../src/lib/market/extension-zip");
+  const { manifest } = loadExtensionManifestInfo();
+  const read = (file: string) => fs.readFileSync(path.resolve(process.cwd(), "extension/sanghyang-social-sync", file), "utf8");
+
+  // Tanpa pola externally_connectable Chrome tidak memberi halaman chrome.runtime.sendMessage, sehingga panel
+  // menampilkan "Ekstensi Chrome belum terpasang" walaupun ekstensinya terpasang (27 Nov 2026).
+  assert.ok(manifest.externally_connectable?.matches.includes("https://analytics.sanghyang.com/*"));
+  assert.ok(manifest.host_permissions.includes("https://analytics.sanghyang.com/*"));
+  assert.match(read("background.js"), /ALLOWED_APP_ORIGINS = new Set\(\[[^\]]*"https:\/\/analytics\.sanghyang\.com"/);
+  assert.match(read("popup.js"), /https:\/\/analytics\.sanghyang\.com/);
+  assert.equal(manifest.version, "1.2.0");
 });

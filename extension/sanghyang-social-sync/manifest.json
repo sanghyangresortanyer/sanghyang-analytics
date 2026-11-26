@@ -1,11 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Sanghyang Analytics Sync",
-  "version": "1.1.11",
+  "version": "1.2.0",
   "description": "Sinkronisasi data media sosial Instagram dan TikTok langsung dari sesi peramban tim marketing ke dashboard Sanghyang Analytics.",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyA4dTDZD+HboFt98hA1VqvX0LkhLzl3jV6tlLoJP3SZkOVF4nQNrbrOnElw/m2E400sv2FXc68JvOIMPYJSRD1RhUwUDCnpXuWJFoeBrt0TYEXxrEZ7ntoWKZhbmZV58a/gHrrHZQm8HFq4o1r3lapVaqWBufxFEEVkHiZ1W+l/8RW4E1Wfl+p3QHOau5CA9lAPvRQUY8kjcDyXD70ZzLo7WUoMOOFc97Y/CQPPFfpHGopyNtoho9qZ68o8FR0gH8ZXqbO3f0A73ArR0CT3LVb43CyAk205zARd2OGT8FUHaD33JanWX2DXtHHRdxsqSjw/BzNwrfrWyON/jPouDRwIDAQAB",
   "permissions": ["scripting", "storage", "unlimitedStorage"],
   "host_permissions": [
+    "https://analytics.sanghyang.com/*",
     "https://sanghyang-analytics.vercel.app/*",
     "http://localhost/*",
     "http://127.0.0.1/*",
@@ -51,6 +52,7 @@
   ],
   "externally_connectable": {
     "matches": [
+      "https://analytics.sanghyang.com/*",
       "https://sanghyang-analytics.vercel.app/*",
       "http://localhost/*",
       "http://127.0.0.1/*"

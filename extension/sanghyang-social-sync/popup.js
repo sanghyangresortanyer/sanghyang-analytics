@@ -76,13 +76,14 @@ document.getElementById("btn-cancel").addEventListener("click", async () => {
 
 document.getElementById("btn-dashboard").addEventListener("click", async () => {
   const tabs = await chrome.tabs.query({
-    url: ["http://localhost/*", "http://127.0.0.1/*", "https://sanghyang-analytics.vercel.app/*"],
+    url: ["http://localhost/*", "http://127.0.0.1/*", "https://analytics.sanghyang.com/*", "https://sanghyang-analytics.vercel.app/*"],
   });
   const existing = tabs.find(
     (t) =>
       typeof t.url === "string" &&
       (t.url.startsWith("http://localhost:3001") ||
         t.url.startsWith("http://127.0.0.1:3001") ||
+        t.url.startsWith("https://analytics.sanghyang.com") ||
         t.url.startsWith("https://sanghyang-analytics.vercel.app"))
   );
   if (existing && typeof existing.id === "number") {
@@ -93,7 +94,7 @@ document.getElementById("btn-dashboard").addEventListener("click", async () => {
     return;
   }
   const res = await sendCmd("GET_STATE");
-  const origin = res?.state?.lastDashboardOrigin || "https://sanghyang-analytics.vercel.app";
+  const origin = res?.state?.lastDashboardOrigin || "https://analytics.sanghyang.com";
   await chrome.tabs.create({ url: `${origin}/marketing?bagian=insight-pasar` });
 });
 

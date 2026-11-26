@@ -10,7 +10,7 @@ Panduan pemasangan dan penggunaan ekstensi Chrome **Sanghyang Market Sync** (Man
 2. Sudah masuk (*login*) secara normal di peramban yang sama ke akun media sosial yang ingin dibaca:
    - Instagram (`https://www.instagram.com`)
    - TikTok (`https://www.tiktok.com`)
-3. Sudah masuk ke dasbor Sanghyang News (`https://sanghyang-news.vercel.app` untuk produksi, atau `http://localhost:3001` untuk uji lokal).
+3. Sudah masuk ke dasbor Sanghyang Analytics (`https://analytics.sanghyang.com` atau `https://sanghyang-analytics.vercel.app` untuk produksi, atau `http://localhost:3001` untuk uji lokal).
 
 ---
 
