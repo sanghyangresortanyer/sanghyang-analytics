@@ -1,13 +1,13 @@
 {
   "source": "Google Travel, tab Prices (crawl otomatis tiap malam)",
   "sourceMethod": "Penawaran OTA di Google Travel (tab Prices), harga per malam termasuk pajak & biaya",
-  "capturedAt": "2026-11-26 23:51 WIB",
+  "capturedAt": "2026-11-27 01:40 WIB",
   "checkInWeekday": "2026-12-01",
   "checkInWeekend": "2026-11-28",
   "window": {
     "nights": 14,
-    "firstCheckIn": "2026-11-27",
-    "lastCheckIn": "2026-12-10"
+    "firstCheckIn": "2026-11-28",
+    "lastCheckIn": "2026-12-11"
   },
   "rates": [
     {
@@ -20,14 +20,14 @@
       "sanghyangRoom": "Hari biasa: Semua tipe kamar (termurah via Agoda)\nAkhir pekan: Semua tipe kamar (termurah via Agoda)",
       "competitorRoom": "Hari biasa: Semua tipe kamar (termurah via Traveloka.com)\nAkhir pekan: Semua tipe kamar (termurah via Agoda)",
       "weekday": {
-        "sanghyang": 442912,
+        "sanghyang": 418304,
         "competitor": 463952
       },
       "weekend": {
-        "sanghyang": 894080,
+        "sanghyang": 846560,
         "competitor": 872736
       },
-      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 21.040); Akhir pekan: kompetitor lebih murah dari Sanghyang (Rp 21.344)"
+      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 45.648); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 26.176)"
     },
     {
       "hotelId": "nemuru_palazo",
@@ -37,16 +37,16 @@
       "kind": "villa",
       "offer": "OTA - Villa / Unit Multi-Kamar",
       "sanghyangRoom": "Baduy Condo (Expedia.com)",
-      "competitorRoom": "1-Bedroom Townhouse (Agoda)",
+      "competitorRoom": "WOODEN CABIN ONE BEDROOM (Priceline)",
       "weekday": {
-        "sanghyang": 843786,
-        "competitor": 491570
+        "sanghyang": 843575,
+        "competitor": 867632
       },
       "weekend": {
-        "sanghyang": 1568678,
-        "competitor": 872738
+        "sanghyang": 1602793,
+        "competitor": 934247
       },
-      "note": "Hari biasa: kompetitor lebih murah dari Sanghyang (Rp 352.216); Akhir pekan: kompetitor lebih murah dari Sanghyang (Rp 695.940)"
+      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 24.057); Akhir pekan: kompetitor lebih murah dari Sanghyang (Rp 668.546)"
     },
     {
       "hotelId": "mambruk",
@@ -58,14 +58,14 @@
       "sanghyangRoom": "Hari biasa: Semua tipe kamar (termurah via Agoda)\nAkhir pekan: Semua tipe kamar (termurah via Agoda)",
       "competitorRoom": "Hari biasa: Semua tipe kamar (termurah via Trip.com)\nAkhir pekan: Semua tipe kamar (termurah via Agoda)",
       "weekday": {
-        "sanghyang": 442912,
-        "competitor": 937504
+        "sanghyang": 418304,
+        "competitor": 937270
       },
       "weekend": {
-        "sanghyang": 894080,
-        "competitor": 1447744
+        "sanghyang": 846560,
+        "competitor": 1448896
       },
-      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 494.592); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 553.664)"
+      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 518.966); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 602.336)"
     },
     {
       "hotelId": "mambruk",
@@ -74,17 +74,17 @@
       "cluster": "KLASTER_I_BINTANG_4",
       "kind": "standard",
       "offer": "OTA - Kamar Standar",
-      "sanghyangRoom": "Sanghyang Deluxe (Priceline)",
+      "sanghyangRoom": "Sanghyang Deluxe (Expedia.com)",
       "competitorRoom": "Superior Double (Expedia.com)",
       "weekday": {
-        "sanghyang": 468544,
-        "competitor": 1322115
+        "sanghyang": 506329,
+        "competitor": 1321785
       },
       "weekend": {
-        "sanghyang": 990744,
-        "competitor": 2054866
+        "sanghyang": 937270,
+        "competitor": 2054354
       },
-      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 853.571); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 1.064.122)"
+      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 815.456); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 1.117.084)"
     },
     {
       "hotelId": "marbella",
@@ -96,14 +96,14 @@
       "sanghyangRoom": "Hari biasa: Semua tipe kamar (termurah via Agoda)\nAkhir pekan: Semua tipe kamar (termurah via Agoda)",
       "competitorRoom": "Hari biasa: Semua tipe kamar (termurah via Tiket.com)\nAkhir pekan: Semua tipe kamar (termurah via Priceline)",
       "weekday": {
-        "sanghyang": 442912,
+        "sanghyang": 418304,
         "competitor": 425088
       },
       "weekend": {
-        "sanghyang": 894080,
+        "sanghyang": 846560,
         "competitor": 648288
       },
-      "note": "Hari biasa: kompetitor lebih murah dari Sanghyang (Rp 17.824); Akhir pekan: kompetitor lebih murah dari Sanghyang (Rp 245.792)"
+      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 6.784); Akhir pekan: kompetitor lebih murah dari Sanghyang (Rp 198.272)"
     },
     {
       "hotelId": "marbella",
@@ -112,36 +112,17 @@
       "cluster": "KLASTER_I_BINTANG_4",
       "kind": "standard",
       "offer": "OTA - Kamar Standar",
-      "sanghyangRoom": "Sanghyang Deluxe (Priceline)",
+      "sanghyangRoom": "Sanghyang Deluxe (Expedia.com)",
       "competitorRoom": "Studio (Priceline)",
       "weekday": {
-        "sanghyang": 468544,
+        "sanghyang": 506329,
         "competitor": 470523
       },
       "weekend": {
-        "sanghyang": 990744,
+        "sanghyang": 937270,
         "competitor": 648309
       },
-      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 1.979); Akhir pekan: kompetitor lebih murah dari Sanghyang (Rp 342.435)"
-    },
-    {
-      "hotelId": "marbella",
-      "competitorName": "Marbella Place Anyer by Jayakarta",
-      "starRating": 4,
-      "cluster": "KLASTER_I_BINTANG_4",
-      "kind": "suite",
-      "offer": "OTA - Suite",
-      "sanghyangRoom": "Sanghyang Suite (Booking.com)",
-      "competitorRoom": "Deluxe Suite (Booking.com)",
-      "weekday": {
-        "sanghyang": null,
-        "competitor": null
-      },
-      "weekend": {
-        "sanghyang": 1238430,
-        "competitor": 1145455
-      },
-      "note": "Hari biasa: pembanding tidak tampil di bukti; Akhir pekan: kompetitor lebih murah dari Sanghyang (Rp 92.975)"
+      "note": "Hari biasa: kompetitor lebih murah dari Sanghyang (Rp 35.806); Akhir pekan: kompetitor lebih murah dari Sanghyang (Rp 288.961)"
     },
     {
       "hotelId": "jayakarta",
@@ -151,16 +132,16 @@
       "kind": "lowest",
       "offer": "OTA - Harga Terendah",
       "sanghyangRoom": "Hari biasa: Semua tipe kamar (termurah via Agoda)\nAkhir pekan: Semua tipe kamar (termurah via Agoda)",
-      "competitorRoom": "Hari biasa: Semua tipe kamar (termurah via Trip.com)\nAkhir pekan: Semua tipe kamar (termurah via Tripadvisor.com)",
+      "competitorRoom": "Hari biasa: Semua tipe kamar (termurah via Trip.com)\nAkhir pekan: Semua tipe kamar (termurah via Trip.com)",
       "weekday": {
-        "sanghyang": 442912,
-        "competitor": 492287
+        "sanghyang": 418304,
+        "competitor": 492165
       },
       "weekend": {
-        "sanghyang": 894080,
-        "competitor": 850758
+        "sanghyang": 846560,
+        "competitor": 850546
       },
-      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 49.375); Akhir pekan: kompetitor lebih murah dari Sanghyang (Rp 43.322)"
+      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 73.861); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 3.986)"
     },
     {
       "hotelId": "jayakarta",
@@ -169,17 +150,17 @@
       "cluster": "KLASTER_I_BINTANG_4",
       "kind": "suite",
       "offer": "OTA - Suite",
-      "sanghyangRoom": "Sanghyang Suite (Booking.com)",
+      "sanghyangRoom": "Sanghyang Suite (Expedia.com)",
       "competitorRoom": "Suite (Booking.com)",
       "weekday": {
         "sanghyang": null,
         "competitor": 647800
       },
       "weekend": {
-        "sanghyang": 1238430,
+        "sanghyang": 1265363,
         "competitor": 1651240
       },
-      "note": "Hari biasa: pembanding tidak tampil di bukti; Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 412.810)"
+      "note": "Hari biasa: pembanding tidak tampil di bukti; Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 385.877)"
     },
     {
       "hotelId": "aston_anyer",
@@ -189,16 +170,16 @@
       "kind": "lowest",
       "offer": "OTA - Harga Terendah",
       "sanghyangRoom": "Hari biasa: Semua tipe kamar (termurah via Agoda)\nAkhir pekan: Semua tipe kamar (termurah via Agoda)",
-      "competitorRoom": "Hari biasa: Semua tipe kamar (termurah via Agoda)\nAkhir pekan: Semua tipe kamar (termurah via Agoda)",
+      "competitorRoom": "Hari biasa: Semua tipe kamar (termurah via Agoda)\nAkhir pekan: Semua tipe kamar (termurah via Traveloka.com)",
       "weekday": {
-        "sanghyang": 442912,
-        "competitor": 1334272
+        "sanghyang": 418304,
+        "competitor": 1328000
       },
       "weekend": {
-        "sanghyang": 894080,
-        "competitor": 2102400
+        "sanghyang": 846560,
+        "competitor": 2224512
       },
-      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 891.360); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 1.208.320)"
+      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 909.696); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 1.377.952)"
     },
     {
       "hotelId": "aston_anyer",
@@ -207,17 +188,17 @@
       "cluster": "KLASTER_I_BINTANG_4",
       "kind": "standard",
       "offer": "OTA - Kamar Standar",
-      "sanghyangRoom": "Sanghyang Deluxe (Priceline)",
+      "sanghyangRoom": "Sanghyang Deluxe (Expedia.com)",
       "competitorRoom": "Superior Room (Hotels.com)",
       "weekday": {
-        "sanghyang": 468544,
-        "competitor": 2293112
+        "sanghyang": 506329,
+        "competitor": 2292541
       },
       "weekend": {
-        "sanghyang": 990744,
-        "competitor": 2444132
+        "sanghyang": 937270,
+        "competitor": 3484941
       },
-      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 1.824.568); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 1.453.388)"
+      "note": "Hari biasa: kompetitor lebih mahal dari Sanghyang (Rp 1.786.212); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 2.547.671)"
     },
     {
       "hotelId": "aston_anyer",
@@ -226,17 +207,17 @@
       "cluster": "KLASTER_I_BINTANG_4",
       "kind": "suite",
       "offer": "OTA - Suite",
-      "sanghyangRoom": "Sanghyang Suite (Booking.com)",
+      "sanghyangRoom": "Sanghyang Suite (Expedia.com)",
       "competitorRoom": "Suite (Hotels.com)",
       "weekday": {
         "sanghyang": null,
-        "competitor": 5586082
+        "competitor": 5584690
       },
       "weekend": {
-        "sanghyang": 1238430,
-        "competitor": 5778133
+        "sanghyang": 1265363,
+        "competitor": 6534126
       },
-      "note": "Hari biasa: pembanding tidak tampil di bukti; Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 4.539.703)"
+      "note": "Hari biasa: pembanding tidak tampil di bukti; Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 5.268.763)"
     },
     {
       "hotelId": "hawaii_anyer",
@@ -246,16 +227,16 @@
       "kind": "lowest",
       "offer": "OTA - Harga Terendah",
       "sanghyangRoom": "Hari biasa: Semua tipe kamar (termurah via Agoda)\nAkhir pekan: Semua tipe kamar (termurah via Agoda)",
-      "competitorRoom": "Hari biasa: Semua tipe kamar (termurah via Agoda)\nAkhir pekan: Semua tipe kamar (termurah via Agoda)",
+      "competitorRoom": "Hari biasa: Semua tipe kamar (termurah via Trip.com)\nAkhir pekan: Semua tipe kamar (termurah via Agoda)",
       "weekday": {
-        "sanghyang": 442912,
-        "competitor": 298720
+        "sanghyang": 418304,
+        "competitor": 309295
       },
       "weekend": {
-        "sanghyang": 894080,
-        "competitor": 1715520
+        "sanghyang": 846560,
+        "competitor": 1715584
       },
-      "note": "Hari biasa: kompetitor lebih murah dari Sanghyang (Rp 144.192); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 821.440)"
+      "note": "Hari biasa: kompetitor lebih murah dari Sanghyang (Rp 109.009); Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 869.024)"
     },
     {
       "hotelId": "hawaii_anyer",
@@ -264,17 +245,36 @@
       "cluster": "KLASTER_I_BINTANG_4",
       "kind": "standard",
       "offer": "OTA - Kamar Standar",
-      "sanghyangRoom": "Sanghyang Deluxe (Priceline)",
-      "competitorRoom": "studio standard (Agoda)",
+      "sanghyangRoom": "Sanghyang Deluxe (Expedia.com)",
+      "competitorRoom": "Room DELUXE (Agoda)",
       "weekday": {
-        "sanghyang": 468544,
-        "competitor": 298723
-      },
-      "weekend": {
-        "sanghyang": 990744,
+        "sanghyang": 506329,
         "competitor": null
       },
-      "note": "Hari biasa: kompetitor lebih murah dari Sanghyang (Rp 169.821); Akhir pekan: pembanding tidak tampil di bukti"
+      "weekend": {
+        "sanghyang": 937270,
+        "competitor": 2049485
+      },
+      "note": "Hari biasa: pembanding tidak tampil di bukti; Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 1.112.215)"
+    },
+    {
+      "hotelId": "hawaii_anyer",
+      "competitorName": "Hawaii Resort Family Suites Anyer",
+      "starRating": 4,
+      "cluster": "KLASTER_I_BINTANG_4",
+      "kind": "suite",
+      "offer": "OTA - Suite",
+      "sanghyangRoom": "Sanghyang Suite (Expedia.com)",
+      "competitorRoom": "President Suite (Agoda)",
+      "weekday": {
+        "sanghyang": null,
+        "competitor": null
+      },
+      "weekend": {
+        "sanghyang": 1265363,
+        "competitor": 4943580
+      },
+      "note": "Hari biasa: pembanding tidak tampil di bukti; Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 3.678.217)"
     },
     {
       "hotelId": "hawaii_anyer",
@@ -284,16 +284,16 @@
       "kind": "villa",
       "offer": "OTA - Villa / Unit Multi-Kamar",
       "sanghyangRoom": "Baduy Condo (Expedia.com)",
-      "competitorRoom": "1 Bedroom Standard (Agoda)",
+      "competitorRoom": "2 Bedroom Deluxe (Agoda)",
       "weekday": {
-        "sanghyang": 843786,
+        "sanghyang": 843575,
         "competitor": null
       },
       "weekend": {
-        "sanghyang": 1568678,
-        "competitor": 1476766
+        "sanghyang": 1602793,
+        "competitor": 1715615
       },
-      "note": "Hari biasa: pembanding tidak tampil di bukti; Akhir pekan: kompetitor lebih murah dari Sanghyang (Rp 91.912)"
+      "note": "Hari biasa: pembanding tidak tampil di bukti; Akhir pekan: kompetitor lebih mahal dari Sanghyang (Rp 112.822)"
     }
   ],
   "lowestByHotel": [
@@ -302,23 +302,23 @@
       "hotel": "Sanghyang Indah Spa Resort",
       "starRating": 4,
       "weekday": {
-        "price": 442912,
+        "price": 418304,
         "source": "Agoda"
       },
       "weekend": {
-        "price": 894080,
+        "price": 846560,
         "source": "Agoda"
       },
       "range": {
         "weekday": {
           "nights": 10,
           "min": {
-            "price": 369088,
-            "checkIn": "2026-11-29",
+            "price": 348576,
+            "checkIn": "2026-11-30",
             "source": "Agoda"
           },
           "max": {
-            "price": 445593,
+            "price": 445482,
             "checkIn": "2026-12-02",
             "source": "Trip.com"
           }
@@ -326,14 +326,14 @@
         "weekend": {
           "nights": 4,
           "min": {
-            "price": 894080,
+            "price": 846560,
             "checkIn": "2026-11-28",
             "source": "Agoda"
           },
           "max": {
-            "price": 1405760,
+            "price": 1225408,
             "checkIn": "2026-12-04",
-            "source": "Priceline"
+            "source": "Agoda"
           }
         }
       }
@@ -359,16 +359,16 @@
             "source": "Traveloka.com"
           },
           "max": {
-            "price": 482180,
-            "checkIn": "2026-12-06",
+            "price": 480528,
+            "checkIn": "2026-11-29",
             "source": "Traveloka.com"
           }
         },
         "weekend": {
           "nights": 4,
           "min": {
-            "price": 482180,
-            "checkIn": "2026-11-27",
+            "price": 482060,
+            "checkIn": "2026-12-04",
             "source": "Traveloka.com"
           },
           "max": {
@@ -384,37 +384,37 @@
       "hotel": "Mambruk Hotel & Convention",
       "starRating": 4,
       "weekday": {
-        "price": 937504,
+        "price": 937270,
         "source": "Trip.com"
       },
       "weekend": {
-        "price": 1447744,
+        "price": 1448896,
         "source": "Agoda"
       },
       "range": {
         "weekday": {
           "nights": 10,
           "min": {
-            "price": 911042,
+            "price": 910815,
             "checkIn": "2026-12-06",
             "source": "Trip.com"
           },
           "max": {
-            "price": 1014560,
-            "checkIn": "2026-12-03",
-            "source": "Traveloka.com"
+            "price": 951552,
+            "checkIn": "2026-12-02",
+            "source": "Agoda"
           }
         },
         "weekend": {
           "nights": 4,
           "min": {
-            "price": 956000,
-            "checkIn": "2026-11-27",
+            "price": 1028736,
+            "checkIn": "2026-12-04",
             "source": "Agoda"
           },
           "max": {
-            "price": 1447744,
-            "checkIn": "2026-11-28",
+            "price": 1880832,
+            "checkIn": "2026-12-11",
             "source": "Agoda"
           }
         }
@@ -454,9 +454,9 @@
             "source": "Tiket.com"
           },
           "max": {
-            "price": 707712,
+            "price": 701408,
             "checkIn": "2026-12-05",
-            "source": "Traveloka.com"
+            "source": "Tiket.com"
           }
         }
       }
@@ -466,33 +466,33 @@
       "hotel": "The Jayakarta Villas Anyer",
       "starRating": 4,
       "weekday": {
-        "price": 492287,
+        "price": 492165,
         "source": "Trip.com"
       },
       "weekend": {
-        "price": 850758,
-        "source": "Tripadvisor.com"
+        "price": 850546,
+        "source": "Trip.com"
       },
       "range": {
         "weekday": {
           "nights": 10,
           "min": {
-            "price": 492287,
+            "price": 492165,
             "checkIn": "2026-11-29",
             "source": "Trip.com"
           },
           "max": {
-            "price": 508448,
-            "checkIn": "2026-12-02",
-            "source": "Traveloka.com"
+            "price": 492165,
+            "checkIn": "2026-11-29",
+            "source": "Trip.com"
           }
         },
         "weekend": {
           "nights": 4,
           "min": {
-            "price": 850758,
-            "checkIn": "2026-11-28",
-            "source": "Tripadvisor.com"
+            "price": 626701,
+            "checkIn": "2026-12-11",
+            "source": "Trip.com"
           },
           "max": {
             "price": 1711936,
@@ -507,38 +507,38 @@
       "hotel": "Aston Anyer Beach Hotel",
       "starRating": 4,
       "weekday": {
-        "price": 1334272,
+        "price": 1328000,
         "source": "Agoda"
       },
       "weekend": {
-        "price": 2102400,
-        "source": "Agoda"
+        "price": 2224512,
+        "source": "Traveloka.com"
       },
       "range": {
         "weekday": {
           "nights": 10,
           "min": {
-            "price": 1152448,
-            "checkIn": "2026-12-03",
+            "price": 1152960,
+            "checkIn": "2026-12-02",
             "source": "Agoda"
           },
           "max": {
-            "price": 2310745,
+            "price": 1891136,
             "checkIn": "2026-12-09",
-            "source": "Etrip.net"
+            "source": "Agoda"
           }
         },
         "weekend": {
           "nights": 4,
           "min": {
-            "price": 1172352,
-            "checkIn": "2026-11-27",
+            "price": 1334272,
+            "checkIn": "2026-12-04",
             "source": "Agoda"
           },
           "max": {
-            "price": 2102400,
+            "price": 2224512,
             "checkIn": "2026-11-28",
-            "source": "Agoda"
+            "source": "Traveloka.com"
           }
         }
       }
@@ -548,11 +548,11 @@
       "hotel": "Hawaii Resort Family Suites Anyer",
       "starRating": 4,
       "weekday": {
-        "price": 298720,
-        "source": "Agoda"
+        "price": 309295,
+        "source": "Trip.com"
       },
       "weekend": {
-        "price": 1715520,
+        "price": 1715584,
         "source": "Agoda"
       },
       "range": {
@@ -564,20 +564,20 @@
             "source": "Agoda"
           },
           "max": {
-            "price": 384704,
-            "checkIn": "2026-12-06",
+            "price": 383696,
+            "checkIn": "2026-12-07",
             "source": "Priceline"
           }
         },
         "weekend": {
           "nights": 4,
           "min": {
-            "price": 412687,
+            "price": 412584,
             "checkIn": "2026-12-04",
             "source": "Trip.com"
           },
           "max": {
-            "price": 1715520,
+            "price": 1715584,
             "checkIn": "2026-11-28",
             "source": "Agoda"
           }
@@ -592,7 +592,7 @@
       "provider": "Expedia.com",
       "roomType": "Sanghyang Deluxe",
       "kind": "standard",
-      "price": 506455,
+      "price": 506329,
       "breakfast": false
     },
     {
@@ -601,7 +601,7 @@
       "provider": "Expedia.com",
       "roomType": "Sanghyang Deluxe",
       "kind": "standard",
-      "price": 1518814,
+      "price": 1518436,
       "breakfast": true
     },
     {
@@ -610,52 +610,25 @@
       "provider": "Expedia.com",
       "roomType": "Baduy Condo",
       "kind": "villa",
-      "price": 843786,
-      "breakfast": false
-    },
-    {
-      "hotelId": "sanghyang",
-      "stay": "weekday",
-      "provider": "Priceline",
-      "roomType": "Sanghyang Deluxe",
-      "kind": "standard",
-      "price": 468544,
-      "breakfast": false
-    },
-    {
-      "hotelId": "sanghyang",
-      "stay": "weekday",
-      "provider": "Priceline",
-      "roomType": "New Baduy Condo - Two Bedrooms",
-      "kind": "villa",
-      "price": 899950,
+      "price": 843575,
       "breakfast": false
     },
     {
       "hotelId": "sanghyang",
       "stay": "weekend",
-      "provider": "Booking.com",
+      "provider": "Priceline",
       "roomType": "Sanghyang Deluxe",
       "kind": "standard",
-      "price": 990744,
+      "price": 937270,
       "breakfast": true
     },
     {
       "hotelId": "sanghyang",
       "stay": "weekend",
-      "provider": "Booking.com",
-      "roomType": "Sanghyang Suite",
-      "kind": "suite",
-      "price": 1238430,
-      "breakfast": true
-    },
-    {
-      "hotelId": "sanghyang",
-      "stay": "weekend",
-      "provider": "Booking.com",
+      "provider": "Priceline",
       "roomType": "New Baduy Condo - Two Bedrooms",
       "kind": "villa",
-      "price": 1568678,
+      "price": 1710033,
       "breakfast": true
     },
     {
@@ -664,7 +637,7 @@
       "provider": "Expedia.com",
       "roomType": "Sanghyang Deluxe",
       "kind": "standard",
-      "price": 1012359,
+      "price": 1012107,
       "breakfast": true
     },
     {
@@ -673,7 +646,7 @@
       "provider": "Expedia.com",
       "roomType": "Sanghyang Suite",
       "kind": "suite",
-      "price": 1265679,
+      "price": 1265363,
       "breakfast": true
     },
     {
@@ -682,7 +655,7 @@
       "provider": "Expedia.com",
       "roomType": "Baduy Condo",
       "kind": "villa",
-      "price": 1603193,
+      "price": 1602793,
       "breakfast": true
     },
     {
@@ -692,60 +665,6 @@
       "roomType": "WOODEN CABIN ONE BEDROOM",
       "kind": "villa",
       "price": 867632,
-      "breakfast": true
-    },
-    {
-      "hotelId": "nemuru_palazo",
-      "stay": "weekday",
-      "provider": "Agoda",
-      "roomType": "1-Bedroom Townhouse",
-      "kind": "villa",
-      "price": 491570,
-      "breakfast": false
-    },
-    {
-      "hotelId": "nemuru_palazo",
-      "stay": "weekday",
-      "provider": "Agoda",
-      "roomType": "1-Bedroom Townhouse",
-      "kind": "villa",
-      "price": 656447,
-      "breakfast": true
-    },
-    {
-      "hotelId": "nemuru_palazo",
-      "stay": "weekday",
-      "provider": "Agoda",
-      "roomType": "TOWN HOUSE ONE BEDROOM",
-      "kind": "villa",
-      "price": 508835,
-      "breakfast": false
-    },
-    {
-      "hotelId": "nemuru_palazo",
-      "stay": "weekend",
-      "provider": "Agoda",
-      "roomType": "2-Bedroom Townhouse",
-      "kind": "villa",
-      "price": 872738,
-      "breakfast": true
-    },
-    {
-      "hotelId": "nemuru_palazo",
-      "stay": "weekend",
-      "provider": "Agoda",
-      "roomType": "1-Bedroom Townhouse",
-      "kind": "villa",
-      "price": 926543,
-      "breakfast": true
-    },
-    {
-      "hotelId": "nemuru_palazo",
-      "stay": "weekend",
-      "provider": "Agoda",
-      "roomType": "TOWN HOUSE ONE BEDROOM",
-      "kind": "villa",
-      "price": 949178,
       "breakfast": true
     },
     {
@@ -763,7 +682,7 @@
       "provider": "Expedia.com",
       "roomType": "Superior Double",
       "kind": "standard",
-      "price": 1322115,
+      "price": 1321785,
       "breakfast": true
     },
     {
@@ -772,7 +691,7 @@
       "provider": "Expedia.com",
       "roomType": "Superior Twin",
       "kind": "standard",
-      "price": 1322115,
+      "price": 1321785,
       "breakfast": true
     },
     {
@@ -781,7 +700,61 @@
       "provider": "Expedia.com",
       "roomType": "Premier Deluxe Balcony - Double",
       "kind": "standard",
-      "price": 1875999,
+      "price": 1875531,
+      "breakfast": true
+    },
+    {
+      "hotelId": "mambruk",
+      "stay": "weekday",
+      "provider": "Hotels.com",
+      "roomType": "Superior Double",
+      "kind": "standard",
+      "price": 1321785,
+      "breakfast": true
+    },
+    {
+      "hotelId": "mambruk",
+      "stay": "weekday",
+      "provider": "Hotels.com",
+      "roomType": "Superior Twin",
+      "kind": "standard",
+      "price": 1321785,
+      "breakfast": true
+    },
+    {
+      "hotelId": "mambruk",
+      "stay": "weekday",
+      "provider": "Hotels.com",
+      "roomType": "Premier Deluxe Balcony - Double",
+      "kind": "standard",
+      "price": 1875531,
+      "breakfast": true
+    },
+    {
+      "hotelId": "mambruk",
+      "stay": "weekend",
+      "provider": "Hotels.com",
+      "roomType": "Superior Double",
+      "kind": "standard",
+      "price": 2054354,
+      "breakfast": true
+    },
+    {
+      "hotelId": "mambruk",
+      "stay": "weekend",
+      "provider": "Hotels.com",
+      "roomType": "Superior Twin",
+      "kind": "standard",
+      "price": 2054354,
+      "breakfast": true
+    },
+    {
+      "hotelId": "mambruk",
+      "stay": "weekend",
+      "provider": "Hotels.com",
+      "roomType": "Premier Deluxe Balcony - Twin",
+      "kind": "standard",
+      "price": 2232810,
       "breakfast": true
     },
     {
@@ -790,7 +763,7 @@
       "provider": "Expedia.com",
       "roomType": "Superior Double",
       "kind": "standard",
-      "price": 2054866,
+      "price": 2054354,
       "breakfast": true
     },
     {
@@ -799,7 +772,7 @@
       "provider": "Expedia.com",
       "roomType": "Superior Twin",
       "kind": "standard",
-      "price": 2054866,
+      "price": 2054354,
       "breakfast": true
     },
     {
@@ -808,7 +781,7 @@
       "provider": "Expedia.com",
       "roomType": "Premier Deluxe Balcony - Double",
       "kind": "standard",
-      "price": 2233367,
+      "price": 2232810,
       "breakfast": true
     },
     {
@@ -828,33 +801,6 @@
       "kind": "standard",
       "price": 648309,
       "breakfast": false
-    },
-    {
-      "hotelId": "marbella",
-      "stay": "weekend",
-      "provider": "Booking.com",
-      "roomType": "Studio",
-      "kind": "standard",
-      "price": 725089,
-      "breakfast": false
-    },
-    {
-      "hotelId": "marbella",
-      "stay": "weekend",
-      "provider": "Booking.com",
-      "roomType": "Studio",
-      "kind": "standard",
-      "price": 1002273,
-      "breakfast": true
-    },
-    {
-      "hotelId": "marbella",
-      "stay": "weekend",
-      "provider": "Booking.com",
-      "roomType": "Deluxe Suite",
-      "kind": "suite",
-      "price": 1145455,
-      "breakfast": true
     },
     {
       "hotelId": "jayakarta",
@@ -895,37 +841,10 @@
     {
       "hotelId": "aston_anyer",
       "stay": "weekday",
-      "provider": "Hotels.com",
-      "roomType": "Superior Room",
-      "kind": "standard",
-      "price": 2293112,
-      "breakfast": true
-    },
-    {
-      "hotelId": "aston_anyer",
-      "stay": "weekday",
-      "provider": "Hotels.com",
-      "roomType": "Deluxe Room, Balcony",
-      "kind": "standard",
-      "price": 2979354,
-      "breakfast": true
-    },
-    {
-      "hotelId": "aston_anyer",
-      "stay": "weekday",
-      "provider": "Hotels.com",
-      "roomType": "Suite",
-      "kind": "suite",
-      "price": 5586082,
-      "breakfast": true
-    },
-    {
-      "hotelId": "aston_anyer",
-      "stay": "weekday",
       "provider": "Expedia.com",
       "roomType": "Superior Room",
       "kind": "standard",
-      "price": 2370578,
+      "price": 2370649,
       "breakfast": true
     },
     {
@@ -934,7 +853,7 @@
       "provider": "Expedia.com",
       "roomType": "Deluxe Room, Balcony",
       "kind": "standard",
-      "price": 3079968,
+      "price": 3080061,
       "breakfast": true
     },
     {
@@ -943,61 +862,34 @@
       "provider": "Expedia.com",
       "roomType": "Suite",
       "kind": "suite",
-      "price": 5774733,
+      "price": 5774908,
       "breakfast": true
     },
     {
       "hotelId": "aston_anyer",
       "stay": "weekday",
-      "provider": "Expedia.com",
+      "provider": "Hotels.com",
       "roomType": "Superior Room",
       "kind": "standard",
-      "price": 2371240,
+      "price": 2292541,
       "breakfast": true
     },
     {
       "hotelId": "aston_anyer",
       "stay": "weekday",
-      "provider": "Expedia.com",
+      "provider": "Hotels.com",
       "roomType": "Deluxe Room, Balcony",
       "kind": "standard",
-      "price": 3080829,
+      "price": 2978612,
       "breakfast": true
     },
     {
       "hotelId": "aston_anyer",
       "stay": "weekday",
-      "provider": "Expedia.com",
+      "provider": "Hotels.com",
       "roomType": "Suite",
       "kind": "suite",
-      "price": 5776348,
-      "breakfast": true
-    },
-    {
-      "hotelId": "aston_anyer",
-      "stay": "weekend",
-      "provider": "Booking.com",
-      "roomType": "Deluxe Balcony",
-      "kind": "standard",
-      "price": 2444132,
-      "breakfast": true
-    },
-    {
-      "hotelId": "aston_anyer",
-      "stay": "weekend",
-      "provider": "Booking.com",
-      "roomType": "Deluxe Double or Twin Room",
-      "kind": "standard",
-      "price": 3081750,
-      "breakfast": true
-    },
-    {
-      "hotelId": "aston_anyer",
-      "stay": "weekend",
-      "provider": "Booking.com",
-      "roomType": "Aston Ocean Suite",
-      "kind": "suite",
-      "price": 5778133,
+      "price": 5584690,
       "breakfast": true
     },
     {
@@ -1006,7 +898,7 @@
       "provider": "Expedia.com",
       "roomType": "Deluxe Room, Balcony",
       "kind": "standard",
-      "price": 3485809,
+      "price": 3484941,
       "breakfast": true
     },
     {
@@ -1015,52 +907,25 @@
       "provider": "Expedia.com",
       "roomType": "Suite",
       "kind": "suite",
-      "price": 6535755,
+      "price": 6534126,
       "breakfast": true
     },
     {
-      "hotelId": "hawaii_anyer",
-      "stay": "weekday",
-      "provider": "Agoda",
-      "roomType": "studio standard",
-      "kind": "standard",
-      "price": 298723,
-      "breakfast": false
-    },
-    {
-      "hotelId": "hawaii_anyer",
-      "stay": "weekday",
-      "provider": "Agoda",
-      "roomType": "studio standard",
-      "kind": "standard",
-      "price": 394700,
-      "breakfast": false
-    },
-    {
-      "hotelId": "hawaii_anyer",
-      "stay": "weekday",
-      "provider": "Agoda",
-      "roomType": "Studio Deluxe Room",
-      "kind": "standard",
-      "price": 351439,
-      "breakfast": false
-    },
-    {
-      "hotelId": "hawaii_anyer",
+      "hotelId": "aston_anyer",
       "stay": "weekend",
-      "provider": "Agoda",
-      "roomType": "1 Bedroom Standard",
-      "kind": "villa",
-      "price": 1476766,
+      "provider": "Hotels.com",
+      "roomType": "Deluxe Room, Balcony",
+      "kind": "standard",
+      "price": 3728273,
       "breakfast": true
     },
     {
-      "hotelId": "hawaii_anyer",
+      "hotelId": "aston_anyer",
       "stay": "weekend",
-      "provider": "Agoda",
-      "roomType": "1 Bedroom Deluxe",
-      "kind": "villa",
-      "price": 1617410,
+      "provider": "Hotels.com",
+      "roomType": "Suite",
+      "kind": "suite",
+      "price": 6990282,
       "breakfast": true
     },
     {
@@ -1069,8 +934,26 @@
       "provider": "Agoda",
       "roomType": "2 Bedroom Deluxe",
       "kind": "villa",
-      "price": 1715542,
+      "price": 1715615,
       "breakfast": true
+    },
+    {
+      "hotelId": "hawaii_anyer",
+      "stay": "weekend",
+      "provider": "Agoda",
+      "roomType": "Room DELUXE",
+      "kind": "standard",
+      "price": 2049485,
+      "breakfast": true
+    },
+    {
+      "hotelId": "hawaii_anyer",
+      "stay": "weekend",
+      "provider": "Agoda",
+      "roomType": "President Suite",
+      "kind": "suite",
+      "price": 4943580,
+      "breakfast": false
     }
   ],
   "otaProviders": [
@@ -1097,7 +980,8 @@
         "bluepillow.com"
       ],
       "hotelIds": [
-        "sanghyang"
+        "mambruk",
+        "hawaii_anyer"
       ],
       "channels": [
         "prices"
@@ -1137,7 +1021,6 @@
         "deals.etrip.net"
       ],
       "hotelIds": [
-        "sanghyang",
         "aston_anyer"
       ],
       "channels": [
@@ -1161,24 +1044,13 @@
       ]
     },
     {
-      "provider": "goseek.com",
-      "hosts": [
-        "deals.goseek.com"
-      ],
-      "hotelIds": [
-        "aston_anyer"
-      ],
-      "channels": [
-        "prices"
-      ]
-    },
-    {
       "provider": "HomeToGo",
       "hosts": [
         "hometogo.com"
       ],
       "hotelIds": [
         "mambruk",
+        "marbella",
         "hawaii_anyer"
       ],
       "channels": [
@@ -1204,6 +1076,18 @@
       ],
       "hotelIds": [
         "hawaii_anyer"
+      ],
+      "channels": [
+        "prices"
+      ]
+    },
+    {
+      "provider": "Hotel prive",
+      "hosts": [
+        "hotelprive.net"
+      ],
+      "hotelIds": [
+        "aston_anyer"
       ],
       "channels": [
         "prices"
@@ -1243,6 +1127,7 @@
       ],
       "hotelIds": [
         "sanghyang",
+        "aston_anyer",
         "hawaii_anyer"
       ],
       "channels": [
@@ -1257,8 +1142,7 @@
       "hotelIds": [
         "sanghyang",
         "jayakarta",
-        "aston_anyer",
-        "hawaii_anyer"
+        "aston_anyer"
       ],
       "channels": [
         "prices"
@@ -1271,6 +1155,19 @@
       ],
       "hotelIds": [
         "mambruk"
+      ],
+      "channels": [
+        "prices"
+      ]
+    },
+    {
+      "provider": "momondo.com",
+      "hosts": [
+        "momondo.com"
+      ],
+      "hotelIds": [
+        "sanghyang",
+        "aston_anyer"
       ],
       "channels": [
         "prices"
@@ -1339,18 +1236,6 @@
       ]
     },
     {
-      "provider": "Stayforlong",
-      "hosts": [
-        "stayforlong.com"
-      ],
-      "hotelIds": [
-        "aston_anyer"
-      ],
-      "channels": [
-        "prices"
-      ]
-    },
-    {
       "provider": "Tiket.com",
       "hosts": [
         "tiket.com"
@@ -1373,7 +1258,8 @@
         "travelocity.com"
       ],
       "hotelIds": [
-        "sanghyang"
+        "sanghyang",
+        "aston_anyer"
       ],
       "channels": [
         "prices"
@@ -1434,6 +1320,16 @@
       ]
     },
     {
+      "provider": "trivago.com",
+      "hosts": [],
+      "hotelIds": [
+        "hawaii_anyer"
+      ],
+      "channels": [
+        "prices"
+      ]
+    },
+    {
       "provider": "Vio.com",
       "hosts": [
         "deals.vio.com"
@@ -1491,5 +1387,5 @@
       "Tripadvisor"
     ]
   },
-  "otaDiscoveredAt": "2026-11-26T16:54:30.454Z"
+  "otaDiscoveredAt": "2026-11-26T18:43:17.541Z"
 }
