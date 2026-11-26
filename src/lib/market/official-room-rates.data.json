@@ -5,7 +5,7 @@
   "sourceLabel": "Situs resmi sanghyang.com/book",
   "sourceMethod": "Booking engine resmi hotel (Exely) lewat Exely Connect Search API kanal metasearch hotel: harga per malam termasuk pajak, rate plan termurah per tipe kamar, tanpa diskon member",
   "bookUrl": "https://sanghyang.com/book",
-  "observedAt": "2026-11-25T01:00:36.215Z",
+  "observedAt": "2026-11-26T16:54:34.190Z",
   "request": {
     "api": "Exely Connect Search API",
     "contentPath": "/api/content/v1/properties/{EXELY_PROPERTY_ID}?languageCode=en",
@@ -15,7 +15,7 @@
     "nights": 1,
     "checkInWeekday": "2026-12-01",
     "checkInWeekend": "2026-11-28",
-    "datesFrom": "lib/market/resort-room-rates.data.json (capturedAt 2026-11-25 07:40 WIB)"
+    "datesFrom": "lib/market/resort-room-rates.data.json (capturedAt 2026-11-26 23:51 WIB)"
   },
   "hotels": [
     {
@@ -162,7 +162,7 @@
             "ratePlan": "Room Only",
             "ratePlanId": "10005436",
             "mealPlanCode": "RoomOnly",
-            "roomsLeft": 5,
+            "roomsLeft": 4,
             "unavailableReason": null,
             "sourceUrl": "https://sanghyang.com/book?hotel_id=500776&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004789&tl-offer=10005436&tl-nights=1&tl-date=2026-11-28"
           }
