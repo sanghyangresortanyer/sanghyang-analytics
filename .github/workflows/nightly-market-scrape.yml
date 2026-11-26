@@ -97,7 +97,8 @@ jobs:
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
           MARKETING_PROPERTY_ID: ${{ secrets.MARKETING_PROPERTY_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
+          PRIMARY_MODEL: ${{ vars.PRIMARY_MODEL }}
+          PRIMARY_THINKING_LEVEL: ${{ vars.PRIMARY_THINKING_LEVEL }}
         run: npx tsx scripts/ops/run-nightly-scrape.ts
 
       # Runner dibuang setelah job; pembersihan yang gagal (misalnya Docker tidak pernah jalan) tidak membuat job data merah.

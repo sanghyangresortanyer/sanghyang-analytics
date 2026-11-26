@@ -105,7 +105,7 @@ export async function getActiveCompetitorWebsites(
 export async function scrapeWebsitePromos(): Promise<{ sites: number; saved: number; updated: number; failures: string[] }> {
   const { db } = await import("../db");
   const { Prisma, PromotionStatus } = await import("@prisma/client");
-  const { generateWithRetry, model } = await import("../gemini");
+  const { generateWithRetry } = await import("../gemini");
   const sites = await getActiveCompetitorWebsites(db);
   const result = { sites: sites.length, saved: 0, updated: 0, failures: [] as string[] };
   const { isCrawlAllowed, PROFILE_CRAWLER_UA, readOfficialPage } = await import("./official-pages");
@@ -132,7 +132,7 @@ export async function scrapeWebsitePromos(): Promise<{ sites: number; saved: num
           if (!(await isCrawlAllowed(url))) continue;
           const text = url === home.url ? home.text : (await readOfficialPage(page, url, pageOptions)).text;
           // Suhu 0: jenis promo/event dan isi paket harus sama pada setiap penyegaran, bukan berganti antar bacaan.
-          const res = await generateWithRetry({ model: model(), contents: buildWebsitePrompt(c.name, text, today), config: { responseMimeType: "application/json", temperature: 0 } });
+          const res = await generateWithRetry({ contents: buildWebsitePrompt(c.name, text, today), config: { responseMimeType: "application/json" } });
           for (const p of parseWebsitePromos(res.text ?? "", today, text)) {
             const days = promoDayRange(p.startsAt, p.endsAt);
             const data = {

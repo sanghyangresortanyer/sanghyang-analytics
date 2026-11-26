@@ -1,8 +1,8 @@
-import { GoogleGenAI } from "@google/genai";
-import { model } from "../gemini";
+import { generateWithRetry } from "../gemini";
 import type { SummaryRow } from "./summary";
 
-export const INSIGHT_TIMEOUT_MS = 8_000;
+/** Sama dengan batas AI proyek web: penalaran xhigh butuh belasan sampai puluhan detik, 8 detik selalu habis lebih dulu. */
+export const INSIGHT_TIMEOUT_MS = 55_000;
 export const INSIGHT_TYPES = ["insight", "opportunity", "recommendation"] as const;
 export const INSIGHT_STATUSES = ["active", "archived"] as const;
 export type InsightType = (typeof INSIGHT_TYPES)[number];
@@ -34,11 +34,9 @@ function validate(value: unknown, fallbackValue: GeneratedInsight[]): GeneratedI
 }
 
 const defaultGenerate: GenerateInsights = async (prompt) => {
-  if (!process.env.GEMINI_API_KEY) throw new Error("GEMINI_API_KEY unavailable");
-  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), INSIGHT_TIMEOUT_MS);
-  try { const result = await ai.models.generateContent({ model: model(), contents: prompt, config: { abortSignal: controller.signal } }); return result.text ?? ""; } finally { clearTimeout(timer); }
+  try { return (await generateWithRetry({ contents: prompt, config: { abortSignal: controller.signal } })).text; } finally { clearTimeout(timer); }
 };
 
 export async function generateInsights(input: InsightInput, generate: GenerateInsights = defaultGenerate) {

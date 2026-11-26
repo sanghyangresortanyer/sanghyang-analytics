@@ -75,9 +75,8 @@ async function main() {
     try {
       const kind = GROUP_LABEL[groupFor(row.category, placeId === "sanghyang")];
       const res = await generateWithRetry({
-        model: model(),
         contents: [{ role: "user", parts: [{ text: buildPhotoPrompt(row.name, kind, images.length) }, ...images.map((x) => ({ inlineData: x.image }))] }],
-        config: { responseMimeType: "application/json", temperature: 0.1 },
+        config: { responseMimeType: "application/json" },
       });
       answer = res.text ?? "";
     } catch (error) {

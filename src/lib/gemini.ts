@@ -8,19 +8,34 @@
 import { GoogleGenAI } from '@google/genai';
 
 /**
- * Bisa diganti dari dashboard tanpa deploy ulang — kuota free tier berbeda-beda
- * per model dan angkanya tidak cocok dengan dokumentasi resmi. Terukur sendiri:
- *   gemini-2.5-flash        20/hari, 10/menit
- *   gemini-3.5-flash-lite   15/menit  (kuotanya TERPISAH, bukan berbagi)
+ * Model dan tingkat penalaran mengikuti proyek web sanghyang (keputusan pemilik 26 Nov 2026): model hanya dari
+ * PRIMARY_MODEL dan penalaran dikunci xhigh lewat PRIMARY_THINKING_LEVEL. Tidak ada model cadangan dan nilai bawaan;
+ * env kosong atau salah langsung gagal. Kena batas laju berarti menunggu lalu mencoba model yang sama.
  *
- * Default BUKAN gemini-2.5-flash-lite: model itu masih terdaftar di /models tapi
- * generateContent membalas 404 "no longer available to new users", dan Google
- * sendiri mengarahkan ke gemini-3.5-flash-lite.
- *
- * Sengaja versi yang dipatok, bukan alias 'gemini-flash-lite-latest': promptnya
- * disetel ketat, jadi model tidak boleh berganti diam-diam di bawah kaki kita.
+ * Lewat Interactions API seperti proyek web, bukan models.generateContent: 26 Nov 2026 generateContent ke
+ * gemini-4-hydrogen dengan thinkingLevel XHIGH baru menjawab 503 "high demand" setelah 123 detik, sedangkan
+ * Interactions API dengan thinking_level xhigh selesai dalam 9,6 detik. Interactions API tidak menerima temperature
+ * untuk model berpikir, jadi pemanggil tidak lagi mengirimnya.
  */
-export const model = () => process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
+const THINKING_LEVEL = 'xhigh' as const;
+/** Token berpikir xhigh ikut dihitung dalam batas keluaran; di bawah angka ini jawaban JSON panjang terpotong. */
+const MIN_OUTPUT_TOKENS = 16_384;
+
+export type AiConfig = { apiKey: string; model: string; thinkingLevel: typeof THINKING_LEVEL };
+
+export function aiConfig(env: Readonly<Record<string, string | undefined>> = process.env): AiConfig {
+  const apiKey = env.GEMINI_API_KEY?.trim() ?? '';
+  if (!apiKey) throw new Error('GEMINI_API_KEY belum diisi');
+  const model = env.PRIMARY_MODEL?.trim() ?? '';
+  if (!model) throw new Error('PRIMARY_MODEL belum diisi; tidak ada model cadangan');
+  if (env.PRIMARY_THINKING_LEVEL?.trim().toLowerCase() !== THINKING_LEVEL) {
+    throw new Error('PRIMARY_THINKING_LEVEL wajib xhigh (effort tidak boleh diturunkan)');
+  }
+  return { apiKey, model, thinkingLevel: THINKING_LEVEL };
+}
+
+/** Nama model yang benar-benar dipakai, untuk dicatat di metadata hasil. */
+export const model = () => aiConfig().model;
 const MAX_TEXT = 8000;
 /**
  * Di bawah ini sumbernya benar-benar tipis. Dulu 300 dan itu terlalu tinggi:
@@ -153,42 +168,135 @@ ARTIKEL:
 ${a.fullText.slice(0, MAX_TEXT)}`;
 }
 
-let klien: GoogleGenAI | null = null;
-export function ai() {
-  if (!klien) {
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) throw new Error('GEMINI_API_KEY belum diisi');
-    klien = new GoogleGenAI({ apiKey });
+type BagianMasukan = { text?: string; inlineData?: { data?: string; mimeType?: string } };
+
+/** Bentuk permintaan para pemanggil: teks, atau satu pesan berisi teks dan gambar base64. Model tidak bisa dipilih di sini. */
+export type GenerateParams = {
+  contents: string | { role?: string; parts?: BagianMasukan[] }[];
+  config?: { responseMimeType?: string; maxOutputTokens?: number; systemInstruction?: string; abortSignal?: AbortSignal };
+};
+
+type MasukanInteraction = { type: 'text'; text: string } | { type: 'image'; data: string; mime_type: string };
+type InteractionRequest = {
+  model: string;
+  input: string | MasukanInteraction[];
+  store: false;
+  generation_config: { max_output_tokens: number; thinking_level: typeof THINKING_LEVEL };
+  response_format?: { type: 'text'; mime_type: string };
+  system_instruction?: string;
+};
+type InteractionOptions = { retries: { strategy: 'none' }; fetch_options?: { signal: AbortSignal } };
+
+function keMasukan(part: BagianMasukan): MasukanInteraction {
+  if (typeof part.text === 'string') return { type: 'text', text: part.text };
+  if (part.inlineData?.data && part.inlineData.mimeType) {
+    return { type: 'image', data: part.inlineData.data, mime_type: part.inlineData.mimeType };
   }
-  return klien;
+  throw new Error('Bagian masukan AI tidak dikenal: hanya teks dan gambar inlineData yang didukung');
+}
+
+/** Terjemahkan permintaan ke Interactions API. store false: interaksi tidak disimpan Google, sama seperti proyek web. */
+export function buildInteraction(params: GenerateParams, config: AiConfig): { request: InteractionRequest; options: InteractionOptions } {
+  const request: InteractionRequest = {
+    model: config.model,
+    input: typeof params.contents === 'string' ? params.contents : params.contents.flatMap((c) => c.parts ?? []).map(keMasukan),
+    store: false,
+    generation_config: {
+      max_output_tokens: Math.max(params.config?.maxOutputTokens ?? 0, MIN_OUTPUT_TOKENS),
+      thinking_level: config.thinkingLevel,
+    },
+  };
+  // Interactions API menolak response_mime_type tanpa response_format ("responseFormat must be set"), jadi
+  // keluaran JSON diminta lewat response_format seperti proyek web.
+  if (params.config?.responseMimeType) request.response_format = { type: 'text', mime_type: params.config.responseMimeType };
+  if (params.config?.systemInstruction) request.system_instruction = params.config.systemInstruction;
+  // Coba ulang SDK dimatikan: kebijakan menunggu ada di generateWithRetry supaya tidak berlipat.
+  const options: InteractionOptions = { retries: { strategy: 'none' } };
+  if (params.config?.abortSignal) options.fetch_options = { signal: params.config.abortSignal };
+  return { request, options };
+}
+
+/** Hasil yang dibaca pemanggil; finishReason dipetakan dari status interaksi supaya pemeriksa jawaban terpotong tetap jalan. */
+export type GenerateResult = { text: string; candidates: { finishReason: string | undefined }[]; status: string | null; totalTokens: number | null };
+
+const isRecord = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
+
+export function readInteraction(raw: unknown): GenerateResult {
+  const r = isRecord(raw) ? raw : {};
+  const status = typeof r.status === 'string' ? r.status : null;
+  // output_text ditambahkan SDK; tanpa itu teks diambil dari langkah model_output, bukan dari langkah thought.
+  const potongan = (Array.isArray(r.steps) ? r.steps : [])
+    .filter(isRecord)
+    .filter((s) => s.type === 'model_output')
+    .flatMap((s) => (Array.isArray(s.content) ? s.content : []))
+    .filter(isRecord)
+    .flatMap((c) => (c.type === 'text' && typeof c.text === 'string' ? [c.text] : []));
+  const text = typeof r.output_text === 'string' ? r.output_text : potongan.join('');
+  const finishReason = status === 'completed' ? 'STOP' : status === 'incomplete' ? 'MAX_TOKENS' : status?.toUpperCase();
+  const usage = isRecord(r.usage) ? r.usage : {};
+  return { text, candidates: [{ finishReason }], status, totalTokens: typeof usage.total_tokens === 'number' ? usage.total_tokens : null };
+}
+
+let klien: { key: string; api: GoogleGenAI['interactions'] } | null = null;
+function interactions(apiKey: string): GoogleGenAI['interactions'] {
+  if (klien?.key !== apiKey) klien = { key: apiKey, api: new GoogleGenAI({ apiKey }).interactions };
+  return klien.api;
 }
 
 /**
- * Berapa lama harus menunggu sebelum coba lagi.
- *
- * Angka mati 2 dan 4 detik tidak pernah cukup: retryDelay yang benar-benar
- * dikirim Google saat kena batas per-menit terukur 8-24 detik, jadi ketiga
- * percobaan habis sebelum kuotanya pulih. Pakai angka dari Google;
- * 2/4 detik cuma cadangan kalau responsnya tidak memuat retryDelay.
+ * Berapa lama harus menunggu sebelum coba lagi: angka retryDelay dari Google ("retryDelay": "8s" atau
+ * "retry in 39.5s"). Batas per menit pulih paling lama dalam 60 detik, jadi tunggu sampai 65 detik dihormati
+ * penuh. Tanpa angka dari Google: 2 detik (5 detik untuk 503) berlipat per percobaan.
  */
 export function jedaDari(pesan: string, percobaan: number, acak: () => number = Math.random): number {
-  const m = pesan.match(/"retryDelay"\s*:\s*"(\d+(?:\.\d+)?)s"/);
+  const m = pesan.match(/retry(?:Delay"?\s*:\s*"|\s+in\s+)(\d+(?:\.\d+)?)s/i);
   // 503 "high demand" biasanya reda dalam belasan detik; 2 dan 4 detik terbukti tidak cukup (galat 13 Nov 2026).
   const dasar = /503|UNAVAILABLE|high demand|overloaded/i.test(pesan) ? 5000 : 2000;
   const saran = m ? Math.ceil(Number(m[1]) * 1000) + 500 : dasar * 2 ** percobaan;
   // Jitter supaya beberapa proses yang gagal bersamaan tidak mencoba ulang pada detik yang sama.
-  return Math.min(saran + Math.round(acak() * 1000), 30_000);
+  return Math.min(saran + Math.round(acak() * 1000), 65_000);
 }
 
-/** generateContent dengan coba ulang saat Gemini sibuk (503) atau kena batas per menit; kuota harian langsung dilempar. */
-export async function generateWithRetry(params: Parameters<ReturnType<typeof ai>['models']['generateContent']>[0], tries = 4) {
+const STATUS_GAGAL = new Set(['failed', 'cancelled', 'budget_exceeded']);
+
+function detailGalat(e: unknown): string {
+  const r = isRecord(e) ? e : {};
+  const status = typeof r.status === 'number' ? ` HTTP ${r.status}` : '';
+  const isi = r.error === undefined ? '' : ` ${JSON.stringify(r.error)}`;
+  return `${e instanceof Error ? e.message : String(e)}${status}${isi}`;
+}
+
+type GenerateDeps = {
+  create?: (request: InteractionRequest, options: InteractionOptions) => Promise<unknown>;
+  sleep?: (ms: number) => Promise<void>;
+  env?: Readonly<Record<string, string | undefined>>;
+  tries?: number;
+};
+
+/**
+ * Satu panggilan AI dengan model PRIMARY_MODEL dan penalaran xhigh. Kena batas per menit (429) atau server sibuk
+ * (503): tunggu sesuai retryDelay lalu coba lagi dengan model yang sama. Kuota harian habis atau galat permintaan
+ * langsung dilempar; tidak ada model lain yang dicoba.
+ */
+export async function generateWithRetry(params: GenerateParams, deps: GenerateDeps = {}): Promise<GenerateResult> {
+  const config = aiConfig(deps.env);
+  const { request, options } = buildInteraction(params, config);
+  const create =
+    deps.create ??
+    ((req: InteractionRequest, opt: InteractionOptions) =>
+      interactions(config.apiKey).create(req as Parameters<GoogleGenAI['interactions']['create']>[0], opt));
+  const sleep = deps.sleep ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
+  const tries = deps.tries ?? 4;
   for (let i = 0; ; i++) {
     try {
-      return await ai().models.generateContent(params);
+      const hasil = readInteraction(await create(request, options));
+      if (hasil.status && STATUS_GAGAL.has(hasil.status)) throw new Error(`Jawaban AI berstatus ${hasil.status}`);
+      return hasil;
     } catch (e) {
-      const pesan = (e as Error).message ?? String(e);
-      if (i + 1 >= tries || /PerDay/i.test(pesan) || !/503|UNAVAILABLE|429|RESOURCE_EXHAUSTED/.test(pesan)) throw e;
-      await new Promise((r) => setTimeout(r, jedaDari(pesan, i)));
+      const pesan = detailGalat(e);
+      const bisaDitunggu = /HTTP (429|503)\b|503|UNAVAILABLE|429|RESOURCE_EXHAUSTED|high demand/i.test(pesan);
+      if (i + 1 >= tries || /PerDay/i.test(pesan) || !bisaDitunggu) throw e;
+      await sleep(jedaDari(pesan, i));
     }
   }
 }
@@ -219,11 +327,8 @@ export async function summarizeOne(a: ArtikelUntukRingkas): Promise<SummaryResul
     ({ summary: null, error, pesanUser: pesanKuota(error), targetKata: target, warnings, dibuangSanitizer: [] });
 
   try {
-    const res = await ai().models.generateContent({
-      model: model(),
-      contents: buatPrompt(a, target),
-    });
-    const teks = res.text?.trim();
+    const res = await generateWithRetry({ contents: buatPrompt(a, target) });
+    const teks = res.text.trim();
     if (!teks) return gagal('jawaban kosong');
 
     const { bersih, dibuang } = sanitize(teks);

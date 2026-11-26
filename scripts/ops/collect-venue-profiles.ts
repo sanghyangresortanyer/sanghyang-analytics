@@ -9,7 +9,7 @@
  * dicetak (Gemini tetap dipanggil). --apply menyimpan ke DB kerja lokal (dijaga local-db-guard.ts).
  */
 import { db } from "@/lib/db";
-import { generateWithRetry, model } from "@/lib/gemini";
+import { generateWithRetry } from "@/lib/gemini";
 import { buildVenueFactPrompt, parseVerifiedFacts, saveFacts, textFromHtml } from "@/lib/market/competitor-facts";
 import { isCrawlAllowed, isProfileSource, PROFILE_CRAWLER_UA } from "@/lib/market/official-pages";
 import { assertLocalWorkDatabase } from "./local-db-guard";
@@ -68,9 +68,8 @@ async function main() {
       }
       geminiCalls++;
       const res = await generateWithRetry({
-        model: model(),
         contents: buildVenueFactPrompt(t.name, t.parent?.name ?? null, page.url, page.text),
-        config: { responseMimeType: "application/json", temperature: 0 },
+        config: { responseMimeType: "application/json" },
       });
       const result = parseVerifiedFacts(res.text ?? "", page.text);
       const saved = apply ? await saveFacts(t.id, page.url, result.facts) : 0;

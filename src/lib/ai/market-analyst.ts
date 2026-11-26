@@ -10,7 +10,7 @@
  * 4. Caching SHA-256 di tabel MarketInsight untuk hemat kuota dan efisiensi.
  */
 import { db } from "../db";
-import { generateWithRetry, model, pesanKuota } from "../gemini";
+import { generateWithRetry, pesanKuota } from "../gemini";
 import type { Prisma } from "@prisma/client";
 import type { OutletKnowledgeContext } from "../knowledge-graph/context";
 import { DISPROVEN_FACILITY_CLAIM } from "../market/resort-strategy";
@@ -570,7 +570,6 @@ Jawab HANYA JSON:
   ]
 }`;
       const res = await generateWithRetry({
-        model: model(),
         contents: prompt,
       });
       rawResponse = res.text?.trim() ?? "";

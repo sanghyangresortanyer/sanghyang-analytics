@@ -13,7 +13,7 @@
  */
 import type { Prisma } from "@prisma/client";
 import { isWriteAllowed } from "../db";
-import { generateWithRetry, model } from "../gemini";
+import { generateWithRetry } from "../gemini";
 import { normalizeForQuote, textFromHtml } from "./competitor-facts";
 import {
   buildRoomTypesSummaryText,
@@ -468,9 +468,8 @@ async function defaultFetchPage(url: string): Promise<{ url: string; html: strin
 
 async function defaultGenerate(prompt: string): Promise<string> {
   const res = await generateWithRetry({
-    model: model(),
     contents: prompt,
-    config: { responseMimeType: "application/json", temperature: 0 },
+    config: { responseMimeType: "application/json" },
   });
   return res.text ?? "";
 }

@@ -9,7 +9,7 @@
  * `--fokus outlet` hanya membaca hotel dan memilih halaman restoran, bar, dan spa (untuk pesaing outlet di dalam hotel).
  */
 import { db } from "@/lib/db";
-import { generateWithRetry, model } from "@/lib/gemini";
+import { generateWithRetry } from "@/lib/gemini";
 import { buildFactPrompt, parseVerifiedFacts, saveFacts } from "@/lib/market/competitor-facts";
 import { findPropertyIndexUrl, readLlmsProfile } from "@/lib/market/llms-profile";
 import { isCrawlAllowed, isProfileSource, OUTLET_LINK, PROFILE_CRAWLER_UA, PROFILE_LINK, readOfficialPage } from "@/lib/market/official-pages";
@@ -85,9 +85,8 @@ async function main() {
           }
           if (read.text.length < MIN_PAGE_TEXT) continue;
           const res = await generateWithRetry({
-            model: model(),
             contents: buildFactPrompt(t.name, read.url, read.text),
-            config: { responseMimeType: "application/json", temperature: 0 },
+            config: { responseMimeType: "application/json" },
           });
           const result = parseVerifiedFacts(res.text ?? "", read.text);
           rejected.push(...result.rejections.map((r) => `${r.key}: ${r.reason} [${r.quote}]`));

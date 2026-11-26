@@ -16,7 +16,7 @@
 import dns from "node:dns";
 import type { Prisma } from "@prisma/client";
 import { isWriteAllowed } from "../db";
-import { generateWithRetry, model } from "../gemini";
+import { generateWithRetry } from "../gemini";
 import { normalizeForQuote, textFromHtml } from "./competitor-facts";
 import { sanitizeAiModelText } from "./hotel-room-types";
 import { isCrawlAllowed, isProfileSource, PROFILE_CRAWLER_UA } from "./official-pages";
@@ -777,18 +777,16 @@ async function defaultCheckRobots(url: string): Promise<boolean> {
 
 async function defaultGenerate(prompt: string): Promise<string> {
   const res = await generateWithRetry({
-    model: model(),
     contents: prompt,
-    config: { responseMimeType: "application/json", temperature: 0 },
+    config: { responseMimeType: "application/json" },
   });
   return res.text ?? "";
 }
 
 async function defaultGenerateFromImages(prompt: string, images: InlineImageData[]): Promise<string> {
   const res = await generateWithRetry({
-    model: model(),
     contents: [{ role: "user", parts: [{ text: prompt }, ...images.map((inlineData) => ({ inlineData }))] }],
-    config: { responseMimeType: "application/json", temperature: 0, maxOutputTokens: MAX_BROCHURE_OUTPUT_TOKENS },
+    config: { responseMimeType: "application/json", maxOutputTokens: MAX_BROCHURE_OUTPUT_TOKENS },
   });
   return res.text ?? "";
 }

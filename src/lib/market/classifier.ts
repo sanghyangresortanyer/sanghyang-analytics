@@ -1,5 +1,4 @@
-import { GoogleGenAI } from "@google/genai";
-import { model } from "../gemini";
+import { generateWithRetry } from "../gemini";
 import type { MarketItemKind } from "../db-types";
 
 export type MarketCategory = "hotel" | "fnb" | "event" | "regulasi" | "infrastruktur" | "pariwisata" | "lainnya";
@@ -469,15 +468,7 @@ function validate(value: unknown, fallback: Classification): Classification {
   };
 }
 
-const defaultGenerate: GenerateClassification = async (prompt) => {
-  if (!process.env.GEMINI_API_KEY) throw new Error("GEMINI_API_KEY unavailable");
-  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-  const result = await ai.models.generateContent({
-    model: model(),
-    contents: prompt,
-  });
-  return result.text ?? "";
-};
+const defaultGenerate: GenerateClassification = async (prompt) => (await generateWithRetry({ contents: prompt })).text;
 
 export async function classifyArticle(
   input: ClassifierInput,

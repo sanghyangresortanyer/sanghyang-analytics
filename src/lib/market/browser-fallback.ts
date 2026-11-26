@@ -1,6 +1,6 @@
 import { extractFromHtml } from "@extractus/article-extractor";
 import { alamatAman } from "../urlaman";
-import { generateWithRetry, model } from "../gemini";
+import { generateWithRetry } from "../gemini";
 import type { ScrapeFailure, ScrapedArticle } from "./scraper";
 
 type BrowserPage = {
@@ -54,7 +54,6 @@ ${rawText.slice(0, 10_000)}
 </RAW_CONTENT>`;
 
     const res = await generateWithRetry({
-      model: model(),
       contents: prompt,
     });
 

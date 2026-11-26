@@ -75,9 +75,8 @@ async function main() {
     const images = [];
     for (const url of photos) images.push(await download(url));
     const res = await generateWithRetry({
-      model: usedModel,
       contents: [{ role: "user", parts: [{ text: prompt(name, images.length) }, ...images.map((inlineData) => ({ inlineData }))] }],
-      config: { responseMimeType: "application/json", temperature: 0, maxOutputTokens: MAX_OUTPUT_TOKENS },
+      config: { responseMimeType: "application/json", maxOutputTokens: MAX_OUTPUT_TOKENS },
     });
     const raw = itemsFrom(name, res.text ?? "", res.candidates?.[0]?.finishReason);
     // Koreksi nama yang sudah dicek ke foto (salah baca OCR) diterapkan sebelum item yang sama digabung.

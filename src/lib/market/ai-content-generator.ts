@@ -1,4 +1,4 @@
-import { ai, model } from "../gemini";
+import { generateWithRetry } from "../gemini";
 import { DISPROVEN_FACILITY_CLAIM } from "./resort-strategy";
 
 export type ContentDraftInput = {
@@ -219,12 +219,9 @@ Keluarkan HANYA JSON valid (tanpa markdown pembuka/penutup) dengan struktur:
   }
 }`;
 
-    const res = await ai().models.generateContent({
-      model: model(),
-      contents: prompt,
-    });
+    const res = await generateWithRetry({ contents: prompt });
 
-    const text = res.text?.trim() || "";
+    const text = res.text.trim();
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (!jsonMatch) return fallback;
 

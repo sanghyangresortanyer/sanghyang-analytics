@@ -132,14 +132,13 @@ async function main() {
         if (!loaded.length) continue;
         const group = (venue.category ?? "resto") as PlaceGroup;
         const res = await generateWithRetry({
-          model: model(),
           contents: [
             {
               role: "user",
               parts: [{ text: buildPhotoPrompt(venue.name, GROUP_LABEL[group] ?? GROUP_LABEL.resto, loaded.length) }, ...loaded.map((x) => ({ inlineData: x.data }))],
             },
           ],
-          config: { responseMimeType: "application/json", temperature: 0.1 },
+          config: { responseMimeType: "application/json" },
         });
         const reading = parsePhotoReading(res.text ?? "", loaded.length);
         if (!reading) {

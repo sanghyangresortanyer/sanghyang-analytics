@@ -178,14 +178,13 @@ export async function readPost(page: Page, url: string) {
 }
 
 async function askGemini(prompt: string, image: { data: string; mimeType: string } | null): Promise<string> {
-  const { generateWithRetry, model } = await import("../gemini");
+  const { generateWithRetry } = await import("../gemini");
   const parts: ({ text: string } | { inlineData: { data: string; mimeType: string } })[] = [{ text: prompt }];
   if (image) parts.push({ inlineData: image });
   const res = await generateWithRetry({
-    model: model(),
     contents: [{ role: "user", parts }],
     // Suhu 0: jenis promo/event dan isi paket harus sama pada setiap penyegaran, bukan berganti antar bacaan.
-    config: { responseMimeType: "application/json", temperature: 0 },
+    config: { responseMimeType: "application/json" },
   });
   return res.text ?? "";
 }

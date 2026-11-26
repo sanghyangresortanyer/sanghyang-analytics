@@ -166,7 +166,7 @@ export async function pendingTypeCandidates(
 
 export async function classifyPromotionTypes(limit = MAX_PER_RUN): Promise<TypeClassificationResult> {
   const { db } = await import("../db");
-  const { generateWithRetry, model } = await import("../gemini");
+  const { generateWithRetry } = await import("../gemini");
   const { rows } = await pendingTypeCandidates(limit);
   const result: TypeClassificationResult = { checked: 0, byType: {}, failures: [] };
   const asNumber = (v: unknown) => (v === null || v === undefined ? null : Number(v));
@@ -175,7 +175,6 @@ export async function classifyPromotionTypes(limit = MAX_PER_RUN): Promise<TypeC
     let answers: Map<string, PromotionTypeKey>;
     try {
       const res = await generateWithRetry({
-        model: model(),
         contents: buildTypePrompt(
           batch.map((r) => ({
             id: r.id,
@@ -191,7 +190,7 @@ export async function classifyPromotionTypes(limit = MAX_PER_RUN): Promise<TypeC
             source: r.source,
           })),
         ),
-        config: { responseMimeType: "application/json", temperature: 0 },
+        config: { responseMimeType: "application/json" },
       });
       answers = parseTypeAnswer(res.text ?? "", batch.map((r) => r.id));
     } catch (error) {

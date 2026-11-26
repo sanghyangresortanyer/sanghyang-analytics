@@ -92,7 +92,7 @@ export function eventDatesFor(
 
 export async function classifyPromotionKinds(limit = MAX_PER_RUN): Promise<{ checked: number; promos: number; events: number; failures: string[] }> {
   const { db } = await import("../db");
-  const { generateWithRetry, model } = await import("../gemini");
+  const { generateWithRetry } = await import("../gemini");
   const rows = await db.competitorPromotion.findMany({
     where: { kind: null, category: { notIn: [NOT_PROMO_CATEGORY, SOCIAL_POST_CATEGORY] } },
     select: { id: true, title: true, category: true, description: true, startsAt: true, endsAt: true, version: true, competitor: { select: { name: true } } },
@@ -104,11 +104,10 @@ export async function classifyPromotionKinds(limit = MAX_PER_RUN): Promise<{ che
     const batch = rows.slice(i, i + BATCH_SIZE);
     try {
       const res = await generateWithRetry({
-        model: model(),
         contents: buildKindPrompt(
           batch.map((r) => ({ id: r.id, competitor: r.competitor.name, title: r.title, category: r.category, description: r.description, recordedDay: wibDay(r.startsAt) })),
         ),
-        config: { responseMimeType: "application/json", temperature: 0 },
+        config: { responseMimeType: "application/json" },
       });
       const answers = parseKindAnswer(res.text ?? "", batch.map((r) => r.id));
       for (const row of batch) {

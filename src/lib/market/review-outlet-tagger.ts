@@ -96,7 +96,7 @@ export async function tagResortReviews(
   monthsWindow = DEFAULT_TAGGER_WINDOW_MONTHS
 ): Promise<{ attempted: number; checked: number; tagged: number; failures: string[] }> {
   const { db } = await import("../db");
-  const { generateWithRetry, model } = await import("../gemini");
+  const { generateWithRetry } = await import("../gemini");
   const sinceDate = getTaggerWindowCutoff(monthsWindow);
   const rows = await db.competitorReview.findMany({
     where: {
@@ -114,9 +114,8 @@ export async function tagResortReviews(
     const batch = rows.slice(i, i + BATCH);
     try {
       const res = await generateWithRetry({
-        model: model(),
         contents: buildTagPrompt(batch),
-        config: { responseMimeType: "application/json", temperature: 0.1 },
+        config: { responseMimeType: "application/json" },
       });
       const tags = parseTags(res.text ?? "", batch.map((r) => r.id));
       if (!tags) throw new Error("jawaban Gemini tidak valid");

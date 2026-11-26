@@ -338,7 +338,7 @@ export async function readCandidateNews(options: { limit?: number; now?: Date } 
   const now = options.now ?? new Date();
   const { db } = await import("../db");
   const { readPublisherArticle } = await import("./news-reader");
-  const { generateWithRetry, model } = await import("../gemini");
+  const { generateWithRetry } = await import("../gemini");
   const { straightLineKm, GoogleVerificationError } = await import("./competitor-discovery");
   const [site, outlets, candidates] = await Promise.all([loadSite(), loadOutlets(), loadCandidates(options.limit ?? 40, now)]);
   const run: NewsReadRun = {
@@ -361,7 +361,7 @@ export async function readCandidateNews(options: { limit?: number; now?: Date } 
     let readings: Map<string, NewsReading>;
     try {
       // Suhu 0: penilaian berita yang sama harus sama pada setiap penyegaran.
-      const res = await generateWithRetry({ model: model(), contents: buildNewsPrompt(site, outlets, inputs), config: { responseMimeType: "application/json", temperature: 0 } });
+      const res = await generateWithRetry({ contents: buildNewsPrompt(site, outlets, inputs), config: { responseMimeType: "application/json" } });
       readings = parseNewsReadings(res.text ?? "", inputs);
     } catch (error) {
       run.failures.push(`pembacaan berita: ${(error as Error).message.slice(0, 160)}`);
