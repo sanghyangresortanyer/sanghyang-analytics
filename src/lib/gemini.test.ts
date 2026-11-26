@@ -17,9 +17,20 @@ describe("aiConfig", () => {
     );
   });
 
-  it("thinking level wajib xhigh", () => {
-    expect(() => aiConfig({ ...ENV, PRIMARY_THINKING_LEVEL: "high" })).toThrow(/xhigh/);
-    expect(() => aiConfig({ ...ENV, PRIMARY_THINKING_LEVEL: "" })).toThrow(/xhigh/);
+  it("thinking level mengikuti env: tingkat yang dikenal diterima, kosong atau asing ditolak", () => {
+    const flashLite = { ...ENV, PRIMARY_MODEL: "gemini-3.5-flash-lite", PRIMARY_THINKING_LEVEL: "low" };
+    expect(aiConfig(flashLite)).toEqual({ apiKey: "kunci-uji", model: "gemini-3.5-flash-lite", thinkingLevel: "low" });
+    for (const level of ["minimal", "medium", "high", "xhigh"]) {
+      expect(aiConfig({ ...ENV, PRIMARY_THINKING_LEVEL: level }).thinkingLevel).toBe(level);
+    }
+    expect(() => aiConfig({ ...ENV, PRIMARY_THINKING_LEVEL: "" })).toThrow(/PRIMARY_THINKING_LEVEL/);
+    expect(() => aiConfig({ ...ENV, PRIMARY_THINKING_LEVEL: "ultra" })).toThrow(/PRIMARY_THINKING_LEVEL/);
+  });
+
+  it("thinking level dari env dikirim apa adanya ke Interactions API", () => {
+    const { request } = buildInteraction({ contents: "halo" }, { apiKey: "k", model: "gemini-3.5-flash-lite", thinkingLevel: "low" });
+    expect(request.model).toBe("gemini-3.5-flash-lite");
+    expect(request.generation_config.thinking_level).toBe("low");
   });
 
   it("tanpa GEMINI_API_KEY gagal", () => {

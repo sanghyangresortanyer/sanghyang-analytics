@@ -8,30 +8,38 @@
 import { GoogleGenAI } from '@google/genai';
 
 /**
- * Model dan tingkat penalaran mengikuti proyek web sanghyang (keputusan pemilik 26 Nov 2026): model hanya dari
- * PRIMARY_MODEL dan penalaran dikunci xhigh lewat PRIMARY_THINKING_LEVEL. Tidak ada model cadangan dan nilai bawaan;
- * env kosong atau salah langsung gagal. Kena batas laju berarti menunggu lalu mencoba model yang sama.
+ * Satu model tanpa cadangan (keputusan pemilik 26 Nov 2026): model hanya dari PRIMARY_MODEL dan tingkat penalaran
+ * dari PRIMARY_THINKING_LEVEL, keduanya wajib dan tanpa nilai bawaan; env kosong atau salah langsung gagal. Kena batas
+ * laju berarti menunggu lalu mencoba model yang sama.
+ *
+ * Pilihan model mengikuti kuota harian, bukan sebaliknya: Free Tier gemini-4-hydrogen hanya 20 permintaan per hari,
+ * sedangkan refresh harian butuh sekitar 50-150 panggilan (heartbeat 25 Nov 2026: berita, situs, kategori promo, tipe
+ * kamar, menu, analisis 6 outlet). Pemilik lalu memilih gemini-3.5-flash-lite dengan penalaran low.
  *
  * Lewat Interactions API seperti proyek web, bukan models.generateContent: 26 Nov 2026 generateContent ke
  * gemini-4-hydrogen dengan thinkingLevel XHIGH baru menjawab 503 "high demand" setelah 123 detik, sedangkan
- * Interactions API dengan thinking_level xhigh selesai dalam 9,6 detik. Interactions API tidak menerima temperature
- * untuk model berpikir, jadi pemanggil tidak lagi mengirimnya.
+ * Interactions API selesai dalam 9,6 detik. Interactions API tidak menerima temperature untuk model berpikir, jadi
+ * pemanggil tidak lagi mengirimnya.
  */
-const THINKING_LEVEL = 'xhigh' as const;
-/** Token berpikir xhigh ikut dihitung dalam batas keluaran; di bawah angka ini jawaban JSON panjang terpotong. */
+const THINKING_LEVELS = ['minimal', 'low', 'medium', 'high', 'xhigh'] as const;
+type ThinkingLevel = (typeof THINKING_LEVELS)[number];
+/** Token berpikir ikut dihitung dalam batas keluaran; di bawah angka ini jawaban JSON panjang terpotong. */
 const MIN_OUTPUT_TOKENS = 16_384;
 
-export type AiConfig = { apiKey: string; model: string; thinkingLevel: typeof THINKING_LEVEL };
+export type AiConfig = { apiKey: string; model: string; thinkingLevel: ThinkingLevel };
+
+const isThinkingLevel = (value: string): value is ThinkingLevel => (THINKING_LEVELS as readonly string[]).includes(value);
 
 export function aiConfig(env: Readonly<Record<string, string | undefined>> = process.env): AiConfig {
   const apiKey = env.GEMINI_API_KEY?.trim() ?? '';
   if (!apiKey) throw new Error('GEMINI_API_KEY belum diisi');
   const model = env.PRIMARY_MODEL?.trim() ?? '';
   if (!model) throw new Error('PRIMARY_MODEL belum diisi; tidak ada model cadangan');
-  if (env.PRIMARY_THINKING_LEVEL?.trim().toLowerCase() !== THINKING_LEVEL) {
-    throw new Error('PRIMARY_THINKING_LEVEL wajib xhigh (effort tidak boleh diturunkan)');
+  const level = env.PRIMARY_THINKING_LEVEL?.trim().toLowerCase() ?? '';
+  if (!isThinkingLevel(level)) {
+    throw new Error(`PRIMARY_THINKING_LEVEL wajib salah satu dari ${THINKING_LEVELS.join(', ')}`);
   }
-  return { apiKey, model, thinkingLevel: THINKING_LEVEL };
+  return { apiKey, model, thinkingLevel: level };
 }
 
 /** Nama model yang benar-benar dipakai, untuk dicatat di metadata hasil. */
@@ -181,7 +189,7 @@ type InteractionRequest = {
   model: string;
   input: string | MasukanInteraction[];
   store: false;
-  generation_config: { max_output_tokens: number; thinking_level: typeof THINKING_LEVEL };
+  generation_config: { max_output_tokens: number; thinking_level: ThinkingLevel };
   response_format?: { type: 'text'; mime_type: string };
   system_instruction?: string;
 };
