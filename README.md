@@ -14,11 +14,10 @@ Berdasarkan ADR-014, **Sanghyang Analytics** (`sanghyang-analytics`) menyatukan 
    - Pemantauan okupansi harian (61 kamar aktif) dan Average Room Rate (ARR) berdasarkan F/O Journal VHP serta segmen tamu (FIT, WALK IN, OTA, korporasi).
 3. **Unggah Data VHP & Riwayat** (`/upload-mingguan`, `/riwayat`, `/data-sheets`):
    - Jalur unggah tunggal resmi untuk ekspor berkas VHP (F/O Turnover, Rest. Transaction Journal, F/O Journal, Receiving List) dengan perlindungan anti-duplikasi per tanggal serta sinkronisasi mingguan Google Sheets Inventory HK dan DML.
-4. **Marketing Terpadu 6 Bagian** (`/marketing`):
+4. **Marketing Terpadu 5 Bagian** (`/marketing`):
    - **Google Ads & Meta Ads**: biaya, kontak, sisa saldo iklan, korelasi kampanye terhadap revenue kamar FIT/WALK IN, dan laporan mingguan/harian cetak PDF.
-   - **Sosmed Sanghyang**: umpan postingan/Reels IG resmi dan Audit Promo Outlet terhadap penjualan kasir VHP 7 hari sebelum vs sesudah.
    - **Insight Pasar**: analisis 6 unit bisnis terhadap kompetitor koridor Anyer (radius 25 km jalan), ulasan tamu, koridor harga P25, radar promo & event, serta berita kawasan.
-   - **Media Sosial Pesaing**: pemantauan postingan dan promosi kompetitor dengan sinkronisasi langsung lewat Ekstensi Chrome **Sanghyang Analytics Sync** (`v1.1.11`).
+   - **Media Sosial**: per outlet, Audit Promo Outlet (penjualan menu di kasir VHP 7 hari sebelum vs sejak tayang) dan grid evaluasi konten akun Instagram dan TikTok resmi. Postingan Meta Graph API digabung dengan sinkron Ekstensi Chrome **Sanghyang Analytics Sync** (`v1.1.11`) dan selalu mengikuti periode aktif; tautan lama `?bagian=sosmed` dialihkan ke sini.
    - **Strategy**: rekomendasi pemasaran silang antara kinerja operasional VHP dan dinamika pasar eksternal, didukung Knowledge Graph belakang layar tanpa kebocoran angka rupiah.
 5. **Pengaturan Properti & Akun** (`/pengaturan`):
    - Manajemen akun staf berbasis Supabase Auth, target bulanan outlet, tipe kamar, dan anggaran divisi.

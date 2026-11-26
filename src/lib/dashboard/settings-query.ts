@@ -4,7 +4,7 @@ import { withPropertySupabaseCache } from "@/lib/cache/cached";
 import { CACHE_TAGS, CACHE_TTL } from "@/lib/cache/tags";
 import { mergeBudgets, type DivisionBudget } from "./division-budgets";
 import { mergeRoomTypes, type RoomSetting } from "./room-types";
-import { dbarSplit } from "./dbar-split";
+import { type DbarPart, dbarSplit } from "./dbar-split";
 import { DEFAULT_MENU_RULES, type MenuRules } from "./menu-activity";
 
 /** Every room with its type (Pengaturan → Jenis kamar), over the rooms seen in the F/O Journal. */
@@ -64,17 +64,17 @@ export const getRoomRevenue = cache(async (propertyId: string, from: string, to:
   }),
 );
 
-/** d'Bar Karaoke & DBC split into DBC menus, d'Bar & Karaoke menus and discounts (migration 0074). */
+/** d'Bar Karaoke & DBC split into DBC menus, d'Bar & Karaoke menus, discounts and compliments per bill (migration 0087). */
 export const getDbarSplit = cache(async (propertyId: string, from: string, to: string) =>
   withPropertySupabaseCache({
     propertyId,
-    keyParts: ["dbar-split", from, to],
+    keyParts: ["dbar-parts", from, to],
     tags: [CACHE_TAGS.vhpSales(propertyId)],
     revalidate: CACHE_TTL.vhp,
     query: async (supabase) => {
-      const { data, error } = await supabase.rpc("dbar_split", { p_property: propertyId, p_from: from, p_to: to });
+      const { data, error } = await supabase.rpc("dbar_parts", { p_property: propertyId, p_from: from, p_to: to });
       if (error) throw new Error(error.message);
-      return dbarSplit((data ?? []) as { part: string; revenue: number | string; open_days: number }[]);
+      return dbarSplit((data ?? []) as DbarPart[]);
     },
   }),
 );

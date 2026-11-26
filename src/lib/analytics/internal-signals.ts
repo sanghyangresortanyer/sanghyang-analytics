@@ -3,7 +3,7 @@
  *
  * Membaca tabel & RPC operasional VHP langsung dari PostgreSQL terpadu (`public.weekly_sales_lines`,
  * `public.outlet_targets`, `public.room_types`, `public.social_promo_events`, `public.whatsapp_chat_counts`,
- * `dbar_split`, `occupancy_by_night`, `occupancy_for_segments`, `room_revenue_by_segment`,
+ * `dbar_parts`, `occupancy_by_night`, `occupancy_for_segments`, `room_revenue_by_segment`,
  * `room_revenue_by_room`, `menu_activity`, `menu_last_sale`), lalu membuang seluruh nominal rupiah
  * sebelum mengembalikan `InternalOutletSignalsMap` (Zero Rupiah Leak by type contract).
  */
@@ -249,13 +249,23 @@ async function computeInternalOutletSignals(
           )
         group by 1, 2
       `,
-      client.$queryRaw<{ part: string; revenue: number; open_days: number }[]>`
-        select part, coalesce(revenue, 0)::float8 as revenue, coalesce(open_days, 0)::int as open_days
-        from public.dbar_split(${propertyId}::uuid, ${currStart}::date, ${currEnd}::date)
+      client.$queryRaw<{ part: string; menu: number; discount: number; compliment: number; open_days: number }[]>`
+        select
+          part,
+          coalesce(menu, 0)::float8 as menu,
+          coalesce(discount, 0)::float8 as discount,
+          coalesce(compliment, 0)::float8 as compliment,
+          coalesce(open_days, 0)::int as open_days
+        from public.dbar_parts(${propertyId}::uuid, ${currStart}::date, ${currEnd}::date)
       `,
-      client.$queryRaw<{ part: string; revenue: number; open_days: number }[]>`
-        select part, coalesce(revenue, 0)::float8 as revenue, coalesce(open_days, 0)::int as open_days
-        from public.dbar_split(${propertyId}::uuid, ${prev.start}::date, ${prev.end}::date)
+      client.$queryRaw<{ part: string; menu: number; discount: number; compliment: number; open_days: number }[]>`
+        select
+          part,
+          coalesce(menu, 0)::float8 as menu,
+          coalesce(discount, 0)::float8 as discount,
+          coalesce(compliment, 0)::float8 as compliment,
+          coalesce(open_days, 0)::int as open_days
+        from public.dbar_parts(${propertyId}::uuid, ${prev.start}::date, ${prev.end}::date)
       `,
       client.$queryRaw<{ date: string; rooms: number; lodging: number; pkg: number }[]>`
         select night::text as date, coalesce(rooms, 0)::int as rooms, coalesce(lodging, 0)::float8 as lodging, coalesce(package, 0)::float8 as pkg
@@ -361,9 +371,11 @@ async function computeInternalOutletSignals(
     const dbarPrev = dbarSplit(dbarPrevRows);
     const dbarCurrByPart = new Map(dbarCurrRows.map((r) => [r.part, r]));
     const dbarPrevByPart = new Map(dbarPrevRows.map((r) => [r.part, r]));
+    const dbarNet = (r?: { menu: number; discount: number; compliment: number }) =>
+      r ? r.menu + r.discount + r.compliment : 0;
 
-    const dbarCurrMenus = (dbarCurrByPart.get("dbc")?.revenue ?? 0) + (dbarCurrByPart.get("bar")?.revenue ?? 0);
-    const dbarCurrDiscount = Math.abs(dbarCurrByPart.get("diskon")?.revenue ?? 0);
+    const dbarCurrMenus = (dbarCurrByPart.get("dbc")?.menu ?? 0) + (dbarCurrByPart.get("bar")?.menu ?? 0);
+    const dbarCurrDiscount = Math.abs(dbarCurrRows.reduce((s, r) => s + r.discount, 0));
     const dbarDiscountPct = dbarCurrMenus > 0 && dbarCurrDiscount > 0 ? round1((dbarCurrDiscount / dbarCurrMenus) * 100) : null;
 
     // Angka internal per 6 OutletKey (TIDAK PERNAH diekspor ke keluaran!)
@@ -371,16 +383,16 @@ async function computeInternalOutletSignals(
       resort: currByMerged.get("front office")?.amount ?? 0,
       "sunset-grill": currByMerged.get("sunset grill")?.amount ?? 0,
       dbistro: currByMerged.get("bistro")?.amount ?? 0,
-      "dragon-beach-club": dbarCurrByPart.get("dbc")?.revenue ?? 0,
-      dbar: dbarCurrByPart.get("bar")?.revenue ?? 0,
+      "dragon-beach-club": dbarNet(dbarCurrByPart.get("dbc")),
+      dbar: dbarNet(dbarCurrByPart.get("bar")),
       dspa: currByMerged.get("spa")?.amount ?? 0,
     };
     const internalTotalsPrev: Record<OutletKey, number> = {
       resort: prevByMerged.get("front office") ?? 0,
       "sunset-grill": prevByMerged.get("sunset grill") ?? 0,
       dbistro: prevByMerged.get("bistro") ?? 0,
-      "dragon-beach-club": dbarPrevByPart.get("dbc")?.revenue ?? 0,
-      dbar: dbarPrevByPart.get("bar")?.revenue ?? 0,
+      "dragon-beach-club": dbarNet(dbarPrevByPart.get("dbc")),
+      dbar: dbarNet(dbarPrevByPart.get("bar")),
       dspa: prevByMerged.get("spa") ?? 0,
     };
     const sixOutletsTotalCurr = OUTLET_KEYS.reduce((s, k) => s + Math.max(0, internalTotalsCurr[k]), 0);

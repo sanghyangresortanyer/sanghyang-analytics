@@ -12,7 +12,7 @@ import { dateInMonth, daysInMonth, parseMonthName, previousMonth } from "./month
  * tab counts in).
  */
 
-interface HkItem {
+export interface HkItem {
   rowNo: number;
   itemCode: string;
   itemName: string;
@@ -27,7 +27,7 @@ interface HkItem {
   stockValue: number | null;
 }
 
-interface HkMovement {
+export interface HkMovement {
   itemCode: string;
   day: number;
   /** ISO date of the movement inside its month tab. */
@@ -71,12 +71,12 @@ export function piecesCounted(name: string, totalIn: number | null, stockAwal: n
   return inWholePacks || stockOverPack ? n : 1;
 }
 
-interface StockLayout {
+export interface StockLayout {
   headerRow: number;
   days: { day: number; col: number }[];
 }
 
-function findStockLayout(rows: SheetRow[]): StockLayout | null {
+export function findStockLayout(rows: SheetRow[]): StockLayout | null {
   for (let i = 0; i < Math.min(rows.length, 20); i++) {
     const v = rows[i].values;
     if (headerKey(v[5]) !== "awal" || headerKey(v[8]) !== "akhir") continue;
@@ -97,13 +97,13 @@ function findStockLayout(rows: SheetRow[]): StockLayout | null {
   return null;
 }
 
-interface PriceColumns {
+export interface PriceColumns {
   headerRow: number;
   average: number;
   last: number | null;
 }
 
-function findPriceColumns(rows: SheetRow[]): PriceColumns | null {
+export function findPriceColumns(rows: SheetRow[]): PriceColumns | null {
   for (let i = 0; i < Math.min(rows.length, 30); i++) {
     const keys = Array.from(rows[i].values, headerKey);
     if (keys[1] !== "artno") continue;
@@ -120,9 +120,9 @@ function codeOf(v: RawCell): string | null {
   return ITEM_CODE.test(t) ? t : null;
 }
 
-type PriceMap = Map<string, { average: number | null; last: number | null }>;
+export type PriceMap = Map<string, { average: number | null; last: number | null }>;
 
-function readPrices(rows: SheetRow[], cols: PriceColumns): PriceMap {
+export function readPrices(rows: SheetRow[], cols: PriceColumns): PriceMap {
   const prices: PriceMap = new Map();
   for (const row of rows) {
     if (row.number <= cols.headerRow) continue;

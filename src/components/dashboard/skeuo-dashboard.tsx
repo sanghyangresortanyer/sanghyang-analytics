@@ -27,7 +27,7 @@ import { HeroChart, MiniBars } from "./hero-chart";
 import { OccupancyTable } from "./occupancy-table";
 import { OutletMenus, OutletReportButton, SlowMenus } from "./outlet-menus";
 import { CategoryBars, DbarSplitBars, PartHead, RevenueTrend, RoomSegmentsTable, RoomTypesTable, rangeText, type MenuActivityData } from "./revenue-charts";
-import type { DbarSplitRow } from "@/lib/dashboard/dbar-split";
+import type { DbarSplit } from "@/lib/dashboard/dbar-split";
 import { budgetStatus, type DivisionBudget } from "@/lib/dashboard/division-budgets";
 import type { Night } from "@/lib/dashboard/occupancy";
 import type { RoomTypeRevenue } from "@/lib/dashboard/room-types";
@@ -73,12 +73,12 @@ export interface SkeuoDashboardProps {
   /** Room revenue per room type in the period. */
   roomTypes?: RoomTypeRevenue[] | null;
   /** d'Bar Karaoke & DBC split for the period. */
-  dbarSplit?: { rows: DbarSplitRow[]; total: number } | null;
+  dbarSplit?: DbarSplit | null;
   revenueCharts?: RevenueCharts | null;
   previousRevenue?: { start: string; end: string; outlets: Record<string, number> } | null;
   roomSegments?: { segment: string; revenue: number; roomNights: number; lodging: number }[] | null;
   /** Rooms sold per night, with the same dates of the month before. */
-  occupancy?: { nights: Night[]; previous: Night[]; range: { start: string; end: string }; previousRange: { start: string; end: string } } | null;
+  occupancy?: { nights: Night[]; previous: Night[]; range: { start: string; end: string }; previousRange: { start: string; end: string }; recent: Night[] } | null;
   menuActivity?: MenuActivityData | null;
   /** Server-rendered parts: period line and buttons (with the notification bell), the data banner, the date filter. */
   subtitle: React.ReactNode;
@@ -118,6 +118,8 @@ export function SkeuoDashboard(props: SkeuoDashboardProps) {
           <nav aria-label="Bagian dashboard" className="flex flex-col gap-1">
             {TABS.map((t) => tabButton(t, "min-h-11 rounded-2xl px-4 text-left text-base font-semibold", "skeuo-pill-light", "text-navy-700 hover:bg-white/50"))}
           </nav>
+          {/* The bell opens its list here, in the empty left column, so it covers nothing (owner, 25 Nov). */}
+          <div id="needs-slot" className="mt-6" />
         </div>
       </aside>
       <div className="min-w-0 space-y-4">
@@ -368,7 +370,7 @@ function ItemsTable({ rows, fromJournal, outlet }: { rows: MenuRow[]; fromJourna
   );
 }
 
-type OutletPart = "ringkasan" | "kamar" | "menu" | "tidak-laku";
+type OutletPart = "ringkasan" | "kamar" | "occ" | "menu" | "tidak-laku";
 
 /**
  * Everything below the trend, one outlet at a time (owner, 2026-11-21): one card with an outlet
@@ -388,7 +390,7 @@ function OutletDetail({ data, revenueCharts, roomSegments, roomTypes, occupancy,
   const hasInactive = !!menuActivity && menuActivity.least.some((r) => r.outlet === outlet);
   const parts: [OutletPart, string][] = [
     ["ringkasan", "Ringkasan"],
-    ...(isFO ? [["kamar", "Kamar"] as [OutletPart, string]] : []),
+    ...(isFO ? [["kamar", "Kamar"] as [OutletPart, string], ["occ", "OCC"] as [OutletPart, string]] : []),
     ...(!isFO || hasMenus ? [["menu", "Menu terjual"] as [OutletPart, string]] : []),
     ...(menuActivity && (!isFO || hasInactive) ? [["tidak-laku", "Menu paling tidak laku"] as [OutletPart, string]] : []),
   ];
@@ -465,13 +467,17 @@ function OutletDetail({ data, revenueCharts, roomSegments, roomTypes, occupancy,
                 </div>
                 <div className="skeuo-inset rounded-xl px-3 py-2">
                   <p className="text-xl font-bold tabular-nums text-navy-900">{row && row.revenue_available !== false ? formatPct(row.revenue_share_pct) : "—"}</p>
-                  <p className="text-sm text-navy-600">Bagian dari total hotel</p>
+                  <p className="text-sm text-navy-600">Bagian dari total resort</p>
                 </div>
               </div>
             </div>
             {isDbar && dbarSplit && (
               <div>
-                <PartHead title="d'Bar & Karaoke dan DBC" range={range} note={'Di VHP satu outlet; dipisah dari nama menu (menu DBC bernama "DBC ..."). Target bulanan tetap gabungan.'} />
+                <PartHead
+                  title="d'Bar & Karaoke dan DBC"
+                  range={range}
+                  note={'Di VHP satu outlet; dipisah dari nama menu (menu DBC bernama "DBC ..."). Diskon dan compliment ikut bagian yang menunya ada di bon yang sama. Target bulanan tetap gabungan.'}
+                />
                 <DbarSplitBars split={dbarSplit} />
               </div>
             )}
@@ -492,20 +498,25 @@ function OutletDetail({ data, revenueCharts, roomSegments, roomTypes, occupancy,
         {shown === "kamar" && (
           <div className="space-y-8">
             <div>
-              <PartHead
-                title="OCC per malam"
-                range={occupancy ? `${range}, pembanding ${rangeText(occupancy.previousRange.start, occupancy.previousRange.end)}` : range}
-                note="Semua tamu digabung, termasuk perusahaan dan rombongan, sama seperti laporan di grup WA. OCC = kamar terjual dibagi 61 kamar. ARR = harga kamar + sarapan dan minuman paket, dibagi kamar terjual."
-              />
-              {occupancy ? <OccupancyTable {...occupancy} /> : <p className="py-4 text-center text-base text-navy-600">Belum ada data.</p>}
-            </div>
-            <div>
               <PartHead title="Revenue kamar per segmen" range={range} note="Semua tamu. Dari F/O Journal VHP; satu malam kamar = satu posting harga kamar." />
               {roomSegments ? <RoomSegmentsTable rows={roomSegments} /> : <p className="py-4 text-center text-base text-navy-600">Belum ada data.</p>}
             </div>
             <div>
               <PartHead title="Revenue kamar per jenis kamar" range={range} note="Dari F/O Journal VHP; jenis kamar diatur di Pengaturan." />
               {roomTypes ? <RoomTypesTable rows={roomTypes} /> : <p className="py-4 text-center text-base text-navy-600">Belum ada data.</p>}
+            </div>
+          </div>
+        )}
+        {shown === "occ" && (
+          <div className="space-y-8">
+            <div>
+              <PartHead
+                title="OCC per malam"
+                range={occupancy ? `${range}, pembanding ${rangeText(occupancy.previousRange.start, occupancy.previousRange.end)}` : range}
+                note="Semua tamu digabung, termasuk perusahaan dan rombongan, sama seperti laporan di grup WA. OCC = kamar terjual dibagi 61 kamar. ARR = harga kamar + sarapan dan minuman paket, dibagi kamar terjual."
+              />
+              {/* The estimate of the coming nights (OccupancyForecast) is not shown for now (owner, 25 Nov 2026). */}
+              {occupancy ? <OccupancyTable {...occupancy} /> : <p className="py-4 text-center text-base text-navy-600">Belum ada data.</p>}
             </div>
           </div>
         )}

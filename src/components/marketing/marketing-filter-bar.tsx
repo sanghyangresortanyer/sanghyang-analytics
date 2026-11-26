@@ -9,7 +9,7 @@ import { fmtDateShort } from "@/lib/marketing/market-intelligence-types";
 const FIELD =
   "h-11 min-w-0 rounded-lg border border-slate-300 bg-white px-3 text-base text-slate-900 focus:border-navy-600 focus:outline-none focus:ring-2 focus:ring-navy-100";
 
-const SECTIONS_WITH_VIEW = new Set(["sosmed", "insight-pasar", "media-sosial", "strategy"]);
+const SECTIONS_WITH_VIEW = new Set(["insight-pasar", "media-sosial", "strategy"]);
 const SECTIONS_WITH_OUTLET = new Set(["insight-pasar", "strategy"]);
 
 /**
@@ -47,7 +47,7 @@ export function buildMarketingFilterParams({
 /**
  * Filter periode global halaman Marketing (gaya selaras DashboardFilterBar).
  * Membaca parameter URL aktif (`bagian`, `lihat`, `outlet`) agar pilihan tab dan outlet
- * tetap dipertahankan saat filter tanggal diterapkan atau direset di seluruh 6 tab.
+ * tetap dipertahankan saat filter tanggal diterapkan atau direset di seluruh tab.
  */
 export function MarketingFilterBar({
   section,

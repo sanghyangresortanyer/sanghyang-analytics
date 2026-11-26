@@ -1,9 +1,10 @@
 import "server-only";
 import { createHash } from "node:crypto";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { parseDmlSheet, parseDmlSheetDate, type DmlSheet } from "./dml-parser";
-import { parseHkWorkbook, type HkMonth } from "./hk-parser";
-import { downloadSheetXlsx, sheetFileId, SHEET_SOURCES, type SheetSource } from "./source";
+import { parseDmlSheet, parseDmlSheetDate, type DmlSheet, type SheetRow } from "./dml-parser";
+import { parseHkWorkbook, type HkMonth, type HkParseResult } from "./hk-parser";
+import { downloadSheetXlsx, sheetFileId, SHEET_SOURCES, type SheetSource, type StockStore } from "./source";
+import { dropImplausibleValues, nameUnnamedStockTab, parseBeverageStore, priceTabRows, withPriceTab } from "./store-sheets";
 import { readWorkbookRows } from "./workbook-reader";
 
 export interface SourceSyncResult {
@@ -58,8 +59,25 @@ function hkMovementPayload(m: HkMonth) {
   }));
 }
 
-async function syncHk(admin: Admin, propertyId: string, fileId: string): Promise<SourceSyncResult> {
-  const parsed = parseHkWorkbook(await readWorkbookRows(await downloadSheetXlsx(fileId), () => true));
+/** What one pull shares between sources: today (WIB) and a VHP price list for the sheet without one. */
+interface PullContext {
+  today: string;
+  priceRows: SheetRow[] | null;
+}
+
+/** Reads one stock sheet into month tabs; Main Store, Engineering and the beverage store differ from HK (store-sheets.ts). */
+function parseStore(store: StockStore, sheets: Map<string, SheetRow[]>, ctx: PullContext): HkParseResult {
+  if (store === "bev") return parseBeverageStore(sheets, ctx.today);
+  const named = store === "hk" ? { sheets, warnings: [] } : nameUnnamedStockTab(sheets, ctx.today);
+  const parsed = parseHkWorkbook(store === "eng" ? withPriceTab(named.sheets, ctx.priceRows) : named.sheets);
+  return { ...parsed, warnings: [...named.warnings, ...parsed.warnings] };
+}
+
+async function syncStore(admin: Admin, propertyId: string, store: StockStore, label: string, fileId: string, ctx: PullContext): Promise<SourceSyncResult> {
+  const sheets = await readWorkbookRows(await downloadSheetXlsx(fileId), () => true);
+  // Engineering has no VHP price tab: it borrows the first one met (HK, then Main Store).
+  if (!ctx.priceRows) ctx.priceRows = priceTabRows(sheets);
+  const parsed = dropImplausibleValues(parseStore(store, sheets, ctx));
   const hashes = new Map(
     parsed.months.map((m) => [m.month, sha256({ s: m.sheetName, i: m.items, mv: m.movements, w: m.warnings })]),
   );
@@ -67,15 +85,17 @@ async function syncHk(admin: Admin, propertyId: string, fileId: string): Promise
   const { data: stored, error: storedErr } = await admin
     .from("sheet_hk_months")
     .select("period_month, content_hash")
-    .eq("property_id", propertyId);
-  if (storedErr) throw new Error(`Data HK lama gagal dibaca: ${storedErr.message}`);
+    .eq("property_id", propertyId)
+    .eq("store", store);
+  if (storedErr) throw new Error(`Data ${label} lama gagal dibaca: ${storedErr.message}`);
   const storedHash = new Map((stored ?? []).map((r) => [String(r.period_month).slice(0, 7), r.content_hash as string]));
 
   const changed = parsed.months.filter((m) => storedHash.get(m.month) !== hashes.get(m.month));
   const removed = [...storedHash.keys()].filter((month) => !hashes.has(month));
   if (changed.length > 0 || removed.length > 0) {
-    const { error } = await admin.rpc("apply_hk_months", {
+    const { error } = await admin.rpc("apply_store_months", {
       p_property_id: propertyId,
+      p_store: store,
       p_present: parsed.months.map((m) => monthStart(m.month)),
       p_months: changed.map((m) => ({
         period_month: monthStart(m.month),
@@ -88,21 +108,21 @@ async function syncHk(admin: Admin, propertyId: string, fileId: string): Promise
       p_items: changed.flatMap(hkItemPayload),
       p_movements: changed.flatMap(hkMovementPayload),
     });
-    if (error) throw new Error(`Data HK gagal disimpan: ${error.message}`);
+    if (error) throw new Error(`Data ${label} gagal disimpan: ${error.message}`);
   }
 
   const { data: prev } = await admin
     .from("sheet_sync_state")
     .select("last_changed_at")
     .eq("property_id", propertyId)
-    .eq("source", "hk")
+    .eq("source", store)
     .maybeSingle();
   const now = new Date().toISOString();
   const isChanged = changed.length > 0 || removed.length > 0;
   const warnings = [...parsed.warnings, ...parsed.months.flatMap((m) => m.warnings.map((w) => `${m.sheetName}: ${w}`))];
   await writeState(admin, {
     property_id: propertyId,
-    source: "hk",
+    source: store,
     status: "ok",
     content_hash: sha256([...hashes].sort()),
     last_checked_at: now,
@@ -117,8 +137,8 @@ async function syncHk(admin: Admin, propertyId: string, fileId: string): Promise
 
   const itemCount = parsed.months.reduce((n, m) => n + m.stats.itemCount, 0);
   return {
-    source: "hk",
-    label: "Inventory HK",
+    source: store,
+    label,
     status: isChanged ? "changed" : "unchanged",
     message: `${parsed.months.map((m) => m.sheetName).join(", ")}: ${itemCount} item, ${warnings.length} peringatan${
       isChanged ? ` (${changed.length} bulan diperbarui${removed.length ? `, ${removed.length} dihapus` : ""})` : ""
@@ -252,6 +272,7 @@ async function syncDml(admin: Admin, propertyId: string, fileId: string): Promis
 export async function syncAllSheets(propertyId: string): Promise<SourceSyncResult[]> {
   const admin = createAdminClient();
   const results: SourceSyncResult[] = [];
+  const ctx: PullContext = { today: new Date(Date.now() + 7 * 3_600_000).toISOString().slice(0, 10), priceRows: null };
   for (const { source, label } of SHEET_SOURCES) {
     try {
       const fileId = sheetFileId(source);
@@ -259,7 +280,7 @@ export async function syncAllSheets(propertyId: string): Promise<SourceSyncResul
         results.push({ source, label, status: "not_configured", message: "ID sheet belum diisi di env." });
         continue;
       }
-      results.push(source === "hk" ? await syncHk(admin, propertyId, fileId) : await syncDml(admin, propertyId, fileId));
+      results.push(source === "dml" ? await syncDml(admin, propertyId, fileId) : await syncStore(admin, propertyId, source, label, fileId, ctx));
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
       results.push({ source, label, status: "error", message });

@@ -15,6 +15,8 @@ Dibuat 2026-11-13. Disetujui pemilik lewat prompt swarm 13 Nov 2026. Satu-satuny
 | P6 | Sinkron data lokal dan produksi saat push | [07](07_phase_sinkron_produksi.md) | Selesai |
 | P7 | Audit swarm Insight Pasar, kategori promosi, dan tarif resmi | [08](08_phase_audit_swarm_insight.md) | Selesai |
 | P8 | Konsolidasi penuh aplikasi tunggal Sanghyang Analytics | [09](09_phase_konsolidasi_sanghyang_analytics.md) | Selesai |
+| P9 | Audit konsolidasi, redesain login dan Media Sosial, serta rilis produksi | [10](10_phase_audit_redesain_rilis.md) | Berjalan |
+| P10 | Pekerjaan lanjutan dari VRP | [11](11_phase_lanjutan_dari_vrp.md) | Belum mulai |
 
 ## 2. Graf dependensi
 
@@ -28,13 +30,16 @@ flowchart LR
   P4 --> P5[P5 Ekstensi Chrome Sinkronisasi Media Sosial - Selesai]
   P5 --> P6[P6 Sinkron data lokal dan produksi - Selesai]
   P6 --> P7[P7 Audit swarm, kategori promosi, tarif resmi - Selesai]
+  P7 --> P8[P8 Konsolidasi aplikasi tunggal - Selesai]
+  P8 --> P9[P9 Audit, redesain login dan Media Sosial, rilis - Berjalan]
+  P9 --> P10[P10 Pekerjaan lanjutan dari VRP - Belum mulai]
 ```
 
 ## 3. Jadwal
 
 | Phase | Mulai | Target selesai | Catatan |
 | :---: | :--- | :--- | :--- |
-| P0 | 2026-11-13 | 2026-11-13 | Selesai & Terverifikasi: DB lokal, pengaman produksi, brief, ADR, alur fase |
+| P0 | 2026-11-13 | 2026-11-13 | Selesai & Terverifikasi: DB lokal, pengaman produksi, ringkasan proyek, ADR, alur fase |
 | P1 | 2026-11-13 | 2026-11-13 | Selesai & Terverifikasi: Registri D1/C5, Provenans D2-D5, Observabilitas C1/C2, Klasifikasi D7, Riset D6/D8 |
 | P2 | 2026-11-13 | 2026-11-13 | Selesai & Terverifikasi: Adaptor C3/C4/C6, AppShell U1-U7, U10, Galeri D9, Sosmed D10, API U8 (board #65, #69, #74) |
 | P3 | 2026-11-13 | 2026-11-13 | Selesai & Terverifikasi: K1–K4 (board #65) dan K5 CI workflow (board #83) |
@@ -42,15 +47,18 @@ flowchart LR
 | P5 | 2026-11-18 | 2026-11-19 | Selesai & Terverifikasi: Ekstensi MV3 ADR-012, pembersihan skrip/prototipe usang, commit `6c8a748` / `38b513b` / `2fef250`, CI `44368018678` (423/423 tes), Vercel `HdkhYMgVQ1R5AZFW4JsHD3qpCFp4` |
 | P6 | 2026-11-19 | 2026-11-22 | Selesai & Terverifikasi: hook pre-push menyamakan DB produksi dan lokal; sinkron terakhir nol perubahan; ringkasan produksi = localhost (25/29 bagian identik, sisanya khusus lingkungan) |
 | P7 | 2026-11-21 | 2026-11-22 | Selesai & Terverifikasi: kategori promosi, tarif resmi Exely, penilaian ulang kompetitor semua outlet, perbaikan tinjauan independen, pembersihan skrip; CI dan Vercel lulus sampai `3e3d7b4`; DB produksi = lokal |
+| P8 | 2026-11-25 | 2026-11-26 | Selesai: rincian dan bukti di [09](09_phase_konsolidasi_sanghyang_analytics.md) |
+| P9 | 2026-11-26 | Menunggu izin rilis pemilik | Berjalan: swarm audit konsolidasi, sinkron skema `0086..0088`, redesain login dan Media Sosial, rilis ke `analytics.sanghyang.com` |
+| P10 | Belum ditentukan | Belum ditentukan | Belum mulai: butir bertanggal (28 Nov sampai 9 Des 2026) ada di [11](11_phase_lanjutan_dari_vrp.md) §5 |
 
 ## 4. Milestone
 
 | Milestone | Isi | Bukti selesai |
 | :--- | :--- | :--- |
-| M0: Lingkungan Aman (P0) | DB lokal Docker aktif, snapshot masuk, pengaman tulis aktif, brief & ADR selesai | Status `lokal` pada `/api/health?ready`, `brain.py phase --check` 0 galat, verifier lulus |
+| M0: Lingkungan Aman (P0) | DB lokal Docker aktif, snapshot masuk, pengaman tulis aktif, ringkasan proyek & ADR selesai | Status `lokal` pada `/api/health?ready`, `brain.py phase --check` 0 galat, verifier lulus |
 | M1: Sumber Kebenaran Tunggal (P1) | Registri DB tunggal, pembersihan data karangan (Zero Mock), classifier berlabel, observabilitas run | `npm run audit:provenance` 0 pelanggaran (176/176 data sah), 43 unit test lulus, ScrapeRun aktif |
 | M2: Desain & Crawler Patuh (P2) | Satu AppShell terpadu, token Tailwind v4, adaptor API resmi, logging scraping | Tangkapan layar desktop & ponsel, `ScrapeRun` tercatat di DB lokal |
-| M3: Verifikasi Penuh & Handoff (P3 & P4) | 10 gerbang mutu lulus berturut-turut, memori & graf terbarui, handoff siap | Laporan `docs/plans/SWARM_HANDOFF.md` terverifikasi oleh `@verifier` |
+| M3: Verifikasi Penuh & Serah Terima (P3 & P4) | 10 gerbang mutu lulus berturut-turut, memori & graf terbarui, serah terima siap | Laporan `docs/plans/SWARM_HANDOFF.md` terverifikasi oleh `@verifier` |
 | M4: Ekstensi Chrome Sosmed & Rilis Produksi (P5) | Ekstensi MV3 unpacked (`.zip`), `browser-sync` OCC, pembersihan skrip usang, seed CI nyata, & deploy Vercel | Commit `6c8a748`, `38b513b`, `2fef250`; Vercel `HdkhYMgVQ1R5AZFW4JsHD3qpCFp4`; CI `44368018678` (`423/423` tes, `87/87` provenans, `14` pytest) |
 | M5: Produksi sama dengan lokal (P6) | Sinkron dua arah DB, hook pre-push, urutan tampilan deterministik | Uji kering `sync-production-data.ts` nol perubahan; sidik kanonis API ringkasan produksi = localhost:3001 kecuali heartbeat |
 
@@ -64,7 +72,9 @@ Fase hanya boleh berstatus **Selesai** bila semua kriteria keluarnya punya bukti
 | :--- | :--- | :--- | :--- |
 | Keputusan status Allisa Resort | Pemilik (Monauli) | Menunggu keputusan | Dicatat di dokumentasi compset, tidak memblokir perbaikan lain |
 | Kredensial API resmi (Google/IG) | Pemilik (Monauli) | Menunggu keputusan | Adaptor berstatus "Belum tersambung", modul memakai data manual |
-| Rollout ke Supabase produksi | Pemilik (Monauli) | Data disamakan 19 Nov 2026 atas persetujuan pemakai (ADR-013); push berikutnya lewat hook pre-push | Tanpa `git pull` commit tarif kamar dan push kode urutan, sebagian blok ringkasan produksi masih beda dari lokal |
+| Rollout ke Supabase produksi | Pemilik (Monauli) | Digantikan ADR-014 (hook pre-push lama dihapus); rollout ke `omuqbpxierdlfjascngz` dikerjakan di P9 lewat `apply_migration` sesuai `docs/plans/ROLLOUT_PRODUKSI.md` | Tanpa migrasi `0086..0088`, halaman `/data-sheets` dan unggah VHP gagal di produksi |
+| Pendaftaran publik Supabase produksi | Pemilik (Monauli) | Belum diperiksa (P10 USR-1) | Akun baru apa pun menjadi staf aktif lewat trigger `handle_new_auth_user` |
+| Tautan sheet FB dan ID sheet gudang | Pemilik dan tim gudang | Tautan FB belum ada; ID Main Store, Beverages, Engineering belum di env (P10 GS-1, GS-3) | Stok dan pemakaian makanan tidak tercakup; tiga gudang tidak tertarik |
 
 ## 7. RACI
 
@@ -72,7 +82,7 @@ Fase hanya boleh berstatus **Selesai** bila semua kriteria keluarnya punya bukti
 | :--- | :--- | :--- | :--- | :--- |
 | Eksekusi tugas teknis swarm | Worker (@fondasi, @dokumen, dkk) | Koordinator | Verifier | Pemilik |
 | Keputusan arsitektur (ADR) | Agen / Swarm | Pemilik | - | - |
-| Rilis ke database produksi | Pemilik | Pemilik | Agen | Tim Resort |
+| Rilis ke basis data produksi | Pemilik | Pemilik | Agen | Tim Resort |
 
 ## 8. Register risiko
 
@@ -109,7 +119,7 @@ Fase hanya boleh berstatus **Selesai** bila semua kriteria keluarnya punya bukti
 - [x] Normalisasi sumber ulasan dan klasifikasi teks riil (D6 - @riset)
 - [x] Classifier berita Anyer-Carita dengan set evaluasi berlabel (D7 - @klasifikasi)
 - [x] Karantina data sintesis di crawler/research (D8 - @riset)
-- [x] Observabilitas scraping: enum `ScrapeJob` dan pencatatan error (C1, C2, C5 - @observabilitas & @registri)
+- [x] Observabilitas scraping: enum `ScrapeJob` dan pencatatan galat (C1, C2, C5 - @observabilitas & @registri)
 
 ### P2: Crawler Patuh & Perombakan UI/UX (SELESAI)
 - [x] Adaptor API resmi berstatus jujur dan penghentian scraping berlogin (C3)
@@ -153,6 +163,25 @@ Fase hanya boleh berstatus **Selesai** bila semua kriteria keluarnya punya bukti
 - [x] Diagnosis selisih DB per tabel dan per blok API ringkasan (P6)
 - [x] Skrip sinkron dua arah `scripts/ops/sync-production-data.ts` dengan tes dari data asli, diterapkan sampai uji kering nol perubahan (P6)
 - [x] Hook pre-push terpasang di mesin kerja ini dan diuji di jalur `master` dan cabang lain (P6)
-- [x] Urutan cadangan deterministik di ringkasan, perbandingan pesaing, dan query ringkasan (P6)
+- [x] Urutan cadangan deterministik di ringkasan, perbandingan pesaing, dan kueri ringkasan (P6)
 - [ ] Pemilik menarik 3 commit tarif kamar job malam (`git pull --ff-only origin master`) (P6)
 - [ ] Pemilik commit dan push kode urutan deterministik, deploy Vercel READY, sidik API produksi = lokal (P6)
+
+### P9: Audit konsolidasi, redesain login dan Media Sosial, serta rilis produksi (BERJALAN)
+
+- [ ] Audit konsolidasi VRP ke `sanghyang-analytics`: celah kode, skema, data, dan dokumen tercatat (P9)
+- [ ] Sinkron skema `0086..0088` di basis data lokal dan Supabase produksi lewat `apply_migration`, sebelum kode di-push (P9)
+- [ ] Pemindahan dokumen: backlog VRP di P10, `docs/superpowers/` ke `docs/archive/`, rujukan VRP tersalin (P9)
+- [ ] Redesain halaman login bertema sanghyang.com dengan slogan baru berbahasa Inggris (P9)
+- [ ] Redesain tab Media Sosial di halaman Marketing (P9)
+- [ ] Rilis produksi ke `analytics.sanghyang.com` atas izin pemilik (P9)
+
+### P10: Pekerjaan lanjutan dari VRP (BELUM MULAI)
+
+- [ ] Google Sheets gudang dan HK: GS-1 sampai GS-12 (P10)
+- [ ] DML: DML-1 sampai DML-3 (P10)
+- [ ] Google Ads: GA-1 sampai GA-8, termasuk pengingat 2 dan 9 Des 2026 (P10)
+- [ ] Meta dan Instagram: MI-1 sampai MI-8 (P10)
+- [ ] VHP: VHP-1 sampai VHP-10 (P10)
+- [ ] Pendaftaran pengguna dan keamanan: USR-1 sampai USR-5 (P10)
+- [ ] Lainnya: LN-1 sampai LN-6 (P10)

@@ -2,7 +2,7 @@
 
 import Link, { useLinkStatus } from "next/link";
 import { usePathname } from "next/navigation";
-import { FileSpreadsheet, LayoutDashboard, LogOut, Megaphone, Settings, UploadCloud, type LucideIcon } from "lucide-react";
+import { FileSpreadsheet, FileText, LayoutDashboard, LogOut, Megaphone, Settings, UploadCloud, type LucideIcon } from "lucide-react";
 import { signOut } from "@/lib/actions/auth";
 import { Bars } from "@/components/ui/bars";
 import { cn } from "@/lib/utils";
@@ -11,6 +11,7 @@ const NAV_ITEMS: { href: string; label: string; icon: LucideIcon; adminOnly?: bo
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
   { href: "/upload-mingguan", label: "Upload Data", icon: UploadCloud },
   { href: "/data-sheets", label: "Data Google Sheets", icon: FileSpreadsheet },
+  { href: "/laporan-resort", label: "Laporan Resort", icon: FileText },
   { href: "/marketing", label: "Marketing", icon: Megaphone },
   { href: "/pengaturan", label: "Pengaturan", icon: Settings, adminOnly: true },
 ];

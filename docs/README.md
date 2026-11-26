@@ -15,6 +15,12 @@ mengikuti dokumen, bukan sebaliknya. Setiap perubahan keputusan dicatat sebagai 
 | `design/DESIGN.md` | Sistem desain atau desain antarmuka (UI, CLI, API) (G3) | Saat pola desain berubah |
 | `compliance/COMPLIANCE_MATRIX.md` | Matriks regulasi, keamanan, dan data pribadi (G3) | Saat data, regulasi, atau integrasi berubah |
 | `uat/UAT_SIGNOFF_REPORT.md` | Skenario uji penerimaan dan tanda tangan pemilik | Sebelum setiap rilis besar |
+| `phase/10_phase_audit_redesain_rilis.md` | Fase berjalan P9: audit konsolidasi, sinkron skema `0086..0088`, redesain login dan Media Sosial, rilis produksi | Selama fase berjalan |
+| `phase/11_phase_lanjutan_dari_vrp.md` | Backlog P10: pekerjaan VRP yang belum selesai (Google Sheets, DML, Google Ads, Meta, VHP, pengguna dan keamanan) beserta sumber, status, dan tanggal pengingat | Setiap butir berubah status |
+| `plans/ROLLOUT_PRODUKSI.md` | Langkah perubahan produksi yang dijalankan pemilik, termasuk cara migrasi lewat `apply_migration` | Setiap ada perubahan skema, data, atau env produksi |
+| `guides/` | Panduan staf dan pengembang, termasuk `panduan-tarik-data-vhp.md` | Saat cara kerja staf atau pengembang berubah |
+| `archive/` | Dokumen yang sudah tidak berlaku: `legacy-v1/` dan rancangan serta rencana fondasi Market Intelligence 22 Sep 2026 | Saat sebuah dokumen selesai masa berlakunya |
+| `marketing/`, `laporan/`, `panduan/`, `.sumber/` | Laporan, panduan PDF, dan sumber HTML yang sengaja hanya lokal (`.gitignore`); yang ikut git hanya `marketing/reminders.json` dan `marketing/design/`. Salinan dari VRP dijelaskan di `laporan/ASAL.md` | Saat laporan atau panduan baru dibuat |
 
 ## Prosedur (wajib, sama di Claude Code, Codex, dan Antigravity)
 

@@ -1,10 +1,20 @@
 import "server-only";
 
-export type SheetSource = "hk" | "dml";
+export type SheetSource = "hk" | "dml" | StockStore;
 
+/** Stock sheets kept in the sheet_hk_* tables, one `store` each (migration 0088). */
+export type StockStore = "hk" | "main" | "eng" | "bev";
+
+/**
+ * Main Store goes before Engineering: the Engineering sheet has no VHP price tab of its own and
+ * borrows the Main Store one (study 26 Nov 2026).
+ */
 export const SHEET_SOURCES: { source: SheetSource; label: string; env: string }[] = [
   { source: "hk", label: "Inventory HK", env: "GOOGLE_SHEET_HK_ID" },
   { source: "dml", label: "DML Pembelian Outlet", env: "GOOGLE_SHEET_DML_ID" },
+  { source: "main", label: "Inventory Main Store", env: "GOOGLE_SHEET_MAIN_ID" },
+  { source: "bev", label: "Inventory Minuman (gudang LH)", env: "GOOGLE_SHEET_BEV_ID" },
+  { source: "eng", label: "Inventory Engineering", env: "GOOGLE_SHEET_ENG_ID" },
 ];
 
 const XLSX_TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";

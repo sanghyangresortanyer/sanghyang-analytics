@@ -14,7 +14,7 @@ export type ReportRow = { metric: string; sub?: string; prev: number | null; cur
 export type ReportGroup = { title: string; source: string; rows: ReportRow[] };
 export type DetailTable = { title: string; head: string[]; rows: string[][]; note?: string; /** tampil di layar, tidak ikut PDF */ screenOnly?: boolean; /** jumlah kolom teks di kiri (rata kiri); bawaan 1 */ textCols?: number; /** tampil paling akhir, sebelum kesimpulan (pemilik, 24 Nov) */ last?: boolean };
 export type WeeklyReport = {
-  kind: "google";
+  kind: "google" | "resort";
   title: string;
   subtitle: string;
   business: string;
@@ -187,7 +187,7 @@ export function googleWeeklyReport(curr: GoogleWeek, prev: GoogleWeek): WeeklyRe
           { better: "up", metric: "Total orang menghubungi", prev: b.contacts, curr: a.contacts, fmt: "int", note: "Calon tamu yang menghubungi", total: true },
           { better: "down", metric: "Biaya per orang menghubungi", prev: b.perContact, curr: a.perContact, fmt: "rp", note: "Biaya iklan ÷ orang menghubungi" },
           { metric: "Buka halaman booking", sub: "belum tentu jadi booking", prev: b.bookingPage, curr: a.bookingPage, fmt: "int", note: "Tidak dihitung sebagai orang menghubungi" },
-          { better: "up", metric: "Minta rute ke hotel di Google Maps", sub: "dari iklan", prev: b.maps, curr: a.maps, fmt: "int", note: "Potensi walk-in, belum tentu datang" },
+          { better: "up", metric: "Minta rute ke resort di Google Maps", sub: "dari iklan", prev: b.maps, curr: a.maps, fmt: "int", note: "Potensi walk-in, belum tentu datang" },
         ],
       },
       {
@@ -202,10 +202,10 @@ export function googleWeeklyReport(curr: GoogleWeek, prev: GoogleWeek): WeeklyRe
     ],
     details: [
       {
-      title: "Rincian per kampanye",
-      head: ["Kampanye", "Anggaran/hari", "Biaya", "Klik", "Chat", "Telepon", "Biaya per orang menghubungi"],
-      rows: perCampaign.map(({ c, per }) => [c.name, rp(c.budgetPerDay), rp(c.cost), n(c.clicks), n(sumActions(curr.conversions, CHAT, c.name)), n(sumActions(curr.conversions, CALL, c.name)), rp(per)]),
-      note: "Biaya per orang menghubungi per kampanye hanya dari chat + telepon yang dicatat Google; klik WA/telepon di website tidak bisa dipisah per kampanye. Kampanye Local store visits mengejar orang yang minta rute di Maps, bukan chat.",
+        title: "Rincian per kampanye",
+        head: ["Kampanye", "Anggaran/hari", "Biaya", "Klik", "Chat", "Telepon", "Biaya per orang menghubungi"],
+        rows: perCampaign.map(({ c, per }) => [c.name, rp(c.budgetPerDay), rp(c.cost), n(c.clicks), n(sumActions(curr.conversions, CHAT, c.name)), n(sumActions(curr.conversions, CALL, c.name)), rp(per)]),
+        note: "Biaya per orang menghubungi per kampanye hanya dari chat + telepon yang dicatat Google; klik WA/telepon di website tidak bisa dipisah per kampanye. Kampanye Local store visits mengejar orang yang minta rute di Maps, bukan chat.",
       },
     ],
     highlights,
@@ -241,7 +241,8 @@ export function change(prev: number | null, curr: number | null, better?: "up" |
 /** Change between two percentages, in points: 28,3% → 32,0% is +3,7 poin. */
 export function changePoints(prev: number | null, curr: number | null, better?: "up" | "down"): ReturnType<typeof change> {
   if (prev === null || curr === null) return { text: "–", verdict: "", tone: "neutral" };
-  const d = Math.round((curr - prev) * 10) / 10;
+  // From the figures as printed (one decimal), so 28,3% → 32,0% reads +3,7 poin.
+  const d = (Math.round(curr * 10) - Math.round(prev * 10)) / 10;
   if (d === 0) return { text: "0 poin", verdict: "tetap", tone: "neutral" };
   const text = `${d > 0 ? "▲ +" : "▼ "}${d.toLocaleString("id-ID")} poin`;
   if (!better) return { text, verdict: `${d > 0 ? "naik" : "turun"}, netral`, tone: "neutral" };
@@ -262,7 +263,8 @@ export function trend(label: string, curr: number | null, prev: number | null, c
 
 const tanggal = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 
-const CSS = `
+/** Look A of the printed reports, shared with Laporan Resort. */
+export const REPORT_CSS = `
 @page{size:A4;margin:9mm 9mm}
 /* Look A (owner, 24 Nov 2026): black headings, grey bands, up dark green, down red. */
 :root{--navy:#17191C;--ink:#17191C;--muted:#4F565D;--line:#D6DBE0;--band:#EEF0F2;--total:#E7F1EA;--green:#14532D;--red:#C62F1D;--lemon:#D5F34D}
@@ -343,7 +345,7 @@ export function renderReports(reports: WeeklyReport[], preparedAt = new Date(), 
   const range = opts.range ?? {};
   const picker = opts.picker ?? `<form method="get" class="range"><label>Dari <input type="date" name="since" value="${esc(range.since ?? "")}" required></label><label>Sampai <input type="date" name="until" value="${esc(range.until ?? "")}"></label><button type="submit">Tampilkan</button><a href="?">Otomatis</a></form>`;
   const toolbar = opts.toolbar ? `<div class="toolbar">${picker}<button type="button" onclick="window.print()">Cetak / simpan PDF</button></div>` : "";
-  return `<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><link rel="icon" href="data:,"><style>${CSS}</style></head><body>${toolbar}${reports.map((r) => reportBody(r, preparedAt)).join("")}</body></html>`;
+  return `<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><link rel="icon" href="data:,"><style>${REPORT_CSS}</style></head><body>${toolbar}${reports.map((r) => reportBody(r, preparedAt)).join("")}</body></html>`;
 }
 
 export const renderWeeklyReport = (r: WeeklyReport, preparedAt = new Date(), opts: { toolbar?: boolean } = {}): string => renderReports([r], preparedAt, opts);

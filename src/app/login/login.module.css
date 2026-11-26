@@ -1,0 +1,278 @@
+/* Era palette and type of sanghyang.com (sanghyang_web src/ui/tokens/tokens.ts, app/styles/globals.css), scoped
+   to /login. Plain CSS on purpose: app/globals.css styles input, select, button and h1-h3 outside any layer, which
+   beats Tailwind utilities, so the field, focus and heading rules here need class selectors to win. */
+.root {
+  --era-ink: #1f2b4d;
+  --era-cream: #f3f3ec;
+  --era-velvet: #22382d;
+  --era-white: #ffffff;
+  /* Opaque mixes, not transparency: secondary text 6.9:1 and control edge 3.8:1 on cream. */
+  --era-fg-soft: color-mix(in srgb, var(--era-ink) 80%, var(--era-cream));
+  --era-line: color-mix(in srgb, var(--era-ink) 60%, var(--era-cream));
+  --era-focus: #116a8e;
+  --era-danger: #b42318;
+  --era-danger-surface: #fef3f2;
+  --era-on-danger: #912018;
+  --era-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  background-color: var(--era-cream);
+  color: var(--era-ink);
+  font-family: var(--font-login-sans), system-ui, sans-serif;
+  font-stretch: 125%;
+  line-height: 1.55;
+}
+
+.root ::selection {
+  color: var(--era-cream);
+  background-color: var(--era-ink);
+}
+
+/* Velvet shows while the photo loads. */
+.photo {
+  background-color: var(--era-velvet);
+}
+
+/* Phone strip: anchored to the top so the logo sits on the sea, the darkest part of the photo. */
+.photoImage {
+  object-position: 50% 0%;
+}
+
+/* Alpha stops were checked against the real photo pixels: the logo text stays at 3.7:1 or more. */
+.scrim {
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--era-velvet) 12%, transparent),
+    color-mix(in srgb, var(--era-velvet) 30%, transparent) 50%,
+    color-mix(in srgb, var(--era-velvet) 42%, transparent)
+  );
+}
+
+.title,
+.heading {
+  font-family: var(--font-login-display), Georgia, serif;
+  font-stretch: 62.5%;
+  font-weight: 400;
+  font-feature-settings: "case" on;
+  letter-spacing: -0.024em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 2.25rem;
+  text-wrap: balance;
+}
+
+.tagline {
+  margin-top: 0.75rem;
+  max-width: 32rem;
+  color: var(--era-fg-soft);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.heading {
+  font-size: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+}
+
+.help {
+  margin-top: 0.75rem;
+  color: var(--era-fg-soft);
+  font-size: 0.9375rem;
+}
+
+/* .t-l1 of the site. */
+.label {
+  display: block;
+  color: var(--era-ink);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.048em;
+  line-height: 1.455;
+  text-transform: uppercase;
+}
+
+/* .era-input of the site: underline only, square corners. 16px text keeps iOS from zooming on focus. */
+.field {
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.5rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--era-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--era-ink);
+  font: inherit;
+  font-size: 1rem;
+  transition: border-color 0.4s var(--era-ease);
+}
+
+.field::placeholder {
+  color: var(--era-fg-soft);
+  opacity: 1;
+}
+
+.field:hover {
+  border-bottom-color: var(--era-ink);
+}
+
+.field:focus-visible {
+  border-bottom-color: var(--era-ink);
+  box-shadow: 0 1px 0 0 var(--era-ink);
+  outline: 2px solid var(--era-focus);
+  outline-offset: 3px;
+}
+
+.field[aria-invalid="true"] {
+  border-bottom-color: var(--era-danger);
+}
+
+.select {
+  appearance: none;
+  padding-right: 2rem;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+/* Nothing chosen yet: the "Pilih user" prompt reads as a placeholder. */
+.select:invalid {
+  color: var(--era-fg-soft);
+}
+
+.select option {
+  background-color: var(--era-cream);
+  color: var(--era-ink);
+}
+
+.password {
+  padding-right: 2.75rem;
+}
+
+.chevron {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: var(--era-ink);
+  pointer-events: none;
+}
+
+.reveal {
+  position: absolute;
+  top: 50%;
+  right: -0.625rem;
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background-color: transparent;
+  color: var(--era-ink);
+  transition: background-color 0.4s var(--era-ease);
+}
+
+.reveal:hover {
+  background-color: color-mix(in srgb, var(--era-ink) 8%, transparent);
+}
+
+/* .era-alert of the site. */
+.alert {
+  display: flex;
+  gap: 0.625rem;
+  align-items: flex-start;
+  padding: 0.875rem 1rem;
+  border-left: 2px solid var(--era-danger);
+  background-color: var(--era-danger-surface);
+  color: var(--era-on-danger);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* Pill like .era-btn; the only rounded shape on the page. Text follows .t-l1. */
+.submit {
+  display: inline-flex;
+  width: 100%;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--era-ink);
+  border-radius: 999px;
+  background-color: var(--era-ink);
+  color: var(--era-cream);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.048em;
+  line-height: 1.455;
+  text-transform: uppercase;
+  transition:
+    background-color 0.4s var(--era-ease),
+    border-color 0.4s var(--era-ease);
+}
+
+.submit:hover:not(:disabled) {
+  border-color: var(--era-velvet);
+  background-color: var(--era-velvet);
+}
+
+.submit:disabled {
+  cursor: progress;
+  opacity: 0.6;
+}
+
+.reveal:focus-visible,
+.submit:focus-visible {
+  box-shadow: none;
+  outline: 2px solid var(--era-focus);
+  outline-offset: 3px;
+}
+
+@media (min-width: 64rem) {
+  .photoImage {
+    object-position: 50% 50%;
+  }
+
+  /* Darkest under the title and tagline: worst case 5.5:1 for the tagline and 4:1 for the title over the
+     brightest roofs, across 1024x600 to 2560x1080 layouts. The sea at the top stays light. */
+  .scrim {
+    background: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--era-velvet) 78%, transparent),
+      color-mix(in srgb, var(--era-velvet) 70%, transparent) 42%,
+      color-mix(in srgb, var(--era-velvet) 42%, transparent) 62%,
+      color-mix(in srgb, var(--era-velvet) 20%, transparent) 80%,
+      color-mix(in srgb, var(--era-velvet) 40%, transparent)
+    );
+  }
+
+  .intro,
+  .tagline {
+    color: var(--era-white);
+  }
+
+  .title {
+    font-size: clamp(3.5rem, 1.25rem + 4.4vw, 6.5rem);
+  }
+
+  .titleLine {
+    display: block;
+  }
+
+  .tagline {
+    margin-top: 1.25rem;
+    max-width: 30rem;
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field,
+  .reveal,
+  .submit {
+    transition: none;
+  }
+}

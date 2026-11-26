@@ -24,6 +24,8 @@ export interface InstagramMediaItem {
 }
 
 const META_GRAPH_VERSION = "v21.0";
+/** Recent posts read per Instagram account of the portfolio (Media Sosial and the Audit Promo pull). */
+export const META_RECENT_POSTS_PER_ACCOUNT = 25;
 const META_BASE_URL = `https://graph.facebook.com/${META_GRAPH_VERSION}`;
 
 /** Retrieves Meta API token and business ID from environment variables. */
@@ -84,18 +86,20 @@ export async function loadInstagramMedia(igUserId: string, username: string, lim
 /**
  * All posts of all connected accounts, newest first. `problem` says in plain words what could not be
  * read (key missing, refused, one account unreadable); the accounts that did work are still returned.
+ * `unreadable` names the connected accounts whose posts failed, so the page can tell them from unconnected ones.
  */
 export async function loadAllInstagramPosts(
   env: Record<string, string | undefined> = process.env,
-  { fresh = false, limit = 25 }: { fresh?: boolean; limit?: number } = {},
-): Promise<{ accounts: InstagramAccount[]; posts: InstagramMediaItem[]; problem: string | null }> {
+  { fresh = false, limit = META_RECENT_POSTS_PER_ACCOUNT }: { fresh?: boolean; limit?: number } = {},
+): Promise<{ accounts: InstagramAccount[]; posts: InstagramMediaItem[]; problem: string | null; unreadable: string[] }> {
   const { accounts, problem } = await accountsWithProblem(env);
-  if (!accounts.length) return { accounts: [], posts: [], problem: problem ?? "Belum ada akun Instagram yang tersambung ke portofolio Meta." };
+  if (!accounts.length) return { accounts: [], posts: [], problem: problem ?? "Belum ada akun Instagram yang tersambung ke portofolio Meta.", unreadable: [] };
 
   const results = await Promise.all(accounts.map((acc) => mediaWithProblem(acc.id, acc.username, limit, env, fresh)));
+  const unreadable = accounts.filter((_, i) => results[i].problem !== null).map((acc) => acc.username.toLowerCase());
   const posts = results.flatMap((r) => r.items).sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
   const problems = results.map((r) => r.problem).filter((p): p is string => !!p);
   // Every account refused with the same reason: say it once.
   const message = problems.length === 0 ? null : problems.length === accounts.length && posts.length === 0 && new Set(problems.map((p) => p.replace(/^@\S+ /, ""))).size === 1 ? `Semua akun ${problems[0].replace(/^@\S+ /, "")}.` : `${problems.join("; ")}.`;
-  return { accounts, posts, problem: message };
+  return { accounts, posts, problem: message, unreadable };
 }

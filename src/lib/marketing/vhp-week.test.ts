@@ -99,6 +99,11 @@ describe("vhpSection (owner, 24 Nov: room revenue only, per WALK IN / OTA / FIT)
     expect(row(group, "FIT").curr).toBe(10_000_000);
   });
 
+  it("says resort, never hotel, to the reader (owner, 25 Nov)", () => {
+    const r = vhpSection(week({ lastDataDay: "2026-11-12" }), week(), avg, ads);
+    expect(JSON.stringify([r.group, r.detail, r.limits, vhpSection(week({ lastDataDay: "2026-11-01" }), week(), avg, ads).limits])).not.toMatch(/hotel/i);
+  });
+
   it("has no hotel-wide revenue and no check-in count (joined different guests, 2,572 arrivals lost Jan–22 Nov)", () => {
     const names = vhpSection(week(), week(), avg, ads).group.rows.map((r) => r.metric).join(" | ");
     expect(names).not.toMatch(/semua outlet|Total revenue hotel|check-in/i);

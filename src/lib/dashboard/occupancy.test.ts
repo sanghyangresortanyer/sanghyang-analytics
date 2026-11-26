@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ACTIVE_ROOMS, type Night, occPct, occupancy, pairNights } from "./occupancy";
+import { ACTIVE_ROOMS, forecast, forecastMiss, type Night, occPct, occupancy, pairNights } from "./occupancy";
 
 const n = (date: string, rooms: number, lodging = 0, pkg = 0): Night => ({ date, rooms, lodging, pkg });
 
@@ -41,5 +41,33 @@ describe("pairNights (1 Okt next to 1 Nov)", () => {
     const rows = pairNights([], [n("2026-10-01", 5)], { start: "2026-11-01", end: "2026-11-02" }, { start: "2026-10-01", end: "2026-10-01" });
     expect(rows[1].prev).toBeNull();
     expect(rows[1].curr).toEqual({ date: "2026-11-02", rooms: null });
+  });
+});
+
+describe("forecast (owner, 25 Nov: count it ourselves, compare later)", () => {
+  // Four weeks: Saturdays 40, 30, 50, 40; every other night 10, 12, 8, 10.
+  const weeks = Array.from({ length: 28 }, (_, i) => {
+    const date = new Date(Date.UTC(2026, 9, 26 + i)).toISOString().slice(0, 10);
+    const w = Math.floor(i / 7);
+    const sat = new Date(`${date}T00:00:00Z`).getUTCDay() === 6;
+    return n(date, sat ? [40, 30, 50, 40][w] : [10, 12, 8, 10][w]);
+  });
+
+  it("is the average of the same weekday in the last 4 weeks with data, from the night after the last data", () => {
+    const f = forecast(weeks, 7);
+    expect(f[0]).toEqual({ date: "2026-11-23", rooms: 10, occ: (10 / 61) * 100, weeks: 4 });
+    expect(f.find((x) => x.date === "2026-11-28")).toMatchObject({ rooms: 40, weeks: 4 });
+    expect(f).toHaveLength(7);
+  });
+
+  it("uses fewer weeks when there are fewer, and nothing without data", () => {
+    expect(forecast(weeks.slice(21), 1)[0]).toMatchObject({ rooms: 10, weeks: 1 });
+    expect(forecast([], 7)).toEqual([]);
+  });
+
+  it("says how far off the same method was on the last nights with data", () => {
+    const steady = Array.from({ length: 56 }, (_, i) => n(new Date(Date.UTC(2026, 8, 28 + i)).toISOString().slice(0, 10), 20));
+    expect(forecastMiss(steady)).toEqual({ rooms: 0, nights: 28 });
+    expect(forecastMiss(weeks.slice(0, 7))).toBeNull();
   });
 });

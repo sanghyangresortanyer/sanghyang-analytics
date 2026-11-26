@@ -97,6 +97,7 @@ export function hkLocationShares(raw: string | null): { key: string; label: stri
 export function calculateHkLocationUsage(
   items: HkItemRow[],
   movements: HkMovementRow[],
+  shares: (raw: string | null) => { key: string; label: string; share: number }[] = hkLocationShares,
 ): { locations: DashboardOutletUsage[]; unpricedEntries: number } {
   const price = new Map(items.map((i) => [i.item_code, i.average_price]));
   const groups = new Map<string, { label: string; totalCost: number; items: Set<string> }>();
@@ -109,7 +110,7 @@ export function calculateHkLocationUsage(
       unpricedEntries += 1;
       continue;
     }
-    for (const { key, label, share } of hkLocationShares(m.location)) {
+    for (const { key, label, share } of shares(m.location)) {
       const g = groups.get(key) ?? { label, totalCost: 0, items: new Set<string>() };
       g.totalCost += m.qty_out * p * share;
       g.items.add(m.item_code);

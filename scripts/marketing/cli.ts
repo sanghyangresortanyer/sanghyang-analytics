@@ -148,7 +148,7 @@ async function main() {
     }
     default:
       console.log(`Sanghyang Analytics (Marketing CLI)
-  dashboard [--port 3001]                         dashboard lokal: /sanghyang (Google Ads + GA4, pengingat, pantauan), /sosmed, /laporan
+  dashboard [--port 3001]                         dashboard lokal: /sanghyang (Google Ads + GA4, pengingat, pantauan), /laporan
   ads [--days N | --since --until]                biaya, klik, konversi per campaign
   monthly [--month YYYY-MM] [--write]             kontak dari iklan vs bulan lalu
   report [--since YYYY-MM-DD [--until YYYY-MM-DD]] laporan mingguan Google Ads + GA4 (PDF di REPORTS/)

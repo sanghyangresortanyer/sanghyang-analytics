@@ -3,13 +3,14 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { isAuthorizedCronRequest, timingSafeSecretMatch } from "@/lib/auth/cron-secret";
 import { requireMarketingApiAccess } from "@/lib/marketing/api-auth";
-import { InstagramFeedView } from "@/components/marketing/instagram-feed-view";
 import { buildMarketingFilterParams } from "@/components/marketing/marketing-filter-bar";
 import { SocialPromoAuditView } from "@/components/marketing/social-promo-audit";
+import { SocialPostGridCard } from "@/components/marketing/media-sosial-view";
+import crawled from "@/lib/market/marketing-sosmed.data.json";
+import { evaluateSocialPromoPost } from "@/lib/market/marketing-sosmed";
 import { SnExtensionPanel, type UseSocialExtensionSyncResult } from "@/components/marketing/sn-extension-panel";
 import { RefreshProgressPanel } from "@/components/marketing/sn-update-all";
 import { filterGuestReviews } from "@/components/marketing/insight-pasar-view";
-import type { InstagramAccount, InstagramMediaItem } from "./meta-instagram";
 import { computePromoLift, shiftDate, type PromoAuditItem } from "./social-promo";
 
 vi.mock("server-only", () => ({}));
@@ -29,10 +30,11 @@ import {
   counterStrategyFor,
   deepestCompetitorDiscount,
   groupPromosByCompetitor,
-  groupSocialPostsByOutlet,
   isPromoEvent,
   isPromotionType,
   likeRatePercent,
+  metaAccountNotes,
+  metaPullProblem,
   ownPromoMatchesOutletKey,
   ownPromoSourceSummary,
   postDayWib,
@@ -45,9 +47,14 @@ import {
   sanitizePublicText,
   sanitizeStrategyText,
   sentimentVerdict,
+  socialPostTypeLabel,
+  socialPostsInPeriod,
+  socialSourceLabel,
   summarizeSocialAccountCoverage,
   verifiedFeedback,
   visibleMarketRank,
+  type SnInstagramAccount,
+  type SnMetaStatus,
   type SnOfficialSocialAccount,
   type SnRadarPromo,
   type SnSocialPost,
@@ -542,11 +549,6 @@ describe("market-intelligence-types helpers", () => {
     expect(activeStats.instagram.followers).toBeNull();
     expect(activeStats.instagram.syncedAccountPosts).toBe(0);
     expect(activeStats.instagram.parentHandles).toEqual(["@sanghyangresort", "@sunset_grillsanghyang"]);
-
-    const grouped = groupSocialPostsByOutlet(samplePosts);
-    expect(grouped).toHaveLength(6);
-    expect(grouped.find((g) => g.outlet === "dragon-beach-club")?.posts).toHaveLength(2);
-    expect(grouped.find((g) => g.outlet === "sunset-grill")?.posts).toHaveLength(0);
 
     expect(likeRatePercent(20, 5000)).toBe(0.4);
     expect(likeRatePercent(20, 0)).toBeNull();
@@ -1603,186 +1605,218 @@ describe("refresh-follow SSE dan status pembaruan", () => {
   });
 });
 
-describe("kompatibilitas InstagramFeedView, SocialPromoAuditView, dan MarketingFilterBar", () => {
-  const accounts: InstagramAccount[] = [
-    { id: "acc-1", username: "sanghyangresort", name: "Sanghyang Resort" },
-    { id: "acc-2", username: "sunsetgrillsanghyang", name: "Sunset Grill" },
-  ];
-
-  // 2026-11-20T18:30:00Z adalah 2026-11-21 01:30 WIB (masuk rentang 21–24 Nov, di luar 15–20 Nov)
-  const posts: InstagramMediaItem[] = [
-    {
-      id: "ig-1",
-      outlet_username: "sanghyangresort",
-      media_type: "IMAGE",
-      permalink: "https://www.instagram.com/p/analytics-test-1/",
-      media_url: "https://cdn.example.invalid/photo-1.jpg",
-      timestamp: "2026-11-20T18:30:00Z",
-      caption:
-        "Promo menginap akhir pekan dengan akses pemandian air panas alami untuk keluarga besar di Sanghyang Indah Spa Resort Anyer.",
-      like_count: 42,
-      comments_count: 5,
-    },
-    {
-      id: "ig-2",
-      outlet_username: "sunsetgrillsanghyang",
-      media_type: "VIDEO",
-      permalink: "https://www.instagram.com/reel/analytics-test-2/",
-      thumbnail_url: "https://cdn.example.invalid/reel-2.jpg",
-      timestamp: "2026-11-10T05:00:00Z",
-      caption: "Live akustik tepi pantai",
-      like_count: 18,
-      comments_count: 2,
-    },
-  ];
-
-  it("InstagramFeedView mempertahankan fitur penuh (problem, WIB, Buka semua teks, Lihat selengkapnya) dan menyaring berdasarkan hari WIB saat isCustomRange aktif", () => {
-    const defaultHtml = renderToStaticMarkup(
-      createElement(InstagramFeedView, {
-        accounts,
-        posts,
-        problem: "@dspasanghyang tidak bisa dibaca (kode 500).",
-      }),
-    );
-    expect(defaultHtml).toContain("Postingan dan Reels Instagram");
-    expect(defaultHtml).toContain('role="alert"');
-    expect(defaultHtml).toContain("@dspasanghyang tidak bisa dibaca (kode 500).");
-    expect(defaultHtml).toContain("Buka semua teks");
-    expect(defaultHtml).toContain("Lihat selengkapnya");
-    expect(defaultHtml).toContain("WIB");
-    expect(defaultHtml).toContain("30 hari");
-    expect(defaultHtml).toContain("7 hari");
-    expect(defaultHtml).toContain("Semua (2)");
-    expect(defaultHtml).toContain("Live akustik tepi pantai");
-
-    const filteredHtml = renderToStaticMarkup(
-      createElement(InstagramFeedView, {
-        accounts,
-        posts,
-        problem: null,
-        startDate: "2026-11-21",
-        endDate: "2026-11-24",
-        isCustomRange: true,
-      }),
-    );
-    expect(filteredHtml).toContain("Semua (1)");
-    expect(filteredHtml).toContain("Promo menginap akhir pekan");
-    expect(filteredHtml).not.toContain("Live akustik tepi pantai");
-    expect(filteredHtml).toContain("21–24 Nov 2026");
-    expect(filteredHtml).not.toContain(">30 hari<");
-    expect(filteredHtml).not.toContain(">7 hari<");
-    expect(filteredHtml).toContain("Buka semua teks");
-
-    const emptyRangeHtml = renderToStaticMarkup(
-      createElement(InstagramFeedView, {
-        accounts,
-        posts,
-        problem: null,
-        startDate: "2026-10-01",
-        endDate: "2026-10-15",
-        isCustomRange: true,
-      }),
-    );
-    expect(emptyRangeHtml).toContain("Tidak ada postingan pada periode 1–15 Okt 2026.");
-    expect(emptyRangeHtml).not.toContain("Belum ada data");
+describe("Media Sosial: periode, label sumber, dan catatan sambungan Meta", () => {
+  const audit = { hookScore: 80, copyScore: 65, ctaScore: 45, statusVerdict: "weak_cta" };
+  // Shortcode dari postingan asli akun resmi (pembacaan 10 Nov 2026); tanggal dan sumber diatur per kasus.
+  const post = (code: string, over: Partial<SnSocialPost>): SnSocialPost => ({
+    id: code,
+    outletKey: "resort",
+    platform: "instagram",
+    postType: "reels",
+    postedAt: "2026-11-05",
+    postUrl: `https://www.instagram.com/p/${code}/`,
+    caption: "",
+    metrics: null,
+    audit,
+    ...over,
   });
 
-  it("SocialPromoAuditView mempertahankan fitur penuh (Tarik data, Abaikan, problem, dataUntil, grafik 14 hari) dan menyaring audits saat isCustomRange aktif", () => {
-    const makeSales = (from: string, perDay: number[]) =>
-      perDay.map((qty, i) => ({ saleDate: shiftDate(from, i), qty, amount: qty * 50_000 }));
-
-    const audits: PromoAuditItem[] = [
-      {
-        event: {
-          id: "ev-nov",
-          post_date: "2026-11-12",
-          platform: "instagram",
-          outlet_name: "Sunset Grill",
-          promo_title: "Promo Seafood Bakar Senja",
-          menu_keyword: "Seafood",
-          post_url: "https://www.instagram.com/p/promo-nov/",
-          source_post_id: "src-nov",
-        },
-        lift: computePromoLift(
-          "2026-11-12",
-          [...makeSales("2026-11-05", [2, 2, 2, 2, 2, 2, 2]), ...makeSales("2026-11-12", [4, 4, 4, 4, 4, 4, 4])],
-          "2026-11-24",
-        ),
-        menus: ["Seafood Platter", "Ikan Bakar"],
-      },
-      {
-        event: {
-          id: "ev-oct",
-          post_date: "2026-10-10",
-          platform: "instagram",
-          outlet_name: "d'Bistro",
-          promo_title: "Promo Kopi Pagi Oktober",
-          menu_keyword: "Kopi",
-          post_url: "https://www.instagram.com/p/promo-oct/",
-          source_post_id: "src-oct",
-        },
-        lift: computePromoLift(
-          "2026-10-10",
-          [...makeSales("2026-10-03", [3, 3, 3, 3, 3, 3, 3]), ...makeSales("2026-10-10", [3, 3, 3, 3, 3, 3, 3])],
-          "2026-11-24",
-        ),
-        menus: ["Kopi Susu"],
-      },
+  it("socialPostsInPeriod hanya memuat hari WIB periode aktif dan mengurutkan dari yang terbaru", () => {
+    const posts = [
+      post("DfJ8WwrEl41", { postedAt: "2026-10-31" }),
+      // 31 Okt 18.30 UTC = 1 Nov 01.30 WIB: masuk periode bawaan November.
+      post("DfL-JyBhOvd", { postedAt: "2026-11-01", publishedAt: "2026-10-31T18:30:00.000Z" }),
+      post("DfhN_oYhKUF", { postedAt: "2026-11-09" }),
+      post("DfeUWFsv-pk", { postedAt: "2026-11-09", publishedAt: "2026-11-09T05:00:00.000Z" }),
+      post("DfbS6tEP61Z", { postedAt: "2026-11-27" }),
     ];
+    expect(socialPostsInPeriod(posts, "2026-11-01", "2026-11-26").map((p) => p.id)).toEqual(["DfeUWFsv-pk", "DfhN_oYhKUF", "DfL-JyBhOvd"]);
+    expect(socialPostsInPeriod(posts, "2026-12-01", "2026-12-31")).toEqual([]);
+  });
 
-    const fullHtml = renderToStaticMarkup(
-      createElement(SocialPromoAuditView, {
-        audits,
-        problem: "Sebagian penjualan kasir tidak bisa dibaca.",
-        dataUntil: "2026-11-24",
-      }),
+  it("socialSourceLabel dan socialPostTypeLabel memakai kata lencana kartu", () => {
+    expect(socialSourceLabel(["meta", "extension"])).toBe("Meta + Ekstensi");
+    expect(socialSourceLabel(["meta"])).toBe("Meta");
+    expect(socialSourceLabel(["extension"])).toBe("Ekstensi");
+    expect(socialSourceLabel(["meta", "team"])).toBe("Meta + Dicatat tim");
+    expect(socialSourceLabel(["archive"], "2026-11-10")).toBe("Arsip 10 Nov 2026");
+    expect(socialSourceLabel(undefined)).toBe("Sumber belum tercatat");
+    const types: SnSocialPost["postType"][] = ["reels", "feed", "carousel", "tiktok_video"];
+    expect(types.map(socialPostTypeLabel)).toEqual(["Reels", "Foto", "Carousel", "Video TikTok"]);
+  });
+
+  const igAccounts: SnInstagramAccount[] = [
+    { username: "sanghyangresort", outlet: null },
+    { username: "sunsetgrillsanghyang", outlet: "sunset-grill" },
+    { username: "dragonbeachclub", outlet: "dragon-beach-club" },
+    { username: "dbistro.anyer", outlet: "dbistro" },
+    { username: "dspasanghyang", outlet: "dspa" },
+  ];
+  const status: SnMetaStatus = {
+    keyInstalled: true,
+    connected: ["sanghyangresort", "sunsetgrillsanghyang", "dspasanghyang"],
+    unreadable: ["dspasanghyang"],
+    problem: "@dspasanghyang tidak bisa dibaca (kode 500).",
+    perAccountLimit: 25,
+  };
+  const feed = [
+    post("DfeUWFsv-pk", { account: "sunsetgrillsanghyang", outletKey: "sunset-grill", postedAt: "2026-11-20", sources: ["meta"] }),
+    post("DfhN_oYhKUF", { account: "sunsetgrillsanghyang", outletKey: "sunset-grill", postedAt: "2026-11-03", sources: ["meta", "extension"] }),
+    post("DfJ8WwrEl41", { account: "sunsetgrillsanghyang", outletKey: "sunset-grill", postedAt: "2026-10-02", sources: ["extension"] }),
+  ];
+
+  it("metaAccountNotes menyebut akun yang tersambung, yang gagal dibaca, dan yang datanya dari ekstensi", () => {
+    expect(metaAccountNotes({ outlet: "sunset-grill", accounts: igAccounts, meta: status, posts: feed }).map((n) => n.text)).toEqual([
+      "@sunsetgrillsanghyang tersambung ke Meta: 25 postingan terbaru dibaca, paling lama 3 Nov 2026.",
+      "@sanghyangresort tersambung ke Meta, belum ada postingan yang terbaca.",
+    ]);
+    expect(metaAccountNotes({ outlet: "dspa", accounts: igAccounts, meta: status, posts: feed })[0]).toEqual({
+      handle: "dspasanghyang",
+      state: "unreadable",
+      text: "Akun @dspasanghyang tersambung ke Meta tetapi postingannya tidak bisa dibaca saat ini, data dari ekstensi.",
+    });
+    expect(metaAccountNotes({ outlet: "dbistro", accounts: igAccounts, meta: status, posts: feed })[0].text).toBe(
+      "Akun @dbistro.anyer belum tersambung ke Meta, data dari ekstensi.",
     );
-    expect(fullHtml).toContain("Audit promo Instagram");
-    expect(fullHtml).toContain("Tarik data");
-    expect(fullHtml).toContain("Abaikan");
-    expect(fullHtml).toContain("24 Nov 2026");
-    expect(fullHtml).toContain("Sebagian penjualan kasir tidak bisa dibaca.");
-    expect(fullHtml).toContain("Promo Seafood Bakar Senja");
-    expect(fullHtml).toContain("Promo Kopi Pagi Oktober");
-    expect(fullHtml).toContain("Penjualan naik");
-    expect(fullHtml).toContain('role="img"');
+    expect(metaAccountNotes({ outlet: "all", accounts: igAccounts, meta: status, posts: feed }).map((n) => n.handle)).toEqual(
+      igAccounts.map((a) => a.username),
+    );
+  });
 
-    const filteredHtml = renderToStaticMarkup(
+  it("metaAccountNotes dan metaPullProblem jujur saat kunci Meta belum dipasang atau Meta tidak bisa dibaca", () => {
+    const noKey: SnMetaStatus = { keyInstalled: false, connected: [], unreadable: [], problem: "Kunci akses Meta belum dipasang di aplikasi.", perAccountLimit: 25 };
+    expect(metaAccountNotes({ outlet: "dspa", accounts: igAccounts, meta: noKey, posts: feed })).toEqual([
+      { handle: null, state: "unavailable", text: "Kunci akses Meta belum dipasang di aplikasi. Postingan di bawah berasal dari ekstensi." },
+    ]);
+    expect(metaAccountNotes({ outlet: "dspa", accounts: igAccounts, meta: null, posts: feed })[0].state).toBe("unknown");
+    expect(metaPullProblem(noKey)).toBe("Kunci akses Meta belum dipasang di aplikasi.");
+    const allDown = { ...status, unreadable: [...status.connected], problem: "Semua akun tidak bisa dibaca (kode 500)." };
+    expect(metaPullProblem(allDown)).toBe("Semua akun tidak bisa dibaca (kode 500).");
+    expect(metaPullProblem(status)).toBeNull();
+    expect(metaPullProblem(null)).toBeNull();
+  });
+});
+
+describe("SocialPromoAuditView di tab Media Sosial dan MarketingFilterBar", () => {
+  const makeSales = (from: string, perDay: number[]) =>
+    perDay.map((qty, i) => ({ saleDate: shiftDate(from, i), qty, amount: qty * 50_000 }));
+
+  const audits: PromoAuditItem[] = [
+    {
+      event: {
+        id: "ev-nov",
+        post_date: "2026-11-12",
+        platform: "instagram",
+        outlet_name: "Sunset Grill",
+        promo_title: "Promo Seafood Bakar Senja",
+        menu_keyword: "Seafood",
+        post_url: "https://www.instagram.com/p/promo-nov/",
+        source_post_id: "src-nov",
+      },
+      lift: computePromoLift(
+        "2026-11-12",
+        [...makeSales("2026-11-05", [2, 2, 2, 2, 2, 2, 2]), ...makeSales("2026-11-12", [4, 4, 4, 4, 4, 4, 4])],
+        "2026-11-24",
+      ),
+      menus: ["Seafood Platter", "Ikan Bakar"],
+    },
+    {
+      event: {
+        id: "ev-oct",
+        post_date: "2026-10-10",
+        platform: "instagram",
+        outlet_name: "d'Bistro",
+        promo_title: "Promo Kopi Pagi Oktober",
+        menu_keyword: "Kopi",
+        post_url: "https://www.instagram.com/p/promo-oct/",
+        source_post_id: "src-oct",
+      },
+      lift: computePromoLift(
+        "2026-10-10",
+        [...makeSales("2026-10-03", [3, 3, 3, 3, 3, 3, 3]), ...makeSales("2026-10-10", [3, 3, 3, 3, 3, 3, 3])],
+        "2026-11-24",
+      ),
+      menus: ["Kopi Susu"],
+    },
+    {
+      event: {
+        id: "ev-dbc",
+        post_date: "2026-11-20",
+        platform: "instagram",
+        outlet_name: "Dragon Beach Club (Indoor)",
+        // Kalimat promo asli DBC 21 Nov (promo-detect.test.ts).
+        promo_title: "All item Disc 20% + Free Cocktail untuk Grey Goose, Herradura, dan Macallan.",
+        menu_keyword: "GREYGOOSE",
+        post_url: "https://www.instagram.com/p/promo-dbc/",
+        source_post_id: "src-dbc",
+      },
+      lift: computePromoLift("2026-11-20", makeSales("2026-11-13", [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2]), "2026-11-24"),
+      menus: ["DBC GREYGOOSE VODKA BOTTLE"],
+    },
+  ];
+  const render = (props: Partial<Parameters<typeof SocialPromoAuditView>[0]> = {}) =>
+    renderToStaticMarkup(
       createElement(SocialPromoAuditView, {
         audits,
         problem: null,
         dataUntil: "2026-11-24",
         startDate: "2026-11-01",
         endDate: "2026-11-24",
-        isCustomRange: true,
+        outlet: "sunset-grill",
+        outletLabel: "Sunset Grill",
+        ...props,
       }),
     );
-    expect(filteredHtml).toContain("Promo Seafood Bakar Senja");
-    expect(filteredHtml).not.toContain("Promo Kopi Pagi Oktober");
-    expect(filteredHtml).toContain("1–24 Nov 2026");
 
-    const emptyRangeHtml = renderToStaticMarkup(
-      createElement(SocialPromoAuditView, {
-        audits,
-        problem: null,
-        dataUntil: "2026-11-24",
-        startDate: "2026-09-01",
-        endDate: "2026-09-30",
-        isCustomRange: true,
-      }),
-    );
-    expect(emptyRangeHtml).toContain("Tidak ada audit promo pada periode 1–30 Sep 2026");
-    expect(emptyRangeHtml).toContain("ada 2 promo di luar rentang ini");
-    expect(emptyRangeHtml).not.toContain("Belum ada data. Tekan Tarik data.");
+  it("menampilkan audit outlet terpilih pada periode aktif beserta Tarik data, Abaikan, data kasir, dan grafik 14 hari", () => {
+    const html = render({ problem: "Sebagian penjualan kasir tidak bisa dibaca." });
+    expect(html).toContain("Audit Promo Outlet");
+    expect(html).toContain("Sunset Grill · 1–24 Nov 2026");
+    expect(html).toContain("Tarik data");
+    expect(html).toContain("Abaikan");
+    expect(html).toContain("24 Nov 2026");
+    expect(html).toContain("Sebagian penjualan kasir tidak bisa dibaca.");
+    expect(html).toContain("Promo Seafood Bakar Senja");
+    expect(html).not.toContain("Promo Kopi Pagi Oktober");
+    expect(html).not.toContain("Grey Goose, Herradura");
+    expect(html).toContain("Penjualan naik");
+    expect(html).toContain('role="img"');
+  });
 
-    const trulyEmptyHtml = renderToStaticMarkup(
-      createElement(SocialPromoAuditView, {
-        audits: [],
-        problem: null,
-        dataUntil: "2026-11-24",
-      }),
-    );
-    expect(trulyEmptyHtml).toContain("Belum ada data. Tekan Tarik data.");
+  it("audit Dragon Beach Club (Indoor) tampil di Dragon Beach Club dan D'Bar karena kasirnya sama", () => {
+    for (const outlet of ["dragon-beach-club", "dbar"] as const) {
+      const html = render({ outlet, outletLabel: outlet });
+      expect(html, outlet).toContain("Grey Goose, Herradura");
+      expect(html, outlet).not.toContain("Promo Seafood Bakar Senja");
+    }
+    const all = render({ outlet: "all", outletLabel: "Semua Outlet" });
+    expect(all).toContain("Promo Seafood Bakar Senja");
+    expect(all).toContain("Grey Goose, Herradura");
+    expect(all).not.toContain("Promo Kopi Pagi Oktober");
+  });
+
+  it("outlet tanpa audit pada periode aktif menulis Belum ada data beserta rentang tanggalnya", () => {
+    const outside = render({ outlet: "dbistro", outletLabel: "Bistro" });
+    expect(outside).toContain("Belum ada data pada 1–24 Nov 2026");
+    expect(outside).toContain("Ada 1 audit promo di luar rentang ini");
+    expect(outside).not.toContain("Promo Kopi Pagi Oktober");
+
+    const resort = render({ outlet: "resort", outletLabel: "Kamar dan Resort" });
+    expect(resort).toContain("Belum ada data pada 1–24 Nov 2026");
+    expect(resort).toContain("menu kasir");
+    expect(resort).toContain("Sunset Grill");
+    expect(resort).not.toContain("Promo Seafood Bakar Senja");
+
+    const empty = render({ audits: [] });
+    expect(empty).toContain("Belum ada data pada 1–24 Nov 2026");
+    expect(empty).toContain("Tekan Tarik data");
+  });
+
+  it("menyebut alasan Meta di samping Tarik data tanpa menyembunyikan tombolnya", () => {
+    const html = render({ metaProblem: "Kunci akses Meta belum dipasang di aplikasi." });
+    expect(html).toContain("Kunci akses Meta belum dipasang di aplikasi.");
+    expect(html).toContain("Tarik data");
+    expect(render()).not.toContain("Kunci akses Meta");
   });
 
   it("buildMarketingFilterParams tidak menempelkan lihat/outlet lama pada Google Ads satu-laporan, dan tetap mempertahankannya di tab bersub-tab", () => {
@@ -1804,12 +1838,73 @@ describe("kompatibilitas InstagramFeedView, SocialPromoAuditView, dan MarketingF
       "bagian=insight-pasar&lihat=harga&outlet=sunset-grill&startDate=2026-11-01&endDate=2026-11-24",
     );
 
-    const sosmedReset = buildMarketingFilterParams({
+    const mediaReset = buildMarketingFilterParams({
+      section: "media-sosial",
+      view: "sunset-grill",
+      outlet: "resort",
+      range: null,
+    });
+    expect(mediaReset.toString()).toBe("bagian=media-sosial&lihat=sunset-grill");
+
+    // Tab Sosmed Sanghyang sudah dilebur ke Media Sosial: lihat lama tidak ikut lagi, halaman mengalihkannya.
+    const legacySosmed = buildMarketingFilterParams({
       section: "sosmed",
       view: "audit",
       outlet: "resort",
       range: null,
     });
-    expect(sosmedReset.toString()).toBe("bagian=sosmed&lihat=audit");
+    expect(legacySosmed.toString()).toBe("bagian=sosmed");
+  });
+});
+
+describe("SocialPostGridCard: kartu grid Evaluasi efektivitas konten", () => {
+  // Postingan promo d’Spa asli di @sanghyangresort, 5 Nov 2026 (pembacaan 10 Nov), seperti terbaca dari Meta dan ekstensi.
+  const real = crawled.posts.find((p) => p.url.includes("/DfYxoUkPW4k/"))!;
+  const input = {
+    outletKey: "dspa" as const,
+    platform: "instagram" as const,
+    postType: "feed" as const,
+    postedAt: real.postedAt,
+    postUrl: "https://www.instagram.com/p/DfYxoUkPW4k/",
+    caption: real.caption,
+    metrics: { views: null, likes: real.likes ?? null, comments: 0, shares: null, inquiriesWa: null },
+  };
+  const post: SnSocialPost = {
+    ...input,
+    id: "row-DfYxoUkPW4k",
+    account: "sanghyangresort",
+    sources: ["meta", "extension"],
+    imageUrl: "https://scontent.cdninstagram.com/DfYxoUkPW4k.jpg",
+    publishedAt: `${real.postedAt}T03:00:00.000Z`,
+    audit: evaluateSocialPromoPost(input),
+  };
+
+  it("memuat foto no-referrer beralt, jenis, tanggal dan jam WIB, caption 3 baris, angka, sumber, skor, status, dan saran", () => {
+    const html = renderToStaticMarkup(createElement(SocialPostGridCard, { post, followers: null, archiveDate: null }));
+    expect(html).toContain('referrerPolicy="no-referrer"');
+    expect(html).toContain('alt="Pratinjau Foto @sanghyangresort, tayang 5 Nov 2026"');
+    expect(html).toContain(">Foto<");
+    expect(html).toContain("Tayang 5 Nov 2026, 10.00 WIB");
+    expect(html).toContain("line-clamp-3");
+    expect(html).toContain("Meta + Ekstensi");
+    expect(html).toContain(">Suka<");
+    expect(html).toContain(">Komentar<");
+    expect(html).toContain(">Views<");
+    // Views tidak dibaca Meta dan belum disinkron ekstensi: ditulis apa adanya, bukan nol.
+    expect(html).toContain("Belum ada data");
+    expect(html).toContain(`Skor ${postOverallScore(post.audit)}/100`);
+    for (const label of [">Hook<", ">Copy<", ">CTA<"]) expect(html).toContain(label);
+    expect(html).toContain(post.audit.actionDirective!.slice(0, 20));
+    expect(html).toContain('href="https://www.instagram.com/p/DfYxoUkPW4k/"');
+  });
+
+  it("tanpa foto dan tanpa angka tetap rapi dan jujur", () => {
+    const bare: SnSocialPost = { ...post, imageUrl: null, metrics: null, sources: ["archive"], publishedAt: null };
+    const html = renderToStaticMarkup(createElement(SocialPostGridCard, { post: bare, followers: null, archiveDate: "2026-11-10" }));
+    expect(html).not.toContain("<img");
+    expect(html).toContain("Belum ada foto pratinjau");
+    expect(html.match(/Belum ada data/g)).toHaveLength(3);
+    expect(html).toContain("Arsip 10 Nov 2026");
+    expect(html).toContain("Tayang 5 Nov 2026<");
   });
 });

@@ -1,4 +1,4 @@
-import { type Night, occPct, occupancy, pairNights } from "@/lib/dashboard/occupancy";
+import { forecast, forecastMiss, type Night, occPct, occupancy, pairNights } from "@/lib/dashboard/occupancy";
 import { formatRp } from "@/lib/format-currency";
 import { cn } from "@/lib/utils";
 
@@ -70,6 +70,31 @@ export function OccupancyTable({ nights, previous, range, previousRange }: { nig
             ))}
           </tbody>
         </table>
+      </div>
+    </div>
+  );
+}
+
+/** Estimated rooms for the coming nights, with how far off the same method was on the last 28 nights. */
+export function OccupancyForecast({ recent }: { recent: Night[] }) {
+  const nights = forecast(recent, 7);
+  const miss = forecastMiss(recent);
+  if (nights.length === 0) return <p className="py-4 text-center text-base text-navy-600">Belum ada data.</p>;
+  return (
+    <div className="mt-3">
+      {miss && (
+        <p className="text-sm text-navy-600">
+          Cara ini dicoba pada {miss.nights} malam terakhir: rata-rata meleset {miss.rooms.toLocaleString("id-ID")} kamar per malam.
+        </p>
+      )}
+      <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">
+        {nights.map((f) => (
+          <div key={f.date} className="skeuo-inset rounded-xl px-3 py-2">
+            <p className="text-sm font-semibold text-navy-700">{night(f.date)}</p>
+            <p className="text-xl font-bold tabular-nums text-navy-900">{pct(f.occ)}</p>
+            <p className="text-sm tabular-nums text-navy-600">sekitar {f.rooms} kamar</p>
+          </div>
+        ))}
       </div>
     </div>
   );

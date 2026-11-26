@@ -9,7 +9,6 @@
 *.pem
 config/marketing/*.json
 config/marketing/google-oauth-client.json
-!config/marketing/social-accounts.json
 .mcp/
 
 # 2. Dependencies & Node/Next.js build caches
@@ -59,7 +58,6 @@ docs/.sumber/
 docs/marketing/*
 !docs/marketing/reminders.json
 !docs/marketing/design/
-!docs/marketing/sanghyang-sosmed/
 /*Perbandingan_Berdampingan_*.xlsx
 
 # 4. Bundles, distribution archives, & build artifacts

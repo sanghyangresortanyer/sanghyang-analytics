@@ -14,21 +14,41 @@ const rp = (n: number | null) => (n === null ? "—" : formatRp(Math.round(n)));
 const MONTHS = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
 type View = "hk" | "pemakaian" | "stock";
-const VIEWS: { id: View; label: string }[] = [
-  { id: "hk", label: "HK" },
-  { id: "pemakaian", label: "HK Pemakaian" },
-  { id: "stock", label: "HK Stock Terakhir" },
-];
 
-/** Housekeeping, read from the HK Google Sheet (one month tab, the latest unless picked), in three views. */
-export function HkSection({ items, usage, syncedAt, months = [] }: { items: HkItemRow[]; usage: LocationUsageGroup[]; syncedAt: string | null; months?: string[] }) {
+/** One stock sheet (HK, Main Store, Engineering, beverage store), one month tab at a time (the latest unless picked), in three views. */
+export function HkSection({
+  items,
+  usage,
+  syncedAt,
+  months = [],
+  tab = "hk",
+  short = "HK",
+  title = "HK Housekeeping",
+  sheetName = "Google Sheets HK",
+  splitNote = 'Lokasi gabungan (misal "SRD & BC") dibagi rata ke tiap lokasi.',
+}: {
+  items: HkItemRow[];
+  usage: LocationUsageGroup[];
+  syncedAt: string | null;
+  months?: string[];
+  tab?: string;
+  short?: string;
+  title?: string;
+  sheetName?: string;
+  splitNote?: string;
+}) {
+  const VIEWS: { id: View; label: string }[] = [
+    { id: "hk", label: short },
+    { id: "pemakaian", label: `${short} Pemakaian` },
+    { id: "stock", label: `${short} Stock Terakhir` },
+  ];
   const [view, setView] = useState<View>("hk");
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const month = items[0]?.period_month;
   const label = (m: string) => `${MONTHS[Number(m.slice(5, 7)) - 1]} ${m.slice(0, 4)}`;
   const monthLabel = month ? label(month) : "";
-  const pickMonth = (m: string) => startTransition(() => router.push(`/data-sheets?tab=hk&hk=${m}`, { scroll: false }));
+  const pickMonth = (m: string) => startTransition(() => router.push(`/data-sheets?tab=${tab}&hk=${m}`, { scroll: false }));
   const value = (q: number | null, p: number | null) => (q !== null && p !== null ? q * p : 0);
   const totals = {
     awal: items.reduce((s, i) => s + value(i.stock_awal, i.average_price), 0),
@@ -41,8 +61,8 @@ export function HkSection({ items, usage, syncedAt, months = [] }: { items: HkIt
     <div className="space-y-4" aria-busy={pending}>
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4">
         <div>
-          <h2 className="text-xl font-bold text-slate-900">HK Housekeeping {monthLabel}</h2>
-          <p className="text-sm text-slate-600">Dari Google Sheets HK · terakhir data sync: {syncedAt ? formatDateTimeWIB(syncedAt) : "—"}</p>
+          <h2 className="text-xl font-bold text-slate-900">{title} {monthLabel}</h2>
+          <p className="text-sm text-slate-600">Dari {sheetName} · terakhir data sync: {syncedAt ? formatDateTimeWIB(syncedAt) : "—"}</p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
           {months.length > 1 && month && (
@@ -79,7 +99,7 @@ export function HkSection({ items, usage, syncedAt, months = [] }: { items: HkIt
       </div>
 
       {view === "hk" && <Summary totals={totals} items={items} usage={usage} />}
-      {view === "pemakaian" && <Usage usage={usage} />}
+      {view === "pemakaian" && <Usage usage={usage} splitNote={splitNote} />}
       {view === "stock" && <Stock items={items} />}
     </div>
   );
@@ -136,7 +156,7 @@ function Summary({ totals, items, usage }: { totals: Record<"awal" | "masuk" | "
   );
 }
 
-function Usage({ usage }: { usage: LocationUsageGroup[] }) {
+function Usage({ usage, splitNote }: { usage: LocationUsageGroup[]; splitNote: string }) {
   const [open, setOpen] = useState<string | null>(usage[0]?.label ?? null);
   const total = usage.reduce((s, g) => s + g.value, 0);
   return (
@@ -145,7 +165,7 @@ function Usage({ usage }: { usage: LocationUsageGroup[] }) {
         <h3 className="text-lg font-bold text-slate-900">Pemakaian per lokasi</h3>
         <p className="text-base font-semibold tabular-nums text-slate-900">Total {rp(total)}</p>
       </div>
-      <p className="text-sm text-slate-600">Lokasi gabungan (misal &quot;SRD &amp; BC&quot;) dibagi rata ke tiap lokasi.</p>
+      <p className="text-sm text-slate-600">{splitNote}</p>
       <div className="mt-3 divide-y divide-slate-100">
         {usage.map((g) => {
           const isOpen = open === g.label;

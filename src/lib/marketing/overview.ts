@@ -1,8 +1,7 @@
-// Dashboard Sanghyang: halaman /sanghyang (Google Ads + GA4) dan /sosmed. Baca-saja.
-// Desain dan token: docs/design/DESIGN.md. Setiap halaman dikumpulkan terpisah: satu sumber gagal tidak menjatuhkan halaman.
+// Dashboard Sanghyang: halaman /sanghyang (Google Ads + GA4). Baca-saja. Halaman /sosmed lama sudah dihapus; postingan
+// dan audit promo kini ada di Marketing > Media Sosial.
+// Desain dan token: docs/design/DESIGN.md. Setiap sumber dikumpulkan terpisah: satu sumber gagal tidak menjatuhkan halaman.
 // Tidak ada laporan Telegram untuk Sanghyang (keputusan owner 18 Nov): pengingat dan pantauan harian tampil di halaman ini.
-import { existsSync, readdirSync, readFileSync } from "node:fs";
-import { resolve, sep } from "node:path";
 import type { GoogleAdsClient } from "./google-ads.ts";
 import { googleAdsDailySection } from "./google-ads-daily.ts";
 import { loadPeriod, monthlyPeriods, type PeriodData, totals } from "./sanghyang-monthly.ts";
@@ -12,14 +11,6 @@ const TZ = "Asia/Jakarta";
 export type Section<T> = { ok: true; data: T } | { ok: false; error: string };
 /** watch = baris pantauan kemarin vs rata-rata 7 hari (lihat google-ads-daily.ts). */
 export type SanghyangData = { current: PeriodData; previous: PeriodData; complete: boolean; watch: string[] };
-export type SocialAccount = { platform: string; handle: string };
-export type SocialData = {
-  instagram: { brand: string; handle: string }[];
-  tiktok: string[];
-  facebookPages: string[];
-  websites: string[];
-  promo: { folder: string; title: string; source: string; images: string[] } | null;
-};
 
 async function section<T>(load: () => Promise<T>): Promise<Section<T>> {
   try {
@@ -39,48 +30,10 @@ export async function loadSanghyang(ads: GoogleAdsClient, env: Record<string, st
   return { current, previous, complete: periods.complete, watch };
 }
 
-/** Akun sosmed dari config/social-accounts.json (tanpa email login), plus folder tangkapan layar promosi terbaru. */
-export function loadSocial(accountsFile: string, sosmedRoot: string): SocialData {
-  const rows: SocialAccount[] = existsSync(accountsFile) ? JSON.parse(readFileSync(accountsFile, "utf8")) : [];
-  const out: SocialData = { instagram: [], tiktok: [], facebookPages: [], websites: [], promo: null };
-  for (const row of rows) {
-    const p = String(row.platform ?? "").trim();
-    const h = String(row.handle ?? "").trim();
-    if (/@/.test(h) || /USERNAME|LOGIN/i.test(h) || p === "GENERAL") continue; // never show login e-mails
-    if (p === "WEBSITE") out.websites.push(h);
-    else if (p === "TIKTOK") out.tiktok.push(h);
-    else if (/fan pages/i.test(h)) out.facebookPages.push(p);
-    else if (/^[\w.]+$/.test(h)) out.instagram.push({ brand: p, handle: h });
-  }
-  if (existsSync(sosmedRoot)) {
-    const folder = readdirSync(sosmedRoot, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).sort().at(-1);
-    if (folder) {
-      const dir = resolve(sosmedRoot, folder);
-      const readme = existsSync(resolve(dir, "README.md")) ? readFileSync(resolve(dir, "README.md"), "utf8") : "";
-      out.promo = {
-        folder,
-        title: readme.match(/^#\s+(.+)$/m)?.[1]?.trim() ?? folder,
-        source: readme.match(/^Sumber:\s*(.+)$/m)?.[1]?.trim() ?? "",
-        images: readdirSync(dir).filter((f) => /\.(png|jpe?g|webp)$/i.test(f)).sort(),
-      };
-    }
-  }
-  return out;
-}
-
-/** Path of a promo image under sosmedRoot, or null when the request leaves that folder or is not an image. */
-export function sosmedImagePath(sosmedRoot: string, rel: string): string | null {
-  if (!/^[\w.-]+\/[\w.-]+\.(png|jpe?g|webp)$/i.test(rel) || rel.includes("..")) return null;
-  const root = resolve(sosmedRoot);
-  const full = resolve(root, rel);
-  return full.startsWith(root + sep) && existsSync(full) ? full : null;
-}
-
-export type PageKey = "sanghyang" | "sosmed";
+export type PageKey = "sanghyang";
 export type Fetched<T> = { section: Section<T>; at: Date };
 export type PageSources = {
   sanghyang: (refresh?: boolean) => Promise<Fetched<SanghyangData>>;
-  sosmed: (refresh?: boolean) => Promise<Fetched<SocialData>>;
 };
 
 /** Caches one source for ttlMs so reloading a page does not spend API quota; a failed load is not cached. */
@@ -149,25 +102,9 @@ ${camps}
 <article class="card span-6"><h3>Periode</h3><p>${esc(p(current.period))}${complete ? "" : " (bulan berjalan)"}</p><p class="muted">Dibanding ${esc(p(previous.period))}. Klik WA = tombol ditekan di website, belum tentu pesan terkirim.</p></article>`;
 }
 
-function renderSocial(s: Section<SocialData>): string {
-  if (!s.ok) return failed("Data sosmed", s.error, "Hubungi admin aplikasi: daftar akun sosmed perlu diperiksa.");
-  const d = s.data;
-  const list = (items: string[]) => (items.length ? `<ul class="plain">${items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>` : `<p class="muted">Belum terdaftar.</p>`);
-  const promo = d.promo
-    ? `<article class="card span-12"><h3>${esc(d.promo.title)}</h3>${d.promo.source ? `<p class="muted small">Sumber: ${esc(d.promo.source)}</p>` : ""}<div class="shots">${d.promo.images
-        .map((f) => `<a href="/sosmed/${encodeURIComponent(d.promo!.folder)}/${encodeURIComponent(f)}" target="_blank" rel="noopener"><img src="/sosmed/${encodeURIComponent(d.promo!.folder)}/${encodeURIComponent(f)}" alt="${esc(f.replace(/\.\w+$/, "").replace(/[-_]/g, " "))}" loading="lazy"></a>`)
-        .join("")}</div></article>`
-    : "";
-  return `<article class="card span-6 lead social"><h3>Instagram</h3><p class="big">${n0(d.instagram.length)} <small>akun</small></p>${list(d.instagram.map((i) => `@${i.handle} · ${i.brand}`))}</article>
-<article class="card span-3"><h3>TikTok</h3><p class="big">${n0(d.tiktok.length)}</p>${list(d.tiktok.map((t) => `@${t}`))}</article>
-<article class="card span-3"><h3>Halaman Facebook</h3><p class="big">${n0(d.facebookPages.length)}</p>${list(d.facebookPages)}</article>
-<article class="card span-12 note"><h3>Angka sosmed belum otomatis</h3><p>Pengikut, jangkauan, dan hasil promosi Instagram/TikTok belum bisa ditarik otomatis. Sampai akses Meta milik Sanghyang disiapkan, angka diambil dari tangkapan layar tim sosmed (isi manual).</p></article>
-${promo}`;
-}
-
 const CSS = `
 /* Look A (owner, 24 Nov 2026): the same greys, black and lemon as the app. */
-:root{--paper:#F3F5F6;--card:#FFFFFF;--ink:#17191C;--muted:#4F565D;--line:#D6DBE0;--sh:#17191C;--social:#3A4047;--ok:#14532D;--warn:#7A4E0A;--bad:#C62F1D;--lemon:#D5F34D}
+:root{--paper:#F3F5F6;--card:#FFFFFF;--ink:#17191C;--muted:#4F565D;--line:#D6DBE0;--sh:#17191C;--ok:#14532D;--warn:#7A4E0A;--bad:#C62F1D;--lemon:#D5F34D}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 "Segoe UI",system-ui,-apple-system,sans-serif;font-variant-numeric:tabular-nums}
 header{background:var(--card);border-bottom:1px solid var(--line)}
 header>*{max-width:1240px;margin:0 auto;padding-left:16px;padding-right:16px}
@@ -175,7 +112,7 @@ header>*{max-width:1240px;margin:0 auto;padding-left:16px;padding-right:16px}
 nav{display:flex;gap:4px;overflow-x:auto}
 .tab{padding:10px 14px 12px;color:var(--muted);text-decoration:none;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap}
 .tab:hover{color:var(--ink)}.tab[aria-current=page]{color:var(--ink)}
-.tab-sanghyang[aria-current=page]{border-color:var(--sh)}.tab-sosmed[aria-current=page]{border-color:var(--social)}
+.tab-sanghyang[aria-current=page]{border-color:var(--sh)}
 main{max-width:1240px;margin:0 auto;padding:0 16px 48px}
 section{margin-top:24px}
 .pagehead{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
@@ -183,7 +120,7 @@ h1{font-size:24px;margin:0;display:flex;align-items:center;gap:10px}h1::before{c
 .lede{margin:4px 0 0;color:var(--muted);font-size:13px;max-width:70ch}
 .actions{margin:0;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:13px;color:var(--muted)}.actions a{color:var(--ink)}
 .button{background:var(--ink);color:#fff!important;text-decoration:none;padding:7px 14px;border-radius:999px;font-weight:600}
-#sanghyang{--accent:var(--sh)}#sosmed{--accent:var(--social)}
+#sanghyang{--accent:var(--sh)}
 .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 6px 16px -8px rgba(40,46,54,.18);padding:16px;min-width:0}
 .card h3{font-size:13px;font-weight:600;margin:0 0 6px;color:var(--muted)}
@@ -194,7 +131,6 @@ h1{font-size:24px;margin:0;display:flex;align-items:center;gap:10px}h1::before{c
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;margin:12px 0}.stats div{min-width:0}.stats dt{font-size:13px;color:var(--muted)}.stats dd{margin:0;font-size:18px;font-weight:600;overflow-wrap:anywhere}
 .plain{list-style:none;padding:0;margin:10px 0 0;font-size:13px}.plain li{padding:4px 0;border-top:1px solid var(--line);overflow-wrap:anywhere}
 .watch .plain li.alert{color:var(--bad);font-weight:600}.reminder h3{color:var(--warn)}
-.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-top:10px}.shots img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--line);display:block}
 .note{background:var(--paper)}.error{border-color:var(--bad)}.error h3{color:var(--bad)}
 code{font-size:13px;background:var(--paper);padding:1px 4px;border-radius:4px}
 a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
@@ -208,7 +144,6 @@ const PAGES: Record<PageKey, { title: string; lede: string }> = {
     title: "Sanghyang · Google Ads & website",
     lede: "Bulan ini dibanding tanggal yang sama bulan lalu. Orang menghubungi = chat WhatsApp + telepon dari iklan Google.",
   },
-  sosmed: { title: "Sosmed Sanghyang", lede: "Akun yang terdaftar dan materi promosi terbaru dari tim sosmed." },
 };
 
 function shell(key: PageKey, at: Date, body: string): string {
@@ -221,11 +156,9 @@ function shell(key: PageKey, at: Date, body: string): string {
 }
 
 export const renderSanghyangPage = (f: Fetched<SanghyangData>, reminders: string[] = []): string => shell("sanghyang", f.at, renderSanghyang(f.section, reminders));
-export const renderSosmedPage = (f: Fetched<SocialData>): string => shell("sosmed", f.at, renderSocial(f.section));
 
-export function pageSources(deps: { googleAds: () => GoogleAdsClient; env: Record<string, string | undefined>; accountsFile: string; sosmedRoot: string }): PageSources {
+export function pageSources(deps: { googleAds: () => GoogleAdsClient; env: Record<string, string | undefined> }): PageSources {
   return {
     sanghyang: cachedSection(() => loadSanghyang(deps.googleAds(), deps.env)),
-    sosmed: cachedSection(async () => loadSocial(deps.accountsFile, deps.sosmedRoot)),
   };
 }

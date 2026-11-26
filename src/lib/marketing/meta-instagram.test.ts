@@ -27,6 +27,7 @@ describe("meta-instagram loader", () => {
     expect(all.accounts).toEqual([]);
     expect(all.posts).toEqual([]);
     expect(all.problem).toMatch(/belum dipasang/);
+    expect(all.unreadable).toEqual([]);
   });
 
   it("sends the key in the Authorization header, never in the address (23 Nov security review)", async () => {
@@ -79,6 +80,8 @@ describe("meta-instagram loader", () => {
     const all = await loadAllInstagramPosts(ENV);
     expect(all.posts.map((p) => p.outlet_username)).toEqual(["a"]);
     expect(all.problem).toContain("@b");
+    // Media Sosial menandai akun ini "tersambung tetapi tidak bisa dibaca", bukan "belum tersambung".
+    expect(all.unreadable).toEqual(["b"]);
   });
 });
 

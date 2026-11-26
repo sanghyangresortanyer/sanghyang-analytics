@@ -137,15 +137,21 @@ export function OutletMenus({ rows, range, days }: { rows: Menu[]; range: string
 
 const PAGE = 20;
 
-function SlowRows({ rows, offset, deadDays, slowDays }: { rows: Slow[]; offset: number; deadDays: number; slowDays: number }) {
+function SlowRows({ rows, offset, longRange, shortRange }: { rows: Slow[]; offset: number; longRange: string; shortRange: string }) {
   return (
     <table className="table-compact w-full text-left text-sm">
       <thead>
         <tr>
           <th className="w-8 text-right">No</th>
           <th>Menu</th>
-          <th className="text-right">{deadDays} hari</th>
-          <th className="text-right">{slowDays} hari</th>
+          <th className="text-right">
+            Terjual
+            <span className="block font-normal normal-case">{longRange}</span>
+          </th>
+          <th className="text-right">
+            Terjual
+            <span className="block font-normal normal-case">{shortRange}</span>
+          </th>
           <th className="text-right">Terakhir terjual</th>
         </tr>
       </thead>
@@ -154,12 +160,9 @@ function SlowRows({ rows, offset, deadDays, slowDays }: { rows: Slow[]; offset: 
           <tr key={`${r.outlet}|${r.artNo}`}>
             <td className="text-right tabular-nums text-navy-500">{offset + i + 1}</td>
             <td className="font-semibold text-navy-900">{r.description}</td>
-            <td className="text-right tabular-nums">{r.windowQty.toLocaleString("id-ID")}</td>
-            <td className="text-right tabular-nums">{r.slowQty.toLocaleString("id-ID")}</td>
-            <td className="whitespace-nowrap text-right tabular-nums">
-              {day(r.lastSold)}
-              {r.lastQty !== undefined && <span className="text-navy-600"> · {porsi(r.lastQty)}</span>}
-            </td>
+            <td className="whitespace-nowrap text-right tabular-nums">{porsi(r.windowQty)}</td>
+            <td className="whitespace-nowrap text-right tabular-nums">{porsi(r.slowQty)}</td>
+            <td className="whitespace-nowrap text-right tabular-nums">{day(r.lastSold)}</td>
           </tr>
         ))}
       </tbody>
@@ -175,19 +178,22 @@ export function SlowMenus({ activity, outlet }: { activity: MenuActivityData; ou
   const current = Math.min(page, pages - 1);
   const slice = rows.slice(current * PAGE, current * PAGE + PAGE);
   const { deadDays, slowDays } = activity;
+  const noYear = (a: string, b: string) => rangeText(a, b).replace(/ \d{4}$/, "");
+  const longRange = noYear(activity.deadFrom, activity.lastDay);
+  const shortRange = noYear(activity.slowFrom, activity.lastDay);
   return (
     <div>
       <Head
         title="Menu paling tidak laku"
         range={rangeText(activity.deadFrom, activity.lastDay)}
-        note={`Menu yang masih terjual dalam ${deadDays} hari terakhir, porsi paling sedikit di atas. Dihitung mundur dari data terakhir (${rangeText(activity.lastDay, activity.lastDay)}), tidak ikut pilihan tanggal. Menu yang tidak terjual sama sekali selama ${deadDays} hari dan menu baru (mulai dijual dalam ${slowDays} hari terakhir) tidak ikut.`}
+        note={`Menu yang paling sedikit terjual selama ${longRange} (${deadDays} hari sampai data terakhir), yang paling sedikit di atas. Kolom kedua: porsi di ${slowDays} hari terakhir saja (${shortRange}). Contoh: "1 porsi, 0 porsi, 23 Okt" = dalam 3 bulan hanya terjual 1 porsi, terakhir 23 Okt, dan sebulan terakhir tidak terjual sama sekali. Tidak ikut pilihan tanggal di atas. Menu yang sama sekali tidak terjual dan menu baru tidak masuk daftar.`}
       />
       {rows.length === 0 ? (
         <p className="py-6 text-center text-base text-navy-600">Tidak ada menu di daftar ini.</p>
       ) : (
-        <div className="mt-3 grid gap-x-6 gap-y-3 xl:grid-cols-2">
-          <SlowRows rows={slice.slice(0, 10)} offset={current * PAGE} deadDays={deadDays} slowDays={slowDays} />
-          {slice.length > 10 && <SlowRows rows={slice.slice(10)} offset={current * PAGE + 10} deadDays={deadDays} slowDays={slowDays} />}
+        <div className="mt-3 grid items-start gap-x-6 gap-y-3 xl:grid-cols-2">
+          <SlowRows rows={slice.slice(0, 10)} offset={current * PAGE} longRange={longRange} shortRange={shortRange} />
+          {slice.length > 10 && <SlowRows rows={slice.slice(10)} offset={current * PAGE + 10} longRange={longRange} shortRange={shortRange} />}
         </div>
       )}
       {pages > 1 && (
@@ -256,7 +262,7 @@ function OutletSheet({ d }: { d: OutletReportData }) {
           <Line label={`Revenue ${rangeText(d.from, d.to)}`} value={d.revenue === null ? "Belum ada data" : formatRp(d.revenue)} strong />
           {d.previous && <Line label={`Revenue ${rangeText(d.previous.from, d.previous.to)}`} value={formatRp(d.previous.revenue)} />}
           <Line label="Perubahan" value={change === null ? "—" : `${change >= 0 ? "naik" : "turun"} ${formatPct(Math.abs(change))}`} />
-          <Line label="Bagian dari total hotel" value={d.share === null ? "—" : formatPct(d.share)} />
+          <Line label="Bagian dari total resort" value={d.share === null ? "—" : formatPct(d.share)} />
           <Line label="Rata-rata per hari" value={d.revenue === null ? "—" : formatRp(d.revenue / days)} />
           <Line label="Hari tertinggi" value={d.bestDay ? `${d.bestDay.label} · ${formatRp(d.bestDay.value)}` : "—"} />
           {d.target && <Line label={`Target ${d.target.month}`} value={`${formatRpShort(d.target.achieved)} dari ${formatRpShort(d.target.target)} (${formatPct((d.target.achieved / d.target.target) * 100)})`} />}
@@ -279,11 +285,11 @@ function OutletSheet({ d }: { d: OutletReportData }) {
         ) : (
           <div className="grid grid-cols-2 gap-x-4">
             {slow.map((r, i) => (
-              <Line key={r.artNo} label={`${i + 1}. ${r.description}`} value={`${porsi(r.windowQty)} · terakhir ${day(r.lastSold)}${r.lastQty !== undefined ? ` (${porsi(r.lastQty)})` : ""}`} />
+              <Line key={r.artNo} label={`${i + 1}. ${r.description}`} value={`${porsi(r.windowQty)} · terakhir terjual ${day(r.lastSold)}`} />
             ))}
           </div>
         )}
-        {d.slow && <p className="mt-1 text-[10px] text-slate-600">Porsi dalam {d.slow.activity.deadDays} hari terakhir, paling sedikit di atas; dalam kurung = porsi pada hari terakhir terjual.</p>}
+        {d.slow && <p className="mt-1 text-[10px] text-slate-600">Porsi terjual {rangeText(d.slow.activity.deadFrom, d.slow.activity.lastDay)}, paling sedikit di atas.</p>}
       </section>
     </div>
   );

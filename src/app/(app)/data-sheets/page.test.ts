@@ -67,18 +67,26 @@ describe("DataSheetsPage and SheetsDashboardTabs query tab sync", () => {
 
   it("keys SheetsDashboardTabs by active ?tab= query so URL changes synchronize the tab", async () => {
     const hkTree = await DataSheetsPage({ searchParams: Promise.resolve({ tab: "hk" }) });
+    const mainTree = await DataSheetsPage({ searchParams: Promise.resolve({ tab: "main" }) });
     const dmlTree = await DataSheetsPage({ searchParams: Promise.resolve({ tab: "dml" }) });
+    const invalidTree = await DataSheetsPage({ searchParams: Promise.resolve({ tab: "unknown" }) });
     const [hkTabs] = findElements(hkTree, (el) => el.type === SheetsDashboardTabs);
+    const [mainTabs] = findElements(mainTree, (el) => el.type === SheetsDashboardTabs);
     const [dmlTabs] = findElements(dmlTree, (el) => el.type === SheetsDashboardTabs);
+    const [invalidTabs] = findElements(invalidTree, (el) => el.type === SheetsDashboardTabs);
 
     expect(hkTabs).toBeDefined();
+    expect(mainTabs).toBeDefined();
     expect(dmlTabs).toBeDefined();
+    expect(invalidTabs).toBeDefined();
     expect(hkTabs.key).toBe("hk");
+    expect(mainTabs.key).toBe("main");
     expect(dmlTabs.key).toBe("dml");
+    expect(invalidTabs.key).toBe("hk");
   });
 
   it("updates active tab when initialTab prop changes without remounting", () => {
-    const renderTabs = (initialTab: "hk" | "dml") => {
+    const renderTabs = (initialTab: string) => {
       hookState.cursor = 0;
       return SheetsDashboardTabs({
         initialTab,
@@ -101,5 +109,36 @@ describe("DataSheetsPage and SheetsDashboardTabs query tab sync", () => {
     buttons = findElements(tree, (el) => el.type === "button");
     expect(buttons[0].props["aria-pressed"]).toBe(false);
     expect(buttons[1].props["aria-pressed"]).toBe(true);
+  });
+
+  it("renders store tabs between HK and DML and synchronizes store initialTab", () => {
+    const stores = [
+      { id: "main", label: "Main Store", title: "Main Store", sheetName: "Google Sheets Main Store", items: [], usage: [], months: [] },
+      { id: "bev", label: "Minuman (LH)", title: "Gudang Minuman (LH)", sheetName: "Google Sheets Beverages, tab LH", items: [], usage: [], months: [] },
+    ];
+    const render = (initialTab: string) => {
+      hookState.cursor = 0;
+      return SheetsDashboardTabs({
+        initialTab,
+        states: [],
+        dmlSheets: [],
+        selectedDmlSheet: undefined,
+        dmlLines: [],
+        hkItems: [],
+        hkUsageGroups: [],
+        hkMonths: [],
+        stores,
+      });
+    };
+
+    let tree = render("main");
+    let buttons = findElements(tree, (el) => el.type === "button");
+    expect(buttons.map((b) => b.props.children)).toEqual(["HK Housekeeping", "Main Store", "Minuman (LH)", "DML"]);
+    expect(buttons[1].props["aria-pressed"]).toBe(true);
+
+    tree = render("bev");
+    buttons = findElements(tree, (el) => el.type === "button");
+    expect(buttons[1].props["aria-pressed"]).toBe(false);
+    expect(buttons[2].props["aria-pressed"]).toBe(true);
   });
 });

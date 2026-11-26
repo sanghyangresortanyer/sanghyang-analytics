@@ -2,7 +2,8 @@
  * Audit Promo: sales of a promoted menu in the 7 days before and the 7 days from the post (owner, 2026-11-23;
  * rules tightened 24 Nov: the first version judged after 2 days and called 0 → 0 portions a failure).
  */
-import { tillOutlet } from "./promo-detect.ts";
+import type { OutletChoice } from "./market-intelligence-types.ts";
+import { promoOutletKeys, tillOutlet } from "./promo-detect.ts";
 
 export type PromoVerdict = "NAIK" | "NAIK_TIPIS" | "TIDAK_NAIK" | "SEDIKIT" | "MENUNGGU_DATA";
 export const PROMO_DAYS = 7;
@@ -93,6 +94,16 @@ export function computePromoLift(postDate: string, sales: DailySalesItem[], late
     reason = `Porsi tidak naik: ${num(beforeQty)} menjadi ${num(afterQty)} (${qtyPct}%).`;
   }
   return { beforeDays: days.filter((d) => !d.after && d.hasData).length, afterDays, beforeQty, afterQty, beforeAmount: sum(false, "amount"), afterAmount: sum(true, "amount"), qtyPct, verdict, reason, days };
+}
+
+/** Audits of one Marketing outlet tab ("all" = every audit). */
+export function auditsForOutlet(audits: readonly PromoAuditItem[], outlet: OutletChoice): PromoAuditItem[] {
+  return outlet === "all" ? [...audits] : audits.filter((a) => promoOutletKeys(a.event.outlet_name).includes(outlet));
+}
+
+/** Audits whose post went live between startDate and endDate (YYYY-MM-DD, both included). */
+export function auditsInPeriod(audits: readonly PromoAuditItem[], startDate: string, endDate: string): PromoAuditItem[] {
+  return audits.filter((a) => a.event.post_date >= startDate && a.event.post_date <= endDate);
 }
 
 /** All audits that are not ignored, newest post first, measured against the till (batched query, zero N+1). */

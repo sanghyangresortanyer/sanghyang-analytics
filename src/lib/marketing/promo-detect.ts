@@ -3,18 +3,23 @@
 // real posts of 24 Nov 2026 (data/raw/instagram_api_20261124.json). An offer counts only when its sentence
 // also names a menu sold in the till, so "free entry" or "free kiss" never becomes an audit.
 
+import type { OutletKey } from "./market-intelligence-types.ts";
+
 export type VhpMenu = { outlet: string; description: string };
 export type PromoPost = { id: string; caption?: string; timestamp: string; permalink: string; outlet_username: string };
 export type PromoItem = { outlet: string; keyword: string; title: string };
 export type DetectedPromo = { date: string; permalink: string; items: PromoItem[] };
 
-/** Outlet names as stored in social_promo_events, the name in the till, and how posts refer to them. */
+/**
+ * Outlet names as stored in social_promo_events, the name in the till, the Marketing outlet tabs they belong to, and
+ * how posts refer to them. One till serves Dragon Beach Club and d'Bar, so its audits show on both tabs.
+ */
 const OUTLETS = [
-  { name: "d'Spa", till: "d'Spa", said: /d['’`]?\s?spa\b|#dspa|aquamedic|treatments?\b|sanghyang\s?massage/i },
-  { name: "Dragon Beach Club (Indoor)", till: "d'Bar Karaoke & DBC", said: /dragon\s?beach\s?club|#?dragonbeachclub|\bdbc\b|d['’`]?\s?bar\b|karaoke/i },
-  { name: "d'Bistro", till: "d'Bistro", said: /d['’`]?\s?bistro|#dbistro/i },
-  { name: "Sunset Grill", till: "Sunset Grill", said: /sunset\s?grill/i },
-] as const;
+  { name: "d'Spa", till: "d'Spa", keys: ["dspa"], said: /d['’`]?\s?spa\b|#dspa|aquamedic|treatments?\b|sanghyang\s?massage/i },
+  { name: "Dragon Beach Club (Indoor)", till: "d'Bar Karaoke & DBC", keys: ["dragon-beach-club", "dbar"], said: /dragon\s?beach\s?club|#?dragonbeachclub|\bdbc\b|d['’`]?\s?bar\b|karaoke/i },
+  { name: "d'Bistro", till: "d'Bistro", keys: ["dbistro"], said: /d['’`]?\s?bistro|#dbistro/i },
+  { name: "Sunset Grill", till: "Sunset Grill", keys: ["sunset-grill"], said: /sunset\s?grill/i },
+] as const satisfies readonly { name: string; till: string; keys: readonly OutletKey[]; said: RegExp }[];
 
 const OFFER =
   /(?:disk?on|disc(?:ount)?\.?)\s*(?:hingga|up to|s\/d)?\s*\d{1,2}\s*%|\d{1,2}\s*%\s*(?:off|disc|disk)|buy\s*\d+\s*(?:get|disc)|beli\s*\d+\s*(?:gratis|disk|disc|dapat)|\b(?:gratis|free)\s+(?!entry|park|parkir|tiket|masuk|wifi|live)\w+/i;
@@ -124,3 +129,13 @@ export function newPromoEvents(posts: PromoPost[], menus: VhpMenu[], have: Promo
 
 /** The till's outlet name behind an outlet of the audit. */
 export const tillOutlet = (name: string): string => OUTLETS.find((o) => o.name === name)?.till ?? name;
+
+/** Marketing outlet tabs of an audit outlet name or a till name; [] when the till does not know it (Kamar & Resort). */
+export function promoOutletKeys(name: string): OutletKey[] {
+  const n = name.trim().toLowerCase();
+  const hit = OUTLETS.find((o) => o.name.toLowerCase() === n || o.till.toLowerCase() === n);
+  return hit ? [...hit.keys] : [];
+}
+
+/** Outlet tabs that can have a promo audit: their menus are sold in a till. */
+export const PROMO_AUDIT_OUTLETS: readonly OutletKey[] = [...new Set(OUTLETS.flatMap((o) => o.keys))];

@@ -5,13 +5,12 @@ import { resolve } from "node:path";
 
 export const ROOT = process.cwd();
 export const REPORTS_DIR = resolve(ROOT, "docs", "laporan", "ads");
-export const SOSMED_ROOT = resolve(ROOT, "docs", "marketing", "sanghyang-sosmed");
-export const SOCIAL_ACCOUNTS_FILE = resolve(ROOT, "config", "marketing", "social-accounts.json");
 export const REMINDERS_FILE = resolve(ROOT, "docs", "marketing", "reminders.json");
 
 /** Loads .env.local (if present) without overriding real env vars. */
 export function loadEnv(path = resolve(ROOT, ".env.local")): void {
-  if (existsSync(path)) process.loadEnvFile(path);
+  // The ignore marks keep the build from packing the whole project because of this one optional file.
+  if (existsSync(/* turbopackIgnore: true */ path)) process.loadEnvFile(/* turbopackIgnore: true */ path);
 }
 
 /**

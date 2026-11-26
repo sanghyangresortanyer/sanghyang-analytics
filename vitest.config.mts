@@ -22,7 +22,6 @@ export default defineConfig({
       ...configDefaults.exclude,
       "**/.agents/**",
       "**/.claude/**",
-      "**/VRP/**",
       "**/crawler/**",
       "**/graphify-out/**",
     ],

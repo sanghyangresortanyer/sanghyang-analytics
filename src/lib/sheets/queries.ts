@@ -3,7 +3,7 @@ import { cache } from "react";
 import { withPropertySupabaseCache } from "@/lib/cache/cached";
 import { CACHE_TAGS, CACHE_TTL } from "@/lib/cache/tags";
 import type { DmlOutletTotal } from "./dml-parser";
-import type { SheetSource } from "./source";
+import type { SheetSource, StockStore } from "./source";
 
 export interface SyncState {
   source: SheetSource;
@@ -149,10 +149,11 @@ export const getDmlMrLines = cache(async (propertyId: string): Promise<DmlMrLine
   }),
 );
 
-export const getHkItems = cache(async (propertyId: string): Promise<HkItemRow[]> =>
+/** Items of one stock store ("hk" unless asked); every store lives in the sheet_hk_* tables (migration 0088). */
+export const getHkItems = cache(async (propertyId: string, store: StockStore = "hk"): Promise<HkItemRow[]> =>
   withPropertySupabaseCache({
     propertyId,
-    keyParts: ["sheets-hk-items"],
+    keyParts: ["sheets-hk-items", store],
     tags: [CACHE_TAGS.sheets(propertyId)],
     revalidate: CACHE_TTL.sheets,
     query: async (supabase) => {
@@ -160,6 +161,7 @@ export const getHkItems = cache(async (propertyId: string): Promise<HkItemRow[]>
         .from("sheet_hk_items")
         .select("period_month, item_code, item_name, unit, stock_awal, total_in, total_out, stock_akhir, average_price, stock_value")
         .eq("property_id", propertyId)
+        .eq("store", store)
         .order("period_month", { ascending: true })
         .order("stock_value", { ascending: false, nullsFirst: false })
         .limit(20000);
@@ -170,10 +172,10 @@ export const getHkItems = cache(async (propertyId: string): Promise<HkItemRow[]>
 );
 
 /** A month of daily movements can pass PostgREST's 1000-row page; fetch remaining pages in parallel using exact count. */
-export const getHkMovements = cache(async (propertyId: string): Promise<HkMovementRow[]> =>
+export const getHkMovements = cache(async (propertyId: string, store: StockStore = "hk"): Promise<HkMovementRow[]> =>
   withPropertySupabaseCache({
     propertyId,
-    keyParts: ["sheets-hk-movements"],
+    keyParts: ["sheets-hk-movements", store],
     tags: [CACHE_TAGS.sheets(propertyId)],
     revalidate: CACHE_TTL.sheets,
     query: async (supabase) => {
@@ -182,6 +184,7 @@ export const getHkMovements = cache(async (propertyId: string): Promise<HkMoveme
           .from("sheet_hk_movements")
           .select("period_month, movement_date, item_code, day, qty_in, qty_out, location", { count: "exact" })
           .eq("property_id", propertyId)
+          .eq("store", store)
           .order("id", { ascending: true })
           .range(from, to);
 
@@ -202,4 +205,3 @@ export const getHkMovements = cache(async (propertyId: string): Promise<HkMoveme
     },
   }),
 );
-

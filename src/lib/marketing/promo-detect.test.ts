@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { detectPromo, newPromoEvents, type VhpMenu } from "./promo-detect";
+import { detectPromo, newPromoEvents, PROMO_AUDIT_OUTLETS, promoOutletKeys, type VhpMenu } from "./promo-detect";
 
 const menu = (outlet: string, ...names: string[]): VhpMenu[] => names.map((description) => ({ outlet, description }));
 const MENUS: VhpMenu[] = [
@@ -68,5 +68,21 @@ describe("newPromoEvents adds each menu once and never brings back an ignored on
     const r = newPromoEvents([...posts, post("Diskon 20% untuk Macallan #DragonBeachClub", { id: "c" })], MENUS, [], "2026-09-25");
     expect(r.unknown.map((p) => p.permalink)).toEqual(["https://www.instagram.com/p/x/"]);
     expect(newPromoEvents(posts, MENUS, [], "2026-11-22").events).toEqual([]);
+  });
+});
+
+describe("promoOutletKeys: nama outlet audit atau kasir ke tab outlet halaman Marketing", () => {
+  it("DBC (Indoor) dan kasir d'Bar Karaoke & DBC melayani Dragon Beach Club dan D'Bar", () => {
+    expect(promoOutletKeys("Dragon Beach Club (Indoor)")).toEqual(["dragon-beach-club", "dbar"]);
+    expect(promoOutletKeys("d'Bar Karaoke & DBC")).toEqual(["dragon-beach-club", "dbar"]);
+    expect(promoOutletKeys("Sunset Grill")).toEqual(["sunset-grill"]);
+    expect(promoOutletKeys(" d'bistro ")).toEqual(["dbistro"]);
+    expect(promoOutletKeys("d'Spa")).toEqual(["dspa"]);
+  });
+
+  it("Kamar & Resort tidak punya menu kasir, jadi tidak punya audit promo", () => {
+    expect(promoOutletKeys("Front Office")).toEqual([]);
+    expect(PROMO_AUDIT_OUTLETS).not.toContain("resort");
+    expect([...PROMO_AUDIT_OUTLETS].sort()).toEqual(["dbar", "dbistro", "dragon-beach-club", "dspa", "sunset-grill"]);
   });
 });

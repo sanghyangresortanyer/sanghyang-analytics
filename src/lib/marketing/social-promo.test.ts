@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { computePromoLift, portions, shiftDate } from "./social-promo";
+import { auditsForOutlet, auditsInPeriod, computePromoLift, portions, shiftDate, type PromoAuditItem } from "./social-promo";
 
 const sales = (from: string, perDay: number[]) => perDay.map((qty, i) => ({ saleDate: shiftDate(from, i), qty, amount: qty * 10_000 }));
 
@@ -28,5 +28,26 @@ describe("computePromoLift (owner, 24 Nov: no verdict before the 7 days are comp
   it("counts the tenths of a weighed dish as tenths", () => {
     expect(portions("(0.1 Ons) Lobster Bakar", 5)).toBe(0.5);
     expect(portions("(Ons) Lobster Bakar", 5)).toBe(5);
+  });
+});
+
+describe("auditsForOutlet dan auditsInPeriod (tab Media Sosial per outlet, periode aktif)", () => {
+  const audit = (id: string, outlet_name: string, post_date: string): PromoAuditItem => ({
+    event: { id, post_date, platform: "instagram", outlet_name, promo_title: id, menu_keyword: "*" },
+    lift: computePromoLift(post_date, [], "2026-11-24"),
+    menus: [],
+  });
+  const audits = [audit("sunset", "Sunset Grill", "2026-11-12"), audit("dbc", "Dragon Beach Club (Indoor)", "2026-11-20"), audit("spa", "d'Spa", "2026-10-30")];
+
+  it("memilih audit outlet itu saja; Semua Outlet memuat semuanya", () => {
+    expect(auditsForOutlet(audits, "dbar").map((a) => a.event.id)).toEqual(["dbc"]);
+    expect(auditsForOutlet(audits, "dragon-beach-club").map((a) => a.event.id)).toEqual(["dbc"]);
+    expect(auditsForOutlet(audits, "resort")).toEqual([]);
+    expect(auditsForOutlet(audits, "all")).toHaveLength(3);
+  });
+
+  it("menyaring tanggal tayang pada rentang inklusif", () => {
+    expect(auditsInPeriod(audits, "2026-11-01", "2026-11-20").map((a) => a.event.id)).toEqual(["sunset", "dbc"]);
+    expect(auditsInPeriod(audits, "2026-10-30", "2026-10-30").map((a) => a.event.id)).toEqual(["spa"]);
   });
 });

@@ -1,5 +1,5 @@
 import { chatReturnUrl, sameOrigin } from "@/lib/marketing/ads-report";
-import { HTML_HEADERS, marketingAccess, saveChats, weeklyReportPage } from "@/lib/marketing/web";
+import { HTML_HEADERS, importWaBookings, marketingAccess, weeklyReportPage } from "@/lib/marketing/web";
 
 export const dynamic = "force-dynamic";
 
@@ -15,13 +15,13 @@ export async function GET(request: Request) {
   }
 }
 
-/** CS's number of new WhatsApp chats for the day or week on screen; then back to the same report. */
+/** CS's file BOOKING BY WA, imported from the box above the report; then back to the same report. */
 export async function POST(request: Request) {
   const refused = await marketingAccess();
   if (refused) return refused;
   if (!sameOrigin(request)) return new Response("Permintaan ditolak. Buka halaman Marketing lalu isi lagi.", { status: 403 });
   const form = await request.formData();
-  const problem = await saveChats(form);
+  const problem = await importWaBookings(form);
   if (problem) return new Response(`${problem} Tekan tombol kembali di browser untuk memperbaiki.`, { status: 400, headers: { "content-type": "text/plain; charset=utf-8" } });
   return new Response(null, { status: 303, headers: { location: chatReturnUrl(form) } });
 }

@@ -12,6 +12,7 @@ export const CACHE_TAGS = {
   vhpSales: (propertyId: string) => `vhp:sales:${propertyId}`,
   vhpDashboard: (propertyId: string) => `vhp:dashboard:${propertyId}`,
   vhpOccupancy: (propertyId: string) => `vhp:occupancy:${propertyId}`,
+  vhpResortReport: (propertyId: string) => `vhp:resort-report:${propertyId}`,
   sheets: (propertyId: string) => `sheets:${propertyId}`,
   settingsTargets: (propertyId: string) => `settings:targets:${propertyId}`,
   settingsBudgets: (propertyId: string) => `settings:budgets:${propertyId}`,
@@ -19,6 +20,7 @@ export const CACHE_TAGS = {
   settingsMenuRules: (propertyId: string) => `settings:menu-rules:${propertyId}`,
   socialPromos: (propertyId: string) => `marketing:social-promos:${propertyId}`,
   whatsappChats: (propertyId: string) => `marketing:wa-chats:${propertyId}`,
+  waBookings: (propertyId: string) => `marketing:wa-bookings:${propertyId}`,
   marketingAds: (propertyId: string) => `marketing:ads:${propertyId}`,
 
   // Market Intelligence, Knowledge Graph, Media Sosial, dan Jembatan Sinyal Internal
@@ -66,7 +68,9 @@ export const INVALIDATION_GROUPS = {
     CACHE_TAGS.vhpSales(propertyId),
     CACHE_TAGS.vhpDashboard(propertyId),
     CACHE_TAGS.vhpOccupancy(propertyId),
+    CACHE_TAGS.vhpResortReport(propertyId),
     CACHE_TAGS.socialPromos(propertyId),
+    CACHE_TAGS.waBookings(propertyId),
     CACHE_TAGS.marketingAds(propertyId),
     CACHE_TAGS.internalSignals,
     CACHE_TAGS.marketSize,
@@ -114,7 +118,19 @@ export const INVALIDATION_GROUPS = {
 
   forWhatsappChatMutation: (propertyId: string): readonly string[] => [
     CACHE_TAGS.whatsappChats(propertyId),
+    CACHE_TAGS.waBookings(propertyId),
     CACHE_TAGS.marketingAds(propertyId),
+    CACHE_TAGS.vhpDashboard(propertyId),
+    CACHE_TAGS.internalSignals,
+    CACHE_TAGS.marketSummary,
+    CACHE_TAGS.knowledgeGraph,
+  ],
+
+  forWaBookingsMutation: (propertyId: string): readonly string[] => [
+    CACHE_TAGS.waBookings(propertyId),
+    CACHE_TAGS.whatsappChats(propertyId),
+    CACHE_TAGS.marketingAds(propertyId),
+    CACHE_TAGS.vhpDashboard(propertyId),
     CACHE_TAGS.internalSignals,
     CACHE_TAGS.marketSummary,
     CACHE_TAGS.knowledgeGraph,

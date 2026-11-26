@@ -492,6 +492,8 @@ export async function saveWeeklyMeeting(formData: FormData): Promise<
           sales_amount: r.sales,
           coupon_amount: r.isComplimentary ? -r.payment : 0,
           category: r.category ?? null,
+          // Ties discounts and compliments to the menus on the same bill (dbar_parts).
+          bill_no: r.billNo || null,
         }))
     : (oldJournal?.rows ?? [])
         .filter((r) => inPeriod(r.saleDate) && r.amount > 0)
@@ -640,6 +642,7 @@ export async function saveWeeklyMeeting(formData: FormData): Promise<
   revalidatePath("/riwayat");
   revalidatePath("/pengaturan");
   revalidatePath("/marketing");
+  revalidatePath("/laporan-resort");
 
   return { ok: true, meetingId, replaced };
 }
@@ -784,6 +787,7 @@ export async function deleteWeeklyMeeting(meetingId: string, expectedVersion: nu
   revalidatePath("/riwayat");
   revalidatePath("/pengaturan");
   revalidatePath("/marketing");
+  revalidatePath("/laporan-resort");
   return { ok: true };
 }
 

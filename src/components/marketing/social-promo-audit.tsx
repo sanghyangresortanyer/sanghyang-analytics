@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { SkeuoCard } from "@/components/skeuo/ui";
 import { ignorePromoEvent, pullPromos, type PromoActionState } from "@/lib/actions/social-promo";
 import { formatRp } from "@/lib/format-currency";
 import { rangeText } from "@/lib/format-date";
-import type { PromoAuditItem, PromoVerdict } from "@/lib/marketing/social-promo";
+import { OUTLET_TABS, type OutletChoice } from "@/lib/marketing/market-intelligence-types";
+import { PROMO_AUDIT_OUTLETS } from "@/lib/marketing/promo-detect";
+import { auditsForOutlet, auditsInPeriod, type PromoAuditItem, type PromoVerdict } from "@/lib/marketing/social-promo";
 import { cn } from "@/lib/utils";
 
 const LABEL: Record<PromoVerdict, { text: string; tone: string }> = {
@@ -62,21 +63,29 @@ function Audit({ item, busy, onIgnore }: { item: PromoAuditItem; busy: boolean; 
   );
 }
 
-/** Marketing → Sosmed → Audit Promo: fills itself from Instagram (owner, 24 Nov); "Abaikan" removes a wrong one. */
+/**
+ * Marketing → Media Sosial → Audit Promo Outlet: the chosen outlet's audits in the active period. Fills itself from
+ * Instagram with "Tarik data" (owner, 24 Nov); "Abaikan" removes a wrong one.
+ */
 export function SocialPromoAuditView({
   audits,
   problem,
   dataUntil,
   startDate,
   endDate,
-  isCustomRange,
+  outlet,
+  outletLabel,
+  metaProblem = null,
 }: {
   audits: PromoAuditItem[];
   problem: string | null;
   dataUntil: string | null;
-  startDate?: string;
-  endDate?: string;
-  isCustomRange?: boolean;
+  startDate: string;
+  endDate: string;
+  outlet: OutletChoice;
+  outletLabel: string;
+  /** Why Meta cannot be read now; "Tarik data" depends on it, so the reason sits next to the button. */
+  metaProblem?: string | null;
 }) {
   const [state, setState] = useState<PromoActionState>();
   const [busy, start] = useTransition();
@@ -88,85 +97,93 @@ export function SocialPromoAuditView({
         setState({ error: "Tidak bisa menghubungi server. Coba lagi." });
       }
     });
-  const hasRange = Boolean(isCustomRange && startDate && endDate);
-  const visibleAudits = hasRange
-    ? audits.filter((a) => a.event.post_date >= startDate! && a.event.post_date <= endDate!)
-    : audits;
-  // One card per post: its menus together.
+  const range = rangeText(startDate, endDate);
+  const outletAudits = auditsForOutlet(audits, outlet);
+  const visibleAudits = auditsInPeriod(outletAudits, startDate, endDate);
+  const hasTill = outlet === "all" || PROMO_AUDIT_OUTLETS.includes(outlet);
+  const tillOutlets = OUTLET_TABS.filter((t) => (PROMO_AUDIT_OUTLETS as readonly string[]).includes(t.key)).map((t) => t.label);
+  // One block per post: its menus together.
   const posts = new Map<string, PromoAuditItem[]>();
   for (const a of visibleAudits) {
     const key = `${a.event.source_post_id ?? a.event.post_url ?? ""}|${a.event.post_date}|${a.event.outlet_name}`;
     posts.set(key, [...(posts.get(key) ?? []), a]);
   }
+  const empty = !hasTill
+    ? `Belum ada data pada ${range}. Audit promo membandingkan penjualan menu kasir, dan menu kasir hanya tercatat untuk ${tillOutlets.join(", ")}.`
+    : outletAudits.length === 0
+      ? `Belum ada data pada ${range}. Tekan Tarik data untuk membaca postingan promo terbaru.`
+      : visibleAudits.length === 0
+        ? `Belum ada data pada ${range}. Ada ${outletAudits.length} audit promo di luar rentang ini.`
+        : null;
+
   return (
-    <div className="space-y-4">
-      <SkeuoCard>
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <div>
-            <h2 className="text-xl font-semibold text-navy-900">Audit promo Instagram</h2>
-            <p className="mt-1 text-base text-navy-600">
-              Penjualan menu promo di kasir, 7 hari sebelum dibanding 7 hari sejak tayang. Data kasir sampai {dataUntil ? rangeText(dataUntil, dataUntil) : "belum ada"}.
-            </p>
-            {hasRange && (
-              <p className="mt-1 text-sm font-medium text-navy-700">
-                Periode dipilih: {rangeText(startDate!, endDate!)} ({visibleAudits.length} dari {audits.length} audit promo).
-              </p>
-            )}
-          </div>
-          <button type="button" disabled={busy} onClick={() => run(pullPromos)} className="skeuo-pill-dark rounded-full px-5 py-2.5 text-base font-semibold disabled:opacity-60">
-            {busy ? "Sedang menarik..." : "Tarik data"}
-          </button>
-        </div>
-        <div aria-live="polite">
-          {state?.error && <p className="mt-3 rounded-xl bg-red-50 px-4 py-3 text-base text-red-800">{state.error}</p>}
-          {state?.ok && <p className="mt-3 rounded-xl bg-emerald-50 px-4 py-3 text-base text-emerald-900">{state.ok}</p>}
-          {state?.links && state.links.length > 0 && (
-            <p className="mt-2 text-sm text-navy-700">
-              Menu tidak dikenali:{" "}
-              {state.links.map((l, i) => (
-                <a key={l} href={l} target="_blank" rel="noopener noreferrer" className="mr-2 underline">
-                  postingan {i + 1}
-                </a>
-              ))}
-            </p>
-          )}
-          {problem && <p className="mt-3 rounded-xl bg-red-50 px-4 py-3 text-base text-red-800">{problem}</p>}
-        </div>
-        <p className="mt-3 text-sm text-navy-600">
-          Promo dikenali dari teks postingan, bukan dari foto. Yang salah tekan Abaikan. Naik atau tidaknya penjualan belum tentu karena postingan.
-        </p>
-      </SkeuoCard>
-      {audits.length === 0 && !problem && (
-        <SkeuoCard>
-          <p className="text-base text-navy-700">Belum ada data. Tekan Tarik data.</p>
-        </SkeuoCard>
-      )}
-      {hasRange && visibleAudits.length === 0 && audits.length > 0 && (
-        <SkeuoCard>
-          <p className="text-base text-navy-700">
-            Tidak ada audit promo pada periode {rangeText(startDate!, endDate!)} (ada {audits.length} promo di luar rentang ini).
+    <section aria-labelledby="audit-promo-outlet" className="skeuo-card space-y-4 p-4">
+      <div className="flex flex-wrap items-start justify-between gap-3 border-b border-cream-300 pb-3">
+        <div className="min-w-0">
+          <p className="text-[11px] font-bold uppercase tracking-wider text-navy-500">Audit Promo Outlet</p>
+          <h3 id="audit-promo-outlet" className="mt-0.5 text-lg font-semibold text-navy-900">
+            {outletLabel} · {range}
+          </h3>
+          <p className="mt-1 text-sm text-navy-600">
+            Penjualan menu promo di kasir, 7 hari sebelum dibanding 7 hari sejak tayang. Data kasir sampai {dataUntil ? rangeText(dataUntil, dataUntil) : "belum ada"}.
           </p>
-        </SkeuoCard>
+        </div>
+        <button type="button" disabled={busy} onClick={() => run(pullPromos)} className="skeuo-pill-dark rounded-full px-5 py-2.5 text-base font-semibold disabled:opacity-60">
+          {busy ? "Sedang menarik..." : "Tarik data"}
+        </button>
+      </div>
+      {metaProblem && (
+        <p className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-950">
+          Tarik data membaca postingan terbaru dari Meta, dan saat ini Meta belum bisa dibaca: {metaProblem}
+        </p>
       )}
-      {[...posts.entries()].map(([key, items]) => (
-        <SkeuoCard key={key}>
-          <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
-            <h3 className="text-lg font-semibold text-navy-900">
-              {items[0].event.outlet_name} · tayang {rangeText(items[0].event.post_date, items[0].event.post_date)}
-            </h3>
-            {items[0].event.post_url && (
-              <a href={items[0].event.post_url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-navy-700 underline">
-                Buka di Instagram
+      <div aria-live="polite">
+        {state?.error && <p className="rounded-xl bg-red-50 px-4 py-3 text-base text-red-800">{state.error}</p>}
+        {state?.ok && <p className="rounded-xl bg-emerald-50 px-4 py-3 text-base text-emerald-900">{state.ok}</p>}
+        {state?.links && state.links.length > 0 && (
+          <p className="mt-2 text-sm text-navy-700">
+            Menu tidak dikenali:{" "}
+            {state.links.map((l, i) => (
+              <a key={l} href={l} target="_blank" rel="noopener noreferrer" className="mr-2 underline">
+                postingan {i + 1}
               </a>
-            )}
-          </div>
-          <ul>
-            {items.map((item) => (
-              <Audit key={item.event.id} item={item} busy={busy} onIgnore={() => run(() => ignorePromoEvent(item.event.id))} />
             ))}
-          </ul>
-        </SkeuoCard>
-      ))}
-    </div>
+          </p>
+        )}
+      </div>
+      {problem && (
+        <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-base text-red-800">
+          {problem}
+        </p>
+      )}
+      {empty ? (
+        <p className="rounded-xl bg-cream-100 px-4 py-6 text-center text-base text-navy-700">{empty}</p>
+      ) : (
+        <div className="space-y-3">
+          {[...posts.entries()].map(([key, items]) => (
+            <article key={key} className="rounded-xl border border-cream-300 bg-white p-4">
+              <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+                <h4 className="text-lg font-semibold text-navy-900">
+                  {items[0].event.outlet_name} · tayang {rangeText(items[0].event.post_date, items[0].event.post_date)}
+                </h4>
+                {items[0].event.post_url && (
+                  <a href={items[0].event.post_url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-navy-700 underline">
+                    Buka di Instagram
+                  </a>
+                )}
+              </div>
+              <ul>
+                {items.map((item) => (
+                  <Audit key={item.event.id} item={item} busy={busy} onIgnore={() => run(() => ignorePromoEvent(item.event.id))} />
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      )}
+      <p className="text-sm text-navy-600">
+        Promo dikenali dari teks postingan, bukan dari foto. Yang salah tekan Abaikan. Naik atau tidaknya penjualan belum tentu karena postingan.
+      </p>
+    </section>
   );
 }

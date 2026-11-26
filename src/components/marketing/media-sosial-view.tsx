@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { CheckCircle2, ExternalLink, HelpCircle, Lightbulb, Loader2, Plus, RefreshCw, X } from "lucide-react";
+import { CheckCircle2, ExternalLink, HelpCircle, ImageOff, Lightbulb, Loader2, Plus, RefreshCw, X } from "lucide-react";
 import { SkeuoCard, StatusPill } from "@/components/skeuo/ui";
+import { rangeText } from "@/lib/format-date";
 import {
   OFFICIAL_ACCOUNTS_SOURCE,
   OUTLET_LABELS,
@@ -11,23 +11,31 @@ import {
   computeSosmedStats,
   fmtDateShort,
   formatMarketingClientError,
-  groupSocialPostsByOutlet,
   likeRatePercent,
   marketingApiErrorFromResponse,
+  metaAccountNotes,
+  metaPullProblem,
   postDayWib,
   postOverallScore,
   socialAccountKey,
+  socialPostTypeLabel,
+  socialPostsInPeriod,
+  socialSourceLabel,
   summarizeSocialAccountCoverage,
   type OutletChoice,
   type OutletKey,
+  type SnInstagramAccount,
+  type SnMetaStatus,
   type SnOfficialSocialAccount,
   type SnPlatformSosmedStats,
   type SnSocialAccountCoverage,
   type SnSocialApiResponse,
   type SnSocialPost,
 } from "@/lib/marketing/market-intelligence-types";
+import type { PromoAuditItem } from "@/lib/marketing/social-promo";
 import { cn } from "@/lib/utils";
 import { SnExtensionPanel, useSocialExtensionSync, type UseSocialExtensionSyncResult } from "./sn-extension-panel";
+import { SocialPromoAuditView } from "./social-promo-audit";
 
 const VERDICT_OPTIONS = [
   { key: "all", label: "Semua status efektivitas" },
@@ -51,17 +59,27 @@ const VERDICT_LABEL: Record<string, string> = {
   low_traction: "Kurang traksi",
 };
 
+const PLATFORM_NAME: Record<SnSocialPost["platform"], string> = { instagram: "Instagram", tiktok: "TikTok", facebook: "Facebook" };
+
 const fmtInt = (n: number) => n.toLocaleString("id-ID");
 const numOrDash = (n: number | null | undefined) => (typeof n === "number" && n > 0 ? fmtInt(n) : "-");
+const metricText = (n: number | null | undefined) => (typeof n === "number" && Number.isFinite(n) ? fmtInt(n) : "Belum ada data");
+
+/** Postingan yang memang tersimpan di aplikasi (ekstensi, isian tim, arsip); cakupan sinkron dihitung dari sini saja. */
+const isStored = (p: SnSocialPost) => !p.sources || p.sources.some((src) => src !== "meta");
+
+export interface MediaSosialPromoAudit {
+  audits: PromoAuditItem[];
+  problem: string | null;
+  dataUntil: string | null;
+}
 
 function PlatformSummaryCard({
   platform,
   label,
   dotClass,
   stats,
-  isCustomRange,
-  startDate,
-  endDate,
+  range,
   activeOutlet,
   outletLabel,
   extSync,
@@ -70,9 +88,7 @@ function PlatformSummaryCard({
   label: string;
   dotClass: string;
   stats: SnPlatformSosmedStats;
-  isCustomRange: boolean;
-  startDate: string;
-  endDate: string;
+  range: string;
   activeOutlet: OutletChoice;
   outletLabel: string;
   extSync: UseSocialExtensionSyncResult;
@@ -96,14 +112,23 @@ function PlatformSummaryCard({
 
   const totalOutsideCount = stats.syncedAccountPosts > 0 ? stats.syncedAccountPosts : stats.outletAllPostsCount;
   const latestOutsideDate = stats.latestSyncedPostAt ?? stats.latestOutletPostAt;
-  const hasDataOutsideRange = isCustomRange && stats.posts === 0 && totalOutsideCount > 0;
 
   const syncBusy =
     extSync.savingBatch ||
     extSync.state?.status === "running" ||
     extSync.state?.status === "needs_human_action";
   const canQuickSync = hasAccount && extSync.extensionInstalled && !extSync.needsUpdate && !syncBusy;
-  const resetRangeHref = `/marketing?bagian=media-sosial&lihat=${encodeURIComponent(activeOutlet)}`;
+  const syncButton = (text: string) =>
+    canQuickSync ? (
+      <button
+        type="button"
+        onClick={() => void extSync.startSync({ outletKey: activeOutlet, platform })}
+        className="inline-flex shrink-0 items-center gap-1 rounded-full bg-navy-900 px-2.5 py-1 text-[11px] font-semibold text-cream-50 hover:bg-navy-800"
+      >
+        <RefreshCw className="h-3 w-3" aria-hidden />
+        {text}
+      </button>
+    ) : null;
 
   const parentOnly =
     stats.parentHandles.length > 0 &&
@@ -115,321 +140,225 @@ function PlatformSummaryCard({
   return (
     <div data-platform-card={platform}>
       <SkeuoCard className="space-y-3">
-      <div className="flex items-center justify-between gap-3 border-b border-cream-300 pb-2.5">
-        <h3 className="flex items-center gap-2 text-base font-bold text-navy-900">
-          <span className={cn("h-2.5 w-2.5 shrink-0 rounded-full", dotClass)} aria-hidden />
-          {label}
-        </h3>
-        <span className="min-w-0 truncate text-xs font-semibold text-navy-500">
-          {stats.handles.length > 0 ? stats.handles.join(", ") : `Belum ada akun ${label}`}
-        </span>
-      </div>
+        <div className="flex items-center justify-between gap-3 border-b border-cream-300 pb-2.5">
+          <h3 className="flex items-center gap-2 text-base font-bold text-navy-900">
+            <span className={cn("h-2.5 w-2.5 shrink-0 rounded-full", dotClass)} aria-hidden />
+            {label}
+          </h3>
+          <span className="min-w-0 truncate text-xs font-semibold text-navy-500">
+            {stats.handles.length > 0 ? stats.handles.join(", ") : `Belum ada akun ${label}`}
+          </span>
+        </div>
 
-      <dl className="grid grid-cols-4 gap-2 text-center">
-        {metrics.map((m) => (
-          <div key={m.key}>
-            <dt className="text-[11px] font-semibold uppercase tracking-wider text-navy-500">{m.label}</dt>
-            <dd className="mt-1 text-base font-bold tabular-nums text-navy-900">{m.value}</dd>
+        <dl className="grid grid-cols-4 gap-2 text-center">
+          {metrics.map((m) => (
+            <div key={m.key}>
+              <dt className="text-[11px] font-semibold uppercase tracking-wider text-navy-500">{m.label}</dt>
+              <dd className="mt-1 text-base font-bold tabular-nums text-navy-900">{m.value}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <p className="text-[11px] text-navy-600">
+          Periode {range}
+          {hasAccount ? ` · Total tersinkron akun: ${syncedSummary}${latestSuffix}` : ` · Belum ada akun ${label} khusus ${outletLabel}`}
+        </p>
+
+        {stats.parentAccountPosts > 0 && (
+          <p className="rounded-xl border border-cream-300 bg-cream-50 px-3 py-1.5 text-[11px] text-navy-700">
+            {stats.ownAccountPosts === 0
+              ? `Semua ${fmtInt(stats.posts)} postingan pada ${range} berasal dari ${contributorLabel}${hasAccount ? `; akun ${stats.handles.join(", ")} belum memiliki postingan pada periode ini` : ""}.`
+              : `Termasuk ${fmtInt(stats.parentAccountPosts)} postingan dari ${contributorLabel}.`}
+          </p>
+        )}
+
+        {!hasAccount ? null : stats.posts === 0 && totalOutsideCount > 0 ? (
+          <div className="space-y-2 rounded-xl border border-amber-300 bg-amber-50 px-3 py-2 text-[11px] text-amber-950">
+            <p className="leading-relaxed">
+              Tidak ada postingan {label} pada {range}. Sebanyak <strong>{fmtInt(totalOutsideCount)} postingan</strong> tersinkron berada di luar
+              rentang ini{latestOutsideDate ? ` (terbaru ${fmtDateShort(latestOutsideDate)})` : ""}. Pilih periode lain di atas untuk melihatnya.
+            </p>
+            {syncButton(`Sinkron ulang ${label}`)}
           </div>
-        ))}
-      </dl>
-
-      {stats.parentAccountPosts > 0 && (
-        <p className="rounded-xl border border-cream-300 bg-cream-50 px-3 py-1.5 text-[11px] text-navy-700">
-          {stats.ownAccountPosts === 0
-            ? `Semua ${fmtInt(stats.posts)} postingan ${isCustomRange ? "periode ini " : ""}berasal dari ${contributorLabel}${hasAccount ? `; akun ${stats.handles.join(", ")} belum memiliki postingan ${isCustomRange ? "pada periode ini" : "tersinkron"}` : ""}.`
-            : `Termasuk ${fmtInt(stats.parentAccountPosts)} postingan dari ${contributorLabel}.`}
-        </p>
-      )}
-
-      {!hasAccount ? (
-        isCustomRange ? (
-          <p className="text-[11px] text-navy-600">
-            Periode aktif {fmtDateShort(startDate)} – {fmtDateShort(endDate)} · Belum ada akun {label} khusus {outletLabel}.
+        ) : stats.posts === 0 && stats.syncedAccountPosts === 0 ? (
+          <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-cream-300 bg-cream-50 px-3 py-1.5 text-[11px] text-navy-700">
+            <span>Belum ada postingan {label} yang tersinkron untuk akun ini.</span>
+            {syncButton(`Sinkron ${label}`)}
+          </div>
+        ) : incomplete ? (
+          <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-amber-300 bg-amber-50 px-3 py-1.5 text-[11px] font-medium text-amber-900">
+            <span>
+              Tersinkron {fmtInt(stats.syncedAccountPosts)} dari {fmtInt(stats.profilePostsTotal!)} postingan profil ({syncPct}%
+              {stats.latestSyncedPostAt ? `, terbaru ${fmtDateShort(stats.latestSyncedPostAt)}` : ""}). Sinkronkan lewat Chrome biasa yang sudah login agar seluruh riwayat terbaca.
+            </span>
+            {syncButton(`Sinkron ulang ${label}`)}
+          </div>
+        ) : hasProfileTotal ? (
+          <p className="text-[11px] font-medium text-emerald-800">
+            Cakupan profil lengkap: {fmtInt(stats.syncedAccountPosts)} / {fmtInt(stats.profilePostsTotal!)} postingan tersinkron
+            {latestSuffix}.
           </p>
-        ) : null
-      ) : isCustomRange ? (
-        <div className="space-y-2">
-          <p className="text-[11px] text-navy-600">
-            Periode aktif {fmtDateShort(startDate)} – {fmtDateShort(endDate)} · Total tersinkron akun: {syncedSummary}
-            {latestSuffix}
-          </p>
-
-          {hasDataOutsideRange ? (
-            <div className="space-y-2 rounded-xl border border-amber-300 bg-amber-50 px-3 py-2 text-[11px] text-amber-950">
-              <p className="leading-relaxed">
-                Tidak ada postingan {label} pada rentang {fmtDateShort(startDate)} – {fmtDateShort(endDate)}. Sebanyak{" "}
-                <strong>{fmtInt(totalOutsideCount)} postingan</strong> tersinkron berada di luar rentang tanggal terpilih
-                {latestOutsideDate ? ` (terbaru ${fmtDateShort(latestOutsideDate)})` : ""}.
-              </p>
-              <div className="flex flex-wrap items-center gap-2">
-                <Link
-                  href={resetRangeHref}
-                  prefetch={false}
-                  className="inline-flex items-center gap-1 rounded-full border border-navy-300 bg-white px-2.5 py-1 text-[11px] font-semibold text-navy-900 hover:bg-cream-100"
-                >
-                  Lihat semua periode
-                </Link>
-                {canQuickSync ? (
-                  <button
-                    type="button"
-                    onClick={() => void extSync.startSync({ outletKey: activeOutlet, platform })}
-                    className="inline-flex items-center gap-1 rounded-full bg-navy-900 px-2.5 py-1 text-[11px] font-semibold text-cream-50 hover:bg-navy-800"
-                  >
-                    <RefreshCw className="h-3 w-3" aria-hidden />
-                    Sinkron ulang {label}
-                  </button>
-                ) : !syncBusy ? (
-                  <span className="text-[10px] text-amber-900">
-                    Sinkronkan ulang lewat panel Ekstensi Chrome di atas untuk mengambil postingan terbaru.
-                  </span>
-                ) : null}
-              </div>
-            </div>
-          ) : stats.posts === 0 && stats.syncedAccountPosts === 0 ? (
-            <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-cream-300 bg-cream-50 px-3 py-1.5 text-[11px] text-navy-700">
-              <span>Belum ada postingan {label} yang tersinkron untuk akun ini.</span>
-              {canQuickSync && (
-                <button
-                  type="button"
-                  onClick={() => void extSync.startSync({ outletKey: activeOutlet, platform })}
-                  className="inline-flex items-center gap-1 rounded-full bg-navy-900 px-2.5 py-0.5 text-[11px] font-semibold text-cream-50 hover:bg-navy-800"
-                >
-                  <RefreshCw className="h-3 w-3" aria-hidden />
-                  Sinkron {label}
-                </button>
-              )}
-            </div>
-          ) : null}
-        </div>
-      ) : incomplete ? (
-        <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-amber-300 bg-amber-50 px-3 py-1.5 text-[11px] font-medium text-amber-900">
-          <span>
-            Tersinkron {fmtInt(stats.syncedAccountPosts)} dari {fmtInt(stats.profilePostsTotal!)} postingan profil ({syncPct}%
-            {stats.latestSyncedPostAt ? `, terbaru ${fmtDateShort(stats.latestSyncedPostAt)}` : ""}). Sinkronkan lewat Chrome biasa yang sudah login agar seluruh riwayat terbaca.
-          </span>
-          {canQuickSync && (
-            <button
-              type="button"
-              onClick={() => void extSync.startSync({ outletKey: activeOutlet, platform })}
-              className="inline-flex shrink-0 items-center gap-1 rounded-full bg-navy-900 px-2.5 py-1 text-[11px] font-semibold text-cream-50 hover:bg-navy-800"
-            >
-              <RefreshCw className="h-3 w-3" aria-hidden />
-              Sinkron ulang {label}
-            </button>
-          )}
-        </div>
-      ) : hasProfileTotal ? (
-        <p className="text-[11px] font-medium text-emerald-800">
-          Cakupan profil lengkap: {fmtInt(stats.syncedAccountPosts)} / {fmtInt(stats.profilePostsTotal!)} postingan tersinkron
-          {latestSuffix}.
-        </p>
-      ) : stats.syncedAccountPosts > 0 ? (
-        <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-navy-600">
-          <span>
-            Total tersinkron akun: {fmtInt(stats.syncedAccountPosts)} postingan{latestSuffix}.
-          </span>
-          {canQuickSync && (
-            <button
-              type="button"
-              onClick={() => void extSync.startSync({ outletKey: activeOutlet, platform })}
-              className="inline-flex shrink-0 items-center gap-1 rounded-full border border-cream-300 bg-white px-2.5 py-0.5 text-[11px] font-semibold text-navy-800 hover:bg-cream-100"
-            >
-              <RefreshCw className="h-3 w-3" aria-hidden />
-              Sinkron ulang {label}
-            </button>
-          )}
-        </div>
-      ) : (
-        <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-cream-300 bg-cream-50 px-3 py-1.5 text-[11px] text-navy-700">
-          <span>Belum ada postingan {label} tersinkron untuk akun ini.</span>
-          {canQuickSync && (
-            <button
-              type="button"
-              onClick={() => void extSync.startSync({ outletKey: activeOutlet, platform })}
-              className="inline-flex items-center gap-1 rounded-full bg-navy-900 px-2.5 py-0.5 text-[11px] font-semibold text-cream-50 hover:bg-navy-800"
-            >
-              <RefreshCw className="h-3 w-3" aria-hidden />
-              Sinkron {label}
-            </button>
-          )}
-        </div>
-      )}
+        ) : stats.syncedAccountPosts > 0 ? (
+          <div className="flex justify-end">{syncButton(`Sinkron ulang ${label}`)}</div>
+        ) : null}
       </SkeuoCard>
     </div>
   );
 }
 
-function SocialPostCard({
+/** Foto atau thumbnail postingan. URL CDN Meta bertanda tangan bisa kedaluwarsa, jadi gagal muat diganti tempat foto. */
+export function PostThumbnail({ src, alt }: { src: string | null | undefined; alt: string }) {
+  const [failed, setFailed] = useState(false);
+  if (!src || failed) {
+    return (
+      <div className="flex aspect-square w-full flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-cream-400 bg-cream-100 px-4 text-center text-xs font-medium text-navy-600">
+        <ImageOff className="h-6 w-6 text-navy-400" aria-hidden />
+        <span>{src ? "Foto tidak bisa dimuat" : "Belum ada foto pratinjau"}</span>
+      </div>
+    );
+  }
+  return (
+    // Signed Meta CDN URLs span changing subdomains and require no-referrer, so next/image is not used.
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      referrerPolicy="no-referrer"
+      onError={() => setFailed(true)}
+      className="aspect-square w-full rounded-xl bg-cream-200 object-cover"
+    />
+  );
+}
+
+/** Kartu grid Evaluasi efektivitas konten: foto, caption 3 baris, angka yang terbaca, sumber, dan skor caption. */
+export function SocialPostGridCard({
   post,
-  accountFollowers,
+  followers,
+  archiveDate,
 }: {
   post: SnSocialPost;
-  accountFollowers: number | null;
+  followers: number | null;
+  archiveDate: string | null;
 }) {
+  const [expanded, setExpanded] = useState(false);
   const score = postOverallScore(post.audit);
-  const followers = post.followers ?? post.metrics?.followers ?? accountFollowers;
-  const likeRate = likeRatePercent(post.metrics?.likes, followers);
-  const outletName = OUTLET_LABELS[post.outletKey] ?? post.outletKey;
+  const handle = post.account ? `@${post.account.replace(/^@/, "")}` : PLATFORM_NAME[post.platform];
+  const typeLabel = socialPostTypeLabel(post.postType);
+  const dateText = fmtDateShort(postDayWib(post.postedAt));
+  const timeText = post.publishedAt
+    ? new Date(post.publishedAt).toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Jakarta" })
+    : null;
+  const caption = post.caption.trim();
+  const isLong = caption.length > 90 || caption.includes("\n");
+  const likeRate = likeRatePercent(post.metrics?.likes, post.followers ?? post.metrics?.followers ?? followers);
+  const collab = Array.isArray(post.collabAccounts) && post.collabAccounts.length > 0 ? post.collabAccounts : null;
+  const subScores = [
+    { key: "hook", label: "Hook", value: post.audit.hookScore },
+    { key: "copy", label: "Copy", value: post.audit.copyScore },
+    { key: "cta", label: "CTA", value: post.audit.ctaScore },
+  ];
 
   return (
-    <article className="flex flex-col justify-between space-y-3 rounded-2xl border border-cream-300 bg-white p-4">
-      {/* Header Postingan */}
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-cream-200 pb-2.5 text-xs">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-lg border border-cream-300 bg-cream-50 px-2 py-0.5 text-[10px] font-bold uppercase text-navy-900">
-            {outletName}
-          </span>
-          <span className="font-semibold text-navy-700">
-            {post.account ? `@${post.account.replace(/^@/, "")}` : post.platform.toUpperCase()}
-            {Array.isArray(post.collabAccounts) && post.collabAccounts.length > 0
-              ? ` × ${post.collabAccounts.map((h) => `@${h.replace(/^@/, "")}`).join(", ")}`
-              : ""}{" "}
-            · {post.postType}
-          </span>
-          <span className="text-navy-500">Tayang: {fmtDateShort(post.postedAt)}</span>
-          <a
-            href={post.postUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1 font-semibold text-navy-800 underline hover:text-navy-900"
-          >
-            <span>Buka postingan</span>
-            <ExternalLink className="h-3 w-3" aria-hidden />
-          </a>
-        </div>
+    <article aria-label={`${typeLabel} ${handle}, tayang ${dateText}`} className="flex h-full flex-col gap-3 rounded-2xl border border-cream-300 bg-white p-4">
+      <div className="relative">
+        <PostThumbnail src={post.imageUrl} alt={`Pratinjau ${typeLabel} ${handle}, tayang ${dateText}`} />
+        <span className="absolute left-2.5 top-2.5 rounded-full bg-navy-900/85 px-2.5 py-0.5 text-[11px] font-bold tracking-wide text-white">
+          {typeLabel}
+        </span>
+      </div>
 
-        <div className="flex flex-wrap items-center gap-1.5">
-          <StatusPill tone={VERDICT_TONE[post.audit.statusVerdict] ?? "muted"}>
-            {post.audit.verdictLabel ?? VERDICT_LABEL[post.audit.statusVerdict] ?? post.audit.statusVerdict} ({score}/100)
-          </StatusPill>
-          {typeof post.audit.engagementRatePercent === "number" && (
-            <span className="rounded-full border border-cream-300 bg-cream-50 px-2 py-0.5 text-[11px] font-semibold tabular-nums text-navy-700">
-              Eng: {post.audit.engagementRatePercent.toLocaleString("id-ID")}%
-            </span>
-          )}
+      <div className="space-y-1.5 text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
+          <span className="min-w-0 break-words font-semibold text-navy-900">
+            {handle}
+            {collab ? ` × ${collab.map((h) => `@${h.replace(/^@/, "")}`).join(", ")}` : ""}
+          </span>
+          <span className="text-navy-600">{`Tayang ${dateText}${timeText ? `, ${timeText} WIB` : ""}`}</span>
+        </div>
+        <div className="flex flex-wrap gap-1.5">
+          <span className="rounded-md border border-cream-300 bg-cream-50 px-2 py-0.5 text-[11px] font-bold text-navy-800">
+            {OUTLET_LABELS[post.outletKey] ?? post.outletKey}
+          </span>
+          <span className="rounded-md border border-navy-400 bg-white px-2 py-0.5 text-[11px] font-bold text-navy-800">
+            {socialSourceLabel(post.sources, archiveDate)}
+          </span>
         </div>
       </div>
 
-      {/* Caption Lengkap (dapat digulir) */}
-      <div className="max-h-40 overflow-y-auto whitespace-pre-line rounded-xl border border-cream-200 bg-cream-50 p-3 text-xs leading-relaxed text-navy-800 italic">
-        &ldquo;{post.caption}&rdquo;
-      </div>
-
-      {/* Metrik Performa 5 Kolom */}
-      {post.metrics === null ? (
-        <p className="rounded-xl border border-dashed border-cream-300 p-2.5 text-center text-xs text-navy-600">
-          {post.platform === "tiktok"
-            ? "Views, komentar, dan shares diperbarui otomatis saat sinkronisasi akun lewat Ekstensi Chrome."
-            : "Views, komentar, shares, dan chat WA belum terisi (sinkronkan lewat Ekstensi Chrome atau isi dari Instagram Insights)."}
+      <div>
+        <p className={cn("whitespace-pre-line break-words text-sm leading-relaxed text-navy-800", !expanded && "line-clamp-3")}>
+          {caption || "Postingan tanpa teks"}
         </p>
-      ) : (
-        <div className="grid grid-cols-2 gap-2 rounded-xl border border-cream-200 bg-cream-50 p-2.5 text-center text-xs sm:grid-cols-5">
-          <div>
-            <div className="text-[10px] font-semibold text-navy-500">Views</div>
-            <div className="font-extrabold tabular-nums text-navy-900">
-              {post.metrics.views !== null ? fmtInt(post.metrics.views) : "-"}
-            </div>
-          </div>
-          <div>
-            <div className="text-[10px] font-semibold text-navy-500">Likes</div>
-            <div className="font-extrabold tabular-nums text-navy-900">
-              {post.metrics.likes !== null ? fmtInt(post.metrics.likes) : "-"}
-            </div>
-            {likeRate !== null && (
-              <div className="text-[10px] tabular-nums text-navy-500">
-                {likeRate.toLocaleString("id-ID")}% pengikut
-              </div>
-            )}
-          </div>
-          <div>
-            <div className="text-[10px] font-semibold text-navy-500">Komentar</div>
-            <div className="font-extrabold tabular-nums text-navy-900">
-              {post.metrics.comments !== null ? fmtInt(post.metrics.comments) : "-"}
-            </div>
-          </div>
-          <div>
-            <div className="text-[10px] font-semibold text-navy-500">Shares</div>
-            <div className="font-extrabold tabular-nums text-navy-900">
-              {post.metrics.shares !== null ? fmtInt(post.metrics.shares) : "-"}
-            </div>
-          </div>
-          <div className="col-span-2 rounded-lg border border-cream-300 bg-white p-1 sm:col-span-1">
-            <div className="text-[10px] font-semibold text-navy-500">
-              {post.platform === "tiktok" ? "Interaksi" : "Leads WA"}
-            </div>
-            <div className="font-bold tabular-nums text-navy-900">
-              {post.platform === "tiktok"
-                ? post.metrics.shares !== null
-                  ? `${fmtInt(post.metrics.shares)} share`
-                  : "-"
-                : post.metrics.inquiriesWa !== null
-                  ? `+${fmtInt(post.metrics.inquiriesWa)} chat`
-                  : "-"}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 3 Pilar Audit Caption */}
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
-        <div className="rounded-xl border border-cream-300 bg-white p-2.5">
-          <div className="flex items-center justify-between text-xs">
-            <span className="font-bold text-navy-900">Daya Tarik Hook</span>
-            <span className="font-extrabold tabular-nums text-navy-900">{post.audit.hookScore}/100</span>
-          </div>
-          {post.audit.hookFeedback && (
-            <p className="mt-1 text-[11px] leading-snug text-navy-600">{post.audit.hookFeedback}</p>
-          )}
-        </div>
-
-        <div className="rounded-xl border border-cream-300 bg-white p-2.5">
-          <div className="flex items-center justify-between text-xs">
-            <span className="font-bold text-navy-900">Kejelasan Copy</span>
-            <span className="font-extrabold tabular-nums text-navy-900">{post.audit.copyScore}/100</span>
-          </div>
-          {post.audit.copyFeedback && (
-            <p className="mt-1 text-[11px] leading-snug text-navy-600">{post.audit.copyFeedback}</p>
-          )}
-        </div>
-
-        <div className="rounded-xl border border-cream-300 bg-white p-2.5">
-          <div className="flex items-center justify-between text-xs">
-            <span className="font-bold text-navy-900">Kekuatan CTA</span>
-            <span
-              className={cn(
-                "font-extrabold tabular-nums",
-                post.audit.ctaScore < 60 ? "text-red-700" : "text-navy-900",
-              )}
-            >
-              {post.audit.ctaScore}/100
-            </span>
-          </div>
-          {post.audit.ctaFeedback && (
-            <p className="mt-1 text-[11px] leading-snug text-navy-600">{post.audit.ctaFeedback}</p>
-          )}
-        </div>
+        {isLong && (
+          <button
+            type="button"
+            aria-expanded={expanded}
+            onClick={() => setExpanded((v) => !v)}
+            className="mt-1 text-xs font-semibold text-navy-700 underline underline-offset-2 hover:text-navy-950"
+          >
+            {expanded ? "Ringkas teks" : "Lihat selengkapnya"}
+          </button>
+        )}
       </div>
 
-      {/* Rekomendasi Perbaikan */}
-      {(post.audit.recommendedRevisionHeadline || post.audit.actionDirective) && (
-        <div className="space-y-1 rounded-xl border border-cream-300 bg-cream-50 p-3 text-xs">
-          <div className="flex items-center gap-1.5 font-bold text-navy-900">
-            <Lightbulb className="h-3.5 w-3.5 text-amber-700" aria-hidden />
-            <span>Rekomendasi Perbaikan</span>
-          </div>
-          {post.audit.recommendedRevisionHeadline && (
-            <p className="font-semibold text-navy-900">
-              Contoh pembuka alternatif: &ldquo;{post.audit.recommendedRevisionHeadline}&rdquo;
-            </p>
-          )}
-          {post.audit.actionDirective && (
-            <p className="text-[11px] leading-relaxed text-navy-700">
-              <strong className="text-navy-900">Saran perbaikan:</strong> {post.audit.actionDirective}
-            </p>
-          )}
+      <dl className="grid grid-cols-3 gap-2 rounded-xl border border-cream-200 bg-cream-50 p-2.5 text-center">
+        <div>
+          <dt className="text-[11px] font-semibold text-navy-600">Suka</dt>
+          <dd className="text-sm font-bold tabular-nums text-navy-900">{metricText(post.metrics?.likes)}</dd>
+          {likeRate !== null && <dd className="text-[11px] tabular-nums text-navy-600">{likeRate.toLocaleString("id-ID")}% pengikut</dd>}
         </div>
-      )}
+        <div>
+          <dt className="text-[11px] font-semibold text-navy-600">Komentar</dt>
+          <dd className="text-sm font-bold tabular-nums text-navy-900">{metricText(post.metrics?.comments)}</dd>
+        </div>
+        <div>
+          <dt className="text-[11px] font-semibold text-navy-600">Views</dt>
+          <dd className="text-sm font-bold tabular-nums text-navy-900">{metricText(post.metrics?.views)}</dd>
+        </div>
+      </dl>
+
+      <div className="space-y-2 border-t border-cream-200 pt-3">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <StatusPill tone={VERDICT_TONE[post.audit.statusVerdict] ?? "muted"}>
+            <span className="text-sm">{post.audit.verdictLabel ?? VERDICT_LABEL[post.audit.statusVerdict] ?? post.audit.statusVerdict}</span>
+          </StatusPill>
+          <span className="text-sm font-bold tabular-nums text-navy-900">Skor {score}/100</span>
+        </div>
+        <dl className="grid grid-cols-3 gap-2 text-center text-xs">
+          {subScores.map((sub) => (
+            <div key={sub.key} className="rounded-lg border border-cream-300 bg-white p-1.5">
+              <dt className="font-semibold text-navy-600">{sub.label}</dt>
+              <dd className={cn("font-extrabold tabular-nums", sub.key === "cta" && sub.value < 60 ? "text-red-700" : "text-navy-900")}>{sub.value}</dd>
+            </div>
+          ))}
+        </dl>
+        {typeof post.audit.engagementRatePercent === "number" && (
+          <p className="text-[11px] tabular-nums text-navy-600">
+            Interaksi {post.audit.engagementRatePercent.toLocaleString("id-ID")}% dari views
+          </p>
+        )}
+        {(post.audit.recommendedRevisionHeadline || post.audit.actionDirective) && (
+          <div className="space-y-1 rounded-xl border border-cream-300 bg-cream-50 p-2.5 text-xs leading-relaxed text-navy-800">
+            <p className="flex items-center gap-1.5 font-bold text-navy-900">
+              <Lightbulb className="h-3.5 w-3.5 text-amber-700" aria-hidden />
+              Saran perbaikan
+            </p>
+            {post.audit.recommendedRevisionHeadline && <p>{post.audit.recommendedRevisionHeadline}</p>}
+            {post.audit.actionDirective && <p className="text-navy-700">{post.audit.actionDirective}</p>}
+          </div>
+        )}
+      </div>
+
+      <a
+        href={post.postUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-auto inline-flex items-center gap-1 self-start text-xs font-semibold text-navy-800 underline underline-offset-2 hover:text-navy-950"
+      >
+        Buka di {PLATFORM_NAME[post.platform]}
+        <ExternalLink className="h-3 w-3" aria-hidden />
+      </a>
     </article>
   );
 }
@@ -437,16 +366,19 @@ function SocialPostCard({
 export function MediaSosialView({
   startDate,
   endDate,
-  isCustomRange,
   activeOutlet,
+  promoAudit,
 }: {
   startDate: string;
   endDate: string;
-  isCustomRange: boolean;
   activeOutlet: OutletChoice;
+  promoAudit: MediaSosialPromoAudit;
 }) {
   const [posts, setPosts] = useState<SnSocialPost[]>([]);
   const [accounts, setAccounts] = useState<SnOfficialSocialAccount[]>([]);
+  const [igAccounts, setIgAccounts] = useState<SnInstagramAccount[]>([]);
+  const [meta, setMeta] = useState<SnMetaStatus | null>(null);
+  const [archiveDate, setArchiveDate] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [verdictFilter, setVerdictFilter] = useState<string>("all");
@@ -486,6 +418,9 @@ export function MediaSosialView({
         if (!live) return;
         setPosts(json.posts);
         setAccounts(json.officialAccounts ?? []);
+        setIgAccounts(json.accounts ?? []);
+        setMeta(json.meta ?? null);
+        setArchiveDate(json.crawledSource?.crawledAt ?? null);
         setError(null);
       })
       .catch((err: unknown) => {
@@ -505,32 +440,25 @@ export function MediaSosialView({
     };
   }, [reloadTick]);
 
+  const range = rangeText(startDate, endDate);
+
   const latestDay = useMemo(
     () =>
-      posts.reduce<string | null>(
-        (best, p) =>
-          typeof p.postedAt === "string" && /^\d{4}-\d{2}-\d{2}/.test(p.postedAt) && (!best || p.postedAt.slice(0, 10) > best)
-            ? p.postedAt.slice(0, 10)
-            : best,
-        null,
-      ),
+      posts.reduce<string | null>((best, p) => {
+        const day = postDayWib(p.postedAt);
+        return /^\d{4}-\d{2}-\d{2}$/.test(day) && (!best || day > best) ? day : best;
+      }, null),
     [posts],
   );
 
-  // Semua postingan untuk outlet aktif (sebelum saringan tanggal kustom) agar rasio periode terlihat jelas.
+  // Semua postingan outlet aktif lintas tanggal, untuk menjelaskan bila periode aktif kosong.
   const outletAllPosts = useMemo(
     () => (activeOutlet === "all" ? posts : posts.filter((p) => p.outletKey === activeOutlet)),
     [posts, activeOutlet],
   );
 
-  // Default (isCustomRange === false) menampilkan SELURUH data tercatat; saat filter diterapkan manual, saring sesuai rentang WIB.
-  const periodPosts = useMemo(() => {
-    if (!isCustomRange || !startDate || !endDate) return outletAllPosts;
-    return outletAllPosts.filter((p) => {
-      const day = postDayWib(p.postedAt);
-      return day >= startDate && day <= endDate;
-    });
-  }, [outletAllPosts, isCustomRange, startDate, endDate]);
+  // Periode aktif selalu berlaku, termasuk periode bawaan (awal bulan sampai hari ini, WIB).
+  const periodPosts = useMemo(() => socialPostsInPeriod(outletAllPosts, startDate, endDate), [outletAllPosts, startDate, endDate]);
 
   const shownPosts = useMemo(
     () => (verdictFilter === "all" ? periodPosts : periodPosts.filter((p) => p.audit.statusVerdict === verdictFilter)),
@@ -548,7 +476,7 @@ export function MediaSosialView({
   );
 
   const accountCoverage: Record<string, SnSocialAccountCoverage> = useMemo(
-    () => summarizeSocialAccountCoverage(posts, accounts),
+    () => summarizeSocialAccountCoverage(posts.filter(isStored), accounts),
     [posts, accounts],
   );
 
@@ -557,11 +485,10 @@ export function MediaSosialView({
     [periodPosts, visibleAccounts, accountCoverage, outletAllPosts],
   );
 
-  const groupedTotals = useMemo(
-    () => new Map(groupSocialPostsByOutlet(periodPosts).map((g) => [g.outlet, g.posts.length])),
-    [periodPosts],
+  const sourceNotes = useMemo(
+    () => metaAccountNotes({ outlet: activeOutlet, accounts: igAccounts, meta, posts }),
+    [activeOutlet, igAccounts, meta, posts],
   );
-  const groupedShown = useMemo(() => groupSocialPostsByOutlet(shownPosts), [shownPosts]);
 
   const followersForPost = (post: SnSocialPost): number | null => {
     if (!post.account) return null;
@@ -597,7 +524,6 @@ export function MediaSosialView({
       if (!res.ok || !json?.success || !json.post) {
         throw marketingApiErrorFromResponse(res.status, json?.error);
       }
-      setPosts((prev) => [json.post!, ...prev.filter((p) => p.postUrl !== json.post!.postUrl)]);
       setShowAddForm(false);
       setFormUrl("");
       setFormCaption("");
@@ -607,6 +533,8 @@ export function MediaSosialView({
       setFormShares("");
       setFormWa("");
       setFeedback(`Postingan berhasil disimpan ke basis data lokal untuk ${OUTLET_LABELS[json.post.outletKey] ?? json.post.outletKey}.`);
+      // Muat ulang dari server: kartu tampil dengan sumber dan gabungan Meta yang sebenarnya, bukan tebakan di layar.
+      reloadPosts();
     } catch (err) {
       setError(formatMarketingClientError(err, (detail) => `Gagal menyimpan postingan: ${detail}`));
     } finally {
@@ -625,9 +553,9 @@ export function MediaSosialView({
             <p className="text-[11px] font-bold uppercase tracking-wider text-navy-500">Media Sosial Resmi</p>
             <h2 className="mt-0.5 text-xl font-semibold text-navy-900">Marketing Media Sosial: {outletLabel}</h2>
             <p className="mt-0.5 text-sm text-navy-600">
-              {isCustomRange
-                ? `Menampilkan ${fmtInt(periodPosts.length)} postingan pada periode ${fmtDateShort(startDate)} – ${fmtDateShort(endDate)} (dari ${fmtInt(outletAllPosts.length)} catatan ${outletLabel}).`
-                : `Menampilkan seluruh ${fmtInt(periodPosts.length)} postingan tercatat beserta akun resmi dan evaluasi mutu caption (hook, copy, CTA).`}
+              {loading
+                ? `Memuat postingan ${range}…`
+                : `${fmtInt(periodPosts.length)} postingan pada ${range} (dari ${fmtInt(outletAllPosts.length)} postingan ${outletLabel} yang terbaca), beserta akun resmi, audit promo, dan evaluasi caption.`}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -652,8 +580,8 @@ export function MediaSosialView({
         </div>
 
         <p role="note" className="rounded-xl border border-cream-300 bg-cream-50 px-3.5 py-2.5 text-xs leading-relaxed text-navy-700">
-          {latestDay ? `Postingan akun Instagram & TikTok resmi terakhir tercatat ${fmtDateShort(latestDay)}` : "Postingan akun resmi belum diamati"}
-          , ditambah postingan yang dicatat tim (postingan akun induk masuk ke unit bisnis yang disebut di keterangannya). Views, likes, komentar, dan shares disinkronkan lewat Ekstensi Chrome dari akun yang sudah masuk; Leads WA diisi manual oleh tim.
+          {latestDay ? `Postingan akun Instagram & TikTok resmi terakhir tercatat ${fmtDateShort(latestDay)}` : "Postingan akun resmi belum terbaca"}
+          , ditambah postingan yang dicatat tim (postingan akun induk masuk ke unit bisnis yang disebut di keterangannya). Suka dan komentar Instagram dibaca dari Meta untuk akun yang tersambung; views, shares, dan TikTok dari Ekstensi Chrome; chat WA diisi tim.
         </p>
 
         <SnExtensionPanel sync={extSync} outletKey={activeOutlet} outletLabel={outletLabel} />
@@ -699,7 +627,7 @@ export function MediaSosialView({
               <strong>3. Ajakan Bertindak (CTA · Bobot 30%):</strong> Mendeteksi kejelasan instruksi pemesanan langsung (WhatsApp, DM, tautan bio, reservasi).
             </li>
           </ul>
-          <p className="rounded-lg bg-white px-3 py-2 font-mono text-xs text-navy-900 border border-cream-300">
+          <p className="rounded-lg border border-cream-300 bg-white px-3 py-2 font-mono text-xs text-navy-900">
             Skor Akhir = (Hook × 0.35) + (Copywriting × 0.35) + (CTA × 0.30)
           </p>
         </SkeuoCard>
@@ -822,16 +750,13 @@ export function MediaSosialView({
         </SkeuoCard>
       )}
 
-      {/* Baris 1: 2 Kartu Platform (Instagram & TikTok) — 100% paritas outlet-sections.tsx */}
       <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
         <PlatformSummaryCard
           platform="instagram"
           label="Instagram"
           dotClass="bg-[#E1306C]"
           stats={stats.instagram}
-          isCustomRange={isCustomRange}
-          startDate={startDate}
-          endDate={endDate}
+          range={range}
           activeOutlet={activeOutlet}
           outletLabel={outletLabel}
           extSync={extSync}
@@ -841,16 +766,13 @@ export function MediaSosialView({
           label="TikTok"
           dotClass="bg-navy-900"
           stats={stats.tiktok}
-          isCustomRange={isCustomRange}
-          startDate={startDate}
-          endDate={endDate}
+          range={range}
           activeOutlet={activeOutlet}
           outletLabel={outletLabel}
           extSync={extSync}
         />
       </div>
 
-      {/* Baris 2: 3 Kartu Metrik (Likes terpantau, Skor mutu caption, Chat WA) */}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <SkeuoCard>
           <p className="text-xs font-semibold uppercase tracking-wider text-navy-500">Likes terpantau</p>
@@ -859,8 +781,8 @@ export function MediaSosialView({
           </p>
           <p className="mt-1 text-xs text-navy-600">
             {stats.likes
-              ? `Rata-rata ${fmtInt(stats.likes.average)} per postingan, dari ${fmtInt(stats.likes.counted)} postingan (${likeSplit})`
-              : "Likes publik belum terbaca"}
+              ? `Rata-rata ${fmtInt(stats.likes.average)} per postingan, dari ${fmtInt(stats.likes.counted)} postingan pada ${range} (${likeSplit})`
+              : `Likes belum terbaca pada ${range}`}
           </p>
         </SkeuoCard>
 
@@ -881,8 +803,8 @@ export function MediaSosialView({
           </p>
           <p className="mt-1 text-xs text-navy-600">
             {stats.caption
-              ? `Hook ${stats.caption.hook} · Copy ${stats.caption.copy} · CTA ${stats.caption.cta}`
-              : "Belum ada postingan untuk dinilai"}
+              ? `Hook ${stats.caption.hook} · Copy ${stats.caption.copy} · CTA ${stats.caption.cta}, rata-rata ${range}`
+              : `Belum ada postingan untuk dinilai pada ${range}`}
           </p>
         </SkeuoCard>
 
@@ -893,13 +815,12 @@ export function MediaSosialView({
           </p>
           <p className="mt-1 text-xs text-emerald-800/90">
             {stats.waLeads
-              ? `Dari ${fmtInt(stats.waLeads.filled)} postingan yang angkanya diisi tim`
-              : "Diisi tim dari Instagram Insights"}
+              ? `Dari ${fmtInt(stats.waLeads.filled)} postingan pada ${range} yang angkanya diisi tim`
+              : `Diisi tim dari Instagram Insights, belum ada untuk ${range}`}
           </p>
         </SkeuoCard>
       </div>
 
-      {/* Akun Media Sosial Resmi */}
       <SkeuoCard className="space-y-3">
         <div>
           <p className="text-[11px] font-bold uppercase tracking-wider text-navy-500">Akun media sosial resmi</p>
@@ -963,16 +884,26 @@ export function MediaSosialView({
         )}
       </SkeuoCard>
 
-      {/* Evaluasi Efektivitas Konten */}
+      <SocialPromoAuditView
+        audits={promoAudit.audits}
+        problem={promoAudit.problem}
+        dataUntil={promoAudit.dataUntil}
+        startDate={startDate}
+        endDate={endDate}
+        outlet={activeOutlet}
+        outletLabel={outletLabel}
+        metaProblem={metaPullProblem(meta)}
+      />
+
       <SkeuoCard className="space-y-4">
         <div className="flex flex-wrap items-end justify-between gap-3 border-b border-cream-300 pb-3">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-wider text-navy-500">Evaluasi efektivitas konten</p>
             <h3 className="mt-0.5 text-lg font-semibold text-navy-900">
-              {activeOutlet === "all" ? `Postingan per unit bisnis (${fmtInt(shownPosts.length)})` : `Postingan ${outletLabel} (${fmtInt(shownPosts.length)})`}
+              {outletLabel} · {range}
             </h3>
             <p className="text-xs text-navy-600">
-              Daya pikat baris pembuka (hook), kejelasan penawaran (copy), dan ajakan bertindak (CTA) tiap postingan.
+              {fmtInt(shownPosts.length)} postingan, terbaru dulu. Skor menilai daya pikat baris pembuka (hook), kejelasan penawaran (copy), dan ajakan bertindak (CTA).
             </p>
           </div>
           <select
@@ -989,51 +920,35 @@ export function MediaSosialView({
           </select>
         </div>
 
+        {!loading && (
+          <ul aria-label="Sumber postingan" className="space-y-1 rounded-xl border border-cream-300 bg-cream-50 px-3.5 py-2.5 text-xs leading-relaxed text-navy-700">
+            {sourceNotes.map((note) => (
+              <li key={note.handle ?? note.state} className={cn(note.state === "unreadable" || note.state === "unavailable" ? "font-medium text-amber-900" : undefined)}>
+                {note.text}
+              </li>
+            ))}
+          </ul>
+        )}
+
         {loading ? (
           <div className="flex items-center justify-center gap-2 py-8 text-sm text-navy-600">
             <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
             Memuat data postingan…
           </div>
-        ) : activeOutlet === "all" ? (
-          <div className="space-y-6">
-            {groupedShown.map((group) => {
-              const groupName = OUTLET_LABELS[group.outlet] ?? group.outlet;
-              const groupTotal = groupedTotals.get(group.outlet) ?? 0;
-              return (
-                <section key={group.outlet} aria-labelledby={`postingan-${group.outlet}`} className="space-y-3">
-                  <h4 id={`postingan-${group.outlet}`} className="border-b border-cream-300 pb-1.5 text-base font-bold text-navy-900">
-                    {groupName}{" "}
-                    <span className="font-normal text-navy-500">· {fmtInt(group.posts.length)} postingan</span>
-                  </h4>
-                  {group.posts.length > 0 ? (
-                    <div className="space-y-3">
-                      {group.posts.map((post) => (
-                        <SocialPostCard key={post.id} post={post} accountFollowers={followersForPost(post)} />
-                      ))}
-                    </div>
-                  ) : (
-                    <p className="text-xs text-navy-600">
-                      {groupTotal === 0
-                        ? `Belum ada postingan ${groupName} yang tercatat${isCustomRange ? " pada periode terpilih" : ""}.`
-                        : `Tidak ada postingan ${groupName} yang cocok dengan saringan efektivitas.`}
-                    </p>
-                  )}
-                </section>
-              );
-            })}
-          </div>
         ) : shownPosts.length === 0 ? (
           <p className="rounded-xl bg-cream-100 p-8 text-center text-sm text-navy-600">
             {periodPosts.length === 0
-              ? `Belum ada postingan ${outletLabel} yang tercatat${isCustomRange ? " pada periode yang dipilih" : ""}.`
-              : `Tidak ada postingan ${outletLabel} yang cocok dengan saringan efektivitas.`}
+              ? `Belum ada data postingan ${outletLabel} pada ${range}.`
+              : `Tidak ada postingan ${outletLabel} pada ${range} yang cocok dengan saringan efektivitas.`}
           </p>
         ) : (
-          <div className="space-y-3">
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {shownPosts.map((post) => (
-              <SocialPostCard key={post.id} post={post} accountFollowers={followersForPost(post)} />
+              <li key={post.id} className="min-w-0">
+                <SocialPostGridCard post={post} followers={followersForPost(post)} archiveDate={archiveDate} />
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </SkeuoCard>
     </div>

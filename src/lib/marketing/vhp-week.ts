@@ -110,14 +110,14 @@ export function vhpSection(curr: VhpWeek, prev: VhpWeek, avg: ReturnType<typeof 
 
   // One table in the owner's layout (24 Nov): guest types, ARR, then the totals of those guests.
   const rows: ReportRow[] = [
-    { better: "up", metric: "WALK IN", sub: "revenue kamar", ...both((x) => x.walkIn.revenue), fmt: "rp", note: about("Datang langsung ke hotel", avg.walkIn.revenue) },
+    { better: "up", metric: "WALK IN", sub: "revenue kamar", ...both((x) => x.walkIn.revenue), fmt: "rp", note: about("Datang langsung ke resort", avg.walkIn.revenue) },
     { better: "up", metric: "FIT", sub: "revenue kamar", ...both((x) => x.fit.revenue), fmt: "rp", note: about("Pesan langsung: WA, telepon, website", avg.fit.revenue) },
     { better: "up", metric: "OTA", sub: "revenue kamar", ...both((x) => x.fitTa.revenue), fmt: "rp", note: about("Pembanding, lewat OTA atau agen (FIT-TA di VHP)", avg.fitTa.revenue) },
     { better: "up", metric: "ARR", sub: ONLY, ...stay((o) => o.arr), fmt: "rp", note: "Harga rata-rata per kamar: harga kamar + sarapan dan minuman paket, dibagi kamar terjual" },
     { better: "up", metric: "Revenue kamar", sub: ONLY, ...both((x) => x.guestRevenue), fmt: "rp", note: "Perusahaan dan rombongan tidak termasuk", total: true },
     { better: "up", metric: "Total kamar terjual", sub: ONLY, ...stay((o) => o.rooms), fmt: "int", note: "Satu kamar terisi satu malam" },
     { better: "up", metric: "Total OCC", sub: ONLY, ...stay((o) => o.occ), fmt: "pct", points: true, note: "Kamar terjual dibagi 61 kamar. OCC semua tamu ada di Dasbor: Revenue, Front Office, Kamar" },
-    { metric: "Biaya Google Ads", ...pair(ads.curr.cost, ads.prev.cost), fmt: "rp", note: "Pada tanggal yang sama dengan data hotel" },
+    { metric: "Biaya Google Ads", ...pair(ads.curr.cost, ads.prev.cost), fmt: "rp", note: "Biaya kampanye sebelum pajak, pada tanggal yang sama dengan data resort. Tagihan Google menambah pajak dan biaya" },
   ];
 
   const sorted = [...curr.segments].sort((x, y) => room(y) - room(x));
@@ -132,23 +132,23 @@ export function vhpSection(curr: VhpWeek, prev: VhpWeek, avg: ReturnType<typeof 
           ["Total kamar (semua tamu digabung)", rp(a.roomRevenue), a.roomRevenue > 0 ? "100%" : "–", num(a.roomNights), "", avg.weeks > 0 ? rp(avg.roomRevenue) : "–"],
         ]
       : [],
-    note: "FIT = tamu pesan langsung (WA, telepon, website). FIT-TA = lewat OTA/agen. WALK IN = datang langsung ke hotel. FIT-CORP = perusahaan. GIT-CORP = rombongan perusahaan. Malam kamar = satu kamar terisi satu malam.",
+    note: "FIT = tamu pesan langsung (WA, telepon, website). FIT-TA = lewat OTA/agen. WALK IN = datang langsung ke resort. FIT-CORP = perusahaan. GIT-CORP = rombongan perusahaan. Malam kamar = satu kamar terisi satu malam.",
   };
 
   const last = curr.lastDataDay ? tanggal(curr.lastDataDay) : "belum ada";
   const limits = [
     !a.available
-      ? `Belum ada data hotel untuk periode ini (data VHP terakhir: ${last}). Angka hotel dikosongkan, bukan nol.`
+      ? `Belum ada data resort untuk periode ini (data VHP terakhir: ${last}). Angka resort dikosongkan, bukan nol.`
       : !a.complete
-        ? `Data VHP baru sampai ${last}; angka hotel periode ini belum lengkap.`
+        ? `Data VHP baru sampai ${last}; angka resort periode ini belum lengkap.`
         : "",
     b.available && !b.complete ? "Data VHP periode pembanding belum lengkap." : "",
     a.available ? `Revenue kamar = "Lodging (Room Revenue)" di laporan Revenue VHP. Tidak ikut: extra bed, no show, pembatalan, gas, late check-out, dan biaya lain di Front Office (${rp(a.fees)} periode ini).` : "",
     "Hubungan iklan dan tamu hanya perkiraan: VHP tidak mencatat apakah tamu datang karena iklan.",
-    "Tamu perusahaan dan rombongan tidak ikut di bagian Tamu hotel dan kesimpulan: mereka dibawa tim marketing, bukan oleh iklan. Semua tamu digabung hanya di tabel Revenue kamar per jenis tamu dan di Dasbor.",
+    "Tamu perusahaan dan rombongan tidak ikut di bagian Tamu resort dan kesimpulan: mereka dibawa tim marketing, bukan oleh iklan. Semua tamu digabung hanya di tabel Revenue kamar per jenis tamu dan di Dasbor.",
   ].filter(Boolean);
 
-  const group: ReportGroup = { title: "5. Tamu hotel", source: `Data VHP${curr.lastDataDay ? ` · s.d. ${last}` : ""}`, rows };
+  const group: ReportGroup = { title: "5. Tamu resort", source: `Data VHP${curr.lastDataDay ? ` · s.d. ${last}` : ""}`, rows };
   // The deciding sentence (owner, 24 Nov: whether room revenue went up decides the comparison): total room
   // revenue first, then the guests the ads aim at, with OTA as the yardstick the ads do not move.
   const change = (x: number, y: number) => (y > 0 ? Math.round(((x - y) / y) * 100) : null);

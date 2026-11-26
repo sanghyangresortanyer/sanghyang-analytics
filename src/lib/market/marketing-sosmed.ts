@@ -133,6 +133,19 @@ export function outletFromCaption(caption: string): OutletKey {
 }
 
 /**
+ * Outlet postingan Instagram menurut akun pemiliknya. Akun induk (outlet null di INSTAGRAM_ACCOUNTS) dan akun di
+ * luar daftar dibaca dari caption, sama untuk data Meta dan arsip baca 10 Nov.
+ */
+export function outletForInstagramAccount(username: string, caption: string): OutletKey {
+  const handle = username.trim().replace(/^@/, "").toLowerCase();
+  return (
+    INSTAGRAM_ACCOUNTS.find((a) => a.username === handle)?.outlet ??
+    LEGACY_OFFICIAL_SOCIAL_OUTLETS[handle] ??
+    outletFromCaption(caption)
+  );
+}
+
+/**
  * Mesin Audit AI untuk Mengevaluasi Efektivitas Postingan Promo Sosmed
  */
 export function evaluateSocialPromoPost(input: SocialPromoPostInput): SocialPromoAiAudit {
@@ -390,10 +403,7 @@ export const CRAWLED_POSTS: SocialPromoPostRecord[] = data.posts.map((p) => {
   const acc = accountOf(p);
   const input: SocialPromoPostInput = {
     account: acc,
-    outletKey:
-      INSTAGRAM_ACCOUNTS.find((a) => a.username === acc)?.outlet ??
-      LEGACY_OFFICIAL_SOCIAL_OUTLETS[acc] ??
-      outletFromCaption(p.caption),
+    outletKey: outletForInstagramAccount(acc, p.caption),
     platform: "instagram",
     postType: p.postType,
     postedAt: p.postedAt,

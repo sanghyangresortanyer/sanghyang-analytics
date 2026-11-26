@@ -7,7 +7,7 @@ const upload = (start: string, end: string, exported: string) => ({
   revenue_exported_at: exported, journal_exported_at: exported, purchase_exported_at: exported, fo_journal_exported_at: exported,
 });
 const reminders = (today: string, end: string) => dataReminders({ today, meetings: [upload("2026-10-01", "2026-10-31", "2026-11-05T03:00:00Z"), upload("2026-11-01", end, `${today}T03:00:00Z`)], notConnected: [] });
-const base = { today: "2026-11-24", reminders: null, balance: null, chatWeek: null };
+const base = { today: "2026-11-24", reminders: null, balance: null, waImport: undefined };
 
 describe("needs: the 'Perlu Anda' box", () => {
   it("is empty when nothing has to be done", () => {
@@ -41,7 +41,10 @@ describe("needs: the 'Perlu Anda' box", () => {
     expect(r.note).toMatch(/masih sementara/);
   });
 
-  it("asks for the chat count of the last finished week", () => {
-    expect(needs({ ...base, chatWeek: { since: "2026-11-16", until: "2026-11-22" } }).items[0].title).toBe("Isi chat WA pekan 16–22 Nov");
+  it("asks for CS's booking file when it was never imported or is more than a week old", () => {
+    expect(needs({ ...base, waImport: null }).items[0]).toMatchObject({ title: "Import file BOOKING BY WA", detail: "Belum pernah diimport.", action: "Import" });
+    expect(needs({ ...base, waImport: "2026-11-16T05:00:00Z" }).items[0].detail).toBe("Terakhir diimport 16 Nov.");
+    expect(needs({ ...base, waImport: "2026-11-20T05:00:00Z" }).items).toEqual([]);
+    expect(needs(base).items, "not read (no Marketing access): nothing asked").toEqual([]);
   });
 });

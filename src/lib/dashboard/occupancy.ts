@@ -45,3 +45,50 @@ export function pairNights(curr: Night[], prev: Night[], currRange: Range, prevR
     return { prev: p, curr: c, diff: c && p && c.rooms !== null && p.rooms !== null ? c.rooms - p.rooms : null };
   });
 }
+
+const DAY = 86_400_000;
+const shift = (iso: string, days: number) => new Date(Date.parse(`${iso}T00:00:00Z`) + days * DAY).toISOString().slice(0, 10);
+/** Weeks looked back: the 4-week average missed by about 6 rooms a night on Sep–Nov 2026, the least of 3 to 8 weeks. */
+const WEEKS = 4;
+
+/** Rooms on the same weekday in the WEEKS weeks before `night`, using only nights up to `cutoff`. */
+function sameWeekday(rooms: Map<string, number>, night: string, cutoff: string): number[] {
+  const out: number[] = [];
+  for (let k = 1; out.length < WEEKS && k <= WEEKS * 3; k++) {
+    const d = shift(night, -7 * k);
+    if (d <= cutoff && rooms.has(d)) out.push(rooms.get(d)!);
+  }
+  return out;
+}
+
+export type Forecast = { date: string; rooms: number; occ: number; weeks: number };
+
+/**
+ * Estimated rooms for the nights after the last night with data (owner, 25 Nov 2026: "itung dari kita dulu, nanti
+ * kita cocokan"): the average of the same weekday in the last 4 weeks. It knows nothing of holidays or bookings.
+ */
+export function forecast(nights: Night[], days = 7): Forecast[] {
+  if (nights.length === 0) return [];
+  const rooms = new Map(nights.map((n) => [n.date, n.rooms]));
+  const last = nights.reduce((m, n) => (n.date > m ? n.date : m), nights[0].date);
+  const out: Forecast[] = [];
+  for (let i = 1; i <= days; i++) {
+    const date = shift(last, i);
+    const seen = sameWeekday(rooms, date, last);
+    if (seen.length === 0) continue;
+    const r = Math.round(seen.reduce((t, x) => t + x, 0) / seen.length);
+    out.push({ date, rooms: r, occ: occPct(r, 1)!, weeks: seen.length });
+  }
+  return out;
+}
+
+/** How many rooms the same method missed by on average, over the last `count` nights with data; null if too few. */
+export function forecastMiss(nights: Night[], count = 28): { rooms: number; nights: number } | null {
+  const rooms = new Map(nights.map((n) => [n.date, n.rooms]));
+  const misses: number[] = [];
+  for (const n of [...nights].sort((a, b) => b.date.localeCompare(a.date)).slice(0, count)) {
+    const seen = sameWeekday(rooms, n.date, shift(n.date, -1));
+    if (seen.length === WEEKS) misses.push(Math.abs(Math.round(seen.reduce((t, x) => t + x, 0) / seen.length) - n.rooms));
+  }
+  return misses.length < 7 ? null : { rooms: Math.round((misses.reduce((t, x) => t + x, 0) / misses.length) * 10) / 10, nights: misses.length };
+}

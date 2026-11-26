@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { SocialPromoAuditView } from "@/components/marketing/social-promo-audit";
-import { InstagramFeedView } from "@/components/marketing/instagram-feed-view";
+import { redirect } from "next/navigation";
 import { MarketingFilterBar } from "@/components/marketing/marketing-filter-bar";
 import { InsightPasarView, type InsightSubTab } from "@/components/marketing/insight-pasar-view";
 import { MediaSosialView } from "@/components/marketing/media-sosial-view";
 import { StrategyView, type StrategySubTab } from "@/components/marketing/strategy-view";
 import { currentUser } from "@/lib/auth/role";
 import { rangeText, todayISO } from "@/lib/format-date";
-import { loadAllInstagramPosts } from "@/lib/marketing/meta-instagram";
+import { legacyMarketingHref } from "@/lib/marketing/marketing-nav";
 import { OUTLET_TABS, type OutletChoice } from "@/lib/marketing/market-intelligence-types";
 import { PageHeader, SkeuoCard } from "@/components/skeuo/ui";
 import { adsBalanceData, loadPromoAuditsCached, marketingAccess } from "@/lib/marketing/web";
@@ -23,7 +22,6 @@ const ISO_DAY = /^\d{4}-\d{2}-\d{2}$/;
 const SECTIONS = [
   { id: "google", label: "Google Ads" },
   { id: "meta", label: "Meta Ads" },
-  { id: "sosmed", label: "Sosmed Sanghyang" },
   { id: "insight-pasar", label: "Insight Pasar" },
   { id: "media-sosial", label: "Media Sosial" },
   { id: "strategy", label: "Strategy" },
@@ -32,12 +30,6 @@ const SECTIONS = [
 // One Google Ads report (owner, 24 Nov: "mending dibuat 1 saja"): it opens per week and its "Bandingkan"
 // picks per day, week, month or free dates. Old links with lihat=harian still open the daily view.
 const REPORT = { minggu: "/marketing/laporan", hari: "/marketing/laporan?mode=hari" } as const;
-
-const SOSMED_VIEWS = [
-  { id: "feed", label: "Postingan & Reels IG" },
-  { id: "audit", label: "Audit Promo Outlet" },
-  { id: "akun", label: "Daftar Akun Sosmed" },
-] as const;
 
 const INSIGHT_VIEWS: readonly { id: InsightSubTab; label: string }[] = [
   { id: "ringkasan", label: "Ringkasan" },
@@ -98,7 +90,6 @@ async function AdsBalanceLine() {
 }
 
 type Section = (typeof SECTIONS)[number]["id"];
-type SosmedView = (typeof SOSMED_VIEWS)[number]["id"];
 
 function Tabs<T extends string>({ items, current, href, small }: { items: readonly { id: T; label: string }[]; current: T; href: (id: T) => string; small?: boolean }) {
   return (
@@ -146,7 +137,7 @@ function googleReportSrc(lihat: string | undefined, isCustomRange: boolean, star
   return lihat === "harian" ? REPORT.hari : REPORT.minggu;
 }
 
-/** Marketing terpadu Sanghyang Analytics: satu laporan Google Ads, Meta Ads, Sosmed Sanghyang, Insight Pasar, Media Sosial, dan Strategy. */
+/** Marketing terpadu Sanghyang Analytics: satu laporan Google Ads, Meta Ads, Insight Pasar, Media Sosial (termasuk audit promo outlet), dan Strategy. */
 export default async function MarketingPage({
   searchParams,
 }: {
@@ -155,8 +146,10 @@ export default async function MarketingPage({
   const refused = await marketingAccess();
   if (refused) return <p className="rounded-xl border border-cream-300 bg-white p-6 text-base text-navy-700">{await refused.text()}</p>;
   const q = await searchParams;
+  // The Sosmed Sanghyang tab was merged into Media Sosial (owner, 26 Nov): old links still land there, on the default outlet.
+  const legacy = legacyMarketingHref(q);
+  if (legacy) redirect(legacy);
   const section: Section = SECTIONS.some((s) => s.id === q.bagian) ? (q.bagian as Section) : "google";
-  const sosmedView: SosmedView = SOSMED_VIEWS.some((v) => v.id === q.lihat) ? (q.lihat as SosmedView) : "feed";
   const insightView: InsightSubTab = INSIGHT_VIEWS.some((v) => v.id === q.lihat) ? (q.lihat as InsightSubTab) : "ringkasan";
   const mediaSosialView: OutletChoice = MEDIA_SOSIAL_VIEWS.some((v) => v.id === q.lihat) ? (q.lihat as OutletChoice) : "all";
   const strategyView: StrategySubTab = STRATEGY_VIEWS.some((v) => v.id === q.lihat) ? (q.lihat as StrategySubTab) : "semua";
@@ -177,22 +170,16 @@ export default async function MarketingPage({
   const reportSrc = googleReportSrc(q.lihat, hasValidRange, startDate, endDate);
 
   const activeSubView =
-    section === "sosmed"
-      ? sosmedView
-      : section === "insight-pasar"
-        ? insightView
-        : section === "media-sosial"
-          ? mediaSosialView
-          : section === "strategy"
-            ? strategyView
-            : undefined;
+    section === "insight-pasar"
+      ? insightView
+      : section === "media-sosial"
+        ? mediaSosialView
+        : section === "strategy"
+          ? strategyView
+          : undefined;
 
-  const me = section === "sosmed" && sosmedView === "audit" ? await currentUser() : null;
+  const me = section === "media-sosial" ? await currentUser() : null;
   const promo = me?.propertyId ? await loadPromoAuditsCached(me.propertyId) : { audits: [], problem: null, dataUntil: null };
-  const { accounts: igAccounts, posts: igPosts, problem: igProblem } =
-    section === "sosmed" && sosmedView === "feed"
-      ? await loadAllInstagramPosts()
-      : { accounts: [], posts: [], problem: null };
 
   const sectionHref = (target: Section) => {
     if (target === "insight-pasar" || target === "strategy") {
@@ -239,45 +226,6 @@ export default async function MarketingPage({
         </SkeuoCard>
       )}
 
-      {section === "sosmed" && (
-        <div className="space-y-4">
-          <Tabs
-            items={SOSMED_VIEWS}
-            current={sosmedView}
-            href={(id) => buildMarketingHref({ bagian: "sosmed", lihat: id }, rangeState)}
-            small
-          />
-          {sosmedView === "feed" ? (
-            <InstagramFeedView
-              accounts={igAccounts}
-              posts={igPosts}
-              problem={igProblem}
-              startDate={startDate}
-              endDate={endDate}
-              isCustomRange={hasValidRange}
-            />
-          ) : sosmedView === "akun" ? (
-            <div className="space-y-3">
-              {hasValidRange && (
-                <p className="rounded-xl border border-cream-300 bg-cream-50 px-4 py-2.5 text-xs text-navy-700">
-                  Periode terpilih ({rangeText(startDate, endDate)}) diterapkan pada Postingan &amp; Reels IG dan Audit Promo Outlet. Daftar Akun Sosmed menampilkan profil akun terkini.
-                </p>
-              )}
-              <Frame src="/marketing/sosmed" title="Sosmed Sanghyang" />
-            </div>
-          ) : (
-            <SocialPromoAuditView
-              audits={promo.audits}
-              problem={promo.problem}
-              dataUntil={promo.dataUntil}
-              startDate={startDate}
-              endDate={endDate}
-              isCustomRange={hasValidRange}
-            />
-          )}
-        </div>
-      )}
-
       {section === "insight-pasar" && (
         <div className="space-y-4">
           <Tabs
@@ -304,12 +252,7 @@ export default async function MarketingPage({
             href={(id) => buildMarketingHref({ bagian: "media-sosial", lihat: id }, rangeState)}
             small
           />
-          <MediaSosialView
-            startDate={startDate}
-            endDate={endDate}
-            isCustomRange={hasValidRange}
-            activeOutlet={mediaSosialView}
-          />
+          <MediaSosialView startDate={startDate} endDate={endDate} activeOutlet={mediaSosialView} promoAudit={promo} />
         </div>
       )}
 

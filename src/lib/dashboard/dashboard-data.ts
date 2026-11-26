@@ -5,7 +5,10 @@ import { currentUser } from "@/lib/auth/role";
 import { withPropertySupabaseCache, type AdminSupabaseClient } from "@/lib/cache/cached";
 import { CACHE_TAGS, CACHE_TTL } from "@/lib/cache/tags";
 import { getPresentationData, type PresentationQueryResult } from "@/lib/actions/weekly-meeting";
-import { getDmlMrLines, getDmlSheets, getHkItems, getHkMovements, getSyncStates } from "@/lib/sheets/queries";
+import { getDmlMrLines, getDmlSheets, getHkItems, getHkMovements, getSyncStates, type HkItemRow, type HkMovementRow } from "@/lib/sheets/queries";
+import type { StockStore } from "@/lib/sheets/source";
+import { storeFigures, type StoreFigures } from "./store-inventory";
+import { formatRp } from "@/lib/format-currency";
 import { revenueOutletFor } from "./outlet-match";
 import { resolveJournalOutlet } from "./range-report";
 import { buildRevenueCharts, type RevenueCharts } from "./revenue-trend";
@@ -23,7 +26,7 @@ import type { Night } from "./occupancy";
 import { getNights } from "./occupancy-query";
 import { revenueByRoomType, type RoomTypeRevenue } from "./room-types";
 import { getDbarSplit, getDivisionBudgets, getMenuRules, getRoomRevenue, getRoomSettings } from "./settings-query";
-import type { DbarSplitRow } from "./dbar-split";
+import type { DbarSplit } from "./dbar-split";
 import {
   calculateDmlPurchases,
   calculateHkLocationUsage,
@@ -75,7 +78,7 @@ export interface UnifiedDashboardData {
   /** Room revenue per room type in the period; null when it could not be read. */
   roomTypes: RoomTypeRevenue[] | null;
   /** d'Bar Karaoke & DBC split into DBC and d'Bar & Karaoke for the period; null when it could not be read. */
-  dbarSplit: { rows: DbarSplitRow[]; total: number } | null;
+  dbarSplit: DbarSplit | null;
   /** Stock and usage over every store, HK being one of them. */
   inventory: InventoryOverview;
   /** Data still to import, 1st of the month up to yesterday. */
@@ -87,7 +90,7 @@ export interface UnifiedDashboardData {
   /** Room revenue per booking segment in the period (nett), with room nights. */
   roomSegments: { segment: string; revenue: number; roomNights: number; lodging: number }[] | null;
   /** Rooms sold per night in the period and on the same dates of the month before; null when it could not be read. */
-  occupancy: { nights: Night[]; previous: Night[]; range: { start: string; end: string }; previousRange: { start: string; end: string } } | null;
+  occupancy: { nights: Night[]; previous: Night[]; range: { start: string; end: string }; previousRange: { start: string; end: string }; recent: Night[] } | null;
   /** Dead and slow menus since 1 January, over the last 90 days of data. */
   menuActivity: (ReturnType<typeof classifyMenus> & { lastDay: string }) | null;
 }
@@ -130,11 +133,22 @@ async function attempt<T>(label: string, errors: string[], run: () => Promise<T>
   }
 }
 
+/** Stock sheets read besides HK (migration 0088). */
+const OTHER_STORES: StockStore[] = ["main", "eng", "bev"];
+
 function loadSheets(propertyId: string, errors: string[]) {
   return Promise.all([
     attempt("Inventory HK", errors, () => getHkItems(propertyId)),
     attempt("Pemakaian HK", errors, () => getHkMovements(propertyId)),
     attempt("DML", errors, () => getDmlSheets(propertyId)),
+    attempt("Inventory Main Store, Engineering, Minuman", errors, () =>
+      Promise.all(
+        OTHER_STORES.map(async (store) => {
+          const [items, movements] = await Promise.all([getHkItems(propertyId, store), getHkMovements(propertyId, store)]);
+          return { store, items, movements };
+        }),
+      ),
+    ),
     attempt("Status sinkron", errors, () => getSyncStates(propertyId)),
     attempt("DML seksi MR", errors, () => getDmlMrLines(propertyId) as Promise<MrLineSummary[]>),
   ]);
@@ -183,7 +197,7 @@ export async function getUnifiedDashboardData(params: {
 
   const { period_start, period_end } = meetingData.meeting;
   const foNames = raw.data.outlets.map((o) => o.outlet_name);
-  const [[hkItems, hkMovements, dmlSheets, states, mrLines], monthToDate, revenueCharts, roomSegments, menuRows, savedTargets, savedBudgets, roomTypes, dbar, occupancy] = await Promise.all([
+  const [[hkItems, hkMovements, dmlSheets, otherStores, states, mrLines], monthToDate, revenueCharts, roomSegments, menuRows, savedTargets, savedBudgets, roomTypes, dbar, occupancy] = await Promise.all([
     sheets,
     attempt("Revenue bulan berjalan", errors, () => monthToDateRevenue(propertyId, raw.allMeetings, period_end, () => 1)),
     attempt("Grafik revenue", errors, () => loadRevenueCharts(propertyId, foNames, period_start, period_end, ratio)),
@@ -198,8 +212,15 @@ export async function getUnifiedDashboardData(params: {
     attempt("Rincian d'Bar & DBC", errors, () => getDbarSplit(propertyId, period_start, period_end)),
     attempt("OCC per malam", errors, async () => {
       const previousRange = samePeriodLastMonth(period_start, period_end);
-      const [nights, previous] = await Promise.all([getNights(propertyId, period_start, period_end), getNights(propertyId, previousRange.start, previousRange.end)]);
-      return { nights, previous, range: { start: period_start, end: period_end }, previousRange };
+      // The last 10 weeks, whatever the period on screen, for the estimate of the coming nights.
+      const today = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Jakarta" });
+      const tenWeeks = new Date(Date.parse(`${today}T00:00:00Z`) - 70 * 86_400_000).toISOString().slice(0, 10);
+      const [nights, previous, recent] = await Promise.all([
+        getNights(propertyId, period_start, period_end),
+        getNights(propertyId, previousRange.start, previousRange.end),
+        getNights(propertyId, tenWeeks, today),
+      ]);
+      return { nights, previous, range: { start: period_start, end: period_end }, previousRange, recent };
     }),
   ]);
   const previousRevenue = revenueCharts ? previousRevenueFrom(revenueCharts, period_start, period_end) : null;
@@ -213,11 +234,21 @@ export async function getUnifiedDashboardData(params: {
   const { purchases, total } = calculateDmlPurchases(sheetsUsed, mrLines ?? []);
   const hkState = states?.find((s) => s.source === "hk");
 
+  const hkCodes = new Set(items.map((i) => i.item_code));
+  const stores: Partial<Record<StockStore, StoreFigures | null>> = Object.fromEntries(
+    (otherStores ?? []).map((s: { store: StockStore; items: HkItemRow[]; movements: HkMovementRow[] }) => [
+      s.store,
+      // What the Main Store sends to HK and HK keeps in stock is a move, counted when HK uses it.
+      storeFigures(s.items, s.movements, period_start, period_end, s.store === "main" ? [{ destination: "HK", codes: hkCodes }] : []),
+    ]),
+  );
+
   const inventory = inventoryOverview(
       inventoryDepartments({
         hkStock: ledger?.closingValue ?? null,
         hkUsage: ledger ? Math.round(ledger.outValue) : null,
         hkUsageBy: usage.locations,
+        stores,
         uploadFilename: meetingData.meeting.inventory_filename !== "(Belum diunggah)" ? meetingData.meeting.inventory_filename : null,
         uploadStock: Number(meetingData.meeting.total_inventory),
       }),
@@ -263,14 +294,17 @@ function inventoryDepartments(input: {
   hkStock: number | null;
   hkUsage: number | null;
   hkUsageBy: DashboardOutletUsage[];
+  stores: Partial<Record<StockStore, StoreFigures | null>>;
   uploadFilename: string | null;
   uploadStock: number;
 }): InventoryDepartment[] {
-  const departments: InventoryDepartment[] = INVENTORY_DEPARTMENTS.map((d) =>
-    d.key === "hk"
-      ? { ...d, connected: input.hkStock !== null || input.hkUsage !== null, stock: input.hkStock, usage: input.hkUsage, usageBy: input.hkUsageBy }
-      : { ...d, connected: false, stock: null, usage: null, usageBy: [] },
-  );
+  const departments: InventoryDepartment[] = INVENTORY_DEPARTMENTS.map(({ key, name, source, store }) => {
+    if (store === "hk") return { key, name, source, connected: input.hkStock !== null || input.hkUsage !== null, stock: input.hkStock, usage: input.hkUsage, usageBy: input.hkUsageBy };
+    const f = store ? input.stores[store] : null;
+    if (!f) return { key, name, source: store ? `${source} (belum ada data)` : source, connected: false, stock: null, usage: null, usageBy: [] };
+    const note = f.transferred > 0 ? ` · kiriman ke HK ${formatRp(f.transferred)} dihitung di HK` : "";
+    return { key, name, source: `${source}${note}`, connected: true, stock: f.stock, usage: f.usage, usageBy: f.usageBy };
+  });
   if (input.uploadFilename) {
     departments.push({ key: "upload", name: `Inventory upload (${input.uploadFilename})`, source: "Spreadsheet upload mingguan", connected: true, stock: input.uploadStock, usage: null, usageBy: [] });
   }

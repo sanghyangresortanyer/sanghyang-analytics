@@ -14,11 +14,21 @@ import {
   type HkMovementRow,
   type SyncState,
 } from "@/lib/sheets/queries";
-import { SHEET_SOURCES } from "@/lib/sheets/source";
+import { SHEET_SOURCES, type StockStore } from "@/lib/sheets/source";
+import { storeDestinationShares } from "@/lib/sheets/store-sheets";
 import { SyncButton } from "./sync-button";
-import { SheetsDashboardTabs, type LocationUsageGroup } from "./sheets-dashboard-tabs";
+import { SheetsDashboardTabs, type LocationUsageGroup, type StoreTab } from "./sheets-dashboard-tabs";
 import { hkLocationShares } from "@/lib/dashboard/dashboard-calc";
 import { chooseHkMonth, hkMonths } from "@/lib/sheets/hk-months";
+
+/** Stock sheets shown next to HK (migration 0088), in the order of their tabs. */
+const STORE_TABS: { store: StockStore; label: string; title: string; sheetName: string }[] = [
+  { store: "main", label: "Main Store", title: "Main Store", sheetName: "Google Sheets Main Store" },
+  { store: "bev", label: "Minuman (LH)", title: "Gudang Minuman (LH)", sheetName: "Google Sheets Beverages, tab LH" },
+  { store: "eng", label: "Engineering", title: "Engineering", sheetName: "Google Sheets Engineering" },
+];
+
+const VALID_TABS = new Set<string>(["hk", "dml", ...STORE_TABS.map((t) => t.store)]);
 
 // "Tarik Data Sekarang" runs the full pull inside this route (~10–20 s).
 export const maxDuration = 300;
@@ -89,7 +99,11 @@ interface LocationGroupAcc {
 }
 
 /** Out × average price per "Digunakan (Di mana)" entry; hierarchical breakdown by item. */
-function usageByLocation(items: HkItemRow[], movements: HkMovementRow[]): LocationUsageGroup[] {
+function usageByLocation(
+  items: HkItemRow[],
+  movements: HkMovementRow[],
+  shares: (raw: string | null) => { key: string; label: string; share: number }[] = hkLocationShares,
+): LocationUsageGroup[] {
   const itemLookup = new Map(items.map((i) => [i.item_code, i]));
   const groups = new Map<string, LocationGroupAcc>();
 
@@ -98,7 +112,7 @@ function usageByLocation(items: HkItemRow[], movements: HkMovementRow[]): Locati
     const item = itemLookup.get(m.item_code);
     const p = item?.average_price ?? null;
     // Same location rules as the dashboard: names as written (typos folded), combined entries split equally.
-    for (const { key, label, share } of hkLocationShares(m.location)) {
+    for (const { key, label, share } of shares(m.location)) {
       let g = groups.get(key);
       if (!g) {
         g = { label, value: 0, entries: 0, unpriced: 0, itemMap: new Map() };
@@ -178,17 +192,24 @@ export default async function DataSheetsPage({
     hkItems: HkItemRow[];
     hkMovements: HkMovementRow[];
     lines: DmlLineRow[];
+    stores: { store: StockStore; items: HkItemRow[]; movements: HkMovementRow[] }[];
   };
   try {
-    const [states, dmlSheets, hkItems, hkMovements] = await Promise.all([
+    const [states, dmlSheets, hkItems, hkMovements, stores] = await Promise.all([
       getSyncStates(propertyId),
       getDmlSheets(propertyId),
       getHkItems(propertyId),
       getHkMovements(propertyId),
+      Promise.all(
+        STORE_TABS.map(async ({ store }) => {
+          const [items, movements] = await Promise.all([getHkItems(propertyId, store), getHkMovements(propertyId, store)]);
+          return { store, items, movements };
+        }),
+      ),
     ]);
     const selected = dmlSheets.find((s) => s.sheet_name === params.dml) ?? dmlSheets[0];
     const lines = selected ? await getDmlLines(propertyId, selected.sheet_name) : [];
-    data = { states, dmlSheets, hkItems, hkMovements, lines };
+    data = { states, dmlSheets, hkItems, hkMovements, lines, stores };
   } catch (err) {
     return (
       <div className="w-full space-y-6">
@@ -201,14 +222,29 @@ export default async function DataSheetsPage({
   const { states, dmlSheets, lines } = data;
   // One month tab at a time (?hk=, else the latest); per-date stock for any period lives on the dashboard.
   const months = hkMonths(data.hkItems);
-  const hkMonth = chooseHkMonth(months, params.hk);
+  const hkMonth = chooseHkMonth(months, params.tab === "hk" || !params.tab ? params.hk : undefined);
+  const storeTabs: StoreTab[] = data.stores.map(({ store, items, movements }) => {
+    const meta = STORE_TABS.find((t) => t.store === store)!;
+    const storeMonths = hkMonths(items);
+    const month = chooseHkMonth(storeMonths, params.tab === store ? params.hk : undefined);
+    const its = items.filter((i) => i.period_month === month);
+    return {
+      id: store,
+      label: meta.label,
+      title: meta.title,
+      sheetName: meta.sheetName,
+      items: its,
+      usage: usageByLocation(its, movements.filter((m) => m.period_month === month), storeDestinationShares),
+      months: storeMonths,
+    };
+  });
   const hkItems = data.hkItems.filter((i) => i.period_month === hkMonth);
   const hkMovements = data.hkMovements.filter((m) => m.period_month === hkMonth);
   const selectedDmlSheet = dmlSheets.find((s) => s.sheet_name === params.dml) ?? dmlSheets[0];
   const hkUsageGroups = usageByLocation(hkItems, hkMovements);
   const configured = Object.fromEntries(SHEET_SOURCES.map((s) => [s.source, Boolean(process.env[s.env]?.trim())]));
 
-  const initialTab = params.tab === "dml" ? "dml" : "hk";
+  const initialTab = params.tab && VALID_TABS.has(params.tab) ? params.tab : "hk";
 
   return (
     <div className="w-full space-y-6">
@@ -233,11 +269,14 @@ export default async function DataSheetsPage({
       )}
 
       <SheetWarnings title="Inventory HK" items={states.find((x) => x.source === "hk")?.warnings ?? []} />
+      {STORE_TABS.map((t) => (
+        <SheetWarnings key={t.store} title={t.title} items={states.find((x) => x.source === t.store)?.warnings ?? []} />
+      ))}
       {selectedDmlSheet && (
         <SheetWarnings title={`DML ${selectedDmlSheet.sheet_name}`} items={selectedDmlSheet.warnings} />
       )}
 
-      {/* Interactive Tabs: HK & DML Sections */}
+      {/* Interactive Tabs: HK, Store Sheets & DML Sections */}
       <SheetsDashboardTabs
         key={initialTab}
         initialTab={initialTab}
@@ -248,6 +287,7 @@ export default async function DataSheetsPage({
         hkItems={hkItems}
         hkUsageGroups={hkUsageGroups}
         hkMonths={months}
+        stores={storeTabs}
       />
     </div>
   );

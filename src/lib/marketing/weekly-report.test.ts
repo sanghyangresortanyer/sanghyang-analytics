@@ -89,6 +89,7 @@ test("a percentage changes in points, not in percent", () => {
   assert.deepEqual(changePoints(28.3, 32.0, "up"), { text: "▲ +3,7 poin", verdict: "membaik", tone: "good" });
   assert.deepEqual(changePoints(32, 28.3, "up"), { text: "▼ -3,7 poin", verdict: "memburuk", tone: "bad" });
   assert.deepEqual(changePoints(30, 30.01, "up"), { text: "0 poin", verdict: "tetap", tone: "neutral" });
+  assert.deepEqual(changePoints(28.32, 31.97, "up").text, "▲ +3,7 poin", "as printed: 28,3% and 32,0%");
   assert.deepEqual(changePoints(null, 30, "up"), { text: "–", verdict: "", tone: "neutral" });
 });
 

@@ -6,13 +6,12 @@ import { cache } from "react";
 import { currentUser } from "@/lib/auth/role";
 import { invalidateTags, withCache, withPropertySupabaseCache } from "@/lib/cache/cached";
 import { CACHE_TAGS, CACHE_TTL, INVALIDATION_GROUPS } from "@/lib/cache/tags";
-import { readFileSync } from "node:fs";
 import { loadPromoAudits, type PromoAuditItem } from "./social-promo.ts";
-import { REMINDERS_FILE, SOCIAL_ACCOUNTS_FILE, SOSMED_ROOT } from "./config.ts";
+import { REMINDERS_FILE } from "./config.ts";
 import { reminderLines } from "./google-ads-daily.ts";
 import { GoogleAdsClient, googleAdsSettingsFromEnv } from "./google-ads.ts";
 import { todayIn } from "./metrics.ts";
-import { pageSources, renderSanghyangPage, renderSosmedPage, sosmedImagePath } from "./overview.ts";
+import { pageSources, renderSanghyangPage } from "./overview.ts";
 import { averageWeek, hotelPeriods, vhpSection } from "./vhp-week.ts";
 import { rangeText } from "@/lib/format-date";
 import { lastVhpDay, loadHotelRooms, loadVhpWeeks } from "./vhp-load.ts";
@@ -20,19 +19,19 @@ import { campaignImpact, impactMonths } from "./campaign-impact.ts";
 import { monthPeriods } from "./monthly-analysis.ts";
 import { adsBalance, type AdsBalance, campaignReport, monthlyCampaigns, networkReport } from "./google-ads.ts";
 import { addDays } from "./metrics.ts";
-import { googleNumbers, googleWeeklyReport, loadGoogleWeek, type Period, renderReports, type WeeklyReport, weekPeriods } from "./weekly-report.ts";
-import { addAdsExtras, type ChatEntry, chatForm, chatsInPeriod, type ReportQuery, reportPeriods, reportPicker } from "./ads-report.ts";
-import { parseChatCount } from "./chat-counts.ts";
+import { googleNumbers, googleWeeklyReport, loadGoogleWeek, type Period, renderReports, type WeeklyReport } from "./weekly-report.ts";
+import { addAdsExtras, bookingForm, type ReportQuery, reportPeriods, reportPicker, type WaImportInfo, type WaPeriod } from "./ads-report.ts";
+import { bookingsIn, parseWaBookings, type WaNight, waNightsIn } from "./wa-bookings.ts";
 import { createClient } from "@/lib/supabase/server";
 
 const TZ = "Asia/Jakarta";
 let client: GoogleAdsClient | null = null;
 // Settings are read on first use, so a missing key shows inside the page instead of breaking the app.
 const ads = () => (client ??= new GoogleAdsClient(googleAdsSettingsFromEnv(process.env)));
-const pages = pageSources({ googleAds: ads, env: process.env, accountsFile: SOCIAL_ACCOUNTS_FILE, sosmedRoot: SOSMED_ROOT });
+const pages = pageSources({ googleAds: ads, env: process.env });
 
 /**
- * Google Ads + GA4 data is the hotel's (MARKETING_PROPERTY_ID). Sanghyang Analytics can hold several properties, so a
+ * Google Ads + GA4 data is the resort's (MARKETING_PROPERTY_ID). Sanghyang Analytics can hold several properties, so a
  * session alone is not enough: the user must belong to that property. Fails closed when unset.
  * Returns a refusal response, or null when access is allowed.
  */
@@ -45,9 +44,9 @@ export async function marketingAccess(): Promise<Response | null> {
   return null;
 }
 
-/** The old dashboard linked to /sanghyang, /sosmed, /laporan; inside Sanghyang Analytics they live under /marketing. */
+/** The old dashboard linked to /sanghyang and /laporan; inside Sanghyang Analytics they live under /marketing. */
 export function underMarketing(html: string): string {
-  return html.replace(/(href|src|action)="\/(sanghyang|sosmed|laporan)/g, '$1="/marketing/$2');
+  return html.replace(/(href|src|action)="\/(sanghyang|laporan)/g, '$1="/marketing/$2');
 }
 
 export const HTML_HEADERS = {
@@ -60,10 +59,6 @@ export const HTML_HEADERS = {
 
 export async function sanghyangPage(refresh: boolean): Promise<string> {
   return underMarketing(renderSanghyangPage(await pages.sanghyang(refresh), reminderLines(todayIn(TZ), REMINDERS_FILE)));
-}
-
-export async function sosmedPage(refresh: boolean): Promise<string> {
-  return underMarketing(renderSosmedPage(await pages.sosmed(refresh)));
 }
 
 /** Audit promo outlet di-cache per properti di Next.js Data Cache dan diinvalidasi saat tarik/abaikan promo atau upload VHP. */
@@ -80,7 +75,7 @@ export const loadPromoAuditsCached = cache(
 
 /**
  * Marketing → Google Ads → Laporan: per minggu, per bulan (same number of days) or bebas (A vs B), live from
- * Google Ads + GA4, with campaign functions, click sources and the WhatsApp chats CS counted.
+ * Google Ads + GA4, with campaign functions, click sources and WhatsApp bookings from CS's file.
  */
 export async function weeklyReportPage(q: ReportQuery & { refresh?: string }): Promise<string> {
   let periods: ReturnType<typeof reportPeriods>;
@@ -95,42 +90,50 @@ export async function weeklyReportPage(q: ReportQuery & { refresh?: string }): P
   }
   // The report holds one property's data: resolve propertyId outside unstable_cache.
   const me = await currentUser();
-  const propertyId = me?.propertyId ?? process.env.MARKETING_PROPERTY_ID?.trim() ?? "unknown";
-  // The chat counts are part of the key: a number CS just saved shows at once, on every server.
-  const earliest = periods.previous.since < periods.current.since ? periods.previous.since : periods.current.since;
-  const chatRows = me?.propertyId ? await chatEntries(me.propertyId, earliest).catch(() => null) : null;
+  const propertyId = me?.propertyId ?? process.env.MARKETING_PROPERTY_ID?.trim() ?? "";
+  // The last import is part of the key: a file CS just imported shows at once, on every server.
+  const waInfo = propertyId ? await waImportInfo(propertyId).catch(() => undefined) : undefined;
   if (q.refresh === "1") {
-    return buildReportPage(q, periods, problem, chatRows);
+    return buildReportPage(q, periods, problem, propertyId, waInfo);
   }
+  const cacheProp = propertyId || "unknown";
   const keyParts = [
     "marketing-weekly-report",
-    propertyId,
+    cacheProp,
     periods.mode,
     periods.current.since,
     periods.current.until,
     periods.previous.since,
     periods.previous.until,
     problem,
-    JSON.stringify(chatRows ?? []),
+    waInfo === undefined ? "unreadable" : JSON.stringify(waInfo),
   ];
-  return withCache(() => buildReportPage(q, periods, problem, chatRows), keyParts, {
+  return withCache(() => buildReportPage(q, periods, problem, propertyId, waInfo), keyParts, {
     tags: [
-      CACHE_TAGS.marketingAds(propertyId),
-      CACHE_TAGS.vhpSales(propertyId),
-      CACHE_TAGS.whatsappChats(propertyId),
+      CACHE_TAGS.marketingAds(cacheProp),
+      CACHE_TAGS.vhpSales(cacheProp),
+      CACHE_TAGS.whatsappChats(cacheProp),
+      CACHE_TAGS.waBookings(cacheProp),
     ],
     revalidate: CACHE_TTL.marketingAds,
   });
 }
 
-async function buildReportPage(q: ReportQuery & { refresh?: string }, periods: ReturnType<typeof reportPeriods>, problem: string, chatRows: ChatEntry[] | null): Promise<string> {
+async function buildReportPage(
+  q: ReportQuery & { refresh?: string },
+  periods: ReturnType<typeof reportPeriods>,
+  problem: string,
+  propertyId: string,
+  waInfo: WaImportInfo | null | undefined,
+): Promise<string> {
   const c = ads();
   const softly = <T,>(job: Promise<T>) => job.catch(() => null);
-  const [curr, prev, netCurr, netPrev] = await Promise.all([
+  const [curr, prev, netCurr, netPrev, wa] = await Promise.all([
     loadGoogleWeek(c, process.env, periods.current),
     loadGoogleWeek(c, process.env, periods.previous),
     softly(networkReport(c, periods.current.since, periods.current.until)),
     softly(networkReport(c, periods.previous.since, periods.previous.until)),
+    waInfo === undefined || !propertyId ? null : waPeriods(propertyId, periods.current, periods.previous, waInfo).catch(() => null),
   ]);
   const report = googleWeeklyReport(curr, prev);
   const roomVerdict = await addHotelResults(report, curr, prev);
@@ -141,64 +144,146 @@ async function buildReportPage(q: ReportQuery & { refresh?: string }, periods: R
     campaigns: curr.campaigns,
     conversions: curr.conversions,
     networks: { curr: netCurr, prev: netPrev },
-    chats: chatRows ? { curr: chatsInPeriod(chatRows, periods.current), prev: chatsInPeriod(chatRows, periods.previous) } : null,
+    wa,
     google: { chats: a.chats, webClicks: a.webTracked ? a.web : null, cost: a.cost, prevCost: b.cost, perContact: a.perContact, prevPerContact: b.perContact, comparable: a.webTracked === b.webTracked },
   });
   // Whether room revenue went up decides the comparison: it opens the conclusions (owner, 24 Nov).
   if (roomVerdict) report.highlights.unshift(roomVerdict);
   if (periods.mode === "bulan") await addImpact(report, q.refresh === "1");
   const notice = problem ? `<p style="color:#C62F1D;font-weight:600;margin:0">Pilihan tadi tidak bisa dipakai: ${escapeHtml(problem)}. Ditampilkan pilihan bawaan.</p>` : "";
-  return underMarketing(renderReports([report], new Date(), { toolbar: true, picker: notice + reportPicker(q, periods) + chatForm(periods, chatRows), title: `${report.title} · ${periods.current.since}` }));
+  return underMarketing(renderReports([report], new Date(), { toolbar: true, picker: notice + reportPicker(q, periods) + (waInfo === undefined ? "" : bookingForm(periods, waInfo)), title: `${report.title} · ${periods.current.since}` }));
 }
 
 const escapeHtml = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c] ?? c);
 
-/** Saves the number CS typed above the report (same period again = replaced). Null = saved, else the reason. */
-export async function saveChats(form: FormData): Promise<string | null> {
+/** Largest file accepted: CS's list is a few kilobytes. */
+const MAX_BOOKING_FILE = 2 * 1024 * 1024;
+
+/**
+ * Imports CS's file BOOKING BY WA (owner, 25 Nov 2026). Only row number, check-in, check-out and rooms are kept;
+ * names and WhatsApp numbers are never read into the database. Returns null when saved, else the reason.
+ */
+export async function importWaBookings(form: FormData): Promise<string | null> {
   const me = await currentUser();
   if (!me?.propertyId) return "Silakan login.";
-  const parsed = parseChatCount(form, todayIn(TZ));
-  if ("error" in parsed) return parsed.error;
-  const c = parsed.ok;
+  const file = form.get("booking");
+  if (!(file instanceof File) || file.size === 0) return "Pilih file BOOKING BY WA dulu.";
+  if (file.size > MAX_BOOKING_FILE) return "File terlalu besar untuk daftar booking (maksimal 2 MB).";
+  if (!/\.xlsx$/i.test(file.name)) return "File harus Excel (.xlsx), seperti BOOKING BY WA.xlsx.";
+  const ExcelJS = (await import("exceljs")).default;
+  const book = new ExcelJS.Workbook();
+  try {
+    await book.xlsx.load(await file.arrayBuffer());
+  } catch {
+    return "File tidak bisa dibuka sebagai Excel.";
+  }
+  const sheet = book.worksheets[0];
+  if (!sheet) return "File tidak punya sheet.";
+  const rows: unknown[][] = [];
+  sheet.eachRow({ includeEmpty: true }, (row) => {
+    const values: unknown[] = [];
+    row.eachCell({ includeEmpty: true }, (cell, col) => {
+      const v = cell.value as unknown;
+      values[col - 1] = v && typeof v === "object" && !(v instanceof Date) && "result" in (v as object) ? (v as { result: unknown }).result : v;
+    });
+    rows.push(values);
+  });
+  const parsed = parseWaBookings(rows);
+  if (parsed.problems.length) return `File belum bisa diimport. ${parsed.problems.slice(0, 5).join(" ")}${parsed.problems.length > 5 ? ` (dan ${parsed.problems.length - 5} lagi)` : ""}`;
+  if (parsed.bookings.length === 0) return "File tidak berisi booking.";
   const supabase = await createClient();
-  const { error } = await supabase.from("whatsapp_chat_counts").upsert(
-    { property_id: me.propertyId, date_from: c.from, date_to: c.to, chats_closing: c.closing, chats_total: c.total, updated_at: new Date().toISOString(), updated_by: me.id },
-    { onConflict: "property_id,date_from,date_to" },
-  );
+  const { error } = await supabase.rpc("replace_wa_bookings", { p_rows: parsed.bookings });
   if (error) return `Gagal menyimpan: ${error.message}`;
   invalidateTags(INVALIDATION_GROUPS.forWhatsappChatMutation(me.propertyId));
   return null;
 }
 
-/** CS's WhatsApp chat counts (filled above the report) from `since` on, cached per propertyId. */
-const chatEntries = cache(async (propertyId: string, since: string): Promise<ChatEntry[]> =>
+/** The last import of CS's booking file, or null when it was never imported, cached per propertyId. */
+const waImportInfo = cache(async (propertyId: string): Promise<WaImportInfo | null> =>
   withPropertySupabaseCache({
     propertyId,
-    keyParts: ["marketing-wa-chats", since],
-    tags: [CACHE_TAGS.whatsappChats(propertyId)],
+    keyParts: ["marketing-wa-import-info"],
+    tags: [CACHE_TAGS.waBookings(propertyId), CACHE_TAGS.whatsappChats(propertyId)],
     revalidate: CACHE_TTL.vhp,
     query: async (supabase) => {
       const { data, error } = await supabase
-        .from("whatsapp_chat_counts")
-        .select("date_from, date_to, chats_total, chats_from_ads, chats_closing")
+        .from("wa_bookings")
+        .select("imported_at, check_in")
         .eq("property_id", propertyId)
-        .gte("date_from", since);
+        .order("check_in", { ascending: true });
       if (error) throw new Error(error.message);
-      return (data ?? []) as ChatEntry[];
+      const rows = (data ?? []) as { imported_at: string; check_in: string }[];
+      if (rows.length === 0) return null;
+      return {
+        importedAt: rows.reduce((m, r) => (r.imported_at > m ? r.imported_at : m), rows[0].imported_at),
+        count: rows.length,
+        firstCheckIn: rows[0].check_in,
+        lastCheckIn: rows.at(-1)!.check_in,
+      };
     },
   }),
 );
 
-/** The last finished Monday–Sunday week when CS has not filled its chat count yet, else null. */
-export async function openChatWeek(): Promise<{ since: string; until: string } | null> {
+/** When CS's booking file was last imported (null: never), for the notification bell. */
+export async function lastWaImport(): Promise<string | null> {
   const me = await currentUser();
   if (!me?.propertyId) return null;
-  const week = weekPeriods(undefined, new Date(), TZ).current;
-  return chatsInPeriod(await chatEntries(me.propertyId, week.since), week).closing === null ? week : null;
+  return (await waImportInfo(me.propertyId))?.importedAt ?? null;
+}
+
+/** Closings and WA room nights of both report periods, cached per propertyId without calling cookies() inside unstable_cache. */
+async function waPeriods(
+  propertyId: string,
+  curr: Period,
+  prev: Period,
+  info: WaImportInfo | null,
+): Promise<{ importedAt: string | null; curr: WaPeriod; prev: WaPeriod }> {
+  const none: WaPeriod = { closing: 0, nights: 0, revenue: 0, bySegment: {}, missing: [] };
+  if (!info) return { importedAt: null, curr: none, prev: none };
+  const from = prev.since < curr.since ? prev.since : curr.since;
+  const to = prev.until > curr.until ? prev.until : curr.until;
+  const [waData, last] = await Promise.all([
+    withPropertySupabaseCache({
+      propertyId,
+      keyParts: ["marketing-wa-raw", from, to, info.importedAt],
+      tags: [CACHE_TAGS.waBookings(propertyId), CACHE_TAGS.whatsappChats(propertyId), CACHE_TAGS.vhpSales(propertyId)],
+      revalidate: CACHE_TTL.vhp,
+      query: async (supabase) => {
+        const [bookings, nights] = await Promise.all([
+          supabase
+            .from("wa_bookings")
+            .select("check_in")
+            .eq("property_id", propertyId)
+            .gte("check_in", from)
+            .lte("check_in", to),
+          supabase.rpc("wa_booking_nights", { p_property: propertyId, p_from: from, p_to: to }),
+        ]);
+        if (bookings.error) throw new Error(bookings.error.message);
+        if (nights.error) throw new Error(nights.error.message);
+        return {
+          list: ((bookings.data ?? []) as { check_in: string }[]).map((b) => ({ checkIn: b.check_in })),
+          rows: (
+            (nights.data ?? []) as { row_no: number | null; night: string; room: string; lodging: unknown; segment: string | null }[]
+          ).map(
+            (n): WaNight => ({
+              row_no: n.row_no,
+              night: n.night,
+              room: n.room,
+              lodging: n.lodging === null ? null : Number(n.lodging),
+              segment: n.segment,
+            }),
+          ),
+        };
+      },
+    }),
+    lastVhpDay(propertyId),
+  ]);
+  const of = (p: Period): WaPeriod => ({ closing: bookingsIn(waData.list, p), ...waNightsIn(waData.rows, p, last) });
+  return { importedAt: info.importedAt, curr: of(curr), prev: of(prev) };
 }
 
 /**
- * Laporan Senin: the hotel's side (VHP room revenue per segment, check-ins) next to the Google Ads
+ * Laporan Senin: the resort's side (VHP room revenue per segment, check-ins) next to the Google Ads
  * cost and contacts of the same weeks. A failure here leaves the Google part intact and says why.
  */
 async function addHotelResults(report: WeeklyReport, curr: Awaited<ReturnType<typeof loadGoogleWeek>>, prev: Awaited<ReturnType<typeof loadGoogleWeek>>): Promise<string | null> {
@@ -210,7 +295,7 @@ async function addHotelResults(report: WeeklyReport, curr: Awaited<ReturnType<ty
     const vhp = await loadVhpWeeks(propertyId, h.curr, h.prev);
     const a = googleNumbers(curr);
     const b = googleNumbers(prev);
-    // Ad cost of the same days as the hotel figures, for "Biaya Google Ads" of the hotel part.
+    // Ad cost of the same days as the resort figures, for "Biaya Google Ads" of the resort part.
     const cost = async (p: Period, whole: number) => (h.cut ? (await campaignReport(ads(), p.since, p.until)).reduce((t, c) => t + c.cost, 0) : whole);
     const [costA, costB] = await Promise.all([cost(h.curr, a.cost), cost(h.prev, b.cost)]);
     const s = vhpSection(vhp.curr, vhp.prev, averageWeek(vhp.range), {
@@ -219,14 +304,14 @@ async function addHotelResults(report: WeeklyReport, curr: Awaited<ReturnType<ty
     });
     if (h.cut) {
       s.group.source = `Data VHP · ${rangeText(h.curr.since, h.curr.until)} dibanding ${rangeText(h.prev.since, h.prev.until)}`;
-      report.limits.push(`Tamu hotel dihitung ${rangeText(h.curr.since, h.curr.until)} dibanding ${rangeText(h.prev.since, h.prev.until)}, karena data VHP baru sampai ${rangeText(h.curr.until, h.curr.until)}. Kolom tanggal di atas berlaku untuk angka iklan.`);
+      report.limits.push(`Tamu resort dihitung ${rangeText(h.curr.since, h.curr.until)} dibanding ${rangeText(h.prev.since, h.prev.until)}, karena data VHP baru sampai ${rangeText(h.curr.until, h.curr.until)}. Kolom tanggal di atas berlaku untuk angka iklan.`);
     }
     report.groups.push(s.group);
     report.details.unshift(s.detail);
     report.limits.push(...s.limits);
     return s.verdict;
   } catch (error) {
-    report.limits.push(`Data hotel (VHP) tidak bisa dibaca: ${(error as Error).message}`);
+    report.limits.push(`Data resort (VHP) tidak bisa dibaca: ${(error as Error).message}`);
     return null;
   }
 }
@@ -281,12 +366,4 @@ export async function adsBalanceData(): Promise<{ balance: AdsBalance | null; at
   } catch (error) {
     return { error: `Saldo iklan tidak bisa dibaca dari Google Ads: ${(error as Error).message}` };
   }
-}
-
-/** A promotion picture from docs/marketing/sanghyang-sosmed, or null (path checked by sosmedImagePath). */
-export function sosmedImage(rel: string): { body: Buffer; type: string } | null {
-  const file = sosmedImagePath(SOSMED_ROOT, rel);
-  if (!file) return null;
-  const type = /\.png$/i.test(file) ? "image/png" : /\.webp$/i.test(file) ? "image/webp" : "image/jpeg";
-  return { body: readFileSync(file), type };
 }

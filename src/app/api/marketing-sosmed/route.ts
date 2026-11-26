@@ -3,6 +3,7 @@ import { invalidateTags, withCache } from "@/lib/cache/cached";
 import { CACHE_TAGS, CACHE_TTL, INVALIDATION_GROUPS, PRIVATE_CACHE_CONTROL } from "@/lib/cache/tags";
 import { db } from "@/lib/db";
 import { requireMarketingApiAccess, type MarketingApiAccessGuard } from "@/lib/marketing/api-auth";
+import { getMetaConfig, loadAllInstagramPosts, META_RECENT_POSTS_PER_ACCOUNT } from "@/lib/marketing/meta-instagram";
 import { findExistingSocialPromotion, instagramShortcodeFromUrl } from "@/lib/market/browser-social-sync";
 import {
   CRAWLED_POSTS,
@@ -15,10 +16,22 @@ import {
   type SocialPromoPostRecord,
 } from "@/lib/market/marketing-sosmed";
 import { isOutletKey, OUTLET_PLACE_IDS, type OutletKey } from "@/lib/market/outlet-filters";
+import {
+  archiveFeedPost,
+  mergeSocialFeeds,
+  metaToFeedPost,
+  storedFeedPost,
+  type MetaFeedStatus,
+  type SocialFeedPost,
+} from "@/lib/market/social-feed";
 
 export const dynamic = "force-dynamic";
 
-type StoredPostWithCollab = SocialPromoPostRecord & { collabAccounts?: string[] };
+/** Postingan Instagram dari Graph API Meta beserta status sambungannya. */
+interface MetaFeed {
+  posts: SocialFeedPost[];
+  status: MetaFeedStatus;
+}
 
 function parseCollabAccounts(description: string | null): string[] {
   if (!description?.trim().startsWith("{")) return [];
@@ -33,8 +46,8 @@ function parseCollabAccounts(description: string | null): string[] {
   }
 }
 
-function dedupePostsByShortcode(rows: StoredPostWithCollab[]): StoredPostWithCollab[] {
-  const byKey = new Map<string, StoredPostWithCollab>();
+function dedupePostsByShortcode(rows: SocialFeedPost[]): SocialFeedPost[] {
+  const byKey = new Map<string, SocialFeedPost>();
   const order: string[] = [];
   for (const post of rows) {
     const code = post.platform === "instagram" ? instagramShortcodeFromUrl(post.postUrl) : null;
@@ -57,22 +70,26 @@ function dedupePostsByShortcode(rows: StoredPostWithCollab[]): StoredPostWithCol
   return order.map((k) => byKey.get(k)!);
 }
 
-/** Batas per entri Next.js Data Cache adalah 2 MB; 400 postingan ≈ 640 KB agar seluruh potongan selalu lolos cache. */
+/**
+ * Batas per entri Next.js Data Cache adalah 2 MB; 400 postingan ≈ 640 KB tanpa gambar. Tautan gambar dipotong 1.000
+ * karakter saat sinkron, jadi tambahannya paling banyak 400 KB per potongan dan seluruh potongan tetap lolos cache.
+ */
 const SOSMED_CHUNK_SIZE = 400;
+/** Bentuk data cache berubah (sumber, gambar, jam tayang): entri lama dengan kunci tanpa versi tidak dibaca lagi. */
+const SOSMED_CACHE_VERSION = "feed-v2";
 
-async function queryCombinedSosmedPosts(): Promise<StoredPostWithCollab[]> {
+async function queryCombinedSosmedPosts(): Promise<SocialFeedPost[]> {
   // 1. Postingan akun resmi yang tersimpan: sinkron ekstensi (dengan angka pengikut saat itu) dan isian tim.
   const dbPosts = await db.competitorPromotion.findMany({
     where: { category: "Postingan Sosmed Tayang" },
     orderBy: [{ startsAt: "desc" }, { capturedAt: "desc" }],
-    select: { id: true, title: true, description: true, startsAt: true, source: true, sourceUrl: true, createdAt: true, capturedAt: true },
+    select: { id: true, title: true, description: true, startsAt: true, source: true, sourceUrl: true, imageUrl: true, createdAt: true, capturedAt: true },
   });
-  const parsedWithCollab: StoredPostWithCollab[] = [];
+  const parsedWithCollab: SocialFeedPost[] = [];
   for (const row of latestCapturePerPost(dbPosts)) {
     const parsed = parseStoredSocialPost(row);
     if (!parsed) continue;
-    const collabAccounts = parseCollabAccounts(row.description);
-    parsedWithCollab.push(collabAccounts.length > 0 ? { ...parsed, collabAccounts } : parsed);
+    parsedWithCollab.push(storedFeedPost(parsed, { imageUrl: row.imageUrl, collabAccounts: parseCollabAccounts(row.description) }));
   }
   const parsedDbPosts = dedupePostsByShortcode(parsedWithCollab);
 
@@ -87,18 +104,18 @@ async function queryCombinedSosmedPosts(): Promise<StoredPostWithCollab[]> {
       if (dbUrls.has(p.postUrl)) return false;
       const code = instagramShortcodeFromUrl(p.postUrl);
       return !code || !dbIgCodes.has(code);
-    }),
+    }).map(archiveFeedPost),
   ];
 }
 
-async function loadCachedSosmedPosts(): Promise<StoredPostWithCollab[]> {
+async function loadCachedSosmedPosts(): Promise<SocialFeedPost[]> {
   // Singleflight lokal per permintaan: saat cache miss, DB tetap hanya dikueri 1 kali untuk mengisi seluruh chunk.
-  let freshPromise: Promise<StoredPostWithCollab[]> | null = null;
+  let freshPromise: Promise<SocialFeedPost[]> | null = null;
   const getFresh = () => (freshPromise ??= queryCombinedSosmedPosts());
 
   const meta = await withCache(
     async () => ({ chunkCount: Math.ceil((await getFresh()).length / SOSMED_CHUNK_SIZE) }),
-    ["mi-marketing-sosmed-meta"],
+    ["mi-marketing-sosmed-meta", SOSMED_CACHE_VERSION],
     { tags: [CACHE_TAGS.marketingSosmed], revalidate: CACHE_TTL.marketingSosmed },
   );
   if (meta.chunkCount === 0) return [];
@@ -106,7 +123,7 @@ async function loadCachedSosmedPosts(): Promise<StoredPostWithCollab[]> {
     Array.from({ length: meta.chunkCount }, (_, idx) =>
       withCache(
         async () => (await getFresh()).slice(idx * SOSMED_CHUNK_SIZE, (idx + 1) * SOSMED_CHUNK_SIZE),
-        ["mi-marketing-sosmed-chunk", String(idx)],
+        ["mi-marketing-sosmed-chunk", SOSMED_CACHE_VERSION, String(idx)],
         { tags: [CACHE_TAGS.marketingSosmed], revalidate: CACHE_TTL.marketingSosmed },
       ),
     ),
@@ -114,18 +131,46 @@ async function loadCachedSosmedPosts(): Promise<StoredPostWithCollab[]> {
   return chunks.flat();
 }
 
-export function createMarketingSosmedHandlers(checkAccess?: MarketingApiAccessGuard) {
+/** Postingan terbaru tiap akun di portofolio Meta. Gagal baca menjadi `status.problem`, tidak pernah dilempar. */
+async function loadMetaFeed(): Promise<MetaFeed> {
+  const result = await loadAllInstagramPosts(process.env, { limit: META_RECENT_POSTS_PER_ACCOUNT });
+  return {
+    posts: result.posts.map(metaToFeedPost).filter((p): p is SocialFeedPost => p !== null),
+    status: {
+      keyInstalled: Boolean(getMetaConfig().token),
+      connected: result.accounts.map((a) => a.username.toLowerCase()),
+      unreadable: result.unreadable,
+      problem: result.problem,
+      perAccountLimit: META_RECENT_POSTS_PER_ACCOUNT,
+    },
+  };
+}
+
+// Route ini force-dynamic, jadi fetch Meta tidak tersimpan di cache fetch; tanpa cache ini setiap buka tab Media Sosial
+// memanggil Graph API untuk daftar akun dan untuk tiap akun. Sinkron ekstensi dan isian tim mematikan tag yang sama.
+const loadCachedMetaFeed = (): Promise<MetaFeed> =>
+  withCache(loadMetaFeed, ["mi-marketing-sosmed-meta-feed", SOSMED_CACHE_VERSION], {
+    tags: [CACHE_TAGS.marketingSosmed],
+    revalidate: CACHE_TTL.marketingSosmed,
+  });
+
+/**
+ * `loadMeta` kosong = GET tanpa Graph API Meta (uji route memakai DB lokal saja dan tidak boleh memanggil Meta).
+ * Ekspor GET halaman memasang pemuat Meta ber-cache.
+ */
+export function createMarketingSosmedHandlers(checkAccess?: MarketingApiAccessGuard, loadMeta?: () => Promise<MetaFeed>) {
   return {
     async GET() {
       const refused = await requireMarketingApiAccess(checkAccess);
       if (refused) return refused;
 
       try {
-        const combinedPosts = await loadCachedSosmedPosts();
+        const [storedPosts, metaFeed] = await Promise.all([loadCachedSosmedPosts(), loadMeta ? loadMeta() : null]);
         return NextResponse.json(
           {
             success: true,
-            posts: combinedPosts,
+            posts: metaFeed ? mergeSocialFeeds(metaFeed.posts, storedPosts) : storedPosts,
+            meta: metaFeed?.status ?? null,
             crawledSource: CRAWLED_POSTS_SOURCE,
             accounts: INSTAGRAM_ACCOUNTS,
             officialAccounts: OFFICIAL_SOCIAL_ACCOUNTS,
@@ -339,6 +384,6 @@ export function createMarketingSosmedHandlers(checkAccess?: MarketingApiAccessGu
   };
 }
 
-const handlers = createMarketingSosmedHandlers();
+const handlers = createMarketingSosmedHandlers(undefined, loadCachedMetaFeed);
 export const GET = handlers.GET;
 export const POST = handlers.POST;

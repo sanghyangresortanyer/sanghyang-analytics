@@ -1,5 +1,6 @@
 "use client";
 
+import type { DbarSplit } from "@/lib/dashboard/dbar-split";
 import { rangeText } from "@/lib/format-date";
 import { useMemo, useState } from "react";
 import { CATEGORY_COLORS } from "@/lib/dashboard/revenue-category";
@@ -233,7 +234,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   "WALK IN": "Datang langsung (WALK IN)",
   "FIT-CORP": "Perusahaan (FIT-CORP)",
   "GIT-CORP": "Rombongan perusahaan (GIT-CORP)",
-  "HOUSE USE": "Dipakai hotel (HOUSE USE)",
+  "HOUSE USE": "Dipakai resort (HOUSE USE)",
   "(tidak diisi)": "Segmen tidak diisi",
 };
 
@@ -250,8 +251,11 @@ function RevenueBar({ value, max, total, light }: { value: number; max: number; 
 }
 
 /** Room revenue per booking segment from the F/O Journal: revenue, room nights, average per night. */
-export function RoomSegmentsTable({ rows }: { rows: { segment: string; revenue: number; roomNights: number; lodging: number }[] }) {
-  const total = rows.reduce((s, r) => s + r.revenue, 0);
+export function RoomSegmentsTable({ rows: all }: { rows: { segment: string; revenue: number; roomNights: number; lodging: number }[] }) {
+  // Postings without a guest type are a few fees, not stays (owner, 25 Nov: no row for them); said under the table.
+  const rows = all.filter((r) => r.segment !== "(tidak diisi)");
+  const unset = all.filter((r) => r.segment === "(tidak diisi)").reduce((s, r) => s + r.revenue, 0);
+  const total = all.reduce((s, r) => s + r.revenue, 0);
   const max = Math.max(0, ...rows.map((r) => r.revenue));
   if (rows.length === 0) return <p className="py-4 text-center text-base text-navy-600">Belum ada data.</p>;
   return (
@@ -278,13 +282,17 @@ export function RoomSegmentsTable({ rows }: { rows: { segment: string; revenue: 
           ))}
         </tbody>
       </table>
+      {unset !== 0 && <p className="mt-2 text-sm text-navy-600">Belum termasuk {formatRp(unset)} tagihan yang jenis tamunya tidak diisi di VHP.</p>}
     </div>
   );
 }
 
 /** Room revenue per room type (Pengaturan → Jenis kamar maps room numbers to types). */
-export function RoomTypesTable({ rows }: { rows: { code: string | null; name: string; revenue: number; roomNights: number; lodging: number; rooms: number }[] }) {
-  const total = rows.reduce((s, r) => s + r.revenue, 0);
+export function RoomTypesTable({ rows: all }: { rows: { code: string | null; name: string; revenue: number; roomNights: number; lodging: number; rooms: number }[] }) {
+  // Front Office postings without a room number are fees, not rooms (owner, 25 Nov): said under the table.
+  const rows = all.filter((r) => r.name !== "Tanpa nomor kamar");
+  const noRoom = all.filter((r) => r.name === "Tanpa nomor kamar").reduce((s, r) => s + r.revenue, 0);
+  const total = all.reduce((s, r) => s + r.revenue, 0);
   const max = Math.max(0, ...rows.map((r) => r.revenue));
   const unset = rows.find((r) => r.name === "Belum diatur");
   if (rows.length === 0) return <p className="py-4 text-center text-base text-navy-600">Belum ada data.</p>;
@@ -315,12 +323,13 @@ export function RoomTypesTable({ rows }: { rows: { code: string | null; name: st
         </tbody>
       </table>
       {unset && <p className="mt-2 text-sm text-amber-700">&quot;Belum diatur&quot; = kamar yang jenisnya belum diisi di Pengaturan → Jenis Kamar.</p>}
+      {noRoom !== 0 && <p className="mt-2 text-sm text-navy-600">Belum termasuk {formatRp(noRoom)} tagihan Front Office tanpa nomor kamar.</p>}
     </div>
   );
 }
 
 /** d'Bar Karaoke & DBC is one outlet in VHP; its menus show how much is DBC and how much d'Bar & Karaoke. */
-export function DbarSplitBars({ split }: { split: { rows: { label: string; revenue: number; openDays: number; sharePct: number | null }[]; total: number } }) {
+export function DbarSplitBars({ split }: { split: DbarSplit }) {
   const max = Math.max(0, ...split.rows.map((r) => r.revenue));
   if (split.rows.length === 0) return <p className="py-4 text-center text-base text-navy-600">Belum ada data.</p>;
   return (
@@ -329,17 +338,27 @@ export function DbarSplitBars({ split }: { split: { rows: { label: string; reven
         <div key={r.label} className="grid grid-cols-[minmax(9rem,14rem)_1fr] items-center gap-3">
           <div>
             <p className="text-base font-semibold text-navy-900">{r.label}</p>
-            {r.revenue > 0 && <p className="text-sm text-navy-600">{r.openDays} hari ada penjualan</p>}
+            {r.sharePct !== null && <p className="text-sm text-navy-600">{r.openDays} hari ada penjualan</p>}
           </div>
           <div className="flex items-center gap-3">
-            <span className="h-5 rounded-md" style={{ width: `${max > 0 ? (Math.max(r.revenue, 0) / max) * 60 : 0}%`, minWidth: 3, background: r.revenue < 0 ? DOWN : INK }} />
+            <span className="hidden h-5 rounded-md sm:block" style={{ width: `${max > 0 ? (Math.max(r.revenue, 0) / max) * 60 : 0}%`, minWidth: 3, background: r.revenue < 0 ? DOWN : INK }} />
             <span className="whitespace-nowrap text-base tabular-nums text-navy-900">
               {formatRp(r.revenue)}
               {r.sharePct !== null && <span className="text-navy-500"> · {formatPct(r.sharePct)}</span>}
             </span>
           </div>
+          {r.sharePct !== null && (
+            <p className="col-span-2 -mt-2 text-sm tabular-nums text-navy-600 sm:col-span-1 sm:col-start-2">
+              Menu {formatRp(r.menu)}
+              {r.discount !== 0 && <> · diskon {formatRp(r.discount)}</>}
+              {r.compliment !== 0 && <> · compliment {formatRp(r.compliment)}</>}
+            </p>
+          )}
         </div>
       ))}
+      {split.unsplit !== 0 && (
+        <p className="text-sm text-navy-600">Yang belum dibagi: bon berisi menu kedua bagian, atau data yang diunggah sebelum nomor bon disimpan. Unggah ulang Penjualan per Artikel bulan itu supaya terbagi.</p>
+      )}
       <p className="border-t border-cream-200 pt-2 text-base font-semibold tabular-nums text-navy-900">Total {formatRp(split.total)}</p>
     </div>
   );

@@ -39,5 +39,5 @@
 
 - AMP: Meta Marketing API (baca-saja), 7 hari terakhir termasuk hari ini (hari ini belum lengkap).
 - Sanghyang: Google Ads API + GA4 216046044, bulan berjalan vs hari yang sama bulan lalu; definisi kontak sama dengan `sanghyang:monthly`.
-- Sosmed: daftar akun dari tabel `social_accounts` (email login tidak ditampilkan) dan tangkapan layar di `docs/sanghyang-sosmed/`. Angka sosmed ditandai "isi manual" sampai izin Instagram tersedia.
+- Media Sosial: postingan per outlet dari Meta Graph API (akun yang tersambung ke portofolio Meta) digabung dengan data ekstensi Chrome, dinilai per postingan, dan mengikuti periode aktif. Halaman "Daftar Akun Sosmed" sudah dihapus (26 Nov 2026).
 - Satu sumber gagal tidak menjatuhkan halaman: kartunya menampilkan pesan galat dan cara memperbaikinya.

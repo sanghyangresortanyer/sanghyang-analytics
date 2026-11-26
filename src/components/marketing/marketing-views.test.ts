@@ -42,14 +42,20 @@ vi.mock("next/navigation", () => ({
   useSearchParams: () => new URLSearchParams(),
 }));
 
-import { InstagramFeedView } from "./instagram-feed-view";
+// Tab Media Sosial memuat Audit Promo Outlet; aksi servernya tidak dijalankan di uji tampilan.
+vi.mock("@/lib/actions/social-promo", () => ({
+  pullPromos: vi.fn(async () => ({ ok: "ok" })),
+  ignorePromoEvent: vi.fn(async () => ({ ok: "Diabaikan." })),
+}));
+
+import crawled from "@/lib/market/marketing-sosmed.data.json";
+import { evaluateSocialPromoPost } from "@/lib/market/marketing-sosmed";
 import { InsightPasarView } from "./insight-pasar-view";
 import { StrategyView } from "./strategy-view";
-import { MediaSosialView } from "./media-sosial-view";
+import { MediaSosialView, PostThumbnail, SocialPostGridCard } from "./media-sosial-view";
 import { SnLastUpdateDetails, SnUpdateAllButton } from "./sn-update-all";
 import { SnWeeklyActions } from "./sn-market-steps";
-import { sanitizeStrategyText, type SnOutletFinding } from "@/lib/marketing/market-intelligence-types";
-import type { InstagramAccount, InstagramMediaItem } from "@/lib/marketing/meta-instagram";
+import { sanitizeStrategyText, type SnOutletFinding, type SnSocialPost } from "@/lib/marketing/market-intelligence-types";
 
 function resetHooks() {
   hookRuntime.slots = [];
@@ -95,69 +101,46 @@ function collectText(node: ReactNode): string {
   return collectText((node.props as { children?: ReactNode }).children);
 }
 
-describe("InstagramFeedView caption expand/collapse overrides", () => {
-  const accounts: InstagramAccount[] = [{ id: "acc-1", username: "sanghyangresort", name: "Sanghyang Resort" }];
-  const posts: InstagramMediaItem[] = [
-    {
-      id: "ig-1",
-      outlet_username: "sanghyangresort",
-      media_type: "IMAGE",
-      permalink: "https://www.instagram.com/p/1/",
-      media_url: "https://cdn.example.invalid/1.jpg",
-      timestamp: "2026-11-20T10:00:00Z",
-      caption:
-        "Caption panjang pertama untuk menguji perilaku ringkas teks per kartu ketika tombol buka semua teks sedang aktif di halaman Instagram feed.",
-      like_count: 10,
-      comments_count: 1,
-    },
-    {
-      id: "ig-2",
-      outlet_username: "sanghyangresort",
-      media_type: "IMAGE",
-      permalink: "https://www.instagram.com/p/2/",
-      media_url: "https://cdn.example.invalid/2.jpg",
-      timestamp: "2026-11-19T10:00:00Z",
-      caption:
-        "Caption panjang kedua yang tetap harus terbuka penuh saat kartu pertama diringkas satu per satu oleh pengguna.",
-      like_count: 20,
-      comments_count: 2,
-    },
-  ];
-
+describe("Kartu grid Media Sosial: foto yang gagal dimuat dan caption 3 baris", () => {
   beforeEach(() => resetHooks());
 
-  it("collapses an individual card caption when clicked while 'Buka semua teks' is active, and resets overrides on global toggle", () => {
-    const props = { accounts, posts };
-    let tree = renderWithHooks(InstagramFeedView, props);
+  it("mengganti foto yang gagal dimuat dengan tempat foto yang rapi", () => {
+    const props = { src: "https://scontent.cdninstagram.com/kedaluwarsa.jpg", alt: "Pratinjau Reels @sanghyangresort, tayang 8 Nov 2026" };
+    let tree = renderWithHooks(PostThumbnail, props);
+    const img = findElements(tree, (el) => el.type === "img")[0];
+    expect(img.props.referrerPolicy).toBe("no-referrer");
+    expect(img.props.alt).toBe(props.alt);
+    (img.props.onError as () => void)();
+    tree = renderWithHooks(PostThumbnail, props);
+    expect(findElements(tree, (el) => el.type === "img")).toHaveLength(0);
+    expect(collectText(tree)).toContain("Foto tidak bisa dimuat");
+  });
 
-    const findGlobalBtn = (root: ReactNode) =>
-      findElements(root, (el) => el.type === "button" && /semua teks/i.test(collectText(el)))[0];
-    const findCaptionP = (root: ReactNode, snippet: string) =>
-      findElements(root, (el) => el.type === "p" && collectText(el).includes(snippet))[0];
+  it("membuka dan meringkas caption panjang satu kartu lewat tombol yang bisa difokus", () => {
+    // Caption asli @sanghyangresort 8 Nov 2026 (pembacaan 10 Nov), cukup panjang untuk dipotong 3 baris.
+    const real = crawled.posts.find((p) => p.url.includes("/DfeUWFsv-pk/"))!;
+    const input = {
+      outletKey: "resort" as const,
+      platform: "instagram" as const,
+      postType: "reels" as const,
+      postedAt: real.postedAt,
+      postUrl: real.url,
+      caption: real.caption,
+      metrics: null,
+    };
+    const post: SnSocialPost = { ...input, id: real.url, account: "sanghyangresort", sources: ["archive"], audit: evaluateSocialPromoPost(input) };
+    const props = { post, followers: null, archiveDate: "2026-11-10" };
+    const captionP = (root: ReactNode) => findElements(root, (el) => el.type === "p" && collectText(el).includes("keseruan hari ini"))[0];
+    const toggle = (root: ReactNode) => findElements(root, (el) => el.type === "button" && /selengkapnya|ringkas/i.test(collectText(el)))[0];
 
-    // Activate global "Buka semua teks"
-    (findGlobalBtn(tree).props.onClick as () => void)();
-    tree = renderWithHooks(InstagramFeedView, props);
-
-    const p1Open = findCaptionP(tree, "Caption panjang pertama");
-    const p2Open = findCaptionP(tree, "Caption panjang kedua");
-    expect(String(p1Open.props.className)).not.toContain("line-clamp-3");
-    expect(String(p2Open.props.className)).not.toContain("line-clamp-3");
-
-    // Click card 1 caption to collapse ONLY card 1 while global mode stays active
-    (p1Open.props.onClick as () => void)();
-    tree = renderWithHooks(InstagramFeedView, props);
-
-    const p1Collapsed = findCaptionP(tree, "Caption panjang pertama");
-    const p2StillOpen = findCaptionP(tree, "Caption panjang kedua");
-    expect(String(p1Collapsed.props.className)).toContain("line-clamp-3");
-    expect(String(p2StillOpen.props.className)).not.toContain("line-clamp-3");
-
-    // Clicking global "Ringkas semua teks" resets per-card overrides so every card collapses
-    (findGlobalBtn(tree).props.onClick as () => void)();
-    tree = renderWithHooks(InstagramFeedView, props);
-    expect(String(findCaptionP(tree, "Caption panjang pertama").props.className)).toContain("line-clamp-3");
-    expect(String(findCaptionP(tree, "Caption panjang kedua").props.className)).toContain("line-clamp-3");
+    let tree = renderWithHooks(SocialPostGridCard, props);
+    expect(String(captionP(tree).props.className)).toContain("line-clamp-3");
+    expect(toggle(tree).props["aria-expanded"]).toBe(false);
+    (toggle(tree).props.onClick as () => void)();
+    tree = renderWithHooks(SocialPostGridCard, props);
+    expect(String(captionP(tree).props.className)).not.toContain("line-clamp-3");
+    expect(collectText(toggle(tree))).toContain("Ringkas teks");
+    expect(toggle(tree).props["aria-expanded"]).toBe(true);
   });
 });
 
@@ -218,8 +201,8 @@ describe("Marketing clients HTTP 401 session-expired handling", () => {
     const props = {
       startDate: "2026-11-01",
       endDate: "2026-11-25",
-      isCustomRange: false,
       activeOutlet: "resort" as const,
+      promoAudit: { audits: [], problem: null, dataUntil: null },
     };
     renderWithHooks(MediaSosialView, props);
     await flushEffects();

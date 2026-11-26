@@ -16,6 +16,7 @@ describe("penjaga arsitektur cache native Next.js 16.4.6", () => {
     "src/lib/dashboard/occupancy-query.ts",
     "src/lib/dashboard/outlet-targets-query.ts",
     "src/lib/dashboard/settings-query.ts",
+    "src/lib/resort/resort-data.ts",
     "src/lib/sheets/queries.ts",
     "src/lib/marketing/vhp-load.ts",
     "src/lib/analytics/internal-signals.ts",

@@ -1,5 +1,5 @@
 /** "Perlu Anda" on the dashboard (look A, owner 24 Nov 2026): what someone has to do next, most urgent first. Pure. */
-import { compactDays, dataBanner, type DataReminders } from "./data-status";
+import { dataBanner, type DataReminders } from "./data-status";
 import { dayName } from "./day-series";
 
 export interface Need {
@@ -16,14 +16,16 @@ const addDays = (iso: string, n: number) => {
 };
 /** The ad balance is listed when it lasts this many days or less. */
 export const LOW_BALANCE_DAYS = 8;
+/** CS's booking file is asked for again when the last import is this many days old. */
+const WA_IMPORT_DAYS = 7;
 
 export function needs(input: {
   today: string;
   reminders: DataReminders | null;
   /** null = not read (no access to Marketing, or Google did not answer) */
   balance: { remaining: number; daysLeft: number | null } | null;
-  /** Last finished week without CS's chat count, or null. */
-  chatWeek: { since: string; until: string } | null;
+  /** Last import of CS's file BOOKING BY WA: null = never, undefined = not read (no Marketing access). */
+  waImport: string | null | undefined;
 }): { items: Need[]; note: string | null } {
   const items: Need[] = [];
   const b = input.balance;
@@ -43,19 +45,20 @@ export function needs(input: {
     if (banner.tone === "red") items.unshift(need);
     else items.push(need);
   }
-  if (input.chatWeek) {
+  const imported = input.waImport;
+  if (imported === null || (imported !== undefined && addDays(new Date(Date.parse(imported) + 7 * 3_600_000).toISOString().slice(0, 10), WA_IMPORT_DAYS) <= input.today)) {
     items.push({
-      title: `Isi chat WA pekan ${compactDays(weekDays(input.chatWeek))}`,
-      detail: "CS belum mengisi jumlah chat closing (jadi booking).",
+      title: "Import file BOOKING BY WA",
+      detail: imported ? `Terakhir diimport ${shortDay(imported)}.` : "Belum pernah diimport.",
       href: "/marketing?bagian=google",
-      action: "Isi",
+      action: "Import",
     });
   }
   return { items, note: banner && banner.tone === "amber" && banner.items.length === 0 ? banner.title : null };
 }
 
-function weekDays(p: { since: string; until: string }): string[] {
-  const out: string[] = [];
-  for (let d = p.since; d <= p.until; d = addDays(d, 1)) out.push(d);
-  return out;
-}
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+const shortDay = (iso: string) => {
+  const d = new Date(Date.parse(iso) + 7 * 3_600_000);
+  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}`;
+};

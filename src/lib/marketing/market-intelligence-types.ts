@@ -694,6 +694,32 @@ export interface SnSocialPost {
     followers?: number | null;
   } | null;
   audit: SnSocialPostAudit;
+  /** Asal data kartu (lihat `socialSourceLabel`); Meta selalu di depan bila ikut. */
+  sources?: SnSocialSource[];
+  /** Foto atau thumbnail HTTPS; null bila tidak terbaca. */
+  imageUrl?: string | null;
+  /** Waktu tayang lengkap dari Meta (ISO); null bila hanya tanggal tayangnya yang diketahui. */
+  publishedAt?: string | null;
+}
+
+/** Graph API Meta, sinkron Ekstensi Chrome, isian tim lewat formulir, atau arsip baca akun resmi. */
+export type SnSocialSource = "meta" | "extension" | "team" | "archive";
+
+/** Status sambungan Meta dari /api/marketing-sosmed (tanpa kunci aksesnya). */
+export interface SnMetaStatus {
+  keyInstalled: boolean;
+  /** Akun Instagram di portofolio bisnis Meta (huruf kecil, tanpa @). */
+  connected: string[];
+  /** Akun tersambung yang postingannya gagal dibaca. */
+  unreadable: string[];
+  problem: string | null;
+  perAccountLimit: number;
+}
+
+/** Akun Instagram resmi; outlet null = akun induk yang outlet postingannya dibaca dari caption. */
+export interface SnInstagramAccount {
+  username: string;
+  outlet: OutletKey | null;
 }
 
 export interface SnSocialAccountCoverage {
@@ -717,6 +743,9 @@ export interface SnSocialApiResponse {
   success: boolean;
   posts: SnSocialPost[];
   officialAccounts?: SnOfficialSocialAccount[];
+  accounts?: SnInstagramAccount[];
+  /** null bila Meta tidak ikut dibaca (status belum diketahui). */
+  meta?: SnMetaStatus | null;
   crawledSource?: { crawledAt?: string };
 }
 
@@ -995,20 +1024,122 @@ export function computeSosmedStats(
   };
 }
 
-/** Mengelompokkan postingan menurut 6 unit bisnis Sanghyang dalam urutan pemilih outlet. */
-export function groupSocialPostsByOutlet(posts: readonly SnSocialPost[]): { outlet: OutletKey; posts: SnSocialPost[] }[] {
-  return OUTLET_KEYS.map((outlet) => ({
-    outlet,
-    posts: posts.filter((p) => p.outletKey === outlet),
-  }));
-}
-
 /** Persentase likes terhadap jumlah pengikut (2 desimal), null bila data tidak lengkap atau pengikut <= 0. */
 export function likeRatePercent(likes: number | null | undefined, followers: number | null | undefined): number | null {
   if (typeof likes !== "number" || typeof followers !== "number" || !Number.isFinite(likes) || !Number.isFinite(followers) || followers <= 0) {
     return null;
   }
   return Number(((likes / followers) * 100).toFixed(2));
+}
+
+/**
+ * Postingan yang tayang pada hari WIB startDate sampai endDate (keduanya termasuk), terbaru dulu. Pada hari yang
+ * sama, postingan berjam tayang (Meta) diurutkan menurut jamnya dan yang hanya bertanggal menyusul.
+ */
+export function socialPostsInPeriod<T extends Pick<SnSocialPost, "postedAt" | "postUrl" | "publishedAt">>(
+  posts: readonly T[],
+  startDate: string,
+  endDate: string,
+): T[] {
+  return posts
+    .map((post) => ({ post, day: postDayWib(post.postedAt) }))
+    .filter(({ day }) => day >= startDate && day <= endDate)
+    .sort((a, b) => {
+      if (a.day !== b.day) return a.day < b.day ? 1 : -1;
+      const ta = a.post.publishedAt ?? "";
+      const tb = b.post.publishedAt ?? "";
+      if (ta !== tb) return ta < tb ? 1 : -1;
+      return a.post.postUrl.localeCompare(b.post.postUrl);
+    })
+    .map(({ post }) => post);
+}
+
+const SOURCE_LABELS: Record<SnSocialSource, string> = {
+  meta: "Meta",
+  extension: "Ekstensi",
+  team: "Dicatat tim",
+  archive: "Arsip",
+};
+
+/** "Meta + Ekstensi", "Ekstensi", "Arsip 10 Nov 2026", ... untuk lencana sumber kartu. */
+export function socialSourceLabel(sources: readonly SnSocialSource[] | undefined, archiveDate?: string | null): string {
+  if (!sources || sources.length === 0) return "Sumber belum tercatat";
+  return sources.map((src) => (src === "archive" && archiveDate ? `${SOURCE_LABELS.archive} ${fmtDateShort(archiveDate)}` : SOURCE_LABELS[src])).join(" + ");
+}
+
+const POST_TYPE_LABELS: Record<SnSocialPost["postType"], string> = {
+  reels: "Reels",
+  feed: "Foto",
+  carousel: "Carousel",
+  tiktok_video: "Video TikTok",
+  story: "Story",
+};
+
+export const socialPostTypeLabel = (postType: SnSocialPost["postType"]): string => POST_TYPE_LABELS[postType] ?? postType;
+
+const NO_META_ACCOUNT = "Belum ada akun Instagram yang tersambung ke Meta.";
+
+export interface SnMetaNote {
+  /** Akun yang dibahas; null untuk catatan yang berlaku bagi semua akun. */
+  handle: string | null;
+  state: "meta" | "unreadable" | "not_connected" | "unavailable" | "unknown";
+  text: string;
+}
+
+/**
+ * Catatan sumber postingan per akun Instagram outlet: tersambung ke Meta (dan sejak kapan postingannya terbaca), gagal
+ * dibaca, atau belum tersambung sehingga datanya dari ekstensi. Akun outlet itu sendiri didahulukan, lalu akun induk
+ * yang postingannya ikut masuk bila menyebut outlet tersebut.
+ */
+export function metaAccountNotes({
+  outlet,
+  accounts,
+  meta,
+  posts,
+}: {
+  outlet: OutletChoice;
+  accounts: readonly SnInstagramAccount[];
+  meta: SnMetaStatus | null | undefined;
+  posts: readonly Pick<SnSocialPost, "account" | "postedAt" | "sources">[];
+}): SnMetaNote[] {
+  if (!meta) {
+    return [{ handle: null, state: "unknown", text: "Status sambungan Meta belum terbaca. Postingan di bawah berasal dari data yang tersimpan di aplikasi." }];
+  }
+  if (!meta.keyInstalled || meta.connected.length === 0) {
+    const reason = meta.problem ?? NO_META_ACCOUNT;
+    return [{ handle: null, state: "unavailable", text: `${reason} Postingan di bawah berasal dari ekstensi.` }];
+  }
+  const own = accounts.filter((a) => outlet === "all" || a.outlet === outlet);
+  const parents = outlet === "all" ? [] : accounts.filter((a) => a.outlet === null);
+  const handles = [...new Set([...own, ...parents].map((a) => a.username.replace(/^@/, "").toLowerCase()))];
+  const connected = new Set(meta.connected);
+  const unreadable = new Set(meta.unreadable);
+  return handles.map((handle): SnMetaNote => {
+    if (unreadable.has(handle)) {
+      return { handle, state: "unreadable", text: `Akun @${handle} tersambung ke Meta tetapi postingannya tidak bisa dibaca saat ini, data dari ekstensi.` };
+    }
+    if (!connected.has(handle)) {
+      return { handle, state: "not_connected", text: `Akun @${handle} belum tersambung ke Meta, data dari ekstensi.` };
+    }
+    const oldest = posts
+      .filter((p) => p.sources?.includes("meta") && p.account?.replace(/^@/, "").toLowerCase() === handle)
+      .map((p) => postDayWib(p.postedAt))
+      .sort()[0];
+    return {
+      handle,
+      state: "meta",
+      text: oldest
+        ? `@${handle} tersambung ke Meta: ${meta.perAccountLimit} postingan terbaru dibaca, paling lama ${fmtDateShort(oldest)}.`
+        : `@${handle} tersambung ke Meta, belum ada postingan yang terbaca.`,
+    };
+  });
+}
+
+/** Alasan "Tarik data" Audit Promo belum bisa membaca Meta (kunci belum dipasang, semua akun gagal); null bila bisa. */
+export function metaPullProblem(meta: SnMetaStatus | null | undefined): string | null {
+  if (!meta) return null;
+  const nothingReadable = !meta.keyInstalled || meta.connected.length === 0 || meta.connected.every((h) => meta.unreadable.includes(h));
+  return nothingReadable ? (meta.problem ?? NO_META_ACCOUNT) : null;
 }
 
 export function postOverallScore(audit: Pick<SnSocialPostAudit, "hookScore" | "copyScore" | "ctaScore" | "overallScore">): number {

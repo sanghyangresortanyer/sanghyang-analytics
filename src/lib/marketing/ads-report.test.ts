@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "vitest";
 import type { CampaignRow, ConversionRow, NetworkRow } from "./google-ads.ts";
-import { addAdsExtras, campaignFunctions, chatForm, chatReturnUrl, sameOrigin, chatsInPeriod, clickSources, dayLabel, dayOptions, monthOptions, reportPeriods, reportPicker, weekLabel, weekOptions } from "./ads-report.ts";
+import { addAdsExtras, bookingForm, campaignFunctions, chatReturnUrl, sameOrigin, clickSources, dayLabel, dayOptions, monthOptions, reportPeriods, reportPicker, weekLabel, weekOptions } from "./ads-report.ts";
 import { googleWeeklyReport, type GoogleWeek, renderReports } from "./weekly-report.ts";
 
 const sun = new Date("2026-11-22T12:00:00Z"); // Minggu 22 Nov 2026, 19.00 WIB
@@ -67,18 +67,6 @@ test("Harian uses the same report: yesterday vs the same weekday a week earlier,
   assert.ok(html.includes('<option value="hari" selected>Per hari</option>') && html.includes('<select name="hari2"') && html.includes('<option value="2026-11-15" selected>'));
 });
 
-test("chatsInPeriod sums CS entries inside the period and never counts a day twice", () => {
-  const e = (date_from: string, date_to: string, chats_closing: number | null, chats_total: number | null) => ({ date_from, date_to, chats_closing, chats_total, chats_from_ads: null });
-  const entries = [
-    e("2026-11-16", "2026-11-22", 4, 30),
-    e("2026-11-16", "2026-11-16", 1, 5), // inside the week above
-    e("2026-11-09", "2026-11-09", 2, null),
-    e("2026-11-14", "2026-11-16", 3, 9), // crosses the period start
-  ];
-  assert.deepEqual(chatsInPeriod(entries, { since: "2026-11-16", until: "2026-11-22" }), { closing: 4, total: 30, fromAds: null, days: 7, periodDays: 7 });
-  assert.deepEqual(chatsInPeriod(entries, { since: "2026-11-09", until: "2026-11-15" }), { closing: 2, total: null, fromAds: null, days: 1, periodDays: 7 }, "an empty 'all chats' stays unknown");
-  assert.deepEqual(chatsInPeriod([], { since: "2026-11-09", until: "2026-11-15" }), { closing: null, total: null, fromAds: null, days: 0, periodDays: 7 });
-});
 const camp = (name: string, channel: string, bidding: string, cost: number): CampaignRow => ({ id: name, name, status: "ENABLED", channel, budgetResource: "", budgetPerDay: 92000, budgetShared: false, bidding, cost, impressions: 1000, clicks: 100, conversions: 0, allConversions: 0 });
 const net = (campaign: string, network: string, clicks: number, cost: number): NetworkRow => ({ campaign, network, clicks, impressions: clicks * 10, cost });
 const conv = (campaign: string, action: string, n: number): ConversionRow => ({ campaign, action, conversions: n, allConversions: n });
@@ -106,7 +94,7 @@ test("contact totals are not compared when website clicks were tracked in only o
     campaigns: [],
     conversions: [],
     networks: { curr: null, prev: null },
-    chats: null,
+    wa: null,
     google: { chats: 10, webClicks: 3, cost: 900000, prevCost: 600000, perContact: 1, prevPerContact: 2, comparable: false },
   });
   const total = r.groups.flatMap((g) => g.rows).find((x) => x.metric === "Total orang menghubungi");
@@ -134,7 +122,7 @@ const gweek = (since: string, cost: number, chats: number): GoogleWeek => ({
   traffic: { users: 100, engagementRate: 0.5, adsUsers: 60, adsEngagementRate: 0.4 },
 });
 
-test("addAdsExtras: CS chats next to Google's count (not added to contacts), new sections and numeric conclusions in the PDF", () => {
+test("addAdsExtras: WA bookings from the CS file next to Google's count (not added to contacts), new sections and numeric conclusions in the PDF", () => {
   const periods = reportPeriods({ mode: "bulan" }, sun);
   const r = googleWeeklyReport(gweek("2026-11-01", 900000, 10), gweek("2026-10-01", 600000, 5));
   addAdsExtras(r, {
@@ -142,41 +130,44 @@ test("addAdsExtras: CS chats next to Google's count (not added to contacts), new
     campaigns: [camp("MONTHLY PROMO", "SEARCH", "MAXIMIZE_CONVERSION_VALUE", 900000)],
     conversions: [conv("MONTHLY PROMO", "Conversation started", 10)],
     networks: { curr: [net("MONTHLY PROMO", "SEARCH", 300, 900000)], prev: null },
-    chats: { curr: { closing: 5, total: 25, fromAds: null, days: 21, periodDays: 21 }, prev: { closing: null, total: null, fromAds: null, days: 0, periodDays: 21 } },
+    wa: {
+      importedAt: "2026-11-25T06:10:00Z",
+      curr: { closing: 5, nights: 7, revenue: 4_200_000, bySegment: { FIT: 5, "WALK IN": 2 }, missing: ["no 29: kamar 535 malam 21 Nov"] },
+      prev: { closing: 0, nights: 0, revenue: 0, bySegment: {}, missing: [] },
+    },
     google: { chats: 10, webClicks: 3, cost: 900000, prevCost: 600000, perContact: 900000 / 14, prevPerContact: 600000 / 9, comparable: true },
   });
   const rows = r.groups.flatMap((g) => g.rows);
-  const cs = rows.find((x) => x.metric === "Chat WA closing menurut CS");
-  assert.equal(cs?.curr, 5);
-  assert.equal(cs?.prev, null);
+  const wa = rows.find((x) => x.metric === "Booking WA (closing)");
+  assert.equal(wa?.curr, 5);
+  assert.equal(wa?.prev, 0);
+  assert.match(wa?.note ?? "", /tanggal check-in/);
+  const waRev = rows.find((x) => x.metric === "Revenue kamar dari booking WA");
+  assert.equal(waRev?.curr, 4_200_000);
+  assert.match(waRev?.note ?? "", /7 malam kamar: FIT 5, WALK IN 2/);
+  assert.ok(r.limits.some((l) => l.includes("no 29: kamar 535 malam 21 Nov")), "a room VHP has no charge for is shown, not hidden");
   assert.ok(!rows.some((x) => x.metric === "Chat WA baru menurut CS"), "all chats come from Google (owner, 24 Nov)");
   assert.equal(rows.find((x) => x.metric === "Total orang menghubungi")?.curr, 10 + 3, "CS chats are not added to Google's contacts");
   assert.equal(r.title, "Perbandingan iklan Google per bulan");
   assert.deepEqual(r.details.map((d) => d.title), ["Fungsi tiap kampanye", "Rincian per kampanye", "Asal klik iklan"]);
   assert.ok(r.highlights.includes("Biaya iklan naik 50%: Rp600.000 → Rp900.000."), "cost is neutral, never 'membaik'");
-  assert.ok(r.highlights.some((h) => /^CS mencatat 5 chat closing \(jadi booking\) untuk 21 dari 21 hari\. Google mencatat 10 chat WA dimulai/.test(h)));
+  assert.ok(r.highlights.some((h) => /^Booking WA dari file CS: 5 booking dengan check-in di periode ini, revenue kamar Rp4\.200\.000 dari 7 malam\. Google mencatat 10 chat WA dimulai/.test(h)));
   const html = renderReports([r], sun, { toolbar: true, picker: reportPicker({ mode: "bulan" }, periods, sun) });
   assert.ok(html.includes("Oktober 2026<small>1–21 Okt · 21 hari</small>") && html.includes("November 2026<small>1–21 Nov · 21 hari</small>"));
   assert.ok(html.includes("3. Kesimpulan dari angka"));
-  assert.ok(html.includes("Belum ada data"), "empty CS count says so");
   assert.ok(html.includes('<option value="2026-11" selected>November 2026</option>'), "bulan A dropdown");
   assert.ok(html.includes('<select name="bulan2"') && html.includes('<option value="bulan" selected>Per bulan</option>'));
   assert.ok(!html.includes("Pekan mulai Senin"), "the date box for the week is gone (owner, 23 Nov)");
 });
 
-test("chatForm: CS picks the dates, then only the closing chats (owner, 24 Nov)", () => {
-  const mon = new Date("2026-11-24T03:00:00Z");
-  const week = reportPeriods({ mode: "minggu", pekan: "2026-11-16" }, mon);
-  const empty = chatForm(week, []);
-  assert.ok(empty.includes('name="chat_from" value="2026-11-16"') && empty.includes('name="chat_to" value="2026-11-22"'), "starts on the report's dates");
-  assert.ok(/name="closing"[^>]*required/.test(empty) && !empty.includes('name="total"'), "one number: closing");
-  assert.ok(empty.includes('method="post"') && empty.includes('action="/marketing/laporan"'));
-  const filled = chatForm(week, [{ date_from: "2026-11-16", date_to: "2026-11-22", chats_closing: 4, chats_total: 30, chats_from_ads: null }]);
-  assert.ok(filled.includes('value="4"') && /sudah diisi/.test(filled), "the saved number can be corrected in place");
-  const month = chatForm(reportPeriods({ mode: "bulan" }, mon), []);
-  assert.ok(month.includes('name="chat_from" value="2026-11-01"') && month.includes('name="chat_to" value="2026-11-23"'), "also per month, up to yesterday");
-  assert.equal(chatForm(reportPeriods({ mode: "hari", hari: "2026-11-24" }, mon), []), "", "today is not over yet");
-  assert.equal(chatForm(week, null), "", "unreadable table: no form");
+test("bookingForm: CS's file is imported above the report (owner, 25 Nov)", () => {
+  const week = reportPeriods({ mode: "minggu", pekan: "2026-11-16" }, new Date("2026-11-24T03:00:00Z"));
+  const none = bookingForm(week, null);
+  assert.ok(none.includes('enctype="multipart/form-data"') && none.includes('type="file" name="booking"') && none.includes('accept=".xlsx"'));
+  assert.ok(none.includes('action="/marketing/laporan"') && none.includes('name="mode" value="minggu"') && /Belum pernah diimport/.test(none));
+  const done = bookingForm(week, { importedAt: "2026-11-25T06:10:00Z", count: 29, firstCheckIn: "2026-11-01", lastCheckIn: "2026-11-21" });
+  assert.match(done, /Terakhir diimport 25 Nov 13\.10 · 29 booking · check-in 1–21 Nov/);
+  assert.match(done, /import ulang mengganti semua/);
 });
 
 test("chatReturnUrl goes back to the same report and never carries unchecked text", () => {

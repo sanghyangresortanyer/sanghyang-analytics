@@ -9,12 +9,15 @@ import {
   type OfficialSocialAccount,
   type SocialPostMetrics,
 } from "@/lib/market/marketing-sosmed";
+import { IG_RESERVED_PATHS, instagramShortcodeFromUrl } from "@/lib/market/instagram-url";
 import { isOutletKey, OUTLET_PLACE_IDS, SOCIAL_POST_CATEGORY, type OutletKey } from "@/lib/market/outlet-filters";
 import { OWN_SOCIAL_POST_CATEGORY } from "@/lib/market/promo-radar";
 import { isVerifiedReviewSource } from "@/lib/market/resort-strategy";
 import { createScrapeLog, sanitizeScrapeError } from "@/lib/market/scrape-log";
 import { determineReviewSentiment, extractThemes } from "@/lib/market/scrape-new-reviews";
 import { stripLoneSurrogates, truncateText } from "@/lib/text/safe-truncate";
+
+export { instagramShortcodeFromUrl };
 
 export const MAX_POSTS_PER_SYNC_BATCH = 25;
 export const MAX_COMMENTS_PER_POST = 30;
@@ -24,7 +27,6 @@ const MIN_SOCIAL_EPOCH_MS = Date.UTC(2010, 0, 1);
 const MIN_TIKTOK_EPOCH_MS = Date.UTC(2016, 0, 1);
 const FALLBACK_START_DELTA_MS = 5_000;
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-const IG_RESERVED_PATHS = new Set(["p", "reel", "reels", "explore", "stories", "tv", "accounts", "directory"]);
 
 const FORBIDDEN_SECRET_KEYS = new Set([
   "cookie",
@@ -162,25 +164,6 @@ function normalizeSocialHandle(raw: unknown): string | null {
   if (typeof raw !== "string") return null;
   const clean = raw.trim().replace(/^@/, "").toLowerCase();
   return clean ? clean.slice(0, 80) : null;
-}
-
-/**
- * Mengekstrak shortcode Instagram (case-sensitive) dari permalink `/p/<CODE>/`, `/reel/<CODE>/`,
- * `/reels/<CODE>/`, maupun `/<handle>/(p|reel|reels)/<CODE>/`. Menolak jalur reserved Instagram sebagai handle.
- */
-export function instagramShortcodeFromUrl(rawUrl: string | null | undefined): string | null {
-  if (typeof rawUrl !== "string" || !rawUrl.trim()) return null;
-  try {
-    const parsed = new URL(rawUrl.trim());
-    const host = parsed.hostname.toLowerCase();
-    if (host !== "www.instagram.com" && host !== "instagram.com" && host !== "m.instagram.com") return null;
-    const m = parsed.pathname.match(/^\/(?:([A-Za-z0-9._]{1,30})\/)?(p|reels?)\/([A-Za-z0-9_-]+)\/?$/);
-    if (!m) return null;
-    if (m[1] && IG_RESERVED_PATHS.has(m[1].toLowerCase())) return null;
-    return m[3];
-  } catch {
-    return null;
-  }
 }
 
 /**

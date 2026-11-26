@@ -1,5 +1,5 @@
 // Laporan Google Ads di aplikasi (pemilik, 22 Nov 2026): pilih per minggu, per bulan (jumlah hari sama),
-// atau bebas (A vs B); fungsi tiap kampanye, asal klik, hitungan chat WA dari CS, dan kesimpulan angka.
+// atau bebas (A vs B); fungsi tiap kampanye, asal klik, booking WA dari file CS, dan kesimpulan angka.
 // Baca-saja. "Kontak" = chat WA dimulai + telepon dari iklan + klik WA/telepon di website (googleNumbers);
 // Contact Us, rute Maps, lihat menu, interaksi lokal, dan Booking tidak dihitung.
 import type { CampaignRow, ConversionRow, NetworkRow } from "./google-ads.ts";
@@ -239,28 +239,24 @@ export function clickSources(curr: NetworkRow[], prev: NetworkRow[] | null, labe
   };
 }
 
-// ------------------------------------------------------------------ chat WA dari CS
+// ------------------------------------------------------------------ booking WA dari file CS
 
-export type ChatEntry = { date_from: string; date_to: string; chats_total: number | null; chats_from_ads: number | null; chats_closing: number | null };
-export type ChatCount = { closing: number | null; total: number | null; fromAds: number | null; days: number; periodDays: number };
+/** One period of CS's WhatsApp bookings: closings by check-in date, and their room nights in VHP. */
+export type WaPeriod = { closing: number; nights: number; revenue: number; bySegment: Record<string, number>; missing: string[] };
+/** The last import of the file, for the box above the report. */
+export type WaImportInfo = { importedAt: string; count: number; firstCheckIn: string | null; lastCheckIn: string | null };
 
-/**
- * WhatsApp chats counted by CS inside a period. Only entries fully inside the period count; when entries
- * overlap (a week and a day of that week), the longer one wins so no day is counted twice. A number left
- * empty in any entry used leaves that total unknown (null), never 0.
- */
-export function chatsInPeriod(entries: ChatEntry[], period: Period): ChatCount {
-  const inside = entries.filter((e) => e.date_from >= period.since && e.date_to <= period.until && e.date_from <= e.date_to);
-  const picked: ChatEntry[] = [];
-  for (const e of [...inside].sort((a, b) => days({ since: b.date_from, until: b.date_to }) - days({ since: a.date_from, until: a.date_to }) || a.date_from.localeCompare(b.date_from))) {
-    if (picked.every((p) => e.date_to < p.date_from || e.date_from > p.date_to)) picked.push(e);
-  }
-  const covered = picked.reduce((s, e) => s + days({ since: e.date_from, until: e.date_to }), 0);
-  const add = (k: "chats_closing" | "chats_total" | "chats_from_ads") => (picked.length && picked.every((e) => e[k] !== null) ? picked.reduce((s, e) => s + (e[k] ?? 0), 0) : null);
-  return { closing: add("chats_closing"), total: add("chats_total"), fromAds: add("chats_from_ads"), days: covered, periodDays: days(period) };
-}
-
-const chatNote = (c: ChatCount) => (c.days === 0 ? "" : `diisi ${c.days} dari ${c.periodDays} hari`);
+const WA_GUESTS: Record<string, string> = { "FIT-TA": "OTA", "FIT-CORP": "perusahaan", "GIT-CORP": "rombongan" };
+const waGuests = (by: Record<string, number>) =>
+  Object.entries(by)
+    .sort((a, b) => b[1] - a[1])
+    .map(([k, v]) => `${WA_GUESTS[k] ?? k} ${v}`)
+    .join(", ");
+const wib = (iso: string) => {
+  const d = new Date(Date.parse(iso) + 7 * 3_600_000);
+  return `${d.getUTCDate()} ${SINGKAT[d.getUTCMonth()]} ${String(d.getUTCHours()).padStart(2, "0")}.${String(d.getUTCMinutes()).padStart(2, "0")}`;
+};
+const span = (a: string, b: string) => (a.slice(0, 7) === b.slice(0, 7) ? `${Number(a.slice(8, 10))}–${Number(b.slice(8, 10))} ${SINGKAT[Number(b.slice(5, 7)) - 1]}` : `${Number(a.slice(8, 10))} ${SINGKAT[Number(a.slice(5, 7)) - 1]}–${Number(b.slice(8, 10))} ${SINGKAT[Number(b.slice(5, 7)) - 1]}`);
 
 // ------------------------------------------------------------------ gabungkan ke laporan
 
@@ -269,7 +265,8 @@ export type AdsExtras = {
   campaigns: CampaignRow[];
   conversions: ConversionRow[];
   networks: { curr: NetworkRow[] | null; prev: NetworkRow[] | null };
-  chats: { curr: ChatCount; prev: ChatCount } | null;
+  /** CS's booking file; null = could not be read. importedAt null = never imported. */
+  wa: { importedAt: string | null; curr: WaPeriod; prev: WaPeriod } | null;
   /** Google's own counts for the CS comparison line. */
   google: { chats: number; webClicks: number | null; cost: number; prevCost: number; perContact: number | null; prevPerContact: number | null; /** false when website clicks were tracked in only one period */ comparable: boolean };
 };
@@ -294,19 +291,32 @@ export function addAdsExtras(report: WeeklyReport, x: AdsExtras): WeeklyReport {
   const contacts = report.groups.find((g) => g.title.startsWith("3."));
   if (contacts) {
     const at = contacts.rows.findIndex((r) => r.metric === "Total orang menghubungi");
-    const unread = "Hitungan CS tidak bisa dibaca";
+    const wa = x.wa;
+    const known = wa !== null && wa.importedAt !== null;
+    const empty = wa === null ? "tidak terbaca" : "Belum diimport";
     const rows: ReportRow[] = [
       {
         better: "up",
-        metric: "Chat WA closing menurut CS",
-        sub: "jadi booking, semua sumber",
-        prev: x.chats?.prev.closing ?? null,
-        curr: x.chats?.curr.closing ?? null,
+        metric: "Booking WA (closing)",
+        sub: "file BOOKING BY WA dari CS",
+        prev: known ? wa.prev.closing : null,
+        curr: known ? wa.curr.closing : null,
         fmt: "int",
-        empty: "Belum ada data",
-        note: x.chats === null ? unread : [chatNote(x.chats.curr), "Diisi CS di atas laporan"].filter(Boolean).join(" · "),
+        empty,
+        note: known ? `Dihitung menurut tanggal check-in. Diimport ${wib(wa.importedAt!)}` : wa === null ? "File booking WA tidak bisa dibaca dari database" : "Import file di atas laporan",
+      },
+      {
+        better: "up",
+        metric: "Revenue kamar dari booking WA",
+        sub: "harga kamar di VHP",
+        prev: known ? wa.prev.revenue : null,
+        curr: known ? wa.curr.revenue : null,
+        fmt: "rp",
+        empty,
+        note: known ? `${wa.curr.nights} malam kamar${wa.curr.nights ? `: ${waGuests(wa.curr.bySegment)}` : ""}. Jenis tamu menurut catatan FO di VHP` : "",
       },
     ];
+    if (known && wa.curr.missing.length) report.limits.push(`Booking WA tanpa tagihan kamar di VHP, periksa nomor kamar di file CS: ${wa.curr.missing.join("; ")}.`);
     contacts.rows.splice(at < 0 ? contacts.rows.length : at + 1, 0, ...rows);
     // Website WA/phone clicks were tracked in only one period: totals would compare different things.
     if (!x.google.comparable) {
@@ -339,12 +349,12 @@ export function addAdsExtras(report: WeeklyReport, x: AdsExtras): WeeklyReport {
     const top = [...byPlace.entries()].sort((a, b) => b[1].clicks - a[1].clicks)[0];
     if (top && total) lines.push(`Klik terbanyak dari ${top[0]}: ${int(top[1].clicks)} dari ${int(total)} klik (${share(top[1].clicks, total)}%), biaya ${rp(top[1].cost)}.`);
   }
-  const cs = x.chats?.curr;
-  if (cs && cs.closing !== null) {
+  const w = x.wa;
+  if (w && w.importedAt) {
     const google = `Google mencatat ${int(g.chats)} chat WA dimulai dari iklan${g.webClicks === null ? "" : ` dan ${int(g.webClicks)} klik WA/telepon di website dari iklan`}`;
-    lines.push(`CS mencatat ${int(cs.closing)} chat closing (jadi booking) untuk ${cs.days} dari ${cs.periodDays} hari. ${google}.`);
-  } else if (x.chats) {
-    lines.push("Chat WA closing dari CS belum diisi untuk periode ini (isi di atas laporan).");
+    lines.push(`Booking WA dari file CS: ${int(w.curr.closing)} booking dengan check-in di periode ini, revenue kamar ${rp(w.curr.revenue)} dari ${int(w.curr.nights)} malam. ${google}.`);
+  } else if (w) {
+    lines.push("File BOOKING BY WA belum diimport (tombol di atas laporan).");
   }
   report.highlights = [...report.highlights.slice(0, 1), ...lines, ...report.highlights.slice(1)].filter(Boolean);
   return report;
@@ -387,25 +397,19 @@ export function reportPicker(q: ReportQuery, p: ReportPeriods, now = new Date())
   return `<form method="get" class="range">${modeSelect} ${fields}<button type="submit">Tampilkan</button><button type="submit" name="refresh" value="1" title="Data disimpan 10 menit; tekan untuk ambil yang terbaru dari Google">Ambil ulang data</button></form>`;
 }
 
-// ------------------------------------------------------------------ isian chat WA oleh CS
+// ------------------------------------------------------------------ import file booking WA
 
 /**
- * The box CS fills above the report (owner, 24 Nov: pick the dates first, then only the chats that became a
- * booking; Google already counts the chats). Starts on the report's dates up to
- * yesterday; saving the same dates again corrects the numbers. Overlapping entries are never counted twice
- * (chatsInPeriod keeps the longest).
+ * The box above the report where CS's file BOOKING BY WA is imported (owner, 25 Nov 2026: "cukup kita import saja
+ * filenya"). The file holds every booking, so a new import replaces the previous one.
  */
-export function chatForm(p: ReportPeriods, entries: ChatEntry[] | null): string {
-  if (entries === null) return "";
-  // Today is not over: the box starts at yesterday at the latest.
-  const until = p.partial ? addDays(p.current.until, -1) : p.current.until;
-  if (until < p.current.since) return "";
-  const since = p.current.since;
-  const saved = entries.find((e) => e.date_from === since && e.date_to === until);
+export function bookingForm(p: ReportPeriods, info: WaImportInfo | null): string {
   const hidden = (name: string, value: string) => `<input type="hidden" name="${name}" value="${esc(value)}">`;
   const keep = hidden("mode", p.mode) + hidden("from", p.current.since) + hidden("to", p.current.until) + hidden("vs", p.previous.since) + hidden("vsto", p.previous.until);
-  const num = (name: string, label: string, value: number | null | undefined) => `<label>${label} <input name="${name}" inputmode="numeric" pattern="[0-9]{1,5}" size="4" required value="${value ?? ""}"></label>`;
-  return `<form method="post" action="/marketing/laporan" class="range chat">${keep}<b>Chat WA dari CS</b><label>Dari <input type="date" name="chat_from" value="${esc(since)}" max="${esc(until)}" required></label><label>Sampai <input type="date" name="chat_to" value="${esc(until)}" max="${esc(until)}" required></label>${num("closing", "Chat closing (jadi booking)", saved?.chats_closing)}<button type="submit">Simpan</button><small>${saved ? "tanggal ini sudah diisi, simpan lagi untuk mengganti · " : ""}pilih tanggal dulu, lalu isi angka</small></form>`;
+  const last = info
+    ? `Terakhir diimport ${wib(info.importedAt)} · ${info.count} booking${info.firstCheckIn && info.lastCheckIn ? ` · check-in ${span(info.firstCheckIn, info.lastCheckIn)}` : ""} · import ulang mengganti semua`
+    : "Belum pernah diimport";
+  return `<form method="post" action="/marketing/laporan" enctype="multipart/form-data" class="range chat">${keep}<b>Booking WA</b><label>File BOOKING BY WA <input type="file" name="booking" accept=".xlsx" required></label><button type="submit">Import</button><small>${esc(last)}. Nama dan nomor WA tamu tidak disimpan.</small></form>`;
 }
 
 const ISO = /^\d{4}-\d{2}-\d{2}$/;

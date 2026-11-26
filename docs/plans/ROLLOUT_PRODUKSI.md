@@ -38,21 +38,19 @@ Sebelum menjalankan perintah perubahan apa pun di produksi:
 
 ---
 
-## 3. Langkah 1: Terapkan Migrasi Skema Prisma
+## 3. Langkah 1: Terapkan migrasi skema
 
-Jalankan perintah deploy migrasi Prisma dengan kredensial produksi:
+Koreksi 26 Nov 2026 (auditor basis data): perintah lama `prisma migrate deploy` dicabut. Produksi `omuqbpxierdlfjascngz` tidak punya tabel `_prisma_migrations`, sehingga Prisma akan mencoba menerapkan semua migrasinya dari awal. Sejak ADR-014 skema produksi hanya diubah lewat berkas SQL di `supabase/migrations/`; migrasi Prisma `20261113000000_competitor_registry_and_jobs` milik produksi lama, sedangkan di produksi baru tabel Market Intelligence dibuat oleh `0085_market_intelligence_tables.sql`.
 
-```bash
-ALLOW_PRODUCTION_WRITE=1 node --env-file=.env.local node_modules/prisma/build/index.js migrate deploy
-```
+Cara yang berlaku (dijalankan pemilik):
 
-Perintah ini akan menerapkan berkas migrasi:
-`prisma/migrations/20261113000000_competitor_registry_and_jobs/migration.sql`
-
-Isi migrasi secara atomik:
-- Menambahkan 8 nilai baru ke enum PostgreSQL `"ScrapeJob"`.
-- Menambahkan kolom-kolom baru ke tabel `"Competitor"`.
-- Membuat indeks `"Competitor_active_category_idx"` dan `"Competitor_placeId_idx"`.
+1. **Pra-cek katalog.** Baca ledger migrasi dan pastikan migrasi yang akan diterapkan belum tercatat:
+   ```sql
+   SELECT version, name FROM supabase_migrations.schema_migrations ORDER BY version;
+   ```
+   Lalu pastikan objek barunya memang belum ada: tabel `public.wa_bookings`, kolom `weekly_sales_lines.bill_no`, dan kolom `sheet_hk_months.store`.
+2. **Terapkan satu per satu lewat `apply_migration` Supabase**, dengan `name` persis nama berkas tanpa `.sql` dan isi kueri sama dengan isi berkas, berurutan: `0086_wa_bookings`, `0087_sales_bill_no_and_dbar_parts`, `0088_sheet_stores`. Cara ini mencatat tiap migrasi di ledger `supabase_migrations.schema_migrations`. SQL Editor dan `psql` tidak dipakai karena tidak mencatat ledger.
+3. **Pasca-cek katalog.** Ketiga nama tercatat di ledger, lalu jalankan kueri verifikasi di bagian "Tambahan 26 Nov 2026" §5.
 
 ---
 
@@ -795,3 +793,87 @@ Catatan 23 Nov 2026:
   baru, yang ikut ke produksi lewat sinkron pre-push. "Perbarui Semua Data" berikutnya di produksi memakai pembaca baru.
   Bila runner menampilkan harga sebelum pajak, log job mencatat "tampilan harga diganti dari ... ke Total per malam".
   Bila pilihan itu tidak bisa dipastikan, tarif hotel itu dicatat gagal, bukan disimpan.
+
+## Tambahan 26 Nov 2026: Sinkronisasi fitur terbaru VRP (Laporan Resort, WA Bookings, Sheet Stores, d'Bar Parts)
+
+Bagian ini mencatat langkah rollout aman untuk 4 pembaruan operasional yang disinkronkan dari folder referensi baca-saja `VRP/` ke `sanghyang-analytics` (proyek Supabase produksi baru `omuqbpxierdlfjascngz`, satu schema `public`). Seluruh perubahan telah diterapkan dan diuji hanya di basis data kerja lokal (`127.0.0.1:55432/sanghyang_analytics`); Supabase produksi `omuqbpxierdlfjascngz` belum disentuh dan tetap berada di 28 migrasi / 40 tabel / 122.937 baris sampai pemilik menjalankan langkah di bawah.
+
+### 1. Ringkasan fitur dan 3 migrasi baru (`0086..0088`)
+
+| Migrasi target (`supabase/migrations/`) | Asal VRP | Perubahan skema & fungsi | Dampak di produksi |
+|---|---|---|---|
+| `0086_wa_bookings.sql` | `VRP/0085_wa_bookings.sql` | Tabel `public.wa_bookings` ber-RLS + `REVOKE ALL FROM anon`, RPC `replace_wa_bookings(jsonb)` dan `wa_booking_nights(uuid, date, date)` (`GRANT EXECUTE` ke `authenticated, service_role`). | Aditif penuh. Tabel lama `whatsapp_chat_counts` tetap dipertahankan. Nama tamu dan nomor WhatsApp tidak pernah dibaca atau disimpan ke basis data. |
+| `0087_sales_bill_no_and_dbar_parts.sql` | `VRP/0086_sales_bill_no_and_dbar_parts.sql` | Kolom nullable `weekly_sales_lines.bill_no` dan RPC `dbar_parts(uuid, date, date)` (`GRANT EXECUTE` ke `authenticated, service_role`). | Aditif penuh. Memisahkan diskon dan compliment `d'Bar & Karaoke` vs `DBC` berdasarkan nomor bon pada unggahan baru; baris lama tetap aman (masuk bagian belum dibagi sampai bulan terkait diunggah ulang). |
+| `0088_sheet_stores.sql` | `VRP/0087_sheet_stores.sql` | Constraint `sheet_sync_state_source_check` diperluas ke 5 sumber (`hk`, `dml`, `main`, `eng`, `bev`), kolom `store text not null default 'hk'` pada `sheet_hk_{months,items,movements}` berikut PK/FK/indeks baru, RPC `apply_store_months(...)` dan pembungkus kompatibel `apply_hk_months(...)`. | Kompatibel mundur untuk data HK yang sudah ada (`default 'hk'`). Memungkinkan sinkronisasi gudang Main Store, Engineering, dan Beverages (tab `LH`) tanpa menduplikasi tabel. |
+
+Total skema pasca-rollout pada proyek Supabase `omuqbpxierdlfjascngz`: **31 migrasi bersih** (`0000_core_foundation` + `0059..0088`) dan **41 tabel `public` ber-RLS 100%**.
+
+Fitur kode yang menyertai tanpa migrasi tambahan:
+- **Laporan Resort** (`/laporan-resort` dan `/laporan-resort/lihat`): laporan cetak A4 kinerja resort dari data VHP (`revenue_by_day`, `room_revenue_by_segment`, `occupancy_by_night`, `weekly_purchase_lines`, `weekly_outlet_metrics`) terintegrasi caching native Next.js (`withPropertySupabaseCache` + tag `vhpResortReport`).
+- **Pembaruan Dasbor & Notifikasi**: pemisahan tab okupansi (`occ`) beserta proyeksi (`OccupancyForecast`), portal lonceng notifikasi `#needs-slot` dengan pengingat impor `BOOKING BY WA`, pemisahan stok per gudang anti-hitung-ganda transfer Main Store ke HK (`store-inventory.ts`), dan pembaruan branding halaman login (tetap mempertahankan dropdown akun `Pilih user…`).
+- **Caching native & integrasi Market Intelligence tetap utuh**: seluruh tab Market Intelligence (`Insight Pasar`, `Media Sosial`, `Strategy`), jembatan `src/lib/analytics/internal-signals.ts` (kini memanggil `public.dbar_parts`, tetap Zero Rupiah Leak), dan cache Next.js 16.4.6 (`unstable_cache` + `invalidateTags(..., { expire: 0 })`, termasuk invalidasi otomatis saat impor WA Bookings dan sinkronisasi Sheets multi-store) tetap aktif tanpa regresi.
+
+### 2. Perilaku lingkungan lokal sebelum rollout produksi
+
+Pada `.env.development.local`, **Prisma (`DATABASE_URL`)** menunjuk ke PostgreSQL lokal (`127.0.0.1:55432/sanghyang_analytics` dengan 31 migrasi), sedangkan **Supabase SDK (`NEXT_PUBLIC_SUPABASE_URL`)** menunjuk ke proyek Supabase produksi `omuqbpxierdlfjascngz` (masih 28 migrasi sebelum rollout):
+- Kueri Prisma lokal (`internal-signals.ts`, Knowledge Graph, suite `test:market`) sudah mengakses `wa_bookings`, `bill_no`, `dbar_parts`, dan `sheet_hk_*.store` secara penuh.
+- Rute `/laporan-resort` hanya membaca tabel dan RPC operasional yang sudah ada sejak migrasi `0059..0084`, sehingga langsung berfungsi di runtime lokal.
+- Panggilan Supabase PostgREST ke `omuqbpxierdlfjascngz` untuk objek baru (`dbar_parts`, `sheet_hk_*.store`, `wa_bookings`, `replace_wa_bookings`, `wa_booking_nights`, insert `bill_no`) akan ditolak PostgREST produksi sampai 3 migrasi `0086..0088` diterapkan pemilik ke `omuqbpxierdlfjascngz`. Sesuai aturan Zero Fallback, kegagalan tersebut tidak disamarkan dengan angka tiruan. Koreksi 26 Nov 2026 (auditor kode): kegagalan itu tidak terisolasi per bagian tampilan di semua halaman. `/data-sheets` memuat seluruh datanya dalam satu `try/catch` (`src/app/(app)/data-sheets/page.tsx:197-220`), sehingga satu kolom atau RPC yang belum ada menggagalkan seluruh halaman, dan unggah VHP juga tidak terisolasi. Karena itu ketiga migrasi wajib diterapkan ke produksi sebelum kode di-push.
+
+### 3. Variabel lingkungan baru (opsional)
+
+Tambahkan kunci berikut di Vercel (Environment Variables proyek `sanghyang-analytics`) dan `.env.local` bila gudang tambahan akan disinkronkan (hanya nama kunci; pastikan akses berbagi di Google Drive diset **Pelihat / Viewer**, bukan Editor):
+- `GOOGLE_SHEET_MAIN_ID` (ID atau tautan Google Sheet *Daily Opname Main Store*)
+- `GOOGLE_SHEET_BEV_ID` (ID atau tautan Google Sheet *Daily Opname Beverages*, membaca tab `LH`)
+- `GOOGLE_SHEET_ENG_ID` (ID atau tautan Google Sheet *Daily Opname Eng*)
+
+Variabel lama (`GOOGLE_SHEET_HK_ID`, `GOOGLE_SHEET_DML_ID`, `SHEETS_PROPERTY_ID`, `CRON_SECRET`, `MARKETING_PROPERTY_ID`) tidak berubah.
+
+Koreksi 26 Nov 2026: `DML_MIN_LIST_DATE` berubah dari `2026-11-08` ke `2026-11-01`. Pemilik menyetujui daftar DML 1 Nov ikut masuk (salinan VRP, `HANDOFF.md` entri 26 Nov 11.31, dan `TODO.md` butir 38ao). Ubah di `.env.development.local`, `.env.local`, dan Vercel sebelum tarikan produksi pertama; bila tidak, tarikan berikutnya membuang lagi daftar 1 Nov. Jadwal cron tetap mingguan Senin 01.00 WIB (`0 18 * * 0`) karena tarikan harian ditahan pemilik.
+
+### 4. Urutan aman rollout produksi (dijalankan pemilik)
+
+1. **Cadangan pra-rollout**: buat dump penuh basis data `omuqbpxierdlfjascngz` seperti pada Bagian 2 dokumen ini (`pg_dump "$DIRECT_URL"` ke folder `backups/`).
+2. **Terapkan 3 migrasi berurutan ke `omuqbpxierdlfjascngz`** lewat `apply_migration` Supabase dengan pra-cek dan pasca-cek katalog seperti di Langkah 1 (§3 dokumen ini), sebelum kode di-push. SQL Editor dan `psql "$DIRECT_URL"` tidak dipakai karena tidak mencatat ledger `supabase_migrations.schema_migrations`.
+   - `supabase/migrations/0086_wa_bookings.sql` (`name`: `0086_wa_bookings`)
+   - `supabase/migrations/0087_sales_bill_no_and_dbar_parts.sql` (`name`: `0087_sales_bill_no_and_dbar_parts`)
+   - `supabase/migrations/0088_sheet_stores.sql` (`name`: `0088_sheet_stores`)
+3. **Atur variabel lingkungan baru**: isi `GOOGLE_SHEET_MAIN_ID`, `GOOGLE_SHEET_BEV_ID`, dan `GOOGLE_SHEET_ENG_ID` di Vercel dan `.env.local` bila sudah siap ditarik.
+4. **Deploy kode `sanghyang-analytics` ke Vercel (`sin1`)**: commit dan push cabang `main` setelah pemilik memeriksa diff.
+5. **Tindakan operasional pasca-deploy**:
+   - Buka `/upload-mingguan` dan unggah ulang laporan VHP *Penjualan per Artikel* bulan berjalan dan bulan pembandingnya (misalnya Oktober bila November dibandingkan dengan Oktober) agar kolom `bill_no` terisi di kedua periode dan pemisahan diskon/compliment `d'Bar & Karaoke` vs `DBC` per nomor bon bisa dibandingkan. Bulan yang belum diunggah ulang tetap tampil "belum dibagi".
+   - Buka `/marketing` (tab Google Ads) lalu impor berkas `BOOKING BY WA.xlsx` dari CS melalui formulir "Booking WA" di atas laporan.
+   - Buka `/data-sheets` dan tekan **Tarik Data Sekarang** (atau tunggu cron `/api/cron/sync-sheets` yang tetap mingguan Senin 01.00 WIB) untuk menarik Main Store, Engineering, dan Beverages.
+
+### 5. Kueri verifikasi pasca-rollout
+
+Jalankan kueri baca-saja berikut pada Supabase SQL Editor `omuqbpxierdlfjascngz`:
+
+```sql
+-- 1. Pastikan seluruh 41 tabel public mengaktifkan RLS
+SELECT count(*) AS total_tabel,
+       count(*) FILTER (WHERE rowsecurity) AS rls_aktif
+FROM pg_tables
+WHERE schemaname = 'public';
+
+-- 2. Pastikan kolom baru dan constraint store terpasang
+SELECT column_name FROM information_schema.columns
+WHERE table_schema = 'public'
+  AND ((table_name = 'weekly_sales_lines' AND column_name = 'bill_no')
+    OR (table_name = 'sheet_hk_months' AND column_name = 'store'));
+
+-- 3. Pastikan 4 fungsi baru tersedia dan dapat dieksekusi role yang tepat
+SELECT p.proname, pg_get_function_identity_arguments(p.oid) AS args
+FROM pg_proc p
+JOIN pg_namespace n ON n.oid = p.pronamespace
+WHERE n.nspname = 'public'
+  AND p.proname IN ('replace_wa_bookings', 'wa_booking_nights', 'dbar_parts', 'apply_store_months')
+ORDER BY p.proname;
+```
+
+Kriteria lulus: `total_tabel = 41` dan `rls_aktif = 41`; kedua kolom baru tampil; keempat fungsi terdaftar; rute `/laporan-resort` terproteksi login; `/marketing/laporan` menampilkan kotak impor `BOOKING BY WA`; `/data-sheets` menampilkan tab per gudang.
+
+### 6. Catatan keamanan non-blocking & rencana rollback
+
+- **Header keamanan (`next.config.ts`)**: audit delta menemukan `VRP/next.config.ts` menambahkan `SECURITY_HEADERS` (`X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `Permissions-Policy`) yang berada di luar cakupan porting kali ini; pemilik dapat menambahkannya pada putaran hardening konfigurasi berikutnya.
+- **Rollback**: ketiga migrasi bersifat aditif (`bill_no` nullable, `wa_bookings` tabel terpisah, `sheet_hk_*` ber-default `'hk'`, dan pembungkus `apply_hk_months` tetap ada). Koreksi 26 Nov 2026 (auditor basis data): rollback kode ke commit `9271330` sesudah tarikan multi-gudang tidak aman, karena kode lama membaca `sheet_hk_*` tanpa filter `store` sehingga tampilan HK mencampur empat gudang. Sesudah tarikan multi-gudang pertama, pilihannya tetap di kode baru atau mengembalikan data gudang selain HK atas keputusan pemilik, dengan cadangan lebih dulu. Rollback penuh skema tetap dapat dilakukan dari dump pra-rollout pada Langkah 1 di §4 bagian ini.
