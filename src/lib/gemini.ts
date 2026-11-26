@@ -14,7 +14,8 @@ import { GoogleGenAI } from '@google/genai';
  *
  * Pilihan model mengikuti kuota harian, bukan sebaliknya: Free Tier gemini-4-hydrogen hanya 20 permintaan per hari,
  * sedangkan refresh harian butuh sekitar 50-150 panggilan (heartbeat 25 Nov 2026: berita, situs, kategori promo, tipe
- * kamar, menu, analisis 6 outlet). Pemilik lalu memilih gemini-3.5-flash-lite dengan penalaran low.
+ * kamar, menu, analisis 6 outlet). Pemilik lalu memilih gemini-3.5-flash-lite (500 per hari) dengan penalaran high:
+ * kuota dihitung per permintaan, dan high hanya memperlama panggilan (25 promo: 14,7 detik, low 6,1 detik).
  *
  * Lewat Interactions API seperti proyek web, bukan models.generateContent: 26 Nov 2026 generateContent ke
  * gemini-4-hydrogen dengan thinkingLevel XHIGH baru menjawab 503 "high demand" setelah 123 detik, sedangkan

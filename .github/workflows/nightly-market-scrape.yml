@@ -18,7 +18,9 @@ jobs:
   scrape:
     name: Scrape berita dan tarif pasar
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # Penalaran AI high membuat tiap panggilan ±15 detik (uji 26 Nov 2026: 14,7 detik untuk 25 promo, low 6,1 detik);
+    # hari sibuk ±150 panggilan. Repo publik, jadi menit Actions tidak dibayar.
+    timeout-minutes: 60
     permissions:
       contents: read
     # Seluruh tabel operasional VHP dan riset pasar berada dalam 1 schema PostgreSQL (public) di sanghyang-analytics (ADR-014).
@@ -99,6 +101,9 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PRIMARY_MODEL: ${{ vars.PRIMARY_MODEL }}
           PRIMARY_THINKING_LEVEL: ${{ vars.PRIMARY_THINKING_LEVEL }}
+          # Modul aplikasi (mis. src/lib/cache/cached.ts) mengimpor "server-only", yang melempar galat di luar kondisi
+          # react-server; run pertama 26 Nov 2026 gagal karena ini. Sama dengan skrip test:market di package.json.
+          NODE_OPTIONS: --conditions=react-server
         run: npx tsx scripts/ops/run-nightly-scrape.ts
 
       # Runner dibuang setelah job; pembersihan yang gagal (misalnya Docker tidak pernah jalan) tidak membuat job data merah.
