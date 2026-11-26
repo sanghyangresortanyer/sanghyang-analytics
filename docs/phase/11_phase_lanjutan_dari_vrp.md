@@ -115,6 +115,7 @@ Mencatat semua pekerjaan VRP yang belum selesai supaya pengembangan bisa berlanj
 | LN-4 | Halaman rencana dibanding realisasi per divisi seperti contoh auditor (berkas Financial Forecast: budget divisi, forecast, arus kas, kinerja per divisi). Berkas contoh berisi saldo bank dan tidak boleh disalin ke repo. | TODO M2.9 | Usulan | Rancangan disetujui pemilik | Pemilik, agen |
 | LN-5 | Baca berkas mutasi bank otomatis dengan OCR; parsernya belum ada. | TODO A.12, M2.1; PROJECT-STATUS 13 Nov | Ditunda | Permintaan pemilik | Agen |
 | LN-6 | Periksa dalam keadaan login fitur yang di VRP masih tertulis menunggu dicek pemilik: lonceng notifikasi, Revenue (bento, menu tidak laku, PDF per outlet), Laporan Google Ads bagian 5, Laporan Resort, dan impor BOOKING BY WA. Di sini dilakukan sesudah rilis P9. | TODO 38j, 38l, 38q, 50 | Belum mulai | Rilis P9 | Pemilik |
+| LN-7 | Kuota AI: Free Tier `gemini-4-hydrogen` hanya 20 permintaan per hari per proyek kunci (pesan 429 Interactions API, 26 Nov 2026), padahal job malam dan fitur Insight Pasar bisa butuh puluhan panggilan sehari. Tanpa model cadangan (keputusan pemilik), panggilan di atas 20 menunggu reset tengah malam Pacific (±15.00 WIB). Pilihan: naik ke tier berbayar, atau anggaran harian per fitur seperti `seo.ai_daily_budget` di proyek web. | Uji 26 Nov 2026; `src/lib/gemini.ts` | Belum mulai | Keputusan pemilik soal tier atau anggaran | Pemilik |
 
 ## 5. Tanggal yang harus diingat
 
