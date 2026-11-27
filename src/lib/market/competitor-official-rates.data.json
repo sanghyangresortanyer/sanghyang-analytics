@@ -1,9 +1,9 @@
 {
   "$comment": "Tarif kamar booking engine resmi kompetitor (be.dip.id) pada tanggal lapisan OTA. Ditulis lib/market/competitor-official-rates-refresh.ts; jangan disunting tangan.",
-  "observedAt": "2026-11-27T03:59:22.776Z",
+  "observedAt": "2026-11-27T16:59:12.673Z",
   "checkInWeekday": "2026-12-01",
   "checkInWeekend": "2026-11-28",
-  "datesFrom": "lib/market/resort-room-rates.data.json (capturedAt 2026-11-26 23:51 WIB)",
+  "datesFrom": "lib/market/resort-room-rates.data.json (capturedAt 2026-11-27 23:55 WIB)",
   "hotels": [
     {
       "hotelId": "nemuru_palazo",

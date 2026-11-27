@@ -5,7 +5,7 @@
   "sourceLabel": "Situs resmi sanghyang.com/book",
   "sourceMethod": "Booking engine resmi hotel (Exely) lewat Exely Connect Search API kanal metasearch hotel: harga per malam termasuk pajak, rate plan termurah per tipe kamar, tanpa diskon member",
   "bookUrl": "https://sanghyang.com/book",
-  "observedAt": "2026-11-26T18:43:20.979Z",
+  "observedAt": "2026-11-27T16:59:11.991Z",
   "request": {
     "api": "Exely Connect Search API",
     "contentPath": "/api/content/v1/properties/{EXELY_PROPERTY_ID}?languageCode=en",
@@ -15,7 +15,7 @@
     "nights": 1,
     "checkInWeekday": "2026-12-01",
     "checkInWeekend": "2026-11-28",
-    "datesFrom": "lib/market/resort-room-rates.data.json (capturedAt 2026-11-27 01:40 WIB)"
+    "datesFrom": "lib/market/resort-room-rates.data.json (capturedAt 2026-11-27 23:55 WIB)"
   },
   "hotels": [
     {
@@ -99,14 +99,14 @@
           "weekend": {
             "checkIn": "2026-11-28",
             "checkOut": "2026-11-29",
-            "price": 1100000,
-            "breakfastIncluded": false,
-            "ratePlan": "Room Only",
-            "ratePlanId": "10005436",
-            "mealPlanCode": "RoomOnly",
-            "roomsLeft": 5,
-            "unavailableReason": null,
-            "sourceUrl": "https://sanghyang.com/book?hotel_id=500776&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004759&tl-offer=10005436&tl-nights=1&tl-date=2026-11-28"
+            "price": null,
+            "breakfastIncluded": null,
+            "ratePlan": null,
+            "ratePlanId": null,
+            "mealPlanCode": null,
+            "roomsLeft": null,
+            "unavailableReason": "Tidak ditawarkan booking engine untuk check-in 2026-11-28, 1 malam, 2 dewasa (kamar habis atau tidak dijual untuk tanggal itu)",
+            "sourceUrl": "https://sanghyang.com/book?hotel_id=500776&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-nights=1&tl-date=2026-11-28"
           }
         },
         {
@@ -133,7 +133,7 @@
             "ratePlan": "Room Only",
             "ratePlanId": "10005436",
             "mealPlanCode": "RoomOnly",
-            "roomsLeft": 3,
+            "roomsLeft": 2,
             "unavailableReason": null,
             "sourceUrl": "https://sanghyang.com/book?hotel_id=500776&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004778&tl-offer=10005436&tl-nights=1&tl-date=2026-11-28"
           }
@@ -162,7 +162,7 @@
             "ratePlan": "Room Only",
             "ratePlanId": "10005436",
             "mealPlanCode": "RoomOnly",
-            "roomsLeft": 4,
+            "roomsLeft": 3,
             "unavailableReason": null,
             "sourceUrl": "https://sanghyang.com/book?hotel_id=500776&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004789&tl-offer=10005436&tl-nights=1&tl-date=2026-11-28"
           }
@@ -220,7 +220,7 @@
             "ratePlan": "Room Breakfast",
             "ratePlanId": "10005437",
             "mealPlanCode": "BreakFast",
-            "roomsLeft": 3,
+            "roomsLeft": 1,
             "unavailableReason": null,
             "sourceUrl": "https://sanghyang.com/book?hotel_id=500776&tl-cur=IDR&tl-adults=2&tl-children-age=&tl-room=5004791&tl-offer=10005437&tl-nights=1&tl-date=2026-11-28"
           }
