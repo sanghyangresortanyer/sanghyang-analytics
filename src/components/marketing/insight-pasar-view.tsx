@@ -35,6 +35,7 @@ import {
   formatMarketingClientError,
   groupPromosByCompetitor,
   isPromoEvent,
+  knowledgeAnalysisOriginText,
   marketingApiErrorFromResponse,
   ownPromoMatchesOutletKey,
   ownPromoSourceSummary,
@@ -964,7 +965,7 @@ export function InsightPasarView({
                 </ul>
               )}
 
-              <SnHeadToHeadNarrative narrative={narrative} sources={narrativeSources} />
+              <SnHeadToHeadNarrative narrative={narrative} sources={narrativeSources} originText={knowledgeAnalysisOriginText(data?.outletAnalyses?.[selectedOutlet])} />
 
               {/* Filter Pil Lawan Tanding */}
               {selectedOutlet !== "all" && outletComparisons.length > 0 && (

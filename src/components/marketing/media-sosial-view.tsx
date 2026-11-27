@@ -532,7 +532,7 @@ export function MediaSosialView({
       setFormComments("");
       setFormShares("");
       setFormWa("");
-      setFeedback(`Postingan berhasil disimpan ke basis data lokal untuk ${OUTLET_LABELS[json.post.outletKey] ?? json.post.outletKey}.`);
+      setFeedback(`Postingan berhasil disimpan untuk ${OUTLET_LABELS[json.post.outletKey] ?? json.post.outletKey}.`);
       // Muat ulang dari server: kartu tampil dengan sumber dan gabungan Meta yang sebenarnya, bukan tebakan di layar.
       reloadPosts();
     } catch (err) {

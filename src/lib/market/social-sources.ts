@@ -55,7 +55,7 @@ export function formatExtensionSyncDetail(ext: ExtensionSocialSyncSummary): stri
   const ttFmt = ext.tiktokPosts.toLocaleString("id-ID");
   const accFmt = ext.trackedAccounts.toLocaleString("id-ID");
   const runningNote = ext.activeSyncRunning ? " (sinkronisasi aktif sedang berjalan)" : "";
-  return `Disinkronkan lewat Ekstensi Chrome: ${igFmt} postingan Instagram & ${ttFmt} postingan TikTok dari ${accFmt} akun terpantau di basis data lokal${runningNote}.`;
+  return `Disinkronkan lewat Ekstensi Chrome: ${igFmt} postingan Instagram & ${ttFmt} postingan TikTok dari ${accFmt} akun terpantau di basis data${runningNote}.`;
 }
 
 export function socialSourceStatuses(env: Record<string, string | undefined>, targets: SocialTargets): SocialSourceStatus[] {

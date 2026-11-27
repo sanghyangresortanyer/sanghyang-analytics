@@ -192,9 +192,12 @@ function EvidenceList({ items }: { items: SnEvidencePoint[] }) {
 export function SnHeadToHeadNarrative({
   narrative,
   sources = [],
+  originText,
 }: {
   narrative?: SnHeadToHeadNarrative | null;
   sources?: SnSourceRef[];
+  /** Kapan dan untuk periode apa kesimpulan disusun (knowledgeAnalysisOriginText). */
+  originText?: string | null;
 }) {
   if (!narrative) return null;
   const hasContent =
@@ -214,6 +217,7 @@ export function SnHeadToHeadNarrative({
           Knowledge Graph Terpadu
         </span>
       </div>
+      {originText && <p className="text-[11px] text-navy-600">{originText}</p>}
 
       {narrative.summary && (
         <p className="text-xs leading-relaxed font-medium text-navy-800">{sanitizePublicText(narrative.summary)}</p>

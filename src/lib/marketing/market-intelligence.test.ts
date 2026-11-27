@@ -31,6 +31,7 @@ import {
   deepestCompetitorDiscount,
   groupPromosByCompetitor,
   isPromoEvent,
+  knowledgeAnalysisOriginText,
   isPromotionType,
   likeRatePercent,
   metaAccountNotes,
@@ -1602,6 +1603,20 @@ describe("refresh-follow SSE dan status pembaruan", () => {
     expect(
       filterGuestReviews(sampleReviews, { selectedAspect: null, sentimentFilter: "all", channelFilter: "google" }).map((r) => r.id),
     ).toEqual(["r1"]);
+  });
+});
+
+describe("knowledgeAnalysisOriginText", () => {
+  it("menyebut waktu WIB dan periode kesimpulan Knowledge Graph, tanpa nama mesin AI", () => {
+    expect(
+      knowledgeAnalysisOriginText({ origin: "cache", rangeLabel: "28 Okt 2026 – 26 Nov 2026", generatedAt: "2026-11-26T18:54:10.000Z" }),
+    ).toBe("Kesimpulan disusun 27 Nov 2026, 01.54 WIB dari Knowledge Graph periode 28 Okt 2026 – 26 Nov 2026.");
+  });
+  it("susunan otomatis ditulis apa adanya beserta kapan kesimpulan baru disusun", () => {
+    expect(knowledgeAnalysisOriginText({ origin: "deterministic", rangeLabel: "29 Okt 2026 – 27 Nov 2026", generatedAt: null })).toBe(
+      "Susunan otomatis dari Knowledge Graph periode 29 Okt 2026 – 27 Nov 2026. Kesimpulan baru disusun saat Perbarui Semua Data berikutnya.",
+    );
+    expect(knowledgeAnalysisOriginText(null)).toBeNull();
   });
 });
 

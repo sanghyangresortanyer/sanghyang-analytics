@@ -54,6 +54,7 @@ import {
   type SnSummary,
 } from "@/lib/marketing/market-intelligence-types";
 import { cn } from "@/lib/utils";
+import { SnKnowledgeRecommendations } from "./sn-knowledge-recommendations";
 import { SnOutletSelector } from "./sn-outlet-selector";
 import { SnPromoTable } from "./sn-promo-table";
 
@@ -519,6 +520,11 @@ export function StrategyView({
             </ul>
           )}
         </SkeuoCard>
+      )}
+
+      {/* BAGIAN 1B: REKOMENDASI DARI KNOWLEDGE GRAPH (kesimpulan analisis_graf, disusun ulang tiap Perbarui Semua Data) */}
+      {summary && showRekomendasi && selectedOutlet !== "all" && (
+        <SnKnowledgeRecommendations analysis={summary.outletAnalyses?.[selectedOutlet]} outletLabel={outletLabel} />
       )}
 
       {/* BAGIAN 2: REKOMENDASI PEMASARAN (5 PILAR RESORT / 4 PILAR F&B) */}

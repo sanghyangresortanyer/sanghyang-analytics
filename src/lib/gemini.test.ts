@@ -2,6 +2,8 @@ import { describe, expect, it, vi } from "vitest";
 import { aiConfig, buildInteraction, generateWithRetry, jedaDari, pesanKuota, readInteraction } from "./gemini";
 
 const ENV = { GEMINI_API_KEY: "kunci-uji", PRIMARY_MODEL: "gemini-4-hydrogen", PRIMARY_THINKING_LEVEL: "xhigh" };
+/** Ringkasan Knowledge Graph pengganti untuk tes; yang asli dibangun dari basis data (knowledge-graph/ai-grounding.ts). */
+const GROUNDING = async () => "KONTEKS KNOWLEDGE GRAPH SANGHYANG (uji)";
 const CONFIG = { apiKey: "kunci-uji", model: "gemini-4-hydrogen", thinkingLevel: "xhigh" as const };
 
 describe("aiConfig", () => {
@@ -109,7 +111,7 @@ describe("generateWithRetry", () => {
       .mockRejectedValueOnce(penuh(429, '{"error":{"status":"RESOURCE_EXHAUSTED","details":[{"retryDelay":"2s"}]}}'))
       .mockResolvedValueOnce({ status: "completed", output_text: "ok" });
     const sleep = vi.fn().mockResolvedValue(undefined);
-    const res = await generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV });
+    const res = await generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV, grounding: GROUNDING });
     expect(res.text).toBe("ok");
     expect(create).toHaveBeenCalledTimes(2);
     expect(create.mock.calls.map(([request]) => request.model)).toEqual(["gemini-4-hydrogen", "gemini-4-hydrogen"]);
@@ -123,14 +125,14 @@ describe("generateWithRetry", () => {
       .mockRejectedValueOnce(penuh(503, "This model is currently experiencing high demand."))
       .mockResolvedValueOnce({ status: "completed", output_text: "ok" });
     const sleep = vi.fn().mockResolvedValue(undefined);
-    await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV })).resolves.toMatchObject({ text: "ok" });
+    await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV, grounding: GROUNDING })).resolves.toMatchObject({ text: "ok" });
     expect(create).toHaveBeenCalledTimes(2);
   });
 
   it("kuota harian habis: langsung dilempar tanpa menunggu dan tanpa ganti model", async () => {
     const create = vi.fn().mockRejectedValue(penuh(429, "Quota exceeded for metric GenerateRequestsPerDay"));
     const sleep = vi.fn();
-    await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV })).rejects.toThrow(/PerDay/);
+    await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV, grounding: GROUNDING })).rejects.toThrow(/PerDay/);
     expect(create).toHaveBeenCalledTimes(1);
     expect(sleep).not.toHaveBeenCalled();
   });
@@ -140,7 +142,7 @@ describe("generateWithRetry", () => {
       "429 Rate limit exceeded for model gemini-4-hydrogen (limit: 20 requests per day on Free Tier). Please retry in 19h30m53s or upgrade your tier.";
     const create = vi.fn().mockRejectedValue(penuh(429, pesan));
     const sleep = vi.fn();
-    await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV })).rejects.toThrow(/per day/);
+    await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV, grounding: GROUNDING })).rejects.toThrow(/per day/);
     expect(create).toHaveBeenCalledTimes(1);
     expect(sleep).not.toHaveBeenCalled();
     expect(pesanKuota(pesan)).toBe("Jatah harian AI sudah habis. Coba lagi besok siang.");
@@ -149,15 +151,46 @@ describe("generateWithRetry", () => {
   it("galat permintaan (400) tidak dicoba ulang", async () => {
     const create = vi.fn().mockRejectedValue(penuh(400, "Invalid argument"));
     const sleep = vi.fn();
-    await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV })).rejects.toThrow(/Invalid/);
+    await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV, grounding: GROUNDING })).rejects.toThrow(/Invalid/);
     expect(create).toHaveBeenCalledTimes(1);
   });
 
   it("setelah percobaan habis tetap model yang sama sampai akhir, lalu galatnya dilempar", async () => {
     const create = vi.fn().mockRejectedValue(penuh(429, '{"retryDelay":"1s"}'));
     const sleep = vi.fn().mockResolvedValue(undefined);
-    await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV, tries: 3 })).rejects.toThrow();
+    await expect(generateWithRetry({ contents: "halo" }, { create, sleep, env: ENV, tries: 3, grounding: GROUNDING })).rejects.toThrow();
     expect(create).toHaveBeenCalledTimes(3);
     expect(new Set(create.mock.calls.map(([request]) => request.model))).toEqual(new Set(["gemini-4-hydrogen"]));
+  });
+});
+
+describe("generateWithRetry: Knowledge Graph di setiap panggilan AI (keputusan pemilik 27 Nov 2026)", () => {
+  const ok = () => vi.fn().mockResolvedValue({ status: "completed", output_text: "ok" });
+
+  it("ringkasan graf dikirim di instruksi sistem, sebelum instruksi milik pemanggil", async () => {
+    const create = ok();
+    await generateWithRetry({ contents: "Klasifikasikan promo ini", config: { systemInstruction: "Jawab dalam JSON." } }, { create, env: ENV, grounding: GROUNDING });
+    expect(create.mock.calls[0]?.[0].system_instruction).toBe("KONTEKS KNOWLEDGE GRAPH SANGHYANG (uji)\n\nJawab dalam JSON.");
+  });
+
+  it("panggilan tanpa instruksi sistem tetap membawa ringkasan graf", async () => {
+    const create = ok();
+    await generateWithRetry({ contents: "halo" }, { create, env: ENV, grounding: GROUNDING });
+    expect(create.mock.calls[0]?.[0].system_instruction).toBe("KONTEKS KNOWLEDGE GRAPH SANGHYANG (uji)");
+  });
+
+  it("prompt yang sudah memuat konteks graf lengkap (knowledgeGraph: 'included') tidak dikirimi ringkasan kedua", async () => {
+    const create = ok();
+    const grounding = vi.fn(GROUNDING);
+    await generateWithRetry({ contents: "konteks graf outlet...", knowledgeGraph: "included" }, { create, env: ENV, grounding });
+    expect(grounding).not.toHaveBeenCalled();
+    expect(create.mock.calls[0]?.[0].system_instruction).toBeUndefined();
+  });
+
+  it("graf yang gagal dibangun membuat panggilan AI gagal, bukan berjalan tanpa graf", async () => {
+    const create = ok();
+    const grounding = () => Promise.reject(new Error("basis data tidak tersambung"));
+    await expect(generateWithRetry({ contents: "halo" }, { create, env: ENV, grounding })).rejects.toThrow(/basis data tidak tersambung/);
+    expect(create).not.toHaveBeenCalled();
   });
 });

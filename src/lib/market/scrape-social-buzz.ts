@@ -182,7 +182,7 @@ export function socialStepOutcome(r: SocialScrapeResult): StepOutcome {
     .map((s) => {
       if (s.id === "tiktok-oembed" && tiktokLine) return tiktokLine;
       if (s.state === "belum-dikonfigurasi") {
-        return `${SOURCE_SHORT[s.id]}: belum ada sinkronisasi Ekstensi Chrome di basis data lokal; jalankan Sinkron Sosmed via Chrome dari peramban staf.`;
+        return `${SOURCE_SHORT[s.id]}: belum ada sinkronisasi Ekstensi Chrome di basis data; jalankan Sinkron Sosmed via Chrome dari peramban staf.`;
       }
       if (s.state === "menunggu-keputusan") return `${SOURCE_SHORT[s.id]}: penyimpanan menunggu keputusan pemilik.`;
       if (s.state === "tanpa-target") return `${SOURCE_SHORT[s.id]}: belum ada target yang tercatat.`;
@@ -191,7 +191,7 @@ export function socialStepOutcome(r: SocialScrapeResult): StepOutcome {
     .filter((x): x is string => x !== null);
 
   if (r.skippedReason) {
-    const detail = perSource.join(" ") || "Belum ada data media sosial yang disinkronkan lewat Ekstensi Chrome di basis data lokal.";
+    const detail = perSource.join(" ") || "Belum ada data media sosial yang disinkronkan lewat Ekstensi Chrome.";
     return { status: "dilewati", detail, issue: [`sosmed dilewati: ${r.skippedReason}`, problemText].filter(Boolean).join("; ") };
   }
 
@@ -211,7 +211,7 @@ export function socialStepOutcome(r: SocialScrapeResult): StepOutcome {
   };
 }
 
-/** Video TikTok terbaru yang tercatat di basis data lokal, diperiksa ketersediaannya lewat oEmbed resmi. */
+/** Video TikTok terbaru yang tercatat di basis data, diperiksa ketersediaannya lewat oEmbed resmi. */
 async function checkKnownTikTokVideos(): Promise<NonNullable<SocialScrapeResult["tiktok"]>> {
   const rows = await db.competitorPromotion.findMany({
     where: { sourceUrl: { contains: "tiktok.com/@" }, AND: { sourceUrl: { contains: "/video/" } } },
@@ -258,7 +258,7 @@ export async function scrapeSocialBuzz(env: Record<string, string | undefined> =
       console.log(`[scrape-social] ${formatExtensionSyncDetail(extensionSync)}`);
       return { attempted: 0, totalDiscovered: 0, newPosts: 0, blocked: [], failures, sources, tiktok, extensionSync };
     }
-    const reason = "Belum ada data media sosial yang disinkronkan lewat Ekstensi Chrome di basis data lokal.";
+    const reason = "Belum ada data media sosial yang disinkronkan lewat Ekstensi Chrome.";
     console.log(`[scrape-social] Dilewati: ${reason}`);
     return { attempted: 0, totalDiscovered: 0, newPosts: 0, blocked: [], failures, skippedReason: reason, sources, tiktok, extensionSync };
   }

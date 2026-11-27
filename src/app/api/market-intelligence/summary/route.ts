@@ -736,7 +736,9 @@ async function buildSummaryPayload({
       const key = outletKeyMap[outlet.name] ?? outlet.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
       try {
         const ctx = buildOutletKnowledgeContext(kgGraph, key, rangeLabel(range));
-        const analysis = await synthesizeOutletAnalysis(ctx, { deterministicOnly: true });
+        // Periode bawaan memakai kesimpulan model terbaru bila konteksnya sudah bergeser sejak langkah analisis_graf;
+        // periode pilihan sendiri hanya memakai kesimpulan untuk konteks yang sama persis.
+        const analysis = await synthesizeOutletAnalysis(ctx, { deterministicOnly: true, latestFallback: customRange === null });
         outletAnalysisMap.set(key, analysis);
       } catch (error) {
         // ZERO-FALLBACK: outlet yang analisisnya gagal disusun tampil tanpa rekomendasi dinamis, sementara outlet lain dan

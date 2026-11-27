@@ -52,6 +52,8 @@ export interface OutletAnalysisResult {
   rangeLabel: string;
   fingerprint: string;
   origin: "deterministic" | "cache" | "live";
+  /** Waktu kesimpulan model disusun (ISO); null untuk susunan otomatis. */
+  generatedAt: string | null;
   headToHeadNarrative: HeadToHeadNarrative;
   periodRecommendations: PeriodRecommendation[];
   slideTranscripts: SlideTranscript[];
@@ -60,6 +62,12 @@ export interface OutletAnalysisResult {
 export interface SynthesizeOptions {
   skipCache?: boolean;
   deterministicOnly?: boolean;
+  /**
+   * Bila simpanan untuk konteks yang sama persis tidak ada, pakai kesimpulan model terbaru outlet ini (rangeLabel dan
+   * generatedAt-nya ikut dikirim) sebelum jatuh ke susunan otomatis. Kesimpulan disusun langkah analisis_graf; tanpa ini
+   * halaman kembali ke susunan otomatis begitu data baru masuk atau jendela 30 hari bergeser sehari.
+   */
+  latestFallback?: boolean;
   generate?: () => Promise<string>;
 }
 
@@ -470,6 +478,7 @@ export function buildDeterministicAnalysis(ctx: OutletKnowledgeContext, fingerpr
     rangeLabel: ctx.rangeLabel,
     fingerprint,
     origin: "deterministic",
+    generatedAt: null,
     headToHeadNarrative: {
       summary,
       teramati,
@@ -491,19 +500,22 @@ export async function synthesizeOutletAnalysis(ctx: OutletKnowledgeContext, opts
   // 1. Periksa Cache di basis data
   if (!opts?.skipCache) {
     try {
-      const cached = await db.marketInsight.findFirst({
-        where: { fingerprint, status: "active" },
-        orderBy: { generatedAt: "desc" },
-      });
-      if (cached && typeof cached.evidence === "object" && cached.evidence !== null) {
-        const parsed = cached.evidence as unknown as OutletAnalysisResult;
-        if (parsed.headToHeadNarrative && parsed.periodRecommendations && parsed.slideTranscripts?.length === 6) {
-          return {
-            ...parsed,
-            origin: "cache",
-            fingerprint,
-          };
-        }
+      const stored = (row: { evidence: unknown; fingerprint: string; generatedAt: Date } | null): OutletAnalysisResult | null => {
+        if (!row || typeof row.evidence !== "object" || row.evidence === null) return null;
+        const parsed = row.evidence as OutletAnalysisResult;
+        if (!parsed.headToHeadNarrative || !parsed.periodRecommendations || parsed.slideTranscripts?.length !== 6) return null;
+        return { ...parsed, origin: "cache", fingerprint: row.fingerprint, generatedAt: row.generatedAt.toISOString() };
+      };
+      const exact = stored(await db.marketInsight.findFirst({ where: { fingerprint, status: "active" }, orderBy: { generatedAt: "desc" } }));
+      if (exact) return exact;
+      if (opts?.latestFallback) {
+        const latest = stored(
+          await db.marketInsight.findFirst({
+            where: { fingerprint: { startsWith: `${ANALYSIS_FINGERPRINT_PREFIX}${ctx.outletKey}:` }, status: "active" },
+            orderBy: { generatedAt: "desc" },
+          }),
+        );
+        if (latest) return latest;
       }
     } catch (error) {
       // ZERO-FALLBACK: simpanan yang tidak terbaca hanya membuat analisis disusun ulang, otomatis di halaman atau lewat
@@ -569,8 +581,10 @@ Jawab HANYA JSON:
     }
   ]
 }`;
+      // Prompt ini sudah memuat konteks Knowledge Graph outlet secara lengkap, jadi ringkasan graf tidak dikirim ulang.
       const res = await generateWithRetry({
         contents: prompt,
+        knowledgeGraph: "included",
       });
       rawResponse = res.text?.trim() ?? "";
     }
@@ -692,6 +706,7 @@ Jawab HANYA JSON:
     rangeLabel: ctx.rangeLabel,
     fingerprint,
     origin: "live",
+    generatedAt: new Date().toISOString(),
     headToHeadNarrative: {
       summary,
       teramati,

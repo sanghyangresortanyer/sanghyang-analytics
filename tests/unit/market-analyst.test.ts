@@ -1,5 +1,6 @@
 import { after, test } from "node:test";
 import assert from "node:assert/strict";
+import type { Prisma } from "@prisma/client";
 import { db } from "../../src/lib/db";
 import { pesanKuota } from "../../src/lib/gemini";
 import { buildKnowledgeGraph } from "../../src/lib/knowledge-graph/build";
@@ -235,6 +236,40 @@ test("penyegaran analisis dari Knowledge Graph menyimpan hasil model, lalu Insig
     assert.equal(calls, 1, "membaca simpanan tidak memanggil model lagi");
   } finally {
     if (created.length) await db.marketInsight.deleteMany({ where: { fingerprint: { in: created } } });
+  }
+});
+
+test("periode bawaan memakai kesimpulan model terbaru outlet saat konteks sudah bergeser, lengkap dengan periode dan waktunya", async () => {
+  const period = parseDayRange("2026-11-01", "2026-11-20");
+  assert.ok(period && period !== "invalid");
+  const graph = await buildKnowledgeGraph(period);
+  const ctx = buildOutletKnowledgeContext(graph, "sunset-grill", "1 Nov 2026 – 20 Nov 2026");
+  // Kesimpulan yang disusun kemarin untuk jendela lain: sidik jarinya berbeda dari konteks halaman hari ini.
+  const shape = await synthesizeOutletAnalysis(ctx, { deterministicOnly: true, skipCache: true });
+  const olderFingerprint = `${ANALYSIS_FINGERPRINT_PREFIX}sunset-grill:31 Okt 2026 – 19 Nov 2026:0000000000000000:v1`;
+  const stored = { ...shape, origin: "live", rangeLabel: "31 Okt 2026 – 19 Nov 2026", fingerprint: olderFingerprint };
+  const row = await db.marketInsight.create({
+    data: {
+      fingerprint: olderFingerprint,
+      type: "recommendation",
+      title: "Analisis Pasar Sunset Grill (uji fallback)",
+      summary: JSON.stringify(stored),
+      evidence: stored as unknown as Prisma.InputJsonValue,
+      sourceReferences: ctx.citations as unknown as Prisma.InputJsonValue,
+      priority: 1,
+      confidence: 100,
+      status: "active",
+    },
+  });
+  try {
+    assert.equal((await synthesizeOutletAnalysis(ctx, { deterministicOnly: true })).origin, "deterministic", "tanpa latestFallback hanya konteks yang sama persis");
+    const latest = await synthesizeOutletAnalysis(ctx, { deterministicOnly: true, latestFallback: true });
+    assert.equal(latest.origin, "cache");
+    assert.equal(latest.fingerprint, olderFingerprint);
+    assert.equal(latest.rangeLabel, "31 Okt 2026 – 19 Nov 2026", "periode kesimpulan yang dipakai ikut dikirim");
+    assert.equal(latest.generatedAt, row.generatedAt.toISOString());
+  } finally {
+    await db.marketInsight.deleteMany({ where: { fingerprint: olderFingerprint } });
   }
 });
 

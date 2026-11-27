@@ -17,6 +17,10 @@ import { GoogleGenAI } from '@google/genai';
  * kamar, menu, analisis 6 outlet). Pemilik lalu memilih gemini-3.5-flash-lite (500 per hari) dengan penalaran high:
  * kuota dihitung per permintaan, dan high hanya memperlama panggilan (25 promo: 14,7 detik, low 6,1 detik).
  *
+ * Setiap panggilan membawa ringkasan Knowledge Graph 30 hari terakhir di instruksi sistem (knowledge-graph/ai-grounding.ts,
+ * keputusan pemilik 27 Nov 2026), terlepas dari toggle menu Knowledge Graph di Pengaturan. Pengecualiannya hanya pemanggil
+ * yang prompt-nya sudah memuat konteks graf lengkap (knowledgeGraph: 'included').
+ *
  * Lewat Interactions API seperti proyek web, bukan models.generateContent: 26 Nov 2026 generateContent ke
  * gemini-4-hydrogen dengan thinkingLevel XHIGH baru menjawab 503 "high demand" setelah 123 detik, sedangkan
  * Interactions API selesai dalam 9,6 detik. Interactions API tidak menerima temperature untuk model berpikir, jadi
@@ -183,6 +187,8 @@ type BagianMasukan = { text?: string; inlineData?: { data?: string; mimeType?: s
 export type GenerateParams = {
   contents: string | { role?: string; parts?: BagianMasukan[] }[];
   config?: { responseMimeType?: string; maxOutputTokens?: number; systemInstruction?: string; abortSignal?: AbortSignal };
+  /** "included": prompt pemanggil sudah memuat konteks Knowledge Graph lengkap, jadi ringkasan graf tidak dikirim dua kali. */
+  knowledgeGraph?: 'included';
 };
 
 type MasukanInteraction = { type: 'text'; text: string } | { type: 'image'; data: string; mime_type: string };
@@ -285,7 +291,12 @@ type GenerateDeps = {
   sleep?: (ms: number) => Promise<void>;
   env?: Readonly<Record<string, string | undefined>>;
   tries?: number;
+  /** Ringkasan Knowledge Graph untuk instruksi sistem; bawaannya dibangun dari graf 30 hari terakhir. */
+  grounding?: () => Promise<string>;
 };
+
+// Impor dinamis: modul graf membaca basis data dan mengimpor modul pasar yang juga memanggil AI lewat berkas ini.
+const knowledgeGraphGrounding = async () => (await import('./knowledge-graph/ai-grounding')).knowledgeGraphGrounding();
 
 /**
  * Satu panggilan AI dengan model PRIMARY_MODEL dan penalaran xhigh. Kena batas per menit (429) atau server sibuk
@@ -294,7 +305,11 @@ type GenerateDeps = {
  */
 export async function generateWithRetry(params: GenerateParams, deps: GenerateDeps = {}): Promise<GenerateResult> {
   const config = aiConfig(deps.env);
-  const { request, options } = buildInteraction(params, config);
+  // Semua panggilan AI membawa ringkasan Knowledge Graph (keputusan pemilik 27 Nov 2026). Graf yang gagal dibangun membuat
+  // panggilan ini gagal juga, bukan berjalan tanpa graf.
+  const grounding = params.knowledgeGraph === 'included' ? null : await (deps.grounding ?? knowledgeGraphGrounding)();
+  const systemInstruction = [grounding, params.config?.systemInstruction].filter(Boolean).join('\n\n') || undefined;
+  const { request, options } = buildInteraction({ ...params, config: { ...params.config, systemInstruction } }, config);
   const create =
     deps.create ??
     ((req: InteractionRequest, opt: InteractionOptions) =>

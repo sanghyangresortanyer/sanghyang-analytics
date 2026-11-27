@@ -616,9 +616,16 @@ export interface SnSummary {
   outletAnalyses?: Record<
     string,
     {
+      /** "live"/"cache" = kesimpulan model dari Knowledge Graph; "deterministic" = susunan otomatis dari graf yang sama. */
+      origin?: "deterministic" | "cache" | "live";
+      /** Periode yang dipakai saat kesimpulan disusun; bisa berbeda dari periode tampilan bila memakai kesimpulan terbaru. */
+      rangeLabel?: string;
+      generatedAt?: string | null;
       headToHeadNarrative?: SnHeadToHeadNarrative | null;
       periodRecommendations?: Array<{
         factor: string;
+        aarrrStage?: string;
+        horizon?: string;
         finding: string;
         action: string;
         metricToWatch: string;
@@ -727,7 +734,7 @@ export interface SnSocialAccountCoverage {
   profilePostsTotal: number | null;
   followers: number | null;
   incomplete: boolean;
-  /** Tanggal tayang terbaru (YYYY-MM-DD WIB) yang tersinkron di basis data lokal untuk akun ini; null bila belum ada. */
+  /** Tanggal tayang terbaru (YYYY-MM-DD WIB) yang tersinkron di basis data untuk akun ini; null bila belum ada. */
   latestPostAt: string | null;
 }
 
@@ -1214,6 +1221,30 @@ export function formatMarketingClientError(err: unknown, fallbackMessage: (detai
 }
 
 /** Membersihkan teks tab Strategy dari rujukan halaman lama agar fokus murni pada strategi pemasaran. */
+/**
+ * Asal kesimpulan Knowledge Graph untuk teks kecil di bawah judul: kapan dan untuk periode apa kesimpulan itu disusun.
+ * Kesimpulan model disusun langkah analisis_graf (Perbarui Semua Data dan jadwal malam); susunan otomatis dipakai selama
+ * belum ada kesimpulan untuk outlet itu. Nama mesin AI tidak disebut.
+ */
+export function knowledgeAnalysisOriginText(
+  analysis: { origin?: "deterministic" | "cache" | "live"; rangeLabel?: string; generatedAt?: string | null } | null | undefined,
+): string | null {
+  if (!analysis?.origin) return null;
+  const period = analysis.rangeLabel ? ` periode ${analysis.rangeLabel}` : "";
+  if (analysis.origin === "deterministic" || !analysis.generatedAt) {
+    return `Susunan otomatis dari Knowledge Graph${period}. Kesimpulan baru disusun saat Perbarui Semua Data berikutnya.`;
+  }
+  const at = new Intl.DateTimeFormat("id-ID", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Asia/Jakarta",
+  }).format(new Date(analysis.generatedAt));
+  return `Kesimpulan disusun ${at} WIB dari Knowledge Graph${period}.`;
+}
+
 export function sanitizeStrategyText(text: string): string {
   if (!text) return "";
   return sanitizePublicText(text)

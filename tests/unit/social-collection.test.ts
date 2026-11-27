@@ -104,7 +104,7 @@ test("langkah sosmed tanpa kunci dan belum ada sinkron Ekstensi Chrome: dilewati
     newPosts: 0,
     blocked: [],
     failures: [],
-    skippedReason: "Belum ada data media sosial yang disinkronkan lewat Ekstensi Chrome di basis data lokal.",
+    skippedReason: "Belum ada data media sosial yang disinkronkan lewat Ekstensi Chrome.",
     sources: socialSourceStatuses({}, { tiktokVideos: 1, extensionSync: { instagramPosts: 0, tiktokPosts: 0, totalPosts: 0, trackedAccounts: 0, latestSyncedAt: null, latestRunStatus: null, activeSyncRunning: false } }),
     tiktok: { checked: 1, available: 1, unavailable: [], failures: [] },
   });
@@ -143,7 +143,7 @@ test("langkah sosmed dengan data Ekstensi Chrome di DB lokal (tanpa Graph API): 
   assert.equal(outcome.status, "berhasil");
   assert.equal(outcome.issue, null);
   assert.match(outcome.detail, /Disinkronkan lewat Ekstensi Chrome:/);
-  assert.match(outcome.detail, /6\.988 postingan Instagram & 404 postingan TikTok dari 18 akun terpantau di basis data lokal/);
+  assert.match(outcome.detail, /6\.988 postingan Instagram & 404 postingan TikTok dari 18 akun terpantau di basis data/);
   assert.match(outcome.detail, /TikTok: 10 dari 10 video tercatat masih tersedia/);
   assert.doesNotMatch(outcome.detail, /INSTAGRAM_GRAPH_ACCESS_TOKEN|INSTAGRAM_BUSINESS_ACCOUNT_ID|Perlu login ulang di Chrome/);
 
