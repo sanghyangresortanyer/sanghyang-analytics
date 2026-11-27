@@ -125,6 +125,8 @@ export interface RoomRateSummary {
   rows: RoomRateRow[];
   weekday: DayRecommendation;
   weekend: DayRecommendation;
+  /** Satu baris per jenis hari dan fase, untuk daftar di tab Strategy. */
+  recommendationLines: string[];
   recommendation: string;
 }
 
@@ -236,25 +238,32 @@ function recommendDay(rows: RoomRateRow[], day: Stay, isPricing: (hotelId: strin
   };
 }
 
-function describeDay(label: string, d: DayRecommendation): string {
-  if (d.position === "TANPA_DATA" || d.phase1 === null) return `${label}: harga Sanghyang tidak tampil di bukti, belum bisa dibandingkan.`;
+/**
+ * Kalimat rekomendasi satu jenis hari, satu baris per fase. Ditulis dengan tanda baca biasa seperti catatan staf: tanpa
+ * em dash, panah, atau simbol ≥ (permintaan pemilik 27 Nov 2026), supaya tidak terbaca seperti teks mesin.
+ */
+function describeDay(label: string, d: DayRecommendation): string[] {
+  if (d.position === "TANPA_DATA" || d.phase1 === null) return [`${label}: harga Sanghyang tidak tampil di bukti, belum bisa dibandingkan.`];
   const current = rupiah(d.sanghyang!);
   if (d.position === "PEMBANDING_KURANG") {
     const lux = d.luxuryMedian ? `; median bintang 5 ${rupiah(d.luxuryMedian)}` : "";
-    return `${label}: pertahankan ${current} tanpa diskon (baru ${d.directSampleSize} pembanding bintang 4${lux}).`;
+    return [`${label}: pertahankan ${current} tanpa diskon (baru ${d.directSampleSize} pembanding bintang 4${lux}).`];
   }
   const p1 = d.phase1;
   const move =
-    p1.publish === d.sanghyang ? `pertahankan ${current}` : `${p1.publish > d.sanghyang! ? "naikkan" : "turunkan"} ${current} → ${rupiah(p1.publish)}`;
-  const promo1 = p1.maxDiscountPercent === 0 ? "tanpa diskon, promo hanya nilai tambah" : `diskon promo maks ${p1.maxDiscountPercent}%`;
-  const fase1 = `${label} — Fase 1: ${move} (lantai bintang 4 ${rupiah(d.floor!)}), ${promo1}.`;
+    p1.publish === d.sanghyang
+      ? `pertahankan ${current}`
+      : `${p1.publish > d.sanghyang! ? "naikkan" : "turunkan"} dari ${current} menjadi ${rupiah(p1.publish)}`;
+  const promo1 = p1.maxDiscountPercent === 0 ? "tanpa diskon, promo hanya berupa nilai tambah" : `diskon promo maksimal ${p1.maxDiscountPercent}%`;
+  const lines = [`${label}, Fase 1: ${move} (lantai bintang 4 ${rupiah(d.floor!)}), ${promo1}.`];
   const p2 = d.phase2;
-  const fase2 =
-    p2 && p2.publish !== p1.publish
-      ? ` Fase 2: harga publikasi ${rupiah(p2.publish)} (median bintang 4), diskon promo maks ${p2.maxDiscountPercent}% agar harga bersih tetap ≥ ${rupiah(d.floor!)}.`
-      : "";
-  const review = d.needsReview ? " Lompatan besar: cek kesetaraan tipe kamar & naikkan bertahap." : "";
-  return `${fase1}${fase2}${review}`;
+  if (p2 && p2.publish !== p1.publish) {
+    lines.push(
+      `${label}, Fase 2: harga publikasi ${rupiah(p2.publish)} (median bintang 4), diskon promo maksimal ${p2.maxDiscountPercent}% agar harga bersih tetap minimal ${rupiah(d.floor!)}.`,
+    );
+  }
+  if (d.needsReview) lines.push(`${label}: lompatan harganya besar, jadi cek dulu kesetaraan tipe kamar lalu naikkan bertahap.`);
+  return lines;
 }
 
 function roomTitle(kind: RoomKind, rows: RoomRateRow[]): { room: string; roomDetail: string } {
@@ -563,13 +572,15 @@ export function buildRoomRateSummaries(
     const kindRows = rows.filter((r) => r.kind === kind);
     const weekday = recommendDay(kindRows, "weekday", isPricing);
     const weekend = recommendDay(kindRows, "weekend", isPricing);
+    const recommendationLines = [...describeDay("Hari biasa", weekday), ...describeDay("Akhir pekan", weekend)];
     return {
       kind,
       ...roomTitle(kind, kindRows),
       rows: kindRows,
       weekday,
       weekend,
-      recommendation: `${describeDay("Hari biasa", weekday)} ${describeDay("Akhir pekan", weekend)}`,
+      recommendationLines,
+      recommendation: recommendationLines.join(" "),
     };
   });
 }

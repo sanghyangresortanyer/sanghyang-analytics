@@ -15,6 +15,7 @@
  */
 import type { Prisma } from "@prisma/client";
 import type { Page } from "puppeteer";
+import { humanizeDashes } from "../humanize-text";
 import { isMarketRelevant } from "./classifier";
 import { COMPSET_MAX_ROAD_KM } from "./compset";
 import { promoDayRange, parseIsoDay } from "./promo-extractor";
@@ -130,6 +131,8 @@ Jawab HANYA JSON {"items": [{"id": "...", "ringkasan": "...", "jenis": "acara" |
 }
 
 const text = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0, max) : "");
+/** Ringkasan dan alasan ditulis model sendiri (bukan kutipan), jadi em dash diganti koma seperti tulisan staf. */
+const prose = (v: unknown, max: number) => text(typeof v === "string" ? humanizeDashes(v) : v, max);
 
 function plausibleDay(v: unknown, publishedDay: string): string | null {
   const day = parseIsoDay(v);
@@ -169,7 +172,7 @@ export function parseNewsReadings(raw: string, articles: readonly NewsArticleInp
     const dampak = typeof o.dampak === "string" && Object.hasOwn(NEWS_IMPACTS, o.dampak) ? (o.dampak as NewsImpact) : null;
     out.set(article.id, {
       id: article.id,
-      ringkasan: text(o.ringkasan, 600),
+      ringkasan: prose(o.ringkasan, 600),
       isEvent,
       kind: isEvent ? "event" : (KINDS.find((k) => k === o.kategori && k !== "event") ?? "destination"),
       eventStart: start,
@@ -177,7 +180,7 @@ export function parseNewsReadings(raw: string, articles: readonly NewsArticleInp
       lokasi,
       dampak,
       outlets: dampak && Array.isArray(o.outlet) ? [...new Set(o.outlet.filter(isOutletKey))] : [],
-      alasan: text(o.alasan, 400),
+      alasan: prose(o.alasan, 400),
     });
   }
   return out;

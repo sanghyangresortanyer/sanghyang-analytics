@@ -1607,14 +1607,14 @@ describe("refresh-follow SSE dan status pembaruan", () => {
 });
 
 describe("knowledgeAnalysisOriginText", () => {
-  it("menyebut waktu WIB dan periode kesimpulan Knowledge Graph, tanpa nama mesin AI", () => {
+  it("menyebut waktu WIB dan periode rekomendasi, tanpa nama mesin AI", () => {
     expect(
       knowledgeAnalysisOriginText({ origin: "cache", rangeLabel: "28 Okt 2026 – 26 Nov 2026", generatedAt: "2026-11-26T18:54:10.000Z" }),
-    ).toBe("Kesimpulan disusun 27 Nov 2026, 01.54 WIB dari Knowledge Graph periode 28 Okt 2026 – 26 Nov 2026.");
+    ).toBe("Disusun 27 Nov 2026, 01.54 WIB dari semua data periode 28 Okt 2026 – 26 Nov 2026. Disusun ulang setiap Perbarui Semua Data.");
   });
   it("susunan otomatis ditulis apa adanya beserta kapan kesimpulan baru disusun", () => {
     expect(knowledgeAnalysisOriginText({ origin: "deterministic", rangeLabel: "29 Okt 2026 – 27 Nov 2026", generatedAt: null })).toBe(
-      "Susunan otomatis dari Knowledge Graph periode 29 Okt 2026 – 27 Nov 2026. Kesimpulan baru disusun saat Perbarui Semua Data berikutnya.",
+      "Susunan otomatis dari semua data periode 29 Okt 2026 – 27 Nov 2026. Rekomendasi baru disusun saat Perbarui Semua Data berikutnya.",
     );
     expect(knowledgeAnalysisOriginText(null)).toBeNull();
   });

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { requireMarketingApiAccess } from "@/lib/marketing/api-auth";
+import { failureReason } from "@/lib/ai/market-analyst";
 import { generateSocialContentDrafts, type ContentDraftInput } from "@/lib/market/ai-content-generator";
 
 export async function POST(request: Request) {
@@ -28,6 +29,9 @@ export async function POST(request: Request) {
       promoCategory: String(payload.promoCategory || "Umum").slice(0, 80),
       counterStrategy: String(payload.counterStrategy).slice(0, 500),
       outletName: payload.outletName ? String(payload.outletName).slice(0, 100) : undefined,
+      previousHeadlines: Array.isArray(payload.previousHeadlines)
+        ? payload.previousHeadlines.filter((h): h is string => typeof h === "string").slice(-9).map((h) => h.slice(0, 200))
+        : undefined,
     };
 
     const bundle = await generateSocialContentDrafts(input);
@@ -35,9 +39,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true, data: bundle });
   } catch (error) {
     console.error("[generate-content] Error:", error);
-    return NextResponse.json(
-      { error: "Gagal membuat draf konten", details: (error as Error)?.message },
-      { status: 500 },
-    );
+    // Klien menambahkan awalan "Draf konten belum bisa dibuat:", jadi route cukup mengirim alasannya.
+    return NextResponse.json({ error: failureReason(error) }, { status: 502 });
   }
 }

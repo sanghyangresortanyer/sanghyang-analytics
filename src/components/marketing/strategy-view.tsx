@@ -167,6 +167,8 @@ export function StrategyView({
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [generatingId, setGeneratingId] = useState<string | null>(null);
   const [draftModal, setDraftModal] = useState<{ title: string; draft: SnGeneratedDraft } | null>(null);
+  // Judul draf yang pernah dibuat per promo; dikirim lagi supaya klik berikutnya menghasilkan versi yang berbeda.
+  const [draftHeadlines, setDraftHeadlines] = useState<Record<string, string[]>>({});
   const [draftTab, setDraftTab] = useState<"reels" | "tiktok" | "carousel">("reels");
   const [draftError, setDraftError] = useState<string | null>(null);
 
@@ -348,6 +350,7 @@ export function StrategyView({
           promoCategory: promo.category ?? "Promo",
           counterStrategy: counterText,
           outletName: outletLabel,
+          previousHeadlines: draftHeadlines[promo.id] ?? [],
         }),
       });
       const json = (await res.json().catch(() => null)) as { data?: SnGeneratedDraft; error?: string } | null;
@@ -356,6 +359,8 @@ export function StrategyView({
       }
       setDraftTab("reels");
       setDraftModal({ title: `${promo.competitorName}: ${promo.title}`, draft: json.data });
+      const made = [json.data.reels?.headline, json.data.tiktok?.headline, json.data.carousel?.headline].filter((h): h is string => Boolean(h));
+      setDraftHeadlines((prev) => ({ ...prev, [promo.id]: [...(prev[promo.id] ?? []), ...made].slice(-9) }));
     } catch (err) {
       setDraftError(formatMarketingClientError(err, (detail) => `Draf konten belum bisa dibuat: ${detail}`));
     } finally {
@@ -579,9 +584,25 @@ export function StrategyView({
                   <p className="text-sm leading-relaxed text-navy-700">
                     {sanitizeStrategyText(strategy.pricingOptimization.currentAnalysis)}
                   </p>
-                  <p className="rounded-xl bg-cream-100 p-3 text-sm font-medium text-navy-900">
-                    <strong>Langkah:</strong> {sanitizeStrategyText(strategy.pricingOptimization.recommendation)}
-                  </p>
+                  {strategy.pricingOptimization.recommendationItems?.length ? (
+                    <div className="space-y-3 rounded-xl bg-cream-100 p-3 text-sm text-navy-900">
+                      <p className="font-bold">Langkah per tipe kamar</p>
+                      {strategy.pricingOptimization.recommendationItems.map((item) => (
+                        <div key={item.room}>
+                          <p className="font-semibold">{sanitizeStrategyText(item.room)}</p>
+                          <ul className="mt-1 list-disc space-y-0.5 pl-5 text-[13px] leading-relaxed text-navy-800">
+                            {item.lines.map((line) => (
+                              <li key={line}>{sanitizeStrategyText(line)}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="rounded-xl bg-cream-100 p-3 text-sm font-medium text-navy-900">
+                      <strong>Langkah:</strong> {sanitizeStrategyText(strategy.pricingOptimization.recommendation)}
+                    </p>
+                  )}
                   {isResort && (
                     <div className="rounded-xl border border-cream-200 bg-cream-50 p-3 text-xs text-navy-700">
                       <p className="font-bold uppercase tracking-wide text-navy-900">Syarat naik ke Fase 2</p>

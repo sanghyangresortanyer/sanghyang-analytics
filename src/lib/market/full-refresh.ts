@@ -40,6 +40,7 @@ import { refreshOfficialRoomRates } from "./official-room-rates-refresh";
 import { WITH_BREAKFAST_PACKAGE, WITHOUT_BREAKFAST_PACKAGE } from "./rate-basis";
 import { presetRange } from "./date-range";
 import { refreshOutletAnalysesFromGraph, type RefreshedOutletAnalysis } from "../knowledge-graph/refresh-analyses";
+import { latestOutletActions } from "../ai/market-analyst";
 import {
   buildRoomRateData,
   crawlRoomRates,
@@ -828,6 +829,16 @@ export async function runFullRefresh(
     console.error("[nightly] klasifikasi kompetitor holistik gagal:", error);
   }
 
+  // Langkah dari kesimpulan sebelumnya dibaca sebelum cache narasi dibersihkan, lalu dikirim ke analisis_graf supaya
+  // rekomendasi baru tidak menyalin yang lama kata per kata.
+  let previousActionsByOutlet: Record<string, string[]> | undefined;
+  try {
+    previousActionsByOutlet = await latestOutletActions();
+  } catch (error) {
+    issues.push(`langkah kesimpulan sebelumnya tidak terbaca (${messageOf(error)})`);
+    console.error("[nightly] langkah kesimpulan sebelumnya tidak terbaca:", error);
+  }
+
   // Invalidasi cache narasi analisis (`kg-narrative:*`) agar Head-to-Head, Audit Pembanding, Knowledge Graph, dan Laporan Insight Pasar PDF selalu segar.
   try {
     const invalidated = await invalidateStaleNarrativeCache();
@@ -847,7 +858,9 @@ export async function runFullRefresh(
     } else if (!hasExtractionKey) {
       finish("analisis_graf", skippedOutcome("Kunci layanan model belum tersedia, jadi halaman memakai susunan otomatis dari Knowledge Graph."));
     } else {
-      finish("analisis_graf", graphAnalysesOutcome(await refreshOutletAnalysesFromGraph(presetRange("30d", new Date()))));
+      // Selalu disusun ulang (skipCache): pemilik 27 Nov 2026 meminta rekomendasi berubah setiap Perbarui Semua Data,
+      // walaupun data graf belum berubah. Enam panggilan AI per pembaruan masih jauh di bawah kuota harian.
+      finish("analisis_graf", graphAnalysesOutcome(await refreshOutletAnalysesFromGraph(presetRange("30d", new Date()), undefined, { skipCache: true, previousActionsByOutlet })));
     }
   } catch (error) {
     finish("analisis_graf", crashedOutcome("Kesimpulan dari Knowledge Graph tidak dapat disusun.", error));

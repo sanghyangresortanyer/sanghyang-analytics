@@ -3,6 +3,7 @@
  * pada aplikasi tunggal Sanghyang Analytics.
  */
 import type { InternalOutletSignals, InternalOutletSignalsMap } from "@/lib/analytics/internal-signals-types";
+import { humanizeDashes } from "@/lib/humanize-text";
 
 export type { InternalOutletSignals, InternalOutletSignalsMap };
 
@@ -505,6 +506,8 @@ export interface SnOutletMarketShare {
       title: string;
       currentAnalysis: string;
       recommendation: string;
+      /** Langkah per tipe kamar, satu baris per jenis hari dan fase (resort); kosong untuk outlet F&B. */
+      recommendationItems?: { room: string; lines: string[] }[];
       suggestedPriceChange?: string;
     };
     sentimentLeverage: {
@@ -1165,7 +1168,7 @@ const AI_OR_TOOL_MENTION =
 /** Membersihkan teks publik dari penyebutan nama alat internal, mesin pemrosesan, berkas, dan istilah lama. */
 export function sanitizePublicText(text: string): string {
   if (!text) return "";
-  return text
+  const cleaned = text
     .replace(AI_OR_TOOL_MENTION, "")
     .replace(/\(\s*(?:crawl\s+)?diperiksa\s+crawl4ai\s+([^)]+)\)/gi, "(terakhir diperiksa $1)")
     .replace(/\(\s*crawl\s+crawl4ai\s*,?\s*([^)]+)\)/gi, "(terakhir diperiksa $1)")
@@ -1190,6 +1193,7 @@ export function sanitizePublicText(text: string): string {
     .replace(/\s+,/g, ",")
     .replace(/[ \t]{2,}/g, " ")
     .trim();
+  return humanizeDashes(cleaned);
 }
 
 export const SESSION_EXPIRED_MESSAGE = "Sesi login telah berakhir. Silakan login ulang.";
@@ -1232,7 +1236,7 @@ export function knowledgeAnalysisOriginText(
   if (!analysis?.origin) return null;
   const period = analysis.rangeLabel ? ` periode ${analysis.rangeLabel}` : "";
   if (analysis.origin === "deterministic" || !analysis.generatedAt) {
-    return `Susunan otomatis dari Knowledge Graph${period}. Kesimpulan baru disusun saat Perbarui Semua Data berikutnya.`;
+    return `Susunan otomatis dari semua data${period}. Rekomendasi baru disusun saat Perbarui Semua Data berikutnya.`;
   }
   const at = new Intl.DateTimeFormat("id-ID", {
     day: "numeric",
@@ -1242,7 +1246,7 @@ export function knowledgeAnalysisOriginText(
     minute: "2-digit",
     timeZone: "Asia/Jakarta",
   }).format(new Date(analysis.generatedAt));
-  return `Kesimpulan disusun ${at} WIB dari Knowledge Graph${period}.`;
+  return `Disusun ${at} WIB dari semua data${period}. Disusun ulang setiap Perbarui Semua Data.`;
 }
 
 export function sanitizeStrategyText(text: string): string {

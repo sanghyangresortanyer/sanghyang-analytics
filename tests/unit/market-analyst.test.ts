@@ -8,6 +8,7 @@ import { buildOutletKnowledgeContext } from "../../src/lib/knowledge-graph/conte
 import {
   ANALYSIS_FINGERPRINT_PREFIX,
   buildDeterministicAnalysis,
+  latestOutletActions,
   OutletAnalysisError,
   stripAiModelMentions,
   synthesizeOutletAnalysis,
@@ -247,7 +248,16 @@ test("periode bawaan memakai kesimpulan model terbaru outlet saat konteks sudah 
   // Kesimpulan yang disusun kemarin untuk jendela lain: sidik jarinya berbeda dari konteks halaman hari ini.
   const shape = await synthesizeOutletAnalysis(ctx, { deterministicOnly: true, skipCache: true });
   const olderFingerprint = `${ANALYSIS_FINGERPRINT_PREFIX}sunset-grill:31 Okt 2026 – 19 Nov 2026:0000000000000000:v1`;
-  const stored = { ...shape, origin: "live", rangeLabel: "31 Okt 2026 – 19 Nov 2026", fingerprint: olderFingerprint };
+  // Simpanan lama bisa memuat em dash dari jawaban model sebelum pembersih teks ada; saat dibaca harus sudah bersih.
+  const [firstRec, ...restRecs] = shape.periodRecommendations;
+  const stored = {
+    ...shape,
+    origin: "live",
+    rangeLabel: "31 Okt 2026 – 19 Nov 2026",
+    fingerprint: olderFingerprint,
+    periodRecommendations: [{ ...firstRec, action: "Tambah Reels — fokus sunset dermaga." }, ...restRecs],
+    headToHeadNarrative: { ...shape.headToHeadNarrative, summary: "Sunset Grill unggul — rating 4,6 di Google Maps." },
+  };
   const row = await db.marketInsight.create({
     data: {
       fingerprint: olderFingerprint,
@@ -268,8 +278,61 @@ test("periode bawaan memakai kesimpulan model terbaru outlet saat konteks sudah 
     assert.equal(latest.fingerprint, olderFingerprint);
     assert.equal(latest.rangeLabel, "31 Okt 2026 – 19 Nov 2026", "periode kesimpulan yang dipakai ikut dikirim");
     assert.equal(latest.generatedAt, row.generatedAt.toISOString());
+    assert.equal(latest.periodRecommendations[0]?.action, "Tambah Reels, fokus sunset dermaga.");
+    assert.equal(latest.headToHeadNarrative.summary, "Sunset Grill unggul, rating 4,6 di Google Maps.");
+    assert.doesNotMatch(JSON.stringify(latest), /—/, "simpanan yang dibaca tidak membawa em dash ke halaman, temuan, atau PDF");
   } finally {
     await db.marketInsight.deleteMany({ where: { fingerprint: olderFingerprint } });
+  }
+});
+
+test("langkah kesimpulan sebelumnya dibaca sebelum cache narasi dibersihkan dan ikut ke prompt, supaya rekomendasi baru tidak menyalin", async () => {
+  const { refreshOutletAnalysesFromGraph } = await import("../../src/lib/knowledge-graph/refresh-analyses");
+  const { range, ctx, fingerprint } = await failureTestRange();
+  const oldFingerprint = `${ANALYSIS_FINGERPRINT_PREFIX}dspa:uji langkah lama:0000000000000000:v1`;
+  const shape = await synthesizeOutletAnalysis(ctx, { deterministicOnly: true, skipCache: true });
+  const oldAction = "Langkah lama uji: unggah 3 video Hot Spring Aquamedic sore hari dengan tautan WhatsApp reservasi.";
+  const [firstRec, ...restRecs] = shape.periodRecommendations;
+  const old = { ...shape, origin: "live", fingerprint: oldFingerprint, periodRecommendations: [{ ...firstRec, action: oldAction }, ...restRecs] };
+  await db.marketInsight.create({
+    data: {
+      fingerprint: oldFingerprint,
+      type: "recommendation",
+      title: "Analisis Pasar D'Spa (uji langkah lama)",
+      summary: JSON.stringify(old),
+      evidence: old as unknown as Prisma.InputJsonValue,
+      sourceReferences: ctx.citations as unknown as Prisma.InputJsonValue,
+      priority: 1,
+      confidence: 100,
+      status: "active",
+    },
+  });
+  const prompts: string[] = [];
+  try {
+    const previous = await latestOutletActions();
+    assert.ok(previous.dspa?.includes(oldAction), "langkah lama dibaca dari simpanan terbaru outlet");
+    // Langkah analisis_graf membersihkan cache narasi sebelum menyusun ulang; langkah lama tetap terbawa lewat opsi.
+    await db.marketInsight.deleteMany({ where: { fingerprint: oldFingerprint } });
+    const results = await refreshOutletAnalysesFromGraph(range, ["dspa"], {
+      skipCache: true,
+      previousActionsByOutlet: previous,
+      generate: async (prompt) => {
+        prompts.push(prompt);
+        return JSON.stringify({ headToHeadNarrative: { summary: "Ringkasan uji langkah baru D'Spa dari graf.", teramati: [], disimpulkan: [], implikasi: [] } });
+      },
+    });
+    assert.deepEqual(results.map((r) => [r.outletKey, r.origin]), [["dspa", "live"]]);
+    assert.equal(prompts.length, 1);
+    assert.ok(prompts[0].includes(oldAction), "langkah lama ikut ke prompt walaupun simpanannya sudah dihapus");
+    // Uji model nyata 27 Nov 2026: langkah lama di awal prompt disalin persis; di akhir prompt beserta larangannya, kelima
+    // langkah baru berbeda dari yang lama.
+    const tail = prompts[0].slice(prompts[0].lastIndexOf("}"));
+    assert.ok(tail.includes(oldAction), "langkah lama berada di akhir prompt, sesudah contoh JSON");
+    assert.match(tail, /Jangan memakai lagi langkah di atas, baik kata per kata maupun parafrase dekat/);
+    // Model yang hanya menjawab sebagian faktor membuat sisanya diisi susunan otomatis yang selalu sama.
+    assert.match(prompts[0], /tepat 5 butir, satu per faktor: sosmed, harga, fasilitas, promo, reputasi/);
+  } finally {
+    await db.marketInsight.deleteMany({ where: { fingerprint: { in: [oldFingerprint, fingerprint] } } });
   }
 });
 

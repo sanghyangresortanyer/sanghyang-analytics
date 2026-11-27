@@ -71,6 +71,8 @@ export interface OutletMarketShareData {
       title: string;
       currentAnalysis: string;
       recommendation: string;
+      /** Langkah per tipe kamar, satu baris per jenis hari dan fase (resort); kosong untuk outlet F&B. */
+      recommendationItems?: { room: string; lines: string[] }[];
       suggestedPriceChange?: string;
     };
     sentimentLeverage: {

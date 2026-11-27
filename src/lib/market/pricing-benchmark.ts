@@ -271,6 +271,7 @@ export const OUTLET_MARKET_SHARE_DATA: Record<string, OutletMarketShareData> = {
         title: `Penyesuaian tarif per jenis kamar vs ${RESORT_RATE_COMPETITORS} resort pembanding inti (OTA)`,
         currentAnalysis: `Indeks harga resort ${RESORT_PPI} (100 = setara harga kompetitor bintang 4 di OTA). Hari biasa: ${RESORT_ROOMS_BELOW_MARKET} dari ${RESORT_ROOM_SUMMARIES.length} jenis kamar Sanghyang di bawah koridor pasar bintang 4, ${RESORT_ROOMS_ABOVE_MARKET} di atasnya. Harga bersih setelah promo tidak boleh di bawah lantai koridor.`,
         recommendation: RESORT_ROOM_SUMMARIES.map((s) => `${s.room}: ${s.recommendation}`).join(" "),
+        recommendationItems: RESORT_ROOM_SUMMARIES.map((s) => ({ room: s.room, lines: s.recommendationLines })),
       },
       sentimentLeverage: {
         title: "Satu-satunya Natural Hot Spring di Anyer & Fasilitas Lengkap dalam Satu Resort",

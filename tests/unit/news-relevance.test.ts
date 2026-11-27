@@ -160,3 +160,25 @@ test("jawaban asli pembacaan 18 Nov 2026: notyourwife (New York, Maret 2027) dit
   assert.equal(school.dampak, null, "kegiatan sekolah berdampak lainnya");
   assert.deepEqual(school.outlets, [], "dampak lainnya mengosongkan outlet");
 });
+
+test("ringkasan dan alasan pembacaan berita tanpa em dash: jawaban yang memakai em dash kembali ke tulisan aslinya", () => {
+  const fixture = JSON.parse(readFileSync("tests/fixtures/news-reading-2026-11-18.json", "utf8")) as {
+    artikel: { id: string; title: string; publisher: string; publishedDay: string }[];
+    jawaban: string;
+  };
+  const articles = fixture.artikel.map((a) => ({ ...a, text: "" }));
+  const original = parseNewsReadings(fixture.jawaban, articles);
+  // Jawaban asli yang koma pertamanya diganti em dash, gaya tulisan mesin yang tidak boleh tampil ke staf.
+  const answer = JSON.parse(fixture.jawaban) as { items: { ringkasan: string; alasan: string }[] };
+  for (const item of answer.items) {
+    item.ringkasan = item.ringkasan.replace(", ", " — ");
+    item.alasan = item.alasan.replace(", ", " — ");
+  }
+  assert.match(JSON.stringify(answer), /—/, "fixture memuat koma yang bisa diganti em dash");
+  const dashed = parseNewsReadings(JSON.stringify(answer), articles);
+  assert.equal(dashed.size, original.size);
+  for (const [id, reading] of original) {
+    assert.equal(dashed.get(id)?.ringkasan, reading.ringkasan);
+    assert.equal(dashed.get(id)?.alasan, reading.alasan);
+  }
+});

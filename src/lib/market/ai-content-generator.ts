@@ -1,4 +1,5 @@
 import { generateWithRetry } from "../gemini";
+import { humanizeDeep } from "../humanize-text";
 import { DISPROVEN_FACILITY_CLAIM } from "./resort-strategy";
 
 export type ContentDraftInput = {
@@ -7,6 +8,8 @@ export type ContentDraftInput = {
   promoCategory: string;
   counterStrategy: string;
   outletName?: string;
+  /** Judul draf sebelumnya untuk promo yang sama; tiap klik Draf Konten meminta versi baru yang berbeda. */
+  previousHeadlines?: string[];
 };
 
 export type SocialDraftReels = {
@@ -146,16 +149,16 @@ export function createFallbackContentDraft(input: ContentDraftInput): GeneratedC
  * menggunakan model Gemini AI yang terintegrasi dengan data intelijen kompetitor.
  */
 export async function generateSocialContentDrafts(
-  input: ContentDraftInput
+  input: ContentDraftInput,
+  deps: { generate?: (prompt: string) => Promise<string> } = {},
 ): Promise<GeneratedContentDraftBundle> {
+  // Template hanya pengganti draf yang melanggar posisi harga. Galat AI (kuota, kunci kosong, graf gagal dibangun, jawaban
+  // rusak) dilempar ke route supaya staf melihat alasannya; dulu galat diganti template yang sama di setiap klik.
   const fallback = createFallbackContentDraft(input);
+  const generate = deps.generate ?? (async (prompt: string) => (await generateWithRetry({ contents: prompt })).text);
+  const previous = (input.previousHeadlines ?? []).filter((h) => h.trim().length > 0);
 
-  if (!process.env.GEMINI_API_KEY) {
-    return fallback;
-  }
-
-  try {
-    const prompt = `Kamu adalah Creative Social Media Director profesional untuk Sanghyang Indah Spa Resort Anyer (resort tepi pantai dengan 7 tipe kamar, suite, dan villa; Sunset Grill di tepi dermaga; Dragon Beach Club; D'Spa yang memiliki Hot Spring Aquamedic, satu-satunya natural hot spring di Anyer, buka 09.00–22.00).
+  const prompt = `Kamu adalah Creative Social Media Director profesional untuk Sanghyang Indah Spa Resort Anyer (resort tepi pantai dengan 7 tipe kamar, suite, dan villa; Sunset Grill di tepi dermaga; Dragon Beach Club; D'Spa yang memiliki Hot Spring Aquamedic, satu-satunya natural hot spring di Anyer, buka 09.00–22.00).
     
 Tugasmu adalah membuat STRATEGI BALASAN KONTEN MEDIA SOSIAL (Instagram Reels, TikTok POV, dan Instagram Carousel) untuk mengimbangi promo kompetitor berikut:
 
@@ -169,6 +172,10 @@ Kategori: ${input.promoCategory}
 Rekomendasi Taktis: ${input.counterStrategy}
 Outlet Terkait: ${input.outletName || "Sanghyang Indah Spa Resort"}
 </TAKTIK_BALASAN_SANGHYANG>
+${previous.length ? `\n<DRAF_SEBELUMNYA>\nJudul draf sebelumnya untuk promo yang sama: ${JSON.stringify(previous)}\nBuat versi baru: sudut cerita, hook, judul, dan caption harus berbeda dari draf sebelumnya.\n</DRAF_SEBELUMNYA>\n` : ""}
+<GAYA_TULISAN>
+Tulis seperti admin media sosial manusia: tanpa em dash (—), tanpa pujian kosong, dan tanpa menyebut nama mesin AI.
+</GAYA_TULISAN>
 
 <ATURAN_POSISI_HARGA_WAJIB>
 - Sanghyang adalah resort bintang 4 yang menjual nilai (natural hot spring satu-satunya di Anyer, taman tropis, sunset di dermaga), bukan hotel murah.
@@ -219,35 +226,30 @@ Keluarkan HANYA JSON valid (tanpa markdown pembuka/penutup) dengan struktur:
   }
 }`;
 
-    const res = await generateWithRetry({ contents: prompt });
+  const text = (await generate(prompt)).trim();
+  const jsonMatch = text.match(/\{[\s\S]*\}/);
+  if (!jsonMatch) throw new Error("jawaban AI tidak terbaca sebagai draf konten");
 
-    const text = res.text.trim();
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) return fallback;
+  const parsed = humanizeDeep(JSON.parse(jsonMatch[0]) as Partial<GeneratedContentDraftBundle>);
+  // Keluaran LLM tidak dipercaya begitu saja: draf yang melanggar posisi harga diganti template yang patuh.
+  const compliant = <T,>(draft: T | undefined, backup: T, format: string): T => {
+    if (!draft) return backup;
+    if (!violatesPricePositioning(draft)) return draft;
+    console.warn(`[ai-content-generator] Draf ${format} dari Gemini melanggar posisi harga, memakai template.`);
+    return backup;
+  };
 
-    const parsed = JSON.parse(jsonMatch[0]);
-    // Keluaran LLM tidak dipercaya begitu saja: draf yang melanggar posisi harga diganti template yang patuh.
-    const compliant = <T,>(draft: T | undefined, backup: T, format: string): T => {
-      if (!draft) return backup;
-      if (!violatesPricePositioning(draft)) return draft;
-      console.warn(`[ai-content-generator] Draf ${format} dari Gemini melanggar posisi harga, memakai template.`);
-      return backup;
-    };
-
-    return {
-      competitorContext: {
-        competitorName: input.competitorName,
-        promoTitle: input.promoTitle,
-        counterStrategy: input.counterStrategy,
-      },
-      generatedAt: new Date().toISOString(),
-      reels: compliant(parsed.reels, fallback.reels, "reels"),
-      tiktok: compliant(parsed.tiktok, fallback.tiktok, "tiktok"),
-      carousel: compliant(parsed.carousel, fallback.carousel, "carousel"),
-    };
-  } catch (err) {
-    console.warn("[ai-content-generator] Kendala panggilan Gemini, beralih ke fallback cerdas:", (err as Error)?.message);
-    return fallback;
-  }
+  return {
+    competitorContext: {
+      competitorName: input.competitorName,
+      promoTitle: input.promoTitle,
+      counterStrategy: input.counterStrategy,
+    },
+    generatedAt: new Date().toISOString(),
+    reels: compliant(parsed.reels, fallback.reels, "reels"),
+    tiktok: compliant(parsed.tiktok, fallback.tiktok, "tiktok"),
+    carousel: compliant(parsed.carousel, fallback.carousel, "carousel"),
+  };
 }
+
 

@@ -1,4 +1,3 @@
-import { Network } from "lucide-react";
 import { SkeuoCard } from "@/components/skeuo/ui";
 import { knowledgeAnalysisOriginText, sanitizeStrategyText, type SnSummary } from "@/lib/marketing/market-intelligence-types";
 import { cn } from "@/lib/utils";
@@ -20,10 +19,7 @@ export function SnKnowledgeRecommendations({ analysis, outletLabel }: { analysis
   return (
     <SkeuoCard className="space-y-4">
       <div className="border-b border-cream-300 pb-3">
-        <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-navy-500">
-          <Network className="h-3.5 w-3.5" aria-hidden /> Knowledge Graph
-        </p>
-        <h3 className="mt-0.5 text-lg font-semibold text-navy-900">Rekomendasi dari Knowledge Graph ({outletLabel})</h3>
+        <h3 className="text-lg font-semibold text-navy-900">Rekomendasi {outletLabel}</h3>
         <p className="mt-0.5 text-xs text-navy-600">{knowledgeAnalysisOriginText(analysis) ?? "Belum ada data"}</p>
       </div>
       {recommendations.length > 0 ? (

@@ -72,6 +72,7 @@ export function formatKnowledgeGraphGrounding(contexts: OutletKnowledgeContext[]
     "Pakai sebagai latar belakang tentang Sanghyang Indah Spa Resort, enam unit bisnisnya, kompetitor, dan pasar Anyer–Carita. " +
       "Bila tugas meminta isi dari teks, halaman, atau gambar sumber, jawaban tetap hanya berisi hal yang tertulis di sumber itu; " +
       "jangan memindahkan fakta dari konteks ini ke jawaban. Konteks ini tidak memuat nominal omset rupiah Sanghyang.",
+    "Untuk teks yang kamu tulis sendiri (bukan kutipan sumber): Bahasa Indonesia baku yang wajar seperti catatan staf, tanpa em dash (—), tanpa panah, tanpa pujian kosong, dan tanpa menyebut nama mesin AI.",
     "",
     "Unit bisnis Sanghyang:",
     ...contexts.map(outletLine).filter((l): l is string => l !== null),

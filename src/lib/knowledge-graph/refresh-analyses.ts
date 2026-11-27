@@ -28,15 +28,22 @@ export interface RefreshedOutletAnalysis {
 export async function refreshOutletAnalysesFromGraph(
   range: DayRange,
   outlets: readonly OutletKey[] = OUTLET_KEYS,
-  opts?: Pick<SynthesizeOptions, "generate">,
+  opts?: Pick<SynthesizeOptions, "generate" | "skipCache"> & {
+    /** Langkah kesimpulan sebelumnya per outlet, dibaca sebelum cache narasi dibersihkan (latestOutletActions). */
+    previousActionsByOutlet?: Partial<Record<OutletKey, string[]>>;
+  },
 ): Promise<RefreshedOutletAnalysis[]> {
+  const { previousActionsByOutlet, ...synthesizeOpts } = opts ?? {};
   const graph = await buildKnowledgeGraph(range);
   const label = rangeLabel(range);
   const results: RefreshedOutletAnalysis[] = [];
   // Berurutan, bukan paralel: kuota model dibatasi per menit.
   for (const outletKey of outlets) {
     try {
-      const analysis = await synthesizeOutletAnalysis(buildOutletKnowledgeContext(graph, outletKey, label), opts);
+      const analysis = await synthesizeOutletAnalysis(buildOutletKnowledgeContext(graph, outletKey, label), {
+        ...synthesizeOpts,
+        previousActions: previousActionsByOutlet ? (previousActionsByOutlet[outletKey] ?? []) : undefined,
+      });
       results.push({ outletKey, origin: analysis.origin, fingerprint: analysis.fingerprint, failure: null });
     } catch (error) {
       if (!(error instanceof OutletAnalysisError)) throw error;

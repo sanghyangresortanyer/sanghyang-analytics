@@ -11,6 +11,7 @@
  */
 import { db } from "../db";
 import { generateWithRetry, pesanKuota } from "../gemini";
+import { humanizeDashes, humanizeDeep } from "../humanize-text";
 import type { Prisma } from "@prisma/client";
 import type { OutletKnowledgeContext } from "../knowledge-graph/context";
 import { DISPROVEN_FACILITY_CLAIM } from "../market/resort-strategy";
@@ -68,7 +69,35 @@ export interface SynthesizeOptions {
    * halaman kembali ke susunan otomatis begitu data baru masuk atau jendela 30 hari bergeser sehari.
    */
   latestFallback?: boolean;
-  generate?: () => Promise<string>;
+  /**
+   * Langkah dari kesimpulan model sebelumnya untuk outlet ini, dikirim ke model supaya rekomendasi baru tidak menyalin kata
+   * per kata. Langkah analisis_graf membacanya (latestOutletActions) sebelum cache narasi dibersihkan; tanpa opsi ini
+   * langkahnya dibaca dari simpanan terbaru outlet.
+   */
+  previousActions?: string[];
+  /** Pengganti panggilan model untuk tes; menerima prompt yang sama dengan yang dikirim ke model. */
+  generate?: (prompt: string) => Promise<string>;
+}
+
+function actionsOf(evidence: unknown): string[] {
+  return ((evidence as { periodRecommendations?: { action?: unknown }[] } | null)?.periodRecommendations ?? [])
+    .map((r) => r.action)
+    .filter((a): a is string => typeof a === "string" && a.length > 0);
+}
+
+/** Langkah dari kesimpulan model terbaru per outlet, dibaca langkah penyegaran sebelum cache narasi dibersihkan. */
+export async function latestOutletActions(): Promise<Record<string, string[]>> {
+  const rows = await db.marketInsight.findMany({
+    where: { fingerprint: { startsWith: ANALYSIS_FINGERPRINT_PREFIX }, status: "active" },
+    orderBy: { generatedAt: "desc" },
+    select: { fingerprint: true, evidence: true },
+  });
+  const byOutlet: Record<string, string[]> = {};
+  for (const row of rows) {
+    const outletKey = row.fingerprint.slice(ANALYSIS_FINGERPRINT_PREFIX.length).split(":")[0];
+    if (outletKey && !(outletKey in byOutlet)) byOutlet[outletKey] = actionsOf(row.evidence);
+  }
+  return byOutlet;
 }
 
 /**
@@ -91,7 +120,7 @@ export class OutletAnalysisError extends Error {
  * menit), galat lain memakai baris terakhir pesannya (Prisma menaruh galat basis data di sana, sesudah cuplikan kode),
  * tanpa nama mesin AI.
  */
-function failureReason(error: unknown): string {
+export function failureReason(error: unknown): string {
   const message = error instanceof Error ? error.message : String(error);
   const lastLine = message.split("\n").map((line) => line.trim()).filter(Boolean).at(-1) ?? "";
   return pesanKuota(message) ?? (stripAiModelMentions(lastLine) || "galat tanpa pesan");
@@ -148,7 +177,7 @@ export function stripAiModelMentions(text: string): string {
     .replace(/\s+\./g, ".")
     .replace(/[ \t]{2,}/g, " ")
     .trim();
-  return out;
+  return humanizeDashes(out);
 }
 
 /**
@@ -502,7 +531,8 @@ export async function synthesizeOutletAnalysis(ctx: OutletKnowledgeContext, opts
     try {
       const stored = (row: { evidence: unknown; fingerprint: string; generatedAt: Date } | null): OutletAnalysisResult | null => {
         if (!row || typeof row.evidence !== "object" || row.evidence === null) return null;
-        const parsed = row.evidence as OutletAnalysisResult;
+        // Simpanan dari sebelum pembersih teks ada bisa memuat em dash; dibersihkan di sini untuk halaman, temuan, dan PDF.
+        const parsed = humanizeDeep(row.evidence as OutletAnalysisResult);
         if (!parsed.headToHeadNarrative || !parsed.periodRecommendations || parsed.slideTranscripts?.length !== 6) return null;
         return { ...parsed, origin: "cache", fingerprint: row.fingerprint, generatedAt: row.generatedAt.toISOString() };
       };
@@ -532,17 +562,35 @@ export async function synthesizeOutletAnalysis(ctx: OutletKnowledgeContext, opts
     return buildDeterministicAnalysis(ctx, fingerprint);
   }
 
+  // Rekomendasi sebelumnya ikut dikirim supaya tiap Perbarui Semua Data menghasilkan versi baru, bukan salinan kata per
+  // kata, walaupun datanya belum banyak berubah (permintaan pemilik 27 Nov 2026).
+  const previousActions =
+    opts?.previousActions ??
+    actionsOf(
+      (
+        await db.marketInsight.findFirst({
+          where: { fingerprint: { startsWith: `${ANALYSIS_FINGERPRINT_PREFIX}${ctx.outletKey}:` }, status: "active" },
+          orderBy: { generatedAt: "desc" },
+          select: { evidence: true },
+        })
+      )?.evidence,
+    );
+
+  // Uji model nyata 27 Nov 2026: langkah lama di awal prompt disalin persis oleh model, sedangkan di akhir prompt beserta
+  // larangan ini kelima langkah baru berbeda dari yang lama.
+  const previousBlock = previousActions.length
+    ? `\n\nLANGKAH PEMBARUAN SEBELUMNYA (sudah diterima staf): ${JSON.stringify(previousActions)}\nJangan memakai lagi langkah di atas, baik kata per kata maupun parafrase dekat. Setiap langkah baru tetap sesuai faktornya dan berpijak pada data di atas, dengan sudut yang berbeda.`
+    : "";
+
   // 3. Jalankan sintesis (Live via opts.generate atau Gemini API). Mode ini dipakai langkah penyegaran: setiap kegagalan
   // dilempar sebagai OutletAnalysisError beserta alasannya (kuota atau galat lain), supaya langkah itu tidak melapor berhasil.
   let rawResponse: string;
   try {
-    if (opts?.generate) {
-      rawResponse = (await opts.generate()).trim();
-    } else {
-      const prompt = `Kamu adalah analis pasar hotel & F&B senior untuk Sanghyang Resort (Anyer, Banten).
+    const prompt = `Kamu adalah analis pasar hotel & F&B senior untuk Sanghyang Resort (Anyer, Banten).
 Tugasmu: menghasilkan sintesis pasar komprehensif untuk outlet "${ctx.sanghyang?.label ?? ctx.outletKey}" pada periode "${ctx.rangeLabel}".
 
 ATURAN WAJIB:
+0. Tulis dalam Bahasa Indonesia baku yang wajar seperti catatan staf: tanpa em dash (—), tanpa panah, tanpa pujian kosong.
 1. DILARANG KERAS menyebut nama model atau mesin AI (Gemini, Flash-Lite, Claude, OpenAI, ChatGPT, LLM, dll.).
 2. DILARANG membuat klaim fasilitas palsu seperti onsen 24 jam, belerang, sulfur, pantai pasir putih karang, dsb.
 3. DILARANG KERAS menyebut atau mengarang nominal rupiah omset, pendapatan, atau target bulanan internal Sanghyang. Sinyal operasional VHP hanya boleh dinyatakan dalam persentase (capaian target %, pertumbuhan MoM %, kontribusi %, okupansi OCC %, segmen %, porsi menu %, rasio audit promo), arah, peringkat, dan nama menu.
@@ -550,6 +598,8 @@ ATURAN WAJIB:
 - Profil Sanghyang (termasuk sinyal operasional VHP terabstraksi tanpa rupiah): ${JSON.stringify(ctx.sanghyang)}
 - Pembanding Inti: ${JSON.stringify(ctx.competitors.slice(0, 5))}
 - Indikator Makro: ${JSON.stringify(ctx.macro)}
+
+periodRecommendations wajib berisi tepat 5 butir, satu per faktor: sosmed, harga, fasilitas, promo, reputasi. Langkah (action) tiap butir sesuai faktornya.
 
 Jawab HANYA JSON:
 {
@@ -580,14 +630,11 @@ Jawab HANYA JSON:
       "sourceNote": "Sumber..."
     }
   ]
-}`;
-      // Prompt ini sudah memuat konteks Knowledge Graph outlet secara lengkap, jadi ringkasan graf tidak dikirim ulang.
-      const res = await generateWithRetry({
-        contents: prompt,
-        knowledgeGraph: "included",
-      });
-      rawResponse = res.text?.trim() ?? "";
-    }
+}${previousBlock}`;
+    // Prompt ini sudah memuat konteks Knowledge Graph outlet secara lengkap, jadi ringkasan graf tidak dikirim ulang.
+    rawResponse = opts?.generate
+      ? (await opts.generate(prompt)).trim()
+      : ((await generateWithRetry({ contents: prompt, knowledgeGraph: "included" })).text?.trim() ?? "");
   } catch (error) {
     throw new OutletAnalysisError(fingerprint, `model tidak dapat dipanggil: ${failureReason(error)}`, { cause: error });
   }

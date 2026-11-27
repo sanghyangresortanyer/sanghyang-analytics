@@ -1,4 +1,5 @@
 import { generateWithRetry } from "../gemini";
+import { humanizeDashes } from "../humanize-text";
 import type { SummaryRow } from "./summary";
 
 /** Sama dengan batas AI proyek web: penalaran xhigh butuh belasan sampai puluhan detik, 8 detik selalu habis lebih dulu. */
@@ -23,7 +24,8 @@ function validate(value: unknown, fallbackValue: GeneratedInsight[]): GeneratedI
     const x = item && typeof item === "object" ? item as Record<string, unknown> : {};
     const type = INSIGHT_TYPES.includes(x.type as InsightType) ? x.type as InsightType : null;
     const status = INSIGHT_STATUSES.includes(x.status as InsightStatus) ? x.status as InsightStatus : "active";
-    const text = (v: unknown, max: number) => typeof v === "string" ? v.trim().slice(0, max) : "";
+    // Judul dan ringkasan ditulis model sendiri, jadi em dash diganti koma seperti tulisan staf.
+    const text = (v: unknown, max: number) => typeof v === "string" ? humanizeDashes(v.trim()).slice(0, max) : "";
     const number = (v: unknown) => typeof v === "number" && Number.isFinite(v) ? Math.max(0, Math.min(100, Math.round(v))) : null;
     const evidence = Array.isArray(x.evidence) ? x.evidence.filter((v): v is string => typeof v === "string").map(v => v.trim().slice(0, 240)).filter(Boolean).slice(0, 8) : [];
     const sources = Array.isArray(x.sourceReferences) ? x.sourceReferences.filter((v): v is string => typeof v === "string").map(v => v.trim().slice(0, 240)).filter(Boolean).slice(0, 8) : [];
