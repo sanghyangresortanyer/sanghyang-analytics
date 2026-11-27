@@ -1208,6 +1208,164 @@ export function assembleGraph(rows: GraphInput): KnowledgeGraph {
         });
         link(aid, vhpPlatform, "dicatat bersama", { weight: 76, modules: ["operasional", "marketing-sosmed"] });
       }
+
+      // (6) Rincian hasil konsolidasi VRP (P10 LN-9, permintaan pemilik 27 Nov 2026): menu, segmen tamu, tipe kamar,
+      //     efek promo, dan kampanye iklan menjadi simpul sendiri yang tersambung ke simpul ringkasan di atas dan ke data
+      //     pasar (tipe kamar resmi, promo Sanghyang). Tetap tanpa nominal rupiah: porsi, jumlah, dan tanggal saja.
+      const vhpSource = [{ label: `Data operasional VHP s.d. ${sig.dataThrough ?? "belum ada data"}`, url: null }];
+      const vhpObserved = sig.dataThrough ? `${sig.dataThrough}T00:00:00.000Z` : input.now.toISOString();
+      const shortTitle = (text: string) => (text.length > 70 ? `${text.slice(0, 69)}…` : text);
+
+      const menuHealthId = `operasional:menu:${key}`;
+      if (sig.menuHealth && nodes.has(menuHealthId)) {
+        const mh = sig.menuHealth;
+        mh.topMenus.slice(0, 5).forEach((m, i) => {
+          const id = add({
+            id: `operasional:menu-laris:${key}:${slug(m.description)}`,
+            kind: "operasional",
+            label: `Menu laris ${own.label}: ${m.description}`,
+            detail: [`Peringkat ${i + 1} porsi penjualan kasir: ${fmtPct(m.salesSharePct)}`, `${m.qty.toLocaleString("id-ID")} porsi terjual`],
+            sources: vhpSource,
+            observedAt: vhpObserved,
+            outlets: [key],
+            weight: Number((2 + Math.min(m.salesSharePct, 40) / 20).toFixed(2)),
+            modules: ["operasional", "dashboard"],
+            href: "/",
+          });
+          link(menuHealthId, id, "menu terlaris", { weight: clampScore(50 + m.salesSharePct * 2), modules: ["operasional"] });
+        });
+        for (const s of mh.slowestSamples.slice(0, 3)) {
+          const id = add({
+            id: `operasional:menu-lambat:${key}:${slug(s.description)}`,
+            kind: "operasional",
+            label: `Menu lambat ${own.label}: ${s.description}`,
+            detail: [`${s.windowQty.toLocaleString("id-ID")} porsi dalam 90 hari terakhir`, `Terakhir terjual ${s.lastSold}`],
+            sources: vhpSource,
+            observedAt: vhpObserved,
+            outlets: [key],
+            weight: 1.6,
+            modules: ["operasional", "dashboard"],
+            href: "/",
+          });
+          link(menuHealthId, id, "menu lambat", { weight: 55, modules: ["operasional"] });
+        }
+        for (const d of mh.deadSamples.slice(0, 3)) {
+          const id = add({
+            id: `operasional:menu-mati:${key}:${slug(d.description)}`,
+            kind: "operasional",
+            label: `Menu tidak terjual 90 hari ${own.label}: ${d.description}`,
+            detail: [`Terakhir terjual ${d.lastSold}`],
+            sources: vhpSource,
+            observedAt: vhpObserved,
+            outlets: [key],
+            weight: 1.4,
+            modules: ["operasional", "dashboard"],
+            href: "/",
+          });
+          link(menuHealthId, id, "tidak terjual 90 hari", { weight: 50, modules: ["operasional"] });
+        }
+      }
+
+      const stayId = "operasional:okupansi:resort";
+      if (key === "resort" && sig.resortStay && nodes.has(stayId)) {
+        const stay = sig.resortStay;
+        const segments = [
+          ["fit", "FIT"],
+          ["walkIn", "Walk-in"],
+          ["ota", "OTA"],
+          ["corp", "Korporat"],
+          ["other", "Lainnya"],
+        ] as const;
+        for (const [field, label] of segments) {
+          const share = stay.segmentMixPct[field];
+          if (!(share > 0)) continue;
+          const id = add({
+            id: `operasional:segmen:${field}`,
+            kind: "operasional",
+            label: `Segmen tamu ${label}: ${fmtPct(share)} malam kamar`,
+            detail: [`Porsi malam kamar segmen ${label} dari F/O Journal VHP`],
+            sources: vhpSource,
+            observedAt: vhpObserved,
+            outlets: ["resort"],
+            weight: Number((2 + share / 25).toFixed(2)),
+            modules: ["operasional", "direksi", "marketing-sosmed"],
+            href: "/laporan-resort",
+          });
+          link(stayId, id, "komposisi segmen tamu", { weight: clampScore(45 + share), modules: ["operasional", "direksi"] });
+        }
+        for (const rt of stay.roomTypesByShare) {
+          // Tipe kamar yang ada di katalog resmi disambungkan ke simpulnya, jadi data jual VHP bertemu data pasar kamar.
+          const catalogId = `kamar:sanghyang:${slug(rt.name)}`;
+          if (nodes.has(catalogId)) {
+            link(stayId, catalogId, `terjual ${fmtPct(rt.nightsSharePct)} malam kamar`, { weight: clampScore(45 + rt.nightsSharePct), modules: ["operasional", "direksi"] });
+            continue;
+          }
+          const id = add({
+            id: `operasional:tipe-kamar:${slug(rt.name)}`,
+            kind: "operasional",
+            label: `Tipe kamar terjual: ${rt.name}`,
+            detail: [`${fmtPct(rt.nightsSharePct)} malam kamar terjual`, `Porsi kontribusi kamar ${fmtPct(rt.revenueSharePct)}`],
+            sources: vhpSource,
+            observedAt: vhpObserved,
+            outlets: ["resort"],
+            weight: Number((1.8 + rt.nightsSharePct / 30).toFixed(2)),
+            modules: ["operasional", "direksi"],
+            href: "/laporan-resort",
+          });
+          link(stayId, id, "tipe kamar terjual", { weight: clampScore(45 + rt.nightsSharePct), modules: ["operasional", "direksi"] });
+        }
+      }
+
+      const auditId = `operasional:audit-promo:${key}`;
+      if (sig.promoAudit && nodes.has(auditId)) {
+        const ownPromoNodes = [...nodes.values()].filter((n) => (n.kind === "promo-sanghyang" || n.kind === "event-sanghyang") && n.outlets.includes(key));
+        const samples = [
+          ...sig.promoAudit.topLifts.map((p) => ({ ...p, lifted: true })),
+          ...sig.promoAudit.noLiftSamples.map((p) => ({ ...p, lifted: false })),
+        ].slice(0, 6);
+        for (const p of samples) {
+          const effect = p.qtyPct !== null ? `${p.qtyPct >= 0 ? "+" : ""}${fmtPct(p.qtyPct)} porsi menu terkait` : "perubahan belum terukur";
+          const relation = p.lifted ? `menaikkan penjualan (${effect})` : `tidak menaikkan penjualan (${effect})`;
+          const title = fold(p.title).slice(0, 40);
+          const match = ownPromoNodes.find((n) => title.length >= 8 && fold(n.label).includes(title));
+          if (match) {
+            link(auditId, match.id, relation, { weight: p.lifted ? 78 : 58, modules: ["operasional", "marketing-sosmed"] });
+            continue;
+          }
+          const id = add({
+            id: `operasional:promo-efek:${key}:${slug(p.title).slice(0, 60)}`,
+            kind: "operasional",
+            label: `${p.lifted ? "Promo menaikkan penjualan" : "Promo tanpa kenaikan"}: ${shortTitle(p.title)}`,
+            detail: [`Kata kunci menu: ${p.keyword}`, effect, `Tanggal unggah ${p.postDate}`],
+            sources: vhpSource,
+            observedAt: `${p.postDate}T00:00:00.000Z`,
+            outlets: [key],
+            weight: p.lifted ? 2 : 1.6,
+            modules: ["operasional", "marketing-sosmed"],
+            href: "/marketing",
+          });
+          link(auditId, id, relation, { weight: p.lifted ? 78 : 58, modules: ["operasional", "marketing-sosmed"] });
+        }
+      }
+
+      const acquisitionId = "operasional:akuisisi:resort";
+      if (key === "resort" && sig.acquisition && nodes.has(acquisitionId)) {
+        for (const c of sig.acquisition.campaignVerdicts.slice(0, 6)) {
+          const id = add({
+            id: `operasional:kampanye:${slug(c.campaign)}`,
+            kind: "operasional",
+            label: `Kampanye iklan: ${shortTitle(c.campaign)}`,
+            detail: [`${c.guests.toLocaleString("id-ID")} tamu tercatat dari kampanye`, `Penilaian: ${c.verdict}`],
+            sources: [{ label: "Kampanye iklan dan catatan reservasi", url: null }],
+            observedAt: sig.acquisition.periodRange ? `${sig.acquisition.periodRange.to}T00:00:00.000Z` : input.now.toISOString(),
+            outlets: ["resort"],
+            weight: 1.8,
+            modules: ["operasional", "marketing-sosmed"],
+            href: "/marketing",
+          });
+          link(acquisitionId, id, "kampanye iklan", { weight: 60, modules: ["operasional", "marketing-sosmed"] });
+        }
+      }
     }
   }
 

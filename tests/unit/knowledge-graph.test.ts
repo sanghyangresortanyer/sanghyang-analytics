@@ -370,3 +370,27 @@ test("pengikut akun bersama tidak dihitung dua kali: Instagram dan TikTok @drago
   const ctx = buildOutletKnowledgeContext(graph, "dragon-beach-club", "uji");
   assert.doesNotMatch(JSON.stringify(ctx.sanghyang?.social ?? {}), new RegExp((igLatest.followers * 2).toLocaleString("id-ID").replace(/\./g, "\\.")));
 });
+
+test("rincian VRP di graf: menu, segmen tamu, dan tipe kamar terjual tersambung ke simpul ringkasan dan tipe kamar resmi, tanpa rupiah", async () => {
+  const { buildKnowledgeGraph } = await import("../../src/lib/knowledge-graph/build");
+  const range = parseDayRange("2026-10-29", "2026-11-27");
+  assert.ok(range && range !== "invalid");
+  const graph = await buildKnowledgeGraph(range);
+  const ids = new Set(graph.nodes.map((n) => n.id));
+  const linked = (source: string, target: string) => graph.links.some((l) => l.source === source && l.target === target);
+  const ops = graph.nodes.filter((n) => n.kind === "operasional");
+
+  const topMenus = ops.filter((n) => n.id.startsWith("operasional:menu-laris:"));
+  assert.ok(topMenus.length > 0, "menu terlaris per outlet tampil sebagai simpul");
+  for (const n of topMenus) {
+    const key = n.id.split(":")[2];
+    assert.ok(linked(`operasional:menu:${key}`, n.id), `${n.label} tersambung ke kesehatan menu ${key}`);
+  }
+  const segments = ops.filter((n) => n.id.startsWith("operasional:segmen:"));
+  assert.ok(segments.length > 0, "segmen tamu resort tampil sebagai simpul");
+  for (const n of segments) assert.ok(linked("operasional:okupansi:resort", n.id), `${n.label} tersambung ke okupansi`);
+  const toCatalog = graph.links.filter((l) => l.source === "operasional:okupansi:resort" && l.target.startsWith("kamar:sanghyang:"));
+  assert.ok(toCatalog.length > 0, "tipe kamar terjual VHP bertemu tipe kamar resmi");
+  for (const l of toCatalog) assert.ok(ids.has(l.target) && /^terjual [\d,]+% malam kamar$/.test(l.label), l.label);
+  assert.ok(!ops.some((n) => /Rp\s?\d/.test(`${n.label} ${n.detail.join(" ")}`)), "tanpa nominal rupiah (ADR-014)");
+});
