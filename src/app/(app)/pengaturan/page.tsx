@@ -1,4 +1,6 @@
+import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
+import { KNOWLEDGE_GRAPH_NAV_COOKIE, knowledgeGraphNavShown } from "@/components/app-nav";
 import { isSupabaseConfigured } from "@/lib/config";
 import { SetupNeeded } from "@/components/setup-needed";
 import { createAdminClient } from "@/lib/supabase/admin";
@@ -16,6 +18,7 @@ import { getDivisionBudgets, getMenuRules, getRoomSettings } from "@/lib/dashboa
 import { MenuRuleSettingsForm } from "./menu-rule-settings";
 import { BudgetSettings } from "./budget-settings";
 import { RoomTypeSettings } from "./room-type-settings";
+import { KnowledgeGraphNavToggle } from "./knowledge-graph-nav-toggle";
 
 export default async function PengaturanPage() {
   if (!isSupabaseConfigured()) {
@@ -67,13 +70,14 @@ export default async function PengaturanPage() {
   ]);
   const error = userListResult.errorMessage ? { message: userListResult.errorMessage } : null;
   const users = userListResult.users;
+  const showKnowledgeGraph = knowledgeGraphNavShown((await cookies()).get(KNOWLEDGE_GRAPH_NAV_COOKIE)?.value);
 
   return (
     <div className="w-full space-y-7">
       <div>
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900">Pengaturan</h1>
         <p className="mt-2 text-lg text-slate-600">
-          Kelola akun pengguna Sanghyang Analytics, target outlet, budget belanja, jenis kamar, aturan menu, dan lihat sumber data dashboard. Hanya admin yang bisa membuka halaman ini.
+          Kelola akun pengguna Sanghyang Analytics, target outlet, budget belanja, jenis kamar, aturan menu, dan menu Knowledge Graph, serta lihat sumber data dashboard. Hanya admin yang bisa membuka halaman ini.
         </p>
       </div>
 
@@ -94,6 +98,8 @@ export default async function PengaturanPage() {
       <UserAdmin users={users} currentUserId={me.id} />
 
       {me.propertyId && <DataSources propertyId={me.propertyId} />}
+
+      <KnowledgeGraphNavToggle shown={showKnowledgeGraph} />
     </div>
   );
 }

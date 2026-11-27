@@ -12,6 +12,13 @@ vi.mock("@/lib/auth/role", () => ({
   currentUser: async () => ({ id: "admin-1", role: "admin", propertyId: "prop-1" }),
 }));
 
+const browserCookies = vi.hoisted(() => new Map<string, string>());
+vi.mock("next/headers", () => ({
+  cookies: async () => ({
+    get: (name: string) => (browserCookies.has(name) ? { name, value: browserCookies.get(name)! } : undefined),
+  }),
+}));
+
 const authUsers = vi.hoisted(() => ({
   users: [] as Array<{ id: string; email?: string; created_at: string; banned_until?: string | null }>,
   profiles: [] as Array<{ id: string; role: string }>,
@@ -42,6 +49,7 @@ vi.mock("./data-sources", () => ({ DataSources: () => null }));
 
 import PengaturanPage from "./page";
 import { UserAdmin, type ManagedUser } from "./user-admin";
+import { KnowledgeGraphNavToggle } from "./knowledge-graph-nav-toggle";
 
 function findElementByType<P>(node: ReactNode, targetType: unknown): ReactElement<P> | null {
   if (!isValidElement(node)) return null;
@@ -80,5 +88,32 @@ describe("PengaturanPage user filtering", () => {
     expect(userAdminEl).not.toBeNull();
     expect(userAdminEl!.props.users.map((u) => u.username)).toEqual(["awi", "demon"]);
     expect(userAdminEl!.props.users.map((u) => u.id)).toEqual(["u1", "u2"]);
+  });
+});
+
+describe("PengaturanPage Knowledge Graph switch", () => {
+  beforeEach(() => {
+    browserCookies.clear();
+    authUsers.users = [];
+    authUsers.profiles = [];
+  });
+
+  const lastRow = async () => {
+    const tree = (await PengaturanPage()) as ReactElement<{ children: ReactNode[] }>;
+    const rows = tree.props.children.filter(isValidElement);
+    return rows.at(-1) as ReactElement<{ shown: boolean }>;
+  };
+
+  it("is the last row of the page and starts from the cookie this browser sent", async () => {
+    browserCookies.set("sa-nav-knowledge-graph", "1");
+    const row = await lastRow();
+    expect(row.type).toBe(KnowledgeGraphNavToggle);
+    expect(row.props.shown).toBe(true);
+  });
+
+  it("starts switched off when the browser has no cookie yet", async () => {
+    const row = await lastRow();
+    expect(row.type).toBe(KnowledgeGraphNavToggle);
+    expect(row.props.shown).toBe(false);
   });
 });

@@ -2,19 +2,11 @@
 
 import Link, { useLinkStatus } from "next/link";
 import { usePathname } from "next/navigation";
-import { FileSpreadsheet, FileText, LayoutDashboard, LogOut, Megaphone, Settings, UploadCloud, type LucideIcon } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { signOut } from "@/lib/actions/auth";
+import { visibleNavItems } from "@/components/app-nav";
 import { Bars } from "@/components/ui/bars";
 import { cn } from "@/lib/utils";
-
-const NAV_ITEMS: { href: string; label: string; icon: LucideIcon; adminOnly?: boolean }[] = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/upload-mingguan", label: "Upload Data", icon: UploadCloud },
-  { href: "/data-sheets", label: "Data Google Sheets", icon: FileSpreadsheet },
-  { href: "/laporan-resort", label: "Laporan Resort", icon: FileText },
-  { href: "/marketing", label: "Marketing", icon: Megaphone },
-  { href: "/pengaturan", label: "Pengaturan", icon: Settings, adminOnly: true },
-];
 
 const ROLE_LABEL: Record<string, string> = { admin: "Admin", manager: "Manager", staff: "Staff" };
 
@@ -54,9 +46,9 @@ export function TopBar({ username, role, propertyName }: { username: string; rol
 }
 
 /** Black rail of icons; the open page is lighter, with a lemon mark on its edge. */
-export function IconRail({ isAdmin }: { isAdmin: boolean }) {
+export function IconRail({ isAdmin, showKnowledgeGraph }: { isAdmin: boolean; showKnowledgeGraph: boolean }) {
   const pathname = usePathname();
-  const items = NAV_ITEMS.filter((i) => !i.adminOnly || isAdmin);
+  const items = visibleNavItems({ isAdmin, showKnowledgeGraph });
   return (
     <nav
       aria-label="Menu utama"
