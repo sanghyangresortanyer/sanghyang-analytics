@@ -7,7 +7,7 @@ import { APP_MODULES, DATA_KINDS, type GraphLink, type GraphLinkFactor } from ".
 import { synthesizeOutletAnalysis } from "../../src/lib/ai/market-analyst";
 import { loadCompsetAudit } from "../../src/lib/market/compset-audit";
 import { loadResortMarketSize } from "../../src/lib/market/market-size";
-import { OUTLET_KEYS } from "../../src/lib/market/outlet-filters";
+import { GUEST_REVIEWS_ONLY, OUTLET_KEYS } from "../../src/lib/market/outlet-filters";
 import { parseDayRange, rangeLabel } from "../../src/lib/market/date-range";
 import { HOTEL_PACKAGE_NAME, RATE_BATCH_WINDOW_MS } from "../../src/lib/market/collect-rates";
 import { OWN_OUTLETS } from "../../src/lib/market/outlet-ratings";
@@ -284,9 +284,9 @@ test("ulasan di graf disaring menurut tanggal ulasan (reviewDate) dalam periode,
   assert.ok(range && range !== "invalid");
   const [input, expected] = await Promise.all([
     loadGraphInput(range),
-    db.competitorReview.count({ where: { archivedAt: null, reviewDate: { gte: range.from, lte: range.to } } }),
+    db.competitorReview.count({ where: { archivedAt: null, reviewDate: { gte: range.from, lte: range.to }, ...GUEST_REVIEWS_ONLY } }),
   ]);
-  assert.equal(input.reviews.length, expected, "jumlah ulasan graf = ulasan DB bertanggal di periode");
+  assert.equal(input.reviews.length, expected, "jumlah ulasan graf = ulasan tamu DB bertanggal di periode (tanpa komentar media sosial)");
   for (const r of input.reviews) {
     assert.ok(r.reviewDate >= range.from && r.reviewDate <= range.to, `ulasan ${r.sourceUrl} bertanggal di luar periode`);
   }

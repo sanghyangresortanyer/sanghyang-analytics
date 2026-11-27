@@ -105,13 +105,11 @@ async function loadSummary(query: string): Promise<SummaryJson> {
 test("A2/A4/B1/C3/C4/C16 lewat GET summary DB lokal (periode tahun ini) untuk keenam outlet", async () => {
   const data = await loadSummary("period=year");
 
-  // A2: komentar sosial per outlet hanya dari akun resmi Sanghyang.
+  // Keputusan pemilik 27 Nov 2026: komentar Instagram/TikTok di bawah postingan bukan ulasan tamu, jadi tidak ikut
+  // daftar maupun hitungan ulasan Langkah 1 di outlet mana pun.
   for (const outlet of data.outlets) {
-    const social = outlet.reviews.filter(isSocial);
-    for (const r of social) {
-      assert.ok(OFFICIAL_SOCIAL_HANDLES.has(socialAccountOf(r.sourceUrl ?? "") ?? ""), `${outlet.key}: komentar ${r.sourceUrl} bukan dari akun Sanghyang`);
-    }
-    assert.equal(outlet.channelBreakdown?.social.count, social.length, `${outlet.key}: hitungan kanal sosial = isi daftar`);
+    assert.deepEqual(outlet.reviews.filter(isSocial).map((r) => r.sourceUrl), [], `${outlet.key}: komentar media sosial terhitung sebagai ulasan`);
+    assert.equal(outlet.channelBreakdown?.social.count ?? 0, 0, `${outlet.key}: kanal media sosial masih dihitung`);
   }
 
   // B1: promo Sanghyang tidak pernah masuk daftar kompetitor; promo bertanggal > 3 bulan tidak tampil.

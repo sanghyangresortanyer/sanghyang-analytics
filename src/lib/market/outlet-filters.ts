@@ -23,6 +23,14 @@ export type ReviewChannel = "google" | "ota" | "social" | "website";
 
 export const SOCIAL_REVIEW_PLATFORMS = ["instagram", "tiktok", "facebook"] as const;
 
+/**
+ * Komentar Instagram/TikTok/Facebook dari ekstensi tersimpan di CompetitorReview, tetapi bukan ulasan tamu
+ * (keputusan pemilik 27 Nov 2026). Hitungan ulasan Insight Pasar, PDF Rapat Senin, dan Knowledge Graph memakai filter ini.
+ */
+export const GUEST_REVIEWS_ONLY = {
+  NOT: SOCIAL_REVIEW_PLATFORMS.map((platform) => ({ source: { contains: platform, mode: "insensitive" as const } })),
+};
+
 export function channelFromSource(
   source: string,
   dynamicOtaProviders?: Iterable<string>,

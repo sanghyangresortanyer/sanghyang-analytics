@@ -18,7 +18,7 @@ import { formatAreaSqm, loadDynamicHotelRoomTypes, type HotelRoomTypesProfile } 
 import { loadResortMarketSize, type ResortMarketSize } from "../market/market-size";
 import { latestCapturePerPost, OFFICIAL_SOCIAL_ACCOUNTS, parseStoredSocialPost, type SocialPromoPostRecord } from "../market/marketing-sosmed";
 import { latestFollowersByAccount } from "../market/marketing-sosmed-outlets";
-import { isOutletKey } from "../market/outlet-filters";
+import { GUEST_REVIEWS_ONLY, isOutletKey } from "../market/outlet-filters";
 import { OWN_OUTLETS } from "../market/outlet-ratings";
 import { OWN_TEAM_SOURCE } from "../market/own-promos";
 import { loadPlaceSpecsMap, type PlaceSpecs } from "../market/place-specs";
@@ -194,6 +194,7 @@ export async function loadGraphInput(rangeOrNow?: DayRange | Date, options?: Bui
       where: {
         archivedAt: null,
         ...(range ? { reviewDate: { gte: range.from, lte: range.to } } : {}),
+        ...GUEST_REVIEWS_ONLY,
       },
       select: { competitorId: true, themes: true, sentiment: true, source: true, sourceUrl: true, capturedAt: true, reviewDate: true },
     }),

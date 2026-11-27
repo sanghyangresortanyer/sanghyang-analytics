@@ -11,7 +11,7 @@ import { matchComparablePrices, type PriceSnapshot } from '@/lib/market/price-sc
 import { SOCIAL_POST_CATEGORY } from '@/lib/market/scrape-social-buzz';
 import { DISPROVEN_FACILITY_CLAIM, isVerifiedReviewSource } from '@/lib/market/resort-strategy';
 import { loadDynamicOtaDirectory } from '@/lib/market/ota-directory.server';
-import { channelFromSource, type PromoVenue } from '@/lib/market/outlet-filters';
+import { channelFromSource, GUEST_REVIEWS_ONLY, type PromoVenue } from '@/lib/market/outlet-filters';
 import {
   classifyPromoOrEvent,
   isGenuinePromoOrEvent,
@@ -320,7 +320,7 @@ async function buildSummaryPayload({
     // 6. Ulasan yang tidak diarsipkan dan bertanggal di dalam periode terpilih (hari WIB), supaya Langkah 1 dan
     //    hitungan sentimen mengikuti pemilih periode (keputusan pemakai 18 Nov 2026).
     db.competitorReview.findMany({
-      where: { archivedAt: null, reviewDate: { gte: periodStart, lte: periodEnd } },
+      where: { archivedAt: null, reviewDate: { gte: periodStart, lte: periodEnd }, ...GUEST_REVIEWS_ONLY },
       select: {
         id: true,
         externalId: true,

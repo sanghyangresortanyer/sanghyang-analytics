@@ -7,7 +7,6 @@ import {
   AlertTriangle,
   ArrowRight,
   Building2,
-  Camera,
   Check,
   CheckCircle2,
   ChevronDown,
@@ -93,7 +92,7 @@ export function filterGuestReviews<
   filters: {
     selectedAspect: string | null;
     sentimentFilter: "all" | "positive" | "neutral" | "negative";
-    channelFilter: "all" | "google" | "ota" | "social";
+    channelFilter: "all" | "google" | "ota";
     otaProviders?: readonly string[];
   },
 ): T[] {
@@ -157,7 +156,7 @@ export function InsightPasarView({
   const [exportingPdf, setExportingPdf] = useState(false);
   const [actionMsg, setActionMsg] = useState<string | null>(null);
   const [showExecutiveSummary, setShowExecutiveSummary] = useState(false);
-  const [channelFilter, setChannelFilter] = useState<"all" | "google" | "ota" | "social">("all");
+  const [channelFilter, setChannelFilter] = useState<"all" | "google" | "ota">("all");
   const [sentimentFilter, setSentimentFilter] = useState<"all" | "positive" | "neutral" | "negative">("all");
   const [reviewLimit, setReviewLimit] = useState(REVIEW_PAGE_SIZE);
   const [selectedAspect, setSelectedAspect] = useState<string | null>(null);
@@ -298,11 +297,6 @@ export function InsightPasarView({
     }),
     [visibleReviews],
   );
-
-  const socialPlatforms = useMemo(() => {
-    if (!activeOutlet) return [];
-    return [...new Set(activeOutlet.reviews.map((r) => r.source).filter((src) => channelFromSource(src, otaProviders) === "social"))];
-  }, [activeOutlet, otaProviders]);
 
   const otaSourcePreview = useMemo(() => {
     if (!activeOutlet) return "Ulasan dari portal pemesanan daring";
@@ -626,7 +620,7 @@ export function InsightPasarView({
                   <p className="mt-1 text-2xl font-extrabold tabular-nums text-navy-900">
                     {guestSummary.total.toLocaleString("id-ID")}
                   </p>
-                  <p className="mt-0.5 text-[11px] text-navy-600">dibaca dari Google, OTA, dan media sosial</p>
+                  <p className="mt-0.5 text-[11px] text-navy-600">dibaca dari Google dan OTA</p>
                 </div>
               </div>
 
@@ -701,35 +695,9 @@ export function InsightPasarView({
                 </div>
               )}
 
-              {/* 3 Kartu Kanal */}
+              {/* Kartu kanal ulasan; komentar media sosial bukan ulasan tamu (keputusan pemilik 27 Nov 2026). */}
               {activeOutlet?.channelBreakdown && (
-                <div className="grid grid-cols-1 gap-3 text-xs sm:grid-cols-3">
-                  <div className="space-y-1 rounded-2xl border border-amber-200 bg-amber-50/50 p-3.5">
-                    <div className="flex items-center justify-between font-bold text-amber-950">
-                      <span className="flex items-center gap-1.5">
-                        <Camera className="h-4 w-4" aria-hidden /> Media Sosial
-                      </span>
-                      <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px]">
-                        {activeOutlet.channelBreakdown.social.count} komentar
-                      </span>
-                    </div>
-                    {activeOutlet.channelBreakdown.social.count > 0 ? (
-                      <>
-                        <p className="text-lg font-extrabold text-amber-900">
-                          {activeOutlet.channelBreakdown.social.positiveRatio ?? 0}% Positif
-                        </p>
-                        <p className="text-[11px] text-amber-950/80">
-                          Komentar publik di {socialPlatforms.join(", ") || "media sosial"}
-                        </p>
-                      </>
-                    ) : (
-                      <p className="text-[11px] leading-relaxed text-navy-700">
-                        {extSync.extensionInstalled
-                          ? "Ekstensi Chrome terpasang. Klik Sinkron Sosmed via Chrome di bawah untuk menarik komentar Instagram & TikTok."
-                          : "Gunakan Ekstensi Chrome Sanghyang Market Sync untuk mengambil komentar Instagram & TikTok terbaru."}
-                      </p>
-                    )}
-                  </div>
+                <div className="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
                   <div className="space-y-1 rounded-2xl border border-sky-200 bg-sky-50/50 p-3.5">
                     <div className="flex items-center justify-between font-bold text-sky-950">
                       <span className="flex items-center gap-1.5">
@@ -810,7 +778,6 @@ export function InsightPasarView({
                     {(
                       [
                         ["all", "Semua Kanal"],
-                        ["social", "Media Sosial"],
                         ["google", "Google Maps"],
                         ["ota", "OTA"],
                       ] as const

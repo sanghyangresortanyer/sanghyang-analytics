@@ -1600,8 +1600,8 @@ describe("refresh-follow SSE dan status pembaruan", () => {
     ).toEqual(["r2"]);
 
     expect(
-      filterGuestReviews(sampleReviews, { selectedAspect: null, sentimentFilter: "all", channelFilter: "social" }).map((r) => r.id),
-    ).toEqual(["r3"]);
+      filterGuestReviews(sampleReviews, { selectedAspect: null, sentimentFilter: "all", channelFilter: "google" }).map((r) => r.id),
+    ).toEqual(["r1"]);
   });
 });
 

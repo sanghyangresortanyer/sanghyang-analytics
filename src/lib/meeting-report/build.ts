@@ -19,7 +19,7 @@ import { loadResortMarketSize } from "../market/market-size";
 import { dateLabel, rupiah } from "../market/menu-format";
 import { OFFICIAL_MENU_SOURCE } from "../market/official-menu";
 import { loadDynamicOtaDirectory } from "../market/ota-directory.server";
-import { OUTLET_KEYS, promoMatchesOutlet, type OutletKey } from "../market/outlet-filters";
+import { GUEST_REVIEWS_ONLY, OUTLET_KEYS, promoMatchesOutlet, type OutletKey } from "../market/outlet-filters";
 import { OWN_OUTLETS } from "../market/outlet-ratings";
 import { isOwnCompetitorName, OWN_TEAM_SOURCE } from "../market/own-promos";
 import { loadPlaceSpecsMap } from "../market/place-specs";
@@ -235,7 +235,7 @@ export async function buildMeetingReport(
   const [ownReviewRows, rawPromoRows, ownSocialPosts] = await Promise.all([
     // Hanya periode terpilih dan periode pembanding; ulasan di luar keduanya tidak pernah dicetak.
     db.competitorReview.findMany({
-      where: { competitorId: { in: ownIds }, archivedAt: null, reviewDate: { gte: prevRange.from, lte: activeRange.to } },
+      where: { competitorId: { in: ownIds }, archivedAt: null, reviewDate: { gte: prevRange.from, lte: activeRange.to }, ...GUEST_REVIEWS_ONLY },
       select: { competitorId: true, rating: true, sentiment: true, text: true, source: true, sourceUrl: true, reviewDate: true, capturedAt: true, themes: true },
     }),
     db.competitorPromotion.findMany({

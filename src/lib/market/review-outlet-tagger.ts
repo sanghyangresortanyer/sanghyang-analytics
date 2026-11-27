@@ -3,6 +3,8 @@
  * beserta sentimen untuk outlet itu saja: "kamar kotor tapi spa enak" = positif untuk D'Spa.
  * Tag disimpan di kolom themes ulasan yang sama, jadi summary/PDF menghitungnya untuk outlet tersebut. Tidak ada baris dihapus.
  */
+import { GUEST_REVIEWS_ONLY } from "./outlet-filters";
+
 const RESORT_NAME = "Sanghyang Indah Spa Resort";
 /** Penanda ulasan yang sudah dibaca, supaya tidak dibaca ulang tiap malam. */
 export const TAGGED_MARKER = "outlet-dibaca-gemini";
@@ -104,6 +106,7 @@ export async function tagResortReviews(
       competitor: { name: RESORT_NAME },
       reviewDate: { gte: sinceDate },
       NOT: { themes: { has: TAGGED_MARKER } },
+      AND: [GUEST_REVIEWS_ONLY],
     },
     select: { id: true, text: true, themes: true, version: true },
     orderBy: { reviewDate: "desc" },

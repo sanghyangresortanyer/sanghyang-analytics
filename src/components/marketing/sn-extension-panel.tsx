@@ -286,7 +286,7 @@ export function SnExtensionPanel({
               </span>
               {sync.savingBatch && (
                 <span className="min-w-0 whitespace-normal break-words text-[10px] font-medium text-navy-600">
-                  Menyimpan ke basis data lokal…
+                  Menyimpan ke basis data…
                 </span>
               )}
             </div>
@@ -348,13 +348,13 @@ export function SnExtensionPanel({
             Sinkronisasi selesai ({s.completedTargets}/{s.totalTargets} akun):{" "}
             {sync.savedPostsTotal > 0 ? (
               <>
-                {sync.savedPostsTotal.toLocaleString("id-ID")} postingan tersimpan ke basis data lokal,{" "}
+                {sync.savedPostsTotal.toLocaleString("id-ID")} postingan tersimpan,{" "}
                 {sync.savedCommentsTotal.toLocaleString("id-ID")} komentar diproses.
               </>
             ) : (
               <>
                 {s.syncedPostsCount.toLocaleString("id-ID")} postingan diamati
-                {s.finalizedOnServer ? " (tersimpan di basis data lokal)" : " (belum terkirim ke basis data)"}, {" "}
+                {s.finalizedOnServer ? " (tersimpan)" : " (belum terkirim ke basis data)"}, {" "}
                 {s.syncedCommentsCount.toLocaleString("id-ID")} komentar diproses.
               </>
             )}
