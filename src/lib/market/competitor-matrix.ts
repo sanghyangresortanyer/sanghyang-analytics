@@ -60,6 +60,7 @@ import { itemPriceText, perPersonText, rupiah, rupiahRange, servingLabel } from 
 import { officialMenu, OFFICIAL_MENU_SOURCE } from "./official-menu";
 import { OUTLET_KEYS, type OutletKey } from "./outlet-filters";
 import { OWN_OUTLETS } from "./outlet-ratings";
+import { competitorOfficialRoomRatesFor } from "./competitor-official-rates-data";
 import { officialRoomRatesFor, officialRoomRatesSource, type OfficialRoomRate } from "./official-room-rates";
 import { loadPlaceSpecsMap, type PlaceSpecs, type SourceRef } from "./place-specs";
 import { OUTLET_MARKET_SHARE_DATA } from "./pricing-benchmark";
@@ -764,14 +765,6 @@ function pickEntryLevelRoomIndex(roomTypes: HotelRoomTypeSpec[]): number {
   return 0;
 }
 
-function isOfficialPriceSourceLabel(priceSource: string | null | undefined): boolean {
-  if (!priceSource) return false;
-  if (/booking\.com|hotels\.com|agoda|traveloka|tiket\.com|trip\.com|expedia|klook|bluepillow|hometogo|priceline|vio\.com|google\s+(?:hotels|travel)/i.test(priceSource)) {
-    return false;
-  }
-  return /situs\s+resmi|booking\s+engine\s+resmi|be\.dip\.id|marbellaplaceanyer\.com|aston|official/i.test(priceSource);
-}
-
 function summarizeBreakfastStatus(
   hasTrue: boolean,
   hasFalse: boolean,
@@ -817,7 +810,6 @@ interface BuildHotelRoomSubRowsContext {
   windowLastCheckIn: string;
   entityBaseUrl: string | null;
   websiteUrl: string | null;
-  bookingUrl: string | null;
   mapsUrl: string | null;
 }
 
@@ -869,7 +861,7 @@ const PROPERTY_LOWEST_ROOM: Pick<HotelRoomTypeSpec, "name" | "category"> = {
  * tanggal check-in crawl aslinya, dan tarif termurah properti dipasang pada kamar kelas dasar bila lebih murah.
  */
 export function buildHotelRoomSubRows(ctx: BuildHotelRoomSubRowsContext): HotelRoomTypeMatrixSubRow[] {
-  const { evidence, snapshots, propertyRange, evidenceCheckIn, entityBaseUrl, websiteUrl, bookingUrl, mapsUrl } = ctx;
+  const { evidence, snapshots, propertyRange, evidenceCheckIn, entityBaseUrl, websiteUrl, mapsUrl } = ctx;
 
   const snapUrlForCheckIn = (ci: string): string | null => {
     const hit =
@@ -927,10 +919,7 @@ export function buildHotelRoomSubRows(ctx: BuildHotelRoomSubRowsContext): HotelR
   return roomTypes.map((rt, idx) => {
     const highlights = rt.highlights.map(clean).filter(Boolean);
     const officialBf = inferOfficialBreakfastFromHighlights(highlights);
-    const officialObservedOk = !ctx.officialObservedLimit || rt.observedAt.slice(0, 10) <= ctx.officialObservedLimit;
-    const isOfficialPrice = isOfficialPriceSourceLabel(rt.priceSource) && officialObservedOk;
 
-    const officialUrl = rt.sourcePriority === "official" && rt.sourceUrl ? rt.sourceUrl : (bookingUrl ?? websiteUrl ?? rt.sourceUrl);
     // Tarif booking engine resmi untuk kamar yang sama menang atas kolom harga profil kamar (keputusan pemilik E2).
     const engine = ctx.officialRates.find(
       (r) => r.roomName === rt.name && (!ctx.officialObservedLimit || isoDateWib(new Date(r.observedAt)) <= ctx.officialObservedLimit),
@@ -946,6 +935,9 @@ export function buildHotelRoomSubRows(ctx: BuildHotelRoomSubRowsContext): HotelR
     const otaLayerCheckIn = ctx.crawlDate !== null ? evidenceCheckIn : null;
     const countedWd = engineWd !== null && engine?.checkInWeekday === otaLayerCheckIn?.weekday ? engineWd : null;
     const countedWe = engineWe !== null && engine?.checkInWeekend === otaLayerCheckIn?.weekend ? engineWe : null;
+    // Hanya tarif booking engine yang bertanggal yang menjadi lapisan situs resmi. Harga riset profil kamar tanpa tanggal
+    // menginap tidak dipakai lagi: harga be.dip.id yang dicatat 19 Nov untuk menginap 21 dan 24 Nov tampil seolah tarif
+    // hari ini, tanpa paket sarapan wajib, dan dengan sarapan "Belum tercatat" (laporan pemilik 27 Nov 2026).
     const officialRate: RoomOfficialRateLayer | null =
       engine && (engineWd !== null || engineWe !== null)
         ? {
@@ -970,30 +962,7 @@ export function buildHotelRoomSubRows(ctx: BuildHotelRoomSubRowsContext): HotelR
             otaCheckInWeekday: otaLayerCheckIn?.weekday ?? null,
             otaCheckInWeekend: otaLayerCheckIn?.weekend ?? null,
           }
-        : isOfficialPrice && (rt.weekdayPrice !== null || rt.weekendPrice !== null)
-          ? {
-              weekdayPrice: rt.weekdayPrice,
-              weekendPrice: rt.weekendPrice,
-              priceLabel: formatRoomTypePrice(rt.weekdayPrice, rt.weekendPrice),
-              sourceLabel: clean(rt.priceSource) || clean(rt.sourceLabel) || "Situs resmi",
-              sourceUrl: officialUrl,
-              breakfastIncluded: officialBf,
-              breakfastLabel: officialBf === true ? "Termasuk sarapan" : officialBf === false ? "Tanpa sarapan" : "Belum tercatat",
-              weekdayCheckIn: null,
-              weekendCheckIn: null,
-              weekdayBreakfast: null,
-              weekendBreakfast: null,
-              ratePlan: null,
-              weekdayUnavailableReason: null,
-              weekendUnavailableReason: null,
-              weekdaySourceUrl: null,
-              weekendSourceUrl: null,
-              weekdayOtherNightPrice: null,
-              weekendOtherNightPrice: null,
-              otaCheckInWeekday: null,
-              otaCheckInWeekend: null,
-            }
-          : null;
+        : null;
     const officialUnavailableReason = officialRate
       ? null
       : engine
@@ -1495,7 +1464,6 @@ export async function buildOutletCompetitorMatrices(
       rating: true,
       reviewCount: true,
       websiteUrl: true,
-      bookingUrl: true,
       ratesUrl: true,
       googleMapsUrl: true,
       mapsUrl: true,
@@ -1677,7 +1645,8 @@ export async function buildOutletCompetitorMatrices(
           snapshots: hotelSnaps,
           propertyRange: mergedPropertyRange,
           officialObservedLimit,
-          officialRates: reg.placeId ? officialRoomRatesFor(reg.placeId) : [],
+          // Tarif engine bertanggal: Exely untuk Sanghyang, be.dip.id untuk kompetitor yang engine-nya bisa dibaca.
+          officialRates: reg.placeId ? [...officialRoomRatesFor(reg.placeId), ...competitorOfficialRoomRatesFor(reg.placeId)] : [],
           // Pemuat tarif resmi membaca booking engine Sanghyang; alasannya hanya berlaku untuk baris Sanghyang.
           officialUnavailableReason: item.role === "sanghyang" ? ownOfficialUnavailableReason : null,
           crawlDate: usesCrawlEvidence ? rateWindow.crawlDate : null,
@@ -1686,7 +1655,6 @@ export async function buildOutletCompetitorMatrices(
           windowLastCheckIn: rateWindow.lastCheckIn,
           entityBaseUrl,
           websiteUrl: reg.websiteUrl,
-          bookingUrl: reg.bookingUrl,
           mapsUrl: reg.googleMapsUrl ?? reg.mapsUrl,
         });
 

@@ -1,0 +1,131 @@
+{
+  "$comment": "Tarif kamar booking engine resmi kompetitor (be.dip.id) pada tanggal lapisan OTA. Ditulis lib/market/competitor-official-rates-refresh.ts; jangan disunting tangan.",
+  "observedAt": "2026-11-27T03:59:22.776Z",
+  "checkInWeekday": "2026-12-01",
+  "checkInWeekend": "2026-11-28",
+  "datesFrom": "lib/market/resort-room-rates.data.json (capturedAt 2026-11-26 23:51 WIB)",
+  "hotels": [
+    {
+      "hotelId": "nemuru_palazo",
+      "engine": "be.dip.id",
+      "sourceLabel": "Booking engine resmi be.dip.id",
+      "bookUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22",
+      "rooms": [
+        {
+          "roomName": "Town House 1 Bed Room - King Bed",
+          "engineRoomName": "Town House 1 Bed Room - King Bed",
+          "weekday": {
+            "checkIn": "2026-12-01",
+            "checkOut": "2026-12-02",
+            "price": 1900000,
+            "breakfastIncluded": true,
+            "ratePlan": "ROOM BREAKFAST",
+            "ratePlanId": "17847",
+            "mealPlanCode": null,
+            "roomsLeft": 4,
+            "unavailableReason": null,
+            "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22"
+          },
+          "weekend": {
+            "checkIn": "2026-11-28",
+            "checkOut": "2026-11-29",
+            "price": 1000000,
+            "breakfastIncluded": true,
+            "ratePlan": "ROOM BREAKFAST",
+            "ratePlanId": "17847",
+            "mealPlanCode": null,
+            "roomsLeft": 4,
+            "unavailableReason": null,
+            "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22"
+          }
+        },
+        {
+          "roomName": "Wooden Cabin 1 Bed Room - King Bed",
+          "engineRoomName": "Wooden Cabin 1 Bed Room - King Bed",
+          "weekday": {
+            "checkIn": "2026-12-01",
+            "checkOut": "2026-12-02",
+            "price": 2050000,
+            "breakfastIncluded": true,
+            "ratePlan": "ROOM BREAKFAST",
+            "ratePlanId": "17847",
+            "mealPlanCode": null,
+            "roomsLeft": 4,
+            "unavailableReason": null,
+            "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22"
+          },
+          "weekend": {
+            "checkIn": "2026-11-28",
+            "checkOut": "2026-11-29",
+            "price": 1023500,
+            "breakfastIncluded": true,
+            "ratePlan": "ROOM BREAKFAST",
+            "ratePlanId": "17847",
+            "mealPlanCode": null,
+            "roomsLeft": 4,
+            "unavailableReason": null,
+            "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22"
+          }
+        },
+        {
+          "roomName": "Town House 2 Bed Room - King Bed",
+          "engineRoomName": "Town House 2 Bed Room - King Bed",
+          "weekday": {
+            "checkIn": "2026-12-01",
+            "checkOut": "2026-12-02",
+            "price": 2400000,
+            "breakfastIncluded": true,
+            "ratePlan": "ROOM BREAKFAST",
+            "ratePlanId": "17847",
+            "mealPlanCode": null,
+            "roomsLeft": 4,
+            "unavailableReason": null,
+            "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22"
+          },
+          "weekend": {
+            "checkIn": "2026-11-28",
+            "checkOut": "2026-11-29",
+            "price": 1500000,
+            "breakfastIncluded": true,
+            "ratePlan": "ROOM BREAKFAST",
+            "ratePlanId": "17847",
+            "mealPlanCode": null,
+            "roomsLeft": 4,
+            "unavailableReason": null,
+            "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22"
+          }
+        },
+        {
+          "roomName": "Wooden Cabin 2 Bed Room - King Bed",
+          "engineRoomName": "Wooden Cabin 2 Bed Room - King Bed",
+          "weekday": {
+            "checkIn": "2026-12-01",
+            "checkOut": "2026-12-02",
+            "price": 2700000,
+            "breakfastIncluded": true,
+            "ratePlan": "ROOM BREAKFAST",
+            "ratePlanId": "17847",
+            "mealPlanCode": null,
+            "roomsLeft": 4,
+            "unavailableReason": null,
+            "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22"
+          },
+          "weekend": {
+            "checkIn": "2026-11-28",
+            "checkOut": "2026-11-29",
+            "price": 1600000,
+            "breakfastIncluded": true,
+            "ratePlan": "ROOM BREAKFAST",
+            "ratePlanId": "17847",
+            "mealPlanCode": null,
+            "roomsLeft": 4,
+            "unavailableReason": null,
+            "sourceUrl": "https://be.dip.id/booking/cekrooms?keyid=d77bcce9f48e18cbeb0f00493ec91f22"
+          }
+        }
+      ],
+      "unmappedEngineRooms": [],
+      "catalogRoomsWithoutEngineRoom": []
+    }
+  ]
+}

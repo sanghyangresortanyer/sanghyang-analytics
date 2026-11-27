@@ -163,8 +163,13 @@ test("C8 dan C13: tabel 2 tanpa kolom Audit pembanding dan hanya baris ringkasan
   assert.ok(rateColumn > 0, "kolom tarif ada");
   const hotels = resort.outletBody!.matrix.competitorMatrix!.hotelEntries!;
   resort.matrix.table.rows.forEach((row, i) => assert.equal(row[rateColumn], hotels[i].otaRateLabel, `${row[1]}: tarif sama dengan matriks web`));
-  assert.ok(resort.matrix.table.rows.some((row) => /Rp [\d.]+/.test(row[rateColumn])), "DB lokal punya tarif rupiah");
-  assert.match(visibleText(renderMeetingReport(resort)), /Hari Biasa \(Weekday\)[\s\S]*Akhir Pekan \(Weekend\)/, "ringkasan termurah hari biasa dan akhir pekan");
+  // Tarif rupiah periode 15–21 Nov dulu hanya berasal dari harga riset tanpa tanggal menginap, yang tidak dipakai lagi
+  // (laporan pemilik 27 Nov 2026); pemeriksaan tarif rupiah memakai minggu yang punya tarif OTA dan engine bertanggal.
+  const recent = await buildMeetingReport("resort", new Date("2026-11-27T12:00:00+07:00"), { from: "2026-11-21", to: "2026-11-27" });
+  const recentRateColumn = recent.matrix.table.head.findIndex((h) => /^Tarif /.test(h));
+  assert.ok(recent.matrix.table.rows.some((row) => /Rp [\d.]+/.test(row[recentRateColumn])), "DB lokal punya tarif rupiah bertanggal");
+  assert.match(visibleText(renderMeetingReport(recent)), /Hari Biasa \(Weekday\)[\s\S]*Akhir Pekan \(Weekend\)/, "ringkasan termurah hari biasa dan akhir pekan");
+  assert.match(visibleText(renderMeetingReport(resort)), /Belum ada tarif kamar yang terpantau sampai 21 Nov 2026/, "periode tanpa tarif bertanggal ditulis apa adanya");
 });
 
 test("C9, C2, C19, C17: teks PDF tanpa nama alat/model AI, tanpa 'pesaing'/'registri', tanpa Rekomendasi & Langkah Aksi, format 'terakhir diperiksa DD Mmm YYYY'", async () => {

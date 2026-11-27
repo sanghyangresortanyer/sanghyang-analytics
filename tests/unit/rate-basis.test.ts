@@ -154,7 +154,6 @@ test("snapshot per kamar membawa status sarapan dari nama paketnya ke lapisan OT
     windowLastCheckIn: "2026-12-07",
     entityBaseUrl: null,
     websiteUrl: null,
-    bookingUrl: null,
     mapsUrl: null,
   });
   const deluxe = subRows.find((r) => r.name === "Sanghyang Deluxe");
@@ -191,7 +190,6 @@ test("harga termurah yang sama dari situs resmi dan OTA pada malam yang sama mem
     windowLastCheckIn: "2026-12-07",
     entityBaseUrl: null,
     websiteUrl: null,
-    bookingUrl: null,
     mapsUrl: null,
   });
   const deluxe = subRows.find((r) => r.name === "Sanghyang Deluxe");

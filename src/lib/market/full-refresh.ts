@@ -35,6 +35,7 @@ import { sanitizeAiModelText } from "./hotel-room-types";
 import { OUTLET_KEYS } from "./outlet-filters";
 import { reclassifyRegistry, type RegistryDecision } from "./competitor-holistic-matcher";
 import { loadHolisticRegistry, type HolisticRegistry } from "./compset-audit";
+import { refreshCompetitorOfficialRates } from "./competitor-official-rates-refresh";
 import { refreshOfficialRoomRates } from "./official-room-rates-refresh";
 import { WITH_BREAKFAST_PACKAGE, WITHOUT_BREAKFAST_PACKAGE } from "./rate-basis";
 import { presetRange } from "./date-range";
@@ -541,6 +542,13 @@ export async function runFullRefresh(
             if (official.written) windowNote += " Tarif situs resmi Sanghyang diperbarui.";
           } catch (officialErr) {
             allFailures.push(`Tarif situs resmi: ${messageOf(officialErr).slice(0, 140)}`);
+          }
+          try {
+            const competitor = await refreshCompetitorOfficialRates();
+            allFailures.push(...competitor.problems.map((p) => `Tarif situs resmi kompetitor: ${p}`));
+            if (competitor.written) windowNote += " Tarif situs resmi kompetitor diperbarui.";
+          } catch (competitorErr) {
+            allFailures.push(`Tarif situs resmi kompetitor: ${messageOf(competitorErr).slice(0, 140)}`);
           }
         }
       } catch (winErr) {

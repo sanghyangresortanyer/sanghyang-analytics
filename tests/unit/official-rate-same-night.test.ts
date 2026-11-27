@@ -56,7 +56,6 @@ async function ownSubRows() {
       windowLastCheckIn: addDays(first, nights - 1),
       entityBaseUrl: null,
       websiteUrl: null,
-      bookingUrl: null,
       mapsUrl: null,
     });
   const shiftedDates = { weekday: addDays(officialDates.weekday, 1), weekend: addDays(officialDates.weekend, 1) };

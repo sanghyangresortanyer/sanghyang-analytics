@@ -178,12 +178,19 @@ jobs:
           fi
           npx tsx scripts/ops/crawl-official-room-rates.ts
 
+      # Tarif booking engine resmi kompetitor (be.dip.id milik Nemuru) untuk tanggal yang sama dengan lapisan OTA: harga jual
+      # termasuk paket sarapan wajib. Kegagalannya tidak menahan commit tarif OTA, tetapi membuat job merah di langkah terakhir.
+      - name: Crawl competitor official room rates
+        id: competitor_official_rates
+        continue-on-error: true
+        run: npx tsx scripts/ops/crawl-competitor-official-rates.ts
+
       - name: Commit updated room rates
         shell: bash
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          files=(src/lib/market/resort-room-rates.data.json src/lib/market/official-room-rates.data.json)
+          files=(src/lib/market/resort-room-rates.data.json src/lib/market/official-room-rates.data.json src/lib/market/competitor-official-rates.data.json)
           if git diff --quiet -- "${files[@]}"; then
             echo "Tarif kamar tidak berubah."
             exit 0
@@ -203,4 +210,10 @@ jobs:
         if: steps.official_rates.outcome == 'failure'
         run: |
           echo "::error title=Tarif resmi gagal::crawl-official-room-rates.ts gagal; official-room-rates.data.json lama dipertahankan. Lihat log langkah Crawl official room rates."
+          exit 1
+
+      - name: Report competitor official room rate failure
+        if: steps.competitor_official_rates.outcome == 'failure'
+        run: |
+          echo "::error title=Tarif resmi kompetitor gagal::crawl-competitor-official-rates.ts gagal; competitor-official-rates.data.json lama dipertahankan. Lihat log langkah Crawl competitor official room rates."
           exit 1

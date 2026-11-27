@@ -1,0 +1,997 @@
+{
+ "_sumber": "Jawaban asli booking engine resmi Nemuru Grand Anyer Palazo (be.dip.id/booking/cekroomservice_withpackage, POST seperti skrip cekroom-withpackage.js), diambil 2026-11-27T03:49:30+00:00 dengan User-Agent perayap proyek; check-in 2026-12-01, 1 malam, 2 dewasa, 1 kamar, lang=IN.",
+ "request": {
+  "tglcekin": "2026-12-01",
+  "duration": "1",
+  "tglcekout": "2026-12-02",
+  "jmlroom": "1",
+  "person": "2",
+  "lang": "IN"
+ },
+ "response": {
+  "status": "success",
+  "totalrow": 4,
+  "list": {
+   "list": [
+    {
+     "kode_jenis": 2118,
+     "nama_jenis": "Town House 1 Bed Room - King Bed",
+     "promopaket": null,
+     "harga": {
+      "2026-12-01": {
+       "before": 1700000,
+       "disc": 0,
+       "after": 1700000,
+       "stok": 4,
+       "mode": "from rates",
+       "stop_sell": false,
+       "poin_owner": 0
+      }
+     },
+     "liststok": {
+      "2026-12-01": 4
+     },
+     "list_include": [],
+     "list_fasilitas": [
+      {
+       "id": 130494,
+       "idFacility": 2203,
+       "facilityName": "Kettle Jug",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130495,
+       "idFacility": 2204,
+       "facilityName": "Water Heater",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130496,
+       "idFacility": 2205,
+       "facilityName": "Air Conditioner",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130497,
+       "idFacility": 2206,
+       "facilityName": "Smart TV",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130498,
+       "idFacility": 2207,
+       "facilityName": "Rain Shower",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130499,
+       "idFacility": 2208,
+       "facilityName": "Desk",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130500,
+       "idFacility": 2209,
+       "facilityName": "Free WiFi",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130501,
+       "idFacility": 2210,
+       "facilityName": "Balkon/Teras",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130502,
+       "idFacility": 2211,
+       "facilityName": "Swimming Pool",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130503,
+       "idFacility": 2212,
+       "facilityName": "Poolbar",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      }
+     ],
+     "nama_kategori": "Room",
+     "satuan_kategori": "Room",
+     "gbr_utama": "WhatsApp_Image_2025-02-08_at_20.21_.55_4af7c7e6_.jpg",
+     "kapasitas": 2,
+     "maxLamaInap": null,
+     "reminder_status": "false",
+     "reminder_min_stok": 0,
+     "reminder_msg": "",
+     "tax_include_text": "",
+     "package": [
+      {
+       "id": 17847,
+       "roomId": null,
+       "hotelId": 687,
+       "packageName": "ROOM BREAKFAST",
+       "weekday": true,
+       "weekend": true,
+       "viewFolio": "Hide",
+       "total": 0,
+       "paket": "include",
+       "breakfast": true,
+       "priceBreakfast": 100000,
+       "forSale": true,
+       "active": true,
+       "pms": true,
+       "be": true,
+       "bePrice": 0,
+       "beBreakfast": 100000,
+       "services": [],
+       "owner": null,
+       "poinOwner": null
+      }
+     ],
+     "room_only_sale": false,
+     "packageMapping": {
+      "17847": {
+       "id": 1394,
+       "roomId": 2118,
+       "paketId": 17847,
+       "hotelId": 687,
+       "startDate": null,
+       "endDate": null,
+       "bookingStartDate": null,
+       "bookingEndDate": null,
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      }
+     },
+     "packageBase": "room_base_room_capacity",
+     "owner": null
+    },
+    {
+     "kode_jenis": 2120,
+     "nama_jenis": "Wooden Cabin 1 Bed Room - King Bed",
+     "promopaket": null,
+     "harga": {
+      "2026-12-01": {
+       "before": 1850000,
+       "disc": 0,
+       "after": 1850000,
+       "stok": 4,
+       "mode": "from rates",
+       "stop_sell": false,
+       "poin_owner": 0
+      }
+     },
+     "liststok": {
+      "2026-12-01": 4
+     },
+     "list_include": [],
+     "list_fasilitas": [
+      {
+       "id": 130993,
+       "idFacility": 2203,
+       "facilityName": "Kettle Jug",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130994,
+       "idFacility": 2204,
+       "facilityName": "Water Heater",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130995,
+       "idFacility": 2205,
+       "facilityName": "Air Conditioner",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130996,
+       "idFacility": 2206,
+       "facilityName": "Smart TV",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130997,
+       "idFacility": 2207,
+       "facilityName": "Rain Shower",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130998,
+       "idFacility": 2208,
+       "facilityName": "Desk",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130999,
+       "idFacility": 2209,
+       "facilityName": "Free WiFi",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 131000,
+       "idFacility": 2210,
+       "facilityName": "Balkon/Teras",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 131001,
+       "idFacility": 2211,
+       "facilityName": "Swimming Pool",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 131002,
+       "idFacility": 2212,
+       "facilityName": "Poolbar",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 131003,
+       "idFacility": 3440,
+       "facilityName": "Beach View",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      }
+     ],
+     "nama_kategori": "Room",
+     "satuan_kategori": "Room",
+     "gbr_utama": "nemuruhotels.com_(1)_.jpg",
+     "kapasitas": 2,
+     "maxLamaInap": null,
+     "reminder_status": "false",
+     "reminder_min_stok": 0,
+     "reminder_msg": "",
+     "tax_include_text": "",
+     "package": [
+      {
+       "id": 17847,
+       "roomId": null,
+       "hotelId": 687,
+       "packageName": "ROOM BREAKFAST",
+       "weekday": true,
+       "weekend": true,
+       "viewFolio": "Hide",
+       "total": 0,
+       "paket": "include",
+       "breakfast": true,
+       "priceBreakfast": 100000,
+       "forSale": true,
+       "active": true,
+       "pms": true,
+       "be": true,
+       "bePrice": 0,
+       "beBreakfast": 100000,
+       "services": [],
+       "owner": null,
+       "poinOwner": null
+      },
+      {
+       "id": 26300,
+       "roomId": null,
+       "hotelId": 687,
+       "packageName": "November Epic 11.11",
+       "weekday": true,
+       "weekend": true,
+       "viewFolio": "View",
+       "total": 224455,
+       "paket": "exclude",
+       "breakfast": true,
+       "priceBreakfast": 100000,
+       "forSale": true,
+       "active": true,
+       "pms": true,
+       "be": true,
+       "bePrice": 224455,
+       "beBreakfast": 100000,
+       "services": [
+        {
+         "packageId": 26300,
+         "serviceId": 5593,
+         "qty": 1,
+         "amount": 224455,
+         "serviceName": "Free Minibar Item",
+         "coa": "30103359"
+        }
+       ],
+       "owner": false,
+       "poinOwner": 0
+      },
+      {
+       "id": 26301,
+       "roomId": null,
+       "hotelId": 687,
+       "packageName": "November Epic 11.11",
+       "weekday": true,
+       "weekend": true,
+       "viewFolio": "View",
+       "total": 224455,
+       "paket": "exclude",
+       "breakfast": true,
+       "priceBreakfast": 100000,
+       "forSale": true,
+       "active": true,
+       "pms": true,
+       "be": true,
+       "bePrice": 224455,
+       "beBreakfast": 100000,
+       "services": [
+        {
+         "packageId": 26301,
+         "serviceId": 5593,
+         "qty": 1,
+         "amount": 224455,
+         "serviceName": "Free Minibar Item",
+         "coa": "30103359"
+        }
+       ],
+       "owner": false,
+       "poinOwner": 0
+      },
+      {
+       "id": 26302,
+       "roomId": null,
+       "hotelId": 687,
+       "packageName": "November Epic 11.11",
+       "weekday": true,
+       "weekend": true,
+       "viewFolio": "View",
+       "total": 224455,
+       "paket": "exclude",
+       "breakfast": true,
+       "priceBreakfast": 100000,
+       "forSale": true,
+       "active": true,
+       "pms": true,
+       "be": true,
+       "bePrice": 224455,
+       "beBreakfast": 100000,
+       "services": [
+        {
+         "packageId": 26302,
+         "serviceId": 5593,
+         "qty": 1,
+         "amount": 224455,
+         "serviceName": "Free Minibar Item",
+         "coa": "30103359"
+        }
+       ],
+       "owner": false,
+       "poinOwner": 0
+      },
+      {
+       "id": 26303,
+       "roomId": null,
+       "hotelId": 687,
+       "packageName": "November Epic 11.11",
+       "weekday": true,
+       "weekend": true,
+       "viewFolio": "View",
+       "total": 224455,
+       "paket": "exclude",
+       "breakfast": true,
+       "priceBreakfast": 100000,
+       "forSale": true,
+       "active": true,
+       "pms": true,
+       "be": true,
+       "bePrice": 224455,
+       "beBreakfast": 100000,
+       "services": [
+        {
+         "packageId": 26303,
+         "serviceId": 5593,
+         "qty": 1,
+         "amount": 224455,
+         "serviceName": "Free Minibar Item",
+         "coa": "30103359"
+        }
+       ],
+       "owner": false,
+       "poinOwner": 0
+      },
+      {
+       "id": 26304,
+       "roomId": null,
+       "hotelId": 687,
+       "packageName": "November Epic 11.11",
+       "weekday": true,
+       "weekend": true,
+       "viewFolio": "View",
+       "total": 224455,
+       "paket": "exclude",
+       "breakfast": true,
+       "priceBreakfast": 100000,
+       "forSale": true,
+       "active": true,
+       "pms": true,
+       "be": true,
+       "bePrice": 224455,
+       "beBreakfast": 100000,
+       "services": [
+        {
+         "packageId": 26304,
+         "serviceId": 5593,
+         "qty": 1,
+         "amount": 224455,
+         "serviceName": "Free Minibar Item",
+         "coa": "30103359"
+        }
+       ],
+       "owner": false,
+       "poinOwner": 0
+      }
+     ],
+     "room_only_sale": false,
+     "packageMapping": {
+      "26195": {
+       "id": 1911,
+       "roomId": 2120,
+       "paketId": 26195,
+       "hotelId": 687,
+       "startDate": null,
+       "endDate": null,
+       "bookingStartDate": "2026-11-27",
+       "bookingEndDate": "2026-11-29",
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      },
+      "26194": {
+       "id": 1910,
+       "roomId": 2120,
+       "paketId": 26194,
+       "hotelId": 687,
+       "startDate": null,
+       "endDate": null,
+       "bookingStartDate": "2026-11-06",
+       "bookingEndDate": "2026-11-08",
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      },
+      "26197": {
+       "id": 1913,
+       "roomId": 2120,
+       "paketId": 26197,
+       "hotelId": 687,
+       "startDate": null,
+       "endDate": null,
+       "bookingStartDate": "2026-11-13",
+       "bookingEndDate": "2026-11-15",
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      },
+      "26196": {
+       "id": 1912,
+       "roomId": 2120,
+       "paketId": 26196,
+       "hotelId": 687,
+       "startDate": null,
+       "endDate": null,
+       "bookingStartDate": "2026-11-20",
+       "bookingEndDate": "2026-11-22",
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      },
+      "26198": {
+       "id": 1914,
+       "roomId": 2120,
+       "paketId": 26198,
+       "hotelId": 687,
+       "startDate": null,
+       "endDate": null,
+       "bookingStartDate": "2026-11-01",
+       "bookingEndDate": "2026-11-01",
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      },
+      "26300": {
+       "id": 1927,
+       "roomId": 2120,
+       "paketId": 26300,
+       "hotelId": 687,
+       "startDate": "2026-10-29",
+       "endDate": "2026-11-30",
+       "bookingStartDate": "2026-11-01",
+       "bookingEndDate": "2026-11-01",
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      },
+      "26302": {
+       "id": 1935,
+       "roomId": 2120,
+       "paketId": 26302,
+       "hotelId": 687,
+       "startDate": "2026-10-29",
+       "endDate": "2026-11-30",
+       "bookingStartDate": "2026-11-13",
+       "bookingEndDate": "2026-11-15",
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      },
+      "17847": {
+       "id": 1396,
+       "roomId": 2120,
+       "paketId": 17847,
+       "hotelId": 687,
+       "startDate": null,
+       "endDate": null,
+       "bookingStartDate": null,
+       "bookingEndDate": null,
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      },
+      "26301": {
+       "id": 1934,
+       "roomId": 2120,
+       "paketId": 26301,
+       "hotelId": 687,
+       "startDate": "2026-10-29",
+       "endDate": "2026-11-30",
+       "bookingStartDate": "2026-11-06",
+       "bookingEndDate": "2026-11-08",
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      },
+      "26304": {
+       "id": 1937,
+       "roomId": 2120,
+       "paketId": 26304,
+       "hotelId": 687,
+       "startDate": "2026-10-29",
+       "endDate": "2026-11-30",
+       "bookingStartDate": "2026-11-27",
+       "bookingEndDate": "2026-11-29",
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      },
+      "26303": {
+       "id": 1936,
+       "roomId": 2120,
+       "paketId": 26303,
+       "hotelId": 687,
+       "startDate": "2026-10-29",
+       "endDate": "2026-11-30",
+       "bookingStartDate": "2026-11-20",
+       "bookingEndDate": "2026-11-22",
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      }
+     },
+     "packageBase": "room_base_room_capacity",
+     "owner": null
+    },
+    {
+     "kode_jenis": 2119,
+     "nama_jenis": "Town House 2 Bed Room - King Bed",
+     "promopaket": null,
+     "harga": {
+      "2026-12-01": {
+       "before": 2000000,
+       "disc": 0,
+       "after": 2000000,
+       "stok": 4,
+       "mode": "from rates",
+       "stop_sell": false,
+       "poin_owner": 0
+      }
+     },
+     "liststok": {
+      "2026-12-01": 4
+     },
+     "list_include": [],
+     "list_fasilitas": [
+      {
+       "id": 130514,
+       "idFacility": 2203,
+       "facilityName": "Kettle Jug",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130515,
+       "idFacility": 2204,
+       "facilityName": "Water Heater",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130516,
+       "idFacility": 2205,
+       "facilityName": "Air Conditioner",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130517,
+       "idFacility": 2206,
+       "facilityName": "Smart TV",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130518,
+       "idFacility": 2207,
+       "facilityName": "Rain Shower",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130519,
+       "idFacility": 2208,
+       "facilityName": "Desk",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130520,
+       "idFacility": 2209,
+       "facilityName": "Free WiFi",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130521,
+       "idFacility": 2210,
+       "facilityName": "Balkon/Teras",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130522,
+       "idFacility": 2211,
+       "facilityName": "Swimming Pool",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130523,
+       "idFacility": 2212,
+       "facilityName": "Poolbar",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      }
+     ],
+     "nama_kategori": "Room",
+     "satuan_kategori": "Room",
+     "gbr_utama": "WhatsApp_Image_2025-02-08_at_20.34_.45_9209822a_.jpg",
+     "kapasitas": 4,
+     "maxLamaInap": null,
+     "reminder_status": "false",
+     "reminder_min_stok": 0,
+     "reminder_msg": "",
+     "tax_include_text": "",
+     "package": [
+      {
+       "id": 17847,
+       "roomId": null,
+       "hotelId": 687,
+       "packageName": "ROOM BREAKFAST",
+       "weekday": true,
+       "weekend": true,
+       "viewFolio": "Hide",
+       "total": 0,
+       "paket": "include",
+       "breakfast": true,
+       "priceBreakfast": 100000,
+       "forSale": true,
+       "active": true,
+       "pms": true,
+       "be": true,
+       "bePrice": 0,
+       "beBreakfast": 100000,
+       "services": [],
+       "owner": null,
+       "poinOwner": null
+      }
+     ],
+     "room_only_sale": false,
+     "packageMapping": {
+      "17847": {
+       "id": 1395,
+       "roomId": 2119,
+       "paketId": 17847,
+       "hotelId": 687,
+       "startDate": null,
+       "endDate": null,
+       "bookingStartDate": null,
+       "bookingEndDate": null,
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      },
+      "23970": {
+       "id": 1399,
+       "roomId": 2119,
+       "paketId": 23970,
+       "hotelId": 687,
+       "startDate": null,
+       "endDate": null,
+       "bookingStartDate": null,
+       "bookingEndDate": null,
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      }
+     },
+     "packageBase": "room_base_room_capacity",
+     "owner": null
+    },
+    {
+     "kode_jenis": 2121,
+     "nama_jenis": "Wooden Cabin 2 Bed Room - King Bed",
+     "promopaket": null,
+     "harga": {
+      "2026-12-01": {
+       "before": 2300000,
+       "disc": 0,
+       "after": 2300000,
+       "stok": 4,
+       "mode": "from rates",
+       "stop_sell": false,
+       "poin_owner": 0
+      }
+     },
+     "liststok": {
+      "2026-12-01": 4
+     },
+     "list_include": [],
+     "list_fasilitas": [
+      {
+       "id": 130545,
+       "idFacility": 2203,
+       "facilityName": "Kettle Jug",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130546,
+       "idFacility": 2204,
+       "facilityName": "Water Heater",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130547,
+       "idFacility": 2205,
+       "facilityName": "Air Conditioner",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130548,
+       "idFacility": 2206,
+       "facilityName": "Smart TV",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130549,
+       "idFacility": 2207,
+       "facilityName": "Rain Shower",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130550,
+       "idFacility": 2208,
+       "facilityName": "Desk",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130551,
+       "idFacility": 2209,
+       "facilityName": "Free WiFi",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130552,
+       "idFacility": 2210,
+       "facilityName": "Balkon/Teras",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130553,
+       "idFacility": 2211,
+       "facilityName": "Swimming Pool",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      },
+      {
+       "id": 130554,
+       "idFacility": 2212,
+       "facilityName": "Poolbar",
+       "kategoriFasilitas": null,
+       "iconFasilitas": null
+      }
+     ],
+     "nama_kategori": "Room",
+     "satuan_kategori": "Room",
+     "gbr_utama": "WhatsApp_Image_2025-02-08_at_20.43_.00_1befcda6_.jpg",
+     "kapasitas": 4,
+     "maxLamaInap": null,
+     "reminder_status": "false",
+     "reminder_min_stok": 0,
+     "reminder_msg": "",
+     "tax_include_text": "",
+     "package": [
+      {
+       "id": 17847,
+       "roomId": null,
+       "hotelId": 687,
+       "packageName": "ROOM BREAKFAST",
+       "weekday": true,
+       "weekend": true,
+       "viewFolio": "Hide",
+       "total": 0,
+       "paket": "include",
+       "breakfast": true,
+       "priceBreakfast": 100000,
+       "forSale": true,
+       "active": true,
+       "pms": true,
+       "be": true,
+       "bePrice": 0,
+       "beBreakfast": 100000,
+       "services": [],
+       "owner": null,
+       "poinOwner": null
+      }
+     ],
+     "room_only_sale": false,
+     "packageMapping": {
+      "17847": {
+       "id": 1397,
+       "roomId": 2121,
+       "paketId": 17847,
+       "hotelId": 687,
+       "startDate": null,
+       "endDate": null,
+       "bookingStartDate": null,
+       "bookingEndDate": null,
+       "startTime": null,
+       "endTime": null,
+       "roomPrice": null,
+       "activeDay": null
+      }
+     },
+     "packageBase": "room_base_room_capacity",
+     "owner": null
+    }
+   ],
+   "kategori": [
+    {
+     "nama": "Room",
+     "is_promo": false,
+     "satuan": "Room"
+    }
+   ],
+   "log": [
+    "startDate : 2026-12-01",
+    "endDate : 2026-12-02",
+    "lamainap : 1",
+    "Total Awal : 4",
+    "Total Akhir : 4"
+   ],
+   "tanggal": {
+    "2026-12-01": "2026-12-01"
+   }
+  },
+  "tglcekintext": "Selasa, 1 Desember 2026",
+  "tglcekintextshort": "1 Des 2026",
+  "durationlist": [
+   {
+    "value": 0,
+    "txtduration": "< 1 Malam (Same-Day)",
+    "txtdate": "Selasa, 1 Desember 2026"
+   },
+   {
+    "value": 1,
+    "txtduration": "1 Malam",
+    "txtdate": "Rabu, 2 Desember 2026"
+   },
+   {
+    "value": 2,
+    "txtduration": "2 Malam",
+    "txtdate": "Kamis, 3 Desember 2026"
+   },
+   {
+    "value": 3,
+    "txtduration": "3 Malam",
+    "txtdate": "Jumat, 4 Desember 2026"
+   },
+   {
+    "value": 4,
+    "txtduration": "4 Malam",
+    "txtdate": "Sabtu, 5 Desember 2026"
+   },
+   {
+    "value": 5,
+    "txtduration": "5 Malam",
+    "txtdate": "Minggu, 6 Desember 2026"
+   },
+   {
+    "value": 6,
+    "txtduration": "6 Malam",
+    "txtdate": "Senin, 7 Desember 2026"
+   },
+   {
+    "value": 7,
+    "txtduration": "7 Malam",
+    "txtdate": "Selasa, 8 Desember 2026"
+   },
+   {
+    "value": 8,
+    "txtduration": "8 Malam",
+    "txtdate": "Rabu, 9 Desember 2026"
+   },
+   {
+    "value": 9,
+    "txtduration": "9 Malam",
+    "txtdate": "Kamis, 10 Desember 2026"
+   },
+   {
+    "value": 10,
+    "txtduration": "10 Malam",
+    "txtdate": "Jumat, 11 Desember 2026"
+   }
+  ],
+  "duration": 1,
+  "durationtext": "1 Malam",
+  "guesttext": "2 Tamu",
+  "jmlroomtext": "1 Kamar",
+  "member": false,
+  "diskonmember": false,
+  "jenismember": "",
+  "is_weekend": "false",
+  "popup_service": "0",
+  "show_room_promo_name": null
+ }
+}
